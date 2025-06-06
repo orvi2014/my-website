@@ -8,6 +8,7 @@ interface Props {
   image?: string;
   type?: string;
   pubDate?: Date;
+  noindex?: boolean;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   image = "/images/default-og.jpg",
   type = "website",
   pubDate = new Date(),
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(currentPath, Astro.site);
@@ -51,12 +53,18 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Robots -->
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta name="googlebot" content={noindex ? "noindex, nofollow" : "index, follow"} />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:site_name" content="The Book of Robat Das Orvi" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -64,12 +72,13 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:creator" content="@robatdasorvi" />
 
     <!-- Additional Meta Tags -->
-    <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="author" content="Robat Das Orvi" />
     <meta name="revisit-after" content="7 days" />
+    <meta name="theme-color" content="#ffffff" />
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -81,16 +90,23 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
         "description": description,
         "author": {
           "@type": "Person",
-          "name": "Robat Das Orvi"
+          "name": "Robat Das Orvi",
+          "url": "https://robatdasorvi.com"
         },
         "publisher": {
           "@type": "Person",
-          "name": "Robat Das Orvi"
+          "name": "Robat Das Orvi",
+          "url": "https://robatdasorvi.com"
         },
         "datePublished": pubDate.toISOString(),
-        "dateModified": new Date().toISOString()
+        "dateModified": new Date().toISOString(),
+        "inLanguage": "en-US",
+        "isAccessibleForFree": true,
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       }
     </script>
+
+    <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -103,7 +119,7 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
     <nav class="book-navigation">
       <div class="nav-links">
         {prevChapter && (
-          <a href={prevChapter.href} class="prev-chapter">
+          <a href={prevChapter.href} class="prev-chapter" rel="prev">
             ← {prevChapter.label}
           </a>
         )}
@@ -114,7 +130,7 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
       </div>
       <div class="nav-links">
         {nextChapter && (
-          <a href={nextChapter.href} class="next-chapter">
+          <a href={nextChapter.href} class="next-chapter" rel="next">
             {nextChapter.label} →
           </a>
         )}

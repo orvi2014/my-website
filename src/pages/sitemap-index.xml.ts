@@ -28,20 +28,20 @@ export async function GET() {
     { path: '/chapters/human', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
     { path: '/chapters/travel', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
     { path: '/chapters/products', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/stories', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
+    { path: '/chapters/stories', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
     { path: '/glossary', priority: '0.7', changefreq: 'monthly', lastmod: new Date() }
   ];
 
   // Get dynamic content (if you have any collections)
   let dynamicPages: PageEntry[] = [];
   try {
-    // Example: Get all blog posts if you have a blog collection
-    const posts = await getCollection('blog') as BlogPost[];
-    dynamicPages = posts.map(post => ({
-      path: `/blog/${post.slug}`,
+    // Get all stories if you have a stories collection
+    const stories = await getCollection('stories') as BlogPost[];
+    dynamicPages = stories.map(story => ({
+      path: `/chapters/stories/${story.slug}`,
       priority: '0.8',
       changefreq: 'monthly',
-      lastmod: post.data.pubDate || new Date()
+      lastmod: story.data.pubDate || new Date()
     }));
   } catch (error) {
     console.warn('No content collections found');
