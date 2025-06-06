@@ -1,44 +1,448 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
-const title = "Chapters – The Book of Robat Das Orvi";
-const description = "Flip through the chapters of Robat Das Orvi's book – exploring technology, travel, human insight, and tools.";
+const title = "Chapters – The Book of Life";
+const description = "Flip through the chapters of The Book of Life – exploring thoughts, experiences, and discoveries.";
 const currentPath = "/chapters";
+
+// Get all categories and stories
+const categories = await getCollection('categories');
+const stories = await getCollection('stories');
+
+// Sort categories by order
+const sortedCategories = categories.sort((a: CollectionEntry<'categories'>, b: CollectionEntry<'categories'>) => 
+  a.data.order - b.data.order
+);
+
+// Group stories by category
+const storiesByCategory = stories.reduce((acc: Record<string, CollectionEntry<'stories'>[]>, story: CollectionEntry<'stories'>) => {
+  const category = story.data.category;
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  acc[category].push(story);
+  return acc;
+}, {});
+
+// Sort stories within each category by publication date
+Object.keys(storiesByCategory).forEach((category: string) => {
+  storiesByCategory[category].sort((a: CollectionEntry<'stories'>, b: CollectionEntry<'stories'>) => 
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
+});
+
+// Number of stories to show initially per category
+const INITIAL_STORIES = 5;
 ---
 
 <BaseLayout title={title} description={description} currentPath={currentPath}>
   <main class="book-toc">
     <section class="left-page">
-      <h2>Chapters</h2>
-      <ol>
-        <li>I. <a href="/chapters/about" data-page-turn>About Robat</a></li>
-        <li>II. <a href="/chapters/technology" data-page-turn>Technology</a></li>
-        <li>III. <a href="/chapters/ai-automation" data-page-turn>AI & Automation</a></li>
-        <li>IV. <a href="/chapters/human" data-page-turn>Human & Philosophy</a></li>
-        <li>V. <a href="/chapters/travel" data-page-turn>Travel</a></li>
-        <li>VI. <a href="/chapters/products" data-page-turn>Products & Tools</a></li>
-        <li>VII. <a href="/chapters/stories" data-page-turn>Short Stories</a></li>
+      <h2>Table of Contents</h2>
+      <ol class="chapters-list">
+        {sortedCategories.map((category: CollectionEntry<'categories'>, index: number) => (
+          <li class="chapter-item">
+            <span class="chapter-number">{String.fromCharCode(65 + index)}.</span>
+            <div class="chapter-content">
+              <a href={`#${category.slug}`} class="chapter-title" data-page-turn>
+                <span class="chapter-icon">{category.data.icon}</span>
+                {category.data.title}
+              </a>
+              <p class="chapter-description">{category.data.description}</p>
+              <span class="story-count">
+                {storiesByCategory[category.slug]?.length || 0} stories
+              </span>
+            </div>
+          </li>
+        ))}
       </ol>
     </section>
     <section class="right-page">
       <blockquote>
-        "Each chapter is a thought, each post a page from the journey."
+        "Each chapter is a thought, each story a page from the journey."
       </blockquote>
-      <p class="toc-description">Explore systems I build, cities I walk, truths I seek, and tools I share.</p>
+      <p class="toc-description">Explore the chapters of The Book of Life, where thoughts become stories and experiences become wisdom.</p>
+      
+      <div class="stories-preview">
+        {sortedCategories.map((category: CollectionEntry<'categories'>) => (
+          <div class="category-section" id={category.slug}>
+            <div class="category-header">
+              <h3 class="category-title">
+                <span class="category-icon">{category.data.icon}</span>
+                {category.data.title}
+              </h3>
+              <button class="toggle-stories" data-category={category.slug}>
+                Show All
+              </button>
+            </div>
+            <ul class="stories-list">
+              {storiesByCategory[category.slug]?.map((story: CollectionEntry<'stories'>, index: number) => (
+                <li class:list={index >= INITIAL_STORIES ? "hidden-story" : ""}>
+                  <a href={`/chapters/stories/${story.slug}`} class="story-link" data-page-turn>
+                    <div class="story-info">
+                      <span class="story-title">{story.data.title}</span>
+                      {story.data.tags && (
+                        <div class="story-tags">
+                          {story.data.tags.map((tag: string) => (
+                            <span class="tag">{tag}</span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div class="story-meta">
+                      {story.data.readingTime && (
+                        <span class="reading-time">{story.data.readingTime} min read</span>
+                      )}
+                      <time datetime={story.data.pubDate}>
+                        {new Date(story.data.pubDate).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric'
+                        })}
+                      </time>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {storiesByCategory[category.slug]?.length > INITIAL_STORIES && (
+              <div class="show-more">
+                <button class="show-more-btn" data-category={category.slug}>
+                  Show {storiesByCategory[category.slug].length - INITIAL_STORIES} More Stories
+                </button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </section>
   </main>
 
   <script>
-    // Add page turn animation
-    document.querySelectorAll('[data-page-turn]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = e.currentTarget as HTMLAnchorElement;
-        document.body.classList.add('page-turn');
-        setTimeout(() => {
-          window.location.href = target.href;
-        }, 500);
+    // Defer non-critical JavaScript
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add page turn animation with requestAnimationFrame
+      const pageTurnLinks = document.querySelectorAll('[data-page-turn]');
+      pageTurnLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = e.currentTarget as HTMLAnchorElement;
+          document.body.classList.add('page-turn');
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              window.location.href = target.href;
+            }, 500);
+          });
+        });
+      });
+
+      // Handle show more/less functionality with IntersectionObserver
+      const showMoreButtons = document.querySelectorAll('.show-more-btn');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const button = entry.target as HTMLButtonElement;
+            const category = button.dataset.category;
+            const stories = document.querySelectorAll(`#${category} .hidden-story`);
+            const isExpanded = button.classList.contains('expanded');
+            
+            stories.forEach(story => {
+              story.classList.toggle('hidden-story');
+            });
+            
+            button.classList.toggle('expanded');
+            button.textContent = isExpanded 
+              ? `Show ${stories.length} More Stories`
+              : 'Show Less';
+          }
+        });
+      }, { threshold: 0.5 });
+
+      showMoreButtons.forEach(button => {
+        observer.observe(button);
       });
     });
   </script>
 </BaseLayout>
+
+<style>
+  /* Optimize CSS with modern properties */
+  .book-toc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    contain: layout style paint;
+  }
+
+  .left-page,
+  .right-page {
+    padding: var(--spacing-xl);
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    contain: content;
+  }
+
+  .left-page {
+    border-right: 1px solid var(--border-color);
+  }
+
+  .left-page h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .chapters-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    contain: content;
+  }
+
+  .chapter-item {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    contain: content;
+  }
+
+  .chapter-number {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    min-width: 2rem;
+  }
+
+  .chapter-content {
+    flex: 1;
+  }
+
+  .chapter-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-color);
+    text-decoration: none;
+    margin-bottom: var(--spacing-xs);
+    transition: color var(--transition-speed);
+    will-change: color;
+  }
+
+  .chapter-title:hover {
+    color: var(--accent-color);
+  }
+
+  .chapter-icon {
+    font-size: 1.2em;
+  }
+
+  .chapter-description {
+    color: var(--text-color-secondary);
+    font-size: clamp(0.9rem, 1.5vw, 0.95rem);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .story-count {
+    font-size: 0.9rem;
+    color: var(--text-color-tertiary);
+  }
+
+  .right-page blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: var(--text-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: var(--spacing-md);
+    margin: 0 0 var(--spacing-lg);
+    font-style: italic;
+  }
+
+  .toc-description {
+    color: var(--text-color-secondary);
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .stories-preview {
+    margin-top: var(--spacing-xl);
+    contain: content;
+  }
+
+  .category-section {
+    margin-bottom: var(--spacing-xl);
+    contain: content;
+  }
+
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .category-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .category-icon {
+    font-size: 1.2em;
+  }
+
+  .toggle-stories {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
+    will-change: background-color;
+  }
+
+  .toggle-stories:hover {
+    background: var(--hover-background);
+  }
+
+  .stories-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    contain: content;
+  }
+
+  .stories-list li {
+    margin-bottom: var(--spacing-sm);
+    contain: content;
+  }
+
+  .story-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed);
+    will-change: transform, background-color;
+  }
+
+  .story-link:hover {
+    background: var(--hover-background);
+    color: var(--text-color);
+  }
+
+  .story-info {
+    flex: 1;
+  }
+
+  .story-title {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xs);
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+  }
+
+  .story-tags {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    color: var(--text-color-tertiary);
+    background: var(--hover-background);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--border-radius);
+  }
+
+  .story-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-xs);
+    font-size: 0.9rem;
+    color: var(--text-color-tertiary);
+    min-width: 120px;
+  }
+
+  .reading-time {
+    white-space: nowrap;
+  }
+
+  .show-more {
+    text-align: center;
+    margin-top: var(--spacing-md);
+  }
+
+  .show-more-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color-secondary);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    will-change: transform, background-color;
+  }
+
+  .show-more-btn:hover {
+    background: var(--hover-background);
+    color: var(--text-color);
+  }
+
+  .hidden-story {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .book-toc {
+      grid-template-columns: 1fr;
+    }
+
+    .left-page {
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .book-toc {
+      padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .left-page,
+    .right-page {
+      padding: var(--spacing-lg);
+    }
+
+    .story-link {
+      flex-direction: column;
+    }
+
+    .story-meta {
+      align-items: flex-start;
+      margin-top: var(--spacing-xs);
+    }
+  }
+</style> 

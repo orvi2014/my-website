@@ -1,5 +1,8 @@
 ---
-import Search from '../components/Search.astro';
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
@@ -23,6 +26,7 @@ const {
 
 const canonicalURL = new URL(currentPath, Astro.site);
 const socialImageURL = new URL(image, Astro.site);
+const formattedDate = pubDate ? new Date(pubDate).toISOString() : undefined;
 
 const navigation = [
   { href: '/', label: 'Cover' },
@@ -53,6 +57,12 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="/fonts/eb-garamond-v26-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
     <!-- Robots -->
     <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
     <meta name="googlebot" content={noindex ? "noindex, nofollow" : "index, follow"} />
@@ -63,7 +73,7 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
-    <meta property="og:site_name" content="The Book of Robat Das Orvi" />
+    <meta property="og:site_name" content="The Book of Life" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
@@ -72,126 +82,216 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
-    <meta property="twitter:creator" content="@robatdasorvi" />
 
     <!-- Additional Meta Tags -->
     <meta name="language" content="English" />
-    <meta name="author" content="Robat Das Orvi" />
+    <meta name="author" content="Orvi" />
     <meta name="revisit-after" content="7 days" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#f9f6ef" />
+    <meta name="color-scheme" content="light" />
     
     <!-- Structured Data -->
     <script type="application/ld+json">
-      {
+      {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "The Book of Robat Das Orvi",
-        "url": "https://robatdasorvi.com",
+        "name": "The Book of Life",
+        "url": Astro.site,
         "description": description,
         "author": {
           "@type": "Person",
-          "name": "Robat Das Orvi",
-          "url": "https://robatdasorvi.com"
+          "name": "Orvi"
         },
         "publisher": {
-          "@type": "Person",
-          "name": "Robat Das Orvi",
-          "url": "https://robatdasorvi.com"
+          "@type": "Organization",
+          "name": "The Book of Life",
+          "logo": {
+            "@type": "ImageObject",
+            "url": new URL('/images/logo.png', Astro.site)
+          }
         },
-        "datePublished": pubDate.toISOString(),
+        "datePublished": formattedDate,
         "dateModified": new Date().toISOString(),
         "inLanguage": "en-US",
-        "isAccessibleForFree": true,
-        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-      }
+        "isAccessibleForFree": true
+      })}
     </script>
 
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
-    <link rel="stylesheet" href="/styles.css" />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <ViewTransitions />
   </head>
   <body>
-    <nav class="book-navigation">
-      <div class="nav-links">
-        {prevChapter && (
-          <a href={prevChapter.href} class="prev-chapter" rel="prev">
-            ← {prevChapter.label}
-          </a>
-        )}
-      </div>
-      <div class="nav-links">
-        <a href="/">Cover</a>
-        <a href="/toc">Contents</a>
-      </div>
-      <div class="nav-links">
-        {nextChapter && (
-          <a href={nextChapter.href} class="next-chapter" rel="next">
-            {nextChapter.label} →
-          </a>
-        )}
-      </div>
-      <div class="nav-search">
-        <Search />
-      </div>
-    </nav>
-    <main class="book-content">
+    <Header currentPath={currentPath} />
+    <main>
       <slot />
     </main>
-    <footer class="book-footer">
-      <div class="page-number"></div>
-    </footer>
+    <Footer />
+    
+    <!-- Newsletter Modal -->
+    <div class="newsletter-overlay" id="newsletterOverlay"></div>
+    <div class="newsletter-modal" id="newsletterModal">
+      <h2>Join the Journey</h2>
+      <p>Subscribe to receive new chapters, stories, and insights directly in your inbox.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <button class="close-modal" id="closeNewsletter">×</button>
+    </div>
+
+    <script>
+      // Newsletter Modal Logic
+      const modal = document.getElementById('newsletterModal');
+      const overlay = document.getElementById('newsletterOverlay');
+      const closeBtn = document.getElementById('closeNewsletter');
+      const form = document.getElementById('newsletterForm');
+      
+      // Show modal on first visit
+      if (!localStorage.getItem('newsletterShown')) {
+        setTimeout(() => {
+          modal?.classList.add('active');
+          overlay?.classList.add('active');
+          localStorage.setItem('newsletterShown', 'true');
+        }, 5000); // Show after 5 seconds
+      }
+      
+      // Close modal
+      function closeModal() {
+        modal?.classList.remove('active');
+        overlay?.classList.remove('active');
+      }
+      
+      closeBtn?.addEventListener('click', closeModal);
+      overlay?.addEventListener('click', closeModal);
+      
+      // Handle form submission
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const emailInput = form.querySelector('input[type="email"]');
+        const email = emailInput?.value;
+        
+        if (!email) return;
+        
+        try {
+          // TODO: Replace with your newsletter API endpoint
+          const response = await fetch('/api/newsletter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+          
+          if (response.ok) {
+            alert('Thank you for subscribing!');
+            closeModal();
+          } else {
+            throw new Error('Subscription failed');
+          }
+        } catch (error) {
+          alert('Something went wrong. Please try again later.');
+        }
+      });
+    </script>
   </body>
 </html>
 
 <style>
-  .book-content {
-    min-height: calc(100vh - 120px);
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
+  /* Newsletter Modal Styles */
+  .newsletter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed);
   }
 
-  .book-footer {
-    text-align: center;
-    padding: 1rem;
-    font-family: 'EB Garamond', serif;
+  .newsletter-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .newsletter-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card-background);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    z-index: 1000;
+    max-width: 500px;
+    width: 90%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed);
+  }
+
+  .newsletter-modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: var(--font-body);
+  }
+
+  .newsletter-form button {
+    padding: 0.8rem 1.5rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background var(--transition-speed);
+  }
+
+  .newsletter-form button:hover {
+    background: var(--text-color);
+  }
+
+  .close-modal {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
     color: var(--text-color);
     opacity: 0.7;
+    transition: opacity var(--transition-speed);
   }
 
-  .page-number {
-    font-style: italic;
-  }
-
-  .nav-search {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 300px;
-  }
-
-  @media (max-width: 1200px) {
-    .nav-search {
-      position: static;
-      transform: none;
-      width: 100%;
-      margin-top: 1rem;
-      order: 2;
-    }
-
-    .book-navigation {
-      flex-wrap: wrap;
-    }
-
-    .nav-links {
-      order: 1;
-    }
+  .close-modal:hover {
+    opacity: 1;
   }
 </style> 

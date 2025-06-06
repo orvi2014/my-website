@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Search from '../components/Search.astro';
+
+const title = "Page Not Found – The Book of Robat Das Orvi";
+const description = "The page you're looking for doesn't exist. Return to the book's cover or explore other chapters.";
+const currentPath = "/404";
+---
+
+<BaseLayout 
+  title={title} 
+  description={description} 
+  currentPath={currentPath}
+  noindex={true}
+>
+  <main class="not-found">
+    <div class="book-page">
+      <h1>404</h1>
+      <h2>Page Not Found</h2>
+      <p class="message">
+        The page you're looking for seems to have been lost in the pages of time.
+      </p>
+      <div class="suggestions">
+        <h3>You might want to:</h3>
+        <ul>
+          <li><a href="/" data-page-turn>Return to the Cover</a></li>
+          <li><a href="/chapters" data-page-turn>Browse Chapters</a></li>
+          <li><a href="/glossary" data-page-turn>Visit the Glossary</a></li>
+        </ul>
+      </div>
+      <div class="search-section">
+        <p>Or search for what you're looking for:</p>
+        <div class="search-container">
+          <Search />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .not-found {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .book-page {
+      max-width: 600px;
+      text-align: center;
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 6rem;
+      margin: 0;
+      color: var(--heading-color);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 1rem 0;
+      color: var(--heading-color);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .message {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      margin: 2rem 0;
+      font-style: italic;
+    }
+
+    .suggestions {
+      margin: 2rem 0;
+    }
+
+    .suggestions h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--heading-color);
+    }
+
+    .suggestions ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .suggestions li {
+      margin: 0.5rem 0;
+    }
+
+    .suggestions a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.2s ease;
+    }
+
+    .suggestions a:hover {
+      color: var(--accent-hover-color);
+      text-decoration: underline;
+    }
+
+    .search-section {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .search-section p {
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    .search-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .book-page {
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .message {
+        font-size: 1rem;
+      }
+    }
+  </style>
+
+  <script>
+    // Add page turn animation
+    document.querySelectorAll('[data-page-turn]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = e.currentTarget as HTMLAnchorElement;
+        document.body.classList.add('page-turn');
+        setTimeout(() => {
+          window.location.href = target.href;
+        }, 500);
+      });
+    });
+  </script>
+</BaseLayout> 

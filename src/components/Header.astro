@@ -1,0 +1,229 @@
+---
+import Search from './Search.astro';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const navigation = [
+  { href: '/', label: 'Cover' },
+  { href: '/chapters', label: 'Chapters' },
+  { href: '/glossary', label: 'Glossary' },
+  { href: '/about', label: 'About' }
+];
+---
+
+<header class="site-header">
+  <nav class="nav-container">
+    <div class="nav-left">
+      <a href="/" class="logo" data-page-turn>
+        <span class="logo-text">RDO</span>
+      </a>
+    </div>
+    <div class="nav-center">
+      <ul class="nav-links">
+        {navigation.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'nav-link',
+                { active: currentPath === href }
+              ]}
+              data-page-turn
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="nav-right">
+      <button class="search-toggle" id="searchToggle" aria-label="Toggle search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div class="search-container" id="searchContainer">
+    <Search />
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--header-shadow);
+  }
+
+  .nav-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-left .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform var(--transition-speed);
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    letter-spacing: 0.5px;
+  }
+
+  .nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed);
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width var(--transition-speed);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 80%;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-color);
+  }
+
+  .nav-link.active {
+    color: var(--accent-color);
+    font-weight: 500;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all var(--transition-speed);
+    border-radius: var(--border-radius);
+  }
+
+  .search-toggle:hover {
+    color: var(--accent-color);
+    background: var(--hover-background);
+  }
+
+  .search-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed);
+    box-shadow: var(--header-shadow);
+  }
+
+  .search-container.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 0 var(--spacing-sm);
+    }
+
+    .nav-links {
+      gap: var(--spacing-sm);
+    }
+
+    .nav-link {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .logo-text {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+
+<script>
+  // Search toggle functionality
+  const searchToggle = document.getElementById('searchToggle');
+  const searchContainer = document.getElementById('searchContainer');
+
+  searchToggle?.addEventListener('click', () => {
+    searchContainer?.classList.toggle('active');
+  });
+
+  // Close search when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!searchContainer?.contains(e.target as Node) && e.target !== searchToggle) {
+      searchContainer?.classList.remove('active');
+    }
+  });
+
+  // Close search on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchContainer?.classList.contains('active')) {
+      searchContainer.classList.remove('active');
+    }
+  });
+</script> 

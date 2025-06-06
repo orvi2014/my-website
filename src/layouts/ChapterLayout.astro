@@ -1,4 +1,6 @@
 ---
+import BaseLayout from './BaseLayout.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -6,184 +8,217 @@ interface Props {
   author: string;
   image?: string;
   category?: string;
+  readingTime?: number;
 }
 
-const { title, description, pubDate, author, image, category } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  author,
+  image,
+  category,
+  readingTime
+} = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}).format(pubDate);
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="book-page">
-      <div class="page-content">
-        <header class="chapter-header">
-          <h1>{title}</h1>
-          <div class="chapter-meta">
-            <time datetime={pubDate.toISOString()}>
-              {pubDate.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}
-            </time>
-            <span class="author">By {author}</span>
-            {category && <span class="category">{category}</span>}
-          </div>
-        </header>
-        
-        {image && (
-          <figure class="chapter-image">
-            <img src={image} alt={title} />
-          </figure>
-        )}
-        
-        <article class="chapter-content">
-          <slot />
-        </article>
+<BaseLayout 
+  title={title}
+  description={description}
+  currentPath={Astro.url.pathname}
+  image={image}
+  type="article"
+  pubDate={pubDate}
+>
+  <article class="chapter">
+    <header class="chapter-header">
+      <h1>{title}</h1>
+      <div class="chapter-meta">
+        <span class="author">By {author}</span>
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+        {category && <span class="category">{category}</span>}
+        {readingTime && <span class="reading-time">{readingTime} min read</span>}
       </div>
+    </header>
+
+    {image && (
+      <div class="chapter-image">
+        <img src={image} alt={title} />
+      </div>
+    )}
+
+    <div class="chapter-content">
+      <slot />
     </div>
-  </body>
-</html>
 
-<style is:global>
-  :root {
-    --page-color: #f9f6ef;
-    --text-color: #2c2c2c;
-    --accent-color: #4a3428;
-  }
+    <footer class="chapter-footer">
+      <div class="share-buttons">
+        <button class="share-button" data-platform="twitter">
+          Share on Twitter
+        </button>
+        <button class="share-button" data-platform="linkedin">
+          Share on LinkedIn
+        </button>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'EB Garamond', serif;
-    background: var(--page-color);
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e8e0d5' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-    color: var(--text-color);
-    line-height: 1.8;
-    font-size: 1.2rem;
-  }
-
-  .book-page {
-    min-height: 100vh;
-    background: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-
-  .book-page::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 30px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent);
-    pointer-events: none;
-  }
-
-  .page-content {
+<style>
+  .chapter {
     max-width: 800px;
     margin: 0 auto;
-    padding: 4rem 3rem;
-    position: relative;
+    padding: var(--spacing-lg) 0;
   }
 
   .chapter-header {
-    margin-bottom: 3rem;
     text-align: center;
+    margin-bottom: var(--spacing-lg);
   }
 
-  h1 {
+  .chapter-header h1 {
     font-size: 2.5rem;
-    color: var(--text-color);
-    margin-bottom: 1rem;
-    font-weight: 400;
+    margin-bottom: var(--spacing-sm);
+    color: var(--heading-color);
+    font-family: 'Playfair Display', serif;
   }
 
   .chapter-meta {
-    font-size: 1rem;
-    color: var(--accent-color);
     display: flex;
-    gap: 1rem;
     justify-content: center;
-    align-items: center;
+    gap: var(--spacing-md);
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .category {
+    background: var(--tag-bg);
+    color: var(--tag-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
   }
 
   .chapter-image {
-    margin: 2rem 0;
-    text-align: center;
+    margin: var(--spacing-lg) 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--page-shadow);
   }
 
   .chapter-image img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
   }
 
   .chapter-content {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.8;
-  }
-
-  .chapter-content p:first-of-type::first-letter {
-    float: left;
-    font-size: 4.5rem;
-    line-height: 0.8;
-    padding-right: 0.5rem;
-    padding-top: 0.2rem;
-    color: var(--accent-color);
-  }
-
-  .chapter-content p {
-    margin-bottom: 1.5rem;
-    text-align: justify;
+    color: var(--text-color);
   }
 
   .chapter-content h2 {
     font-size: 1.8rem;
-    color: var(--accent-color);
-    margin: 2rem 0 1rem;
-    font-weight: 400;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    color: var(--heading-color);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .chapter-content p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .chapter-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: var(--spacing-md) 0;
   }
 
   .chapter-content blockquote {
-    font-style: italic;
     border-left: 4px solid var(--accent-color);
-    padding-left: 1.5rem;
-    margin: 2rem 0;
-    color: var(--accent-color);
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.9;
   }
 
-  @media (max-width: 900px) {
-    .page-content {
-      padding: 2rem;
+  .chapter-footer {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+
+  .share-button {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .share-button:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+  }
+
+  @media (max-width: 768px) {
+    .chapter {
+      padding: var(--spacing-md);
     }
 
-    h1 {
+    .chapter-header h1 {
       font-size: 2rem;
     }
 
-    .chapter-content {
-      font-size: 1.1rem;
+    .chapter-meta {
+      flex-direction: column;
+      gap: var(--spacing-xs);
     }
 
-    .chapter-content p:first-of-type::first-letter {
-      font-size: 3.5rem;
+    .chapter-content {
+      font-size: 1rem;
     }
   }
-</style> 
+</style>
+
+<script>
+  // Share functionality
+  document.querySelectorAll('.share-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const platform = (button as HTMLButtonElement).dataset.platform;
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      
+      let shareUrl = '';
+      switch (platform) {
+        case 'twitter':
+          shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+          break;
+        case 'linkedin':
+          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+          break;
+      }
+      
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+    });
+  });
+</script> 

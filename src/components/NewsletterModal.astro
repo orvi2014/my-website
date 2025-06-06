@@ -1,0 +1,329 @@
+---
+interface Props {
+  isOpen: boolean;
+}
+
+const { isOpen } = Astro.props;
+---
+
+<div class="newsletter-modal" data-open={isOpen} role="dialog" aria-labelledby="newsletter-title" aria-describedby="newsletter-description">
+  <div class="modal-content">
+    <button class="close-button" aria-label="Close newsletter subscription form">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <h2 id="newsletter-title">Join The Book of Life Journey</h2>
+    <p id="newsletter-description">Subscribe to receive new chapters, updates, and exclusive content from The Book of Life directly in your inbox.</p>
+    <form id="newsletter-form" class="newsletter-form" aria-label="Newsletter subscription form">
+      <div class="input-group">
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Enter your email address" 
+          required
+          aria-label="Email address for newsletter subscription"
+          aria-required="true"
+        />
+        <button type="submit" class="submit-button" aria-label="Subscribe to The Book of Life newsletter">
+          Subscribe to Newsletter
+        </button>
+      </div>
+    </form>
+    <p class="privacy-note">We respect your privacy. You can unsubscribe from The Book of Life newsletter at any time.</p>
+    <button class="no-thanks-button">No Thanks</button>
+  </div>
+</div>
+
+<style>
+  /* Reverted styles to match website branding and fix display */
+  .newsletter-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none; /* Prevent clicks when hidden */
+  }
+
+  .newsletter-modal[data-open="true"] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all; /* Allow clicks when open */
+  }
+
+  .modal-content {
+    background: var(--book-color); /* Use book color variable */
+    color: #ffffff; /* White text for contrast */
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1001;
+    box-sizing: border-box;
+    transform: translateY(0); /* No initial transform */
+    transition: none; /* Remove transition for simplicity */
+    opacity: 1; /* Always opaque when visible */
+    text-align: center;
+    font-family: var(--font-body); /* Use body font variable */
+    /* Add display flex and flex-direction column for vertical stacking of children */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+
+   .newsletter-modal[data-open="true"] .modal-content {
+    transform: translateY(0); /* No transform when open */
+    opacity: 1;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.5rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 1002;
+  }
+
+  .close-button:hover {
+    opacity: 1;
+  }
+
+  h2 {
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin: 0 0 1rem 0;
+    text-align: center;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+    font-size: 1rem;
+    line-height: 1.6; /* Adjusted line height */
+  }
+
+  .newsletter-form {
+    width: 100%; /* Allow form to take full width */
+    margin-bottom: 1rem;
+    /* Remove display flex from form itself if applied */
+    display: block;
+  }
+
+  .input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0; /* Remove bottom margin from input group as form has margin */
+    flex-direction: column; /* Stack on mobile */
+    width: 100%; /* Ensure input group takes full width */
+  }
+
+  input[type="email"] {
+    flex: 1;
+    padding: 0.8rem 1rem; /* Reduced vertical padding */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    width: 100%; /* Make input field take full width */
+  }
+
+  input[type="email"]:focus {
+    border-color: #ffffff; /* White border on focus */
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter background on focus */
+    outline: none;
+  }
+
+  input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .submit-button {
+    padding: 0.8rem 1.5rem;
+    background: #ffffff; /* White button */
+    color: var(--book-color); /* Book color text */
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+    width: 100%; /* Full width on mobile */
+  }
+
+  .submit-button:hover {
+    background: var(--accent-color); /* Accent color on hover */
+    color: #ffffff; /* White text on hover */
+  }
+
+  .no-thanks-button {
+    background: none;
+    border: none; /* Explicitly remove border */
+    padding: 0; /* Explicitly remove padding */
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem; /* Reduced font size */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-top: 1rem; /* Space above */
+    text-decoration: underline; /* Add underline */
+    display: block; /* Make it a block element */
+    width: 100%; /* Take full width for centering via text-align */
+    text-align: center; /* Center the text */
+  }
+
+  .no-thanks-button:hover {
+    color: #ffffff; /* White text on hover */
+    text-decoration: none; /* Remove underline on hover */
+  }
+
+  /* Style for privacy note */
+  .privacy-note {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.5rem; /* Space above, adjust as needed */
+    margin-bottom: 1rem; /* Space below */
+    text-align: center; /* Center the text */
+    width: 100%; /* Ensure it takes full width to center properly */
+    display: block; /* Ensure it's a block element */
+    box-sizing: border-box; /* Include padding in width calculation if added later */
+    padding: 0 1rem; /* Add horizontal padding to prevent text touching edges on small screens */
+  }
+
+  @media (min-width: 768px) {
+    .input-group {
+      flex-direction: column; /* Keep column direction on larger screens */
+      align-items: center; /* Align items to the center */
+    }
+
+    input[type="email"] {
+        flex-grow: 1; /* Allow email input to grow */
+    }
+
+    .submit-button {
+      width: auto; /* Auto width on larger screens */
+    }
+
+    .no-thanks-button {
+      width: auto; /* Auto width on larger screens */
+      margin-top: 1rem; /* Keep space above on larger screens */
+      text-align: center; /* Center the text */
+       /* Remove block display here if needed, but flex parent might handle */
+    }
+
+     .newsletter-form + .no-thanks-button { /* Target no-thanks when after form */
+        margin-top: 1rem; /* Ensure correct space after the form */
+    }
+  }
+
+</style>
+
+<script>
+  // Handle form submission
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const modal = document.querySelector('.newsletter-modal') as HTMLElement | null;
+  const closeButton = modal?.querySelector('.close-button');
+  console.log('NewsletterModal Script: closeButton element found:', closeButton); // Added log to check element selection
+  const noThanksButton = document.querySelector('.no-thanks-button');
+  const emailInput = form?.querySelector('input[type="email"]') as HTMLInputElement;
+
+  // Function to close the modal
+  function closeModal() {
+    if (modal) {
+      console.log('NewsletterModal Script: closeModal function called.'); // Added log
+      modal.setAttribute('data-open', 'false');
+      // Use CSS transitions for visibility and opacity
+      // modal.style.visibility = 'hidden';
+      // modal.style.opacity = '0';
+      // modal.style.pointerEvents = 'none';
+    }
+  }
+
+  if (form && emailInput) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = emailInput.value;
+      
+      try {
+        const response = await fetch('/api/newsletter', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        });
+
+        if (response.ok) {
+          // Store in localStorage to not show again
+          localStorage.setItem('newsletterSubscribed', 'true');
+          closeModal(); // Use the close modal function
+          // Show success message
+          alert('Thank you for subscribing to The Book of Life newsletter!');
+          // No navigation here, user stays on the current page
+        } else {
+          throw new Error('Subscription failed');
+        }
+      } catch (error) {
+        alert('Sorry, there was an error subscribing to The Book of Life newsletter. Please try again later.');
+      }
+    });
+  }
+
+  if (closeButton) {
+    console.log('NewsletterModal Script: Attaching click listener to closeButton.'); // Added log before attaching listener
+    closeButton.addEventListener('click', () => {
+      console.log('NewsletterModal Script: Close button clicked.'); // Added log
+      closeModal(); // Use the close modal function
+    });
+  }
+
+  // Handle No Thanks button click
+  if (noThanksButton) {
+    noThanksButton.addEventListener('click', () => {
+      console.log('No Thanks button clicked.');
+      localStorage.setItem('newsletterDeclined', 'true');
+      closeModal(); // Use the close modal function
+      // Navigate to chapters page after modal closes visually
+       setTimeout(() => {
+           window.location.href = '/chapters';
+       }, 300); // Match CSS transition duration
+    });
+  }
+
+  // Close on click outside
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      console.log('Clicked outside modal.');
+      closeModal(); // Use the close modal function
+    }
+  });
+
+  // Ensure modal is hidden on load if not meant to be open (handled by data-open attribute CSS)
+  // Initial state is controlled by the isOpen prop and data-open attribute
+
+  if (modal) {
+    console.log('Modal element found. Initial data-open:', modal.getAttribute('data-open'));
+  }
+
+</script> 

@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterModal from '../components/NewsletterModal.astro';
 
 const title = "The Book of Life";
 const description = "A journey through thoughts, experiences, and discoveries.";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentPath = "/";
 ---
 
 <BaseLayout
   title={title}
   description={description}
-  currentPath="/"
+  currentPath={currentPath}
 >
   <!-- Resource Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +26,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     crossorigin 
   />
 
-  <div class="book-container" role="main" aria-label="Book Cover">
+  <div class="book-container">
     <div class="book" id="book">
       <div class="book-cover">
         <div class="book-spine"></div>
@@ -35,13 +36,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <p class="subtitle">A collection of thoughts, experiences, and discoveries</p>
             <p class="author">By Orvi</p>
             <div class="decorative-line"></div>
-            <button 
+            <a 
+              href="/chapters" 
               class="open-book" 
-              id="openBook"
+              data-page-turn
               aria-label="Open book to view table of contents"
             >
               <span>Open Book</span>
-            </button>
+            </a>
           </div>
           <div class="book-decoration" aria-hidden="true">
             <div class="corner top-left"></div>
@@ -62,65 +64,81 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
     </div>
   </div>
+
+  <NewsletterModal client:load isOpen={false} />
 </BaseLayout>
 
-<!-- SEO Meta Tags -->
-<meta name="robots" content="index, follow" />
-<meta name="author" content="Orvi" />
-<meta name="keywords" content="book, life, thoughts, experiences, discoveries, personal journey" />
-<link rel="canonical" href={canonicalURL} />
+<script>
+  // Show newsletter modal when book is opened
+  const openBookButton = document.querySelector('.open-book');
+  const newsletterModal = document.querySelector('.newsletter-modal') as HTMLElement | null;
 
-<!-- Open Graph Meta Tags -->
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
+  if (openBookButton && newsletterModal) {
+    console.log('Index Page Script: Open book button and modal found.');
+    openBookButton.addEventListener('click', (e) => {
+      console.log('Index Page Script: Open book button clicked.');
+      // Check if user has already subscribed or declined
+      const hasSubscribed = localStorage.getItem('newsletterSubscribed');
+      const hasDeclined = localStorage.getItem('newsletterDeclined');
 
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+      console.log('Index Page Script: localStorage - newsletterSubscribed:', hasSubscribed);
+      console.log('Index Page Script: localStorage - newsletterDeclined:', hasDeclined);
+      
+      if (!hasSubscribed && !hasDeclined) {
+        console.log('Index Page Script: Neither subscribed nor declined. Showing modal.');
+        e.preventDefault(); // Prevent immediate navigation only if modal should show
+        newsletterModal.setAttribute('data-open', 'true');
+        // The closeModal function in the modal component will handle styles via data-open attribute CSS
+        // No automatic navigation after delay if modal is shown, user must interact
+        // Navigation will happen when 'No Thanks' is clicked, or after successful subscribe (handled in modal script)
+      } else if (hasSubscribed) {
+        console.log('Index Page Script: Already subscribed. Allowing navigation.');
+        // Allow immediate navigation (browser handles href)
+      } else if (hasDeclined) {
+         console.log('Index Page Script: Already declined. Allowing navigation.');
+        // Allow immediate navigation (browser handles href)
+      }
+    });
+
+    // Close modal if escape key is pressed when modal is open
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && newsletterModal && newsletterModal.getAttribute('data-open') === 'true') {
+        console.log('Index Page Script: Escape key pressed. Attempting to close modal.');
+        // Setting data-open to false will trigger the CSS and modal component's script to hide it
+        newsletterModal.setAttribute('data-open', 'false');
+      }
+    });
+  }
+
+  console.log('Index page script loaded.');
+</script>
 
 <style>
   /* Critical CSS */
   :root {
     --book-width: min(95vw, 520px);
-    --book-height: min(25vh, 200px);
+    --book-height: min(85vh, 700px);
     --book-spine-width: 30px;
     --book-color: #3E2C1A;
     --book-color-light: #1C1B18;
-    --text-color: #F5F0E1;
-    --accent-color: #B9A88C;
   }
 
-  /* Optimize paint and layout */
   .book-container {
-    min-height: 0;
-    max-height: 85vh;
-    height: 100%;
+    min-height: calc(100vh - var(--header-height));
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #f9f6ef;
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e8e0d5' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-    padding: 0.2rem;
-    position: relative;
-    gap: 0.2rem;
-    will-change: transform, opacity;
-    margin-top: 60px; /* Account for navbar height */
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--background-color);
   }
 
-  /* Use hardware acceleration for animations */
   .book {
     position: relative;
     width: var(--book-width);
     height: var(--book-height);
-    aspect-ratio: 2/3;
     transform-style: preserve-3d;
     transform: rotateY(-15deg);
     transition: transform 0.5s ease;
-    will-change: transform;
   }
 
   .book-cover {
@@ -130,7 +148,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     transform-style: preserve-3d;
     transform-origin: left center;
     transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-    will-change: transform;
   }
 
   .book-front {
@@ -183,90 +200,89 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: var(--text-color);
+    color: #ffffff;
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+    gap: 1rem;
   }
 
-  h1 {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(2rem, 5vw, 3rem);
+  .book-title h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
     margin: 0;
-    color: var(--text-color);
-    text-shadow: 
-      0 1px 3px rgba(0, 0, 0, 0.3),
-      0 2px 4px rgba(0, 0, 0, 0.2);
-    letter-spacing: 2px;
-    line-height: 1.2;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     position: relative;
-    padding-bottom: 0.8rem;
+    padding-bottom: 1rem;
   }
 
-  h1::after {
+  .book-title h1::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 0.5px;
-    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0.2) 80%,
+      transparent 100%
+    );
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
   }
 
   .subtitle {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-family: var(--font-body);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: #ffffff;
+    opacity: 0.9;
     margin: 0;
-    font-style: italic;
-    color: var(--accent-color);
-    line-height: 1.4;
-    max-width: 90%;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    position: relative;
-    padding: 0 1rem;
-  }
-
-  .subtitle::before,
-  .subtitle::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 0.5px;
-    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
-  }
-
-  .subtitle::before {
-    left: 0;
-  }
-
-  .subtitle::after {
-    right: 0;
   }
 
   .author {
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: #ffffff;
+    opacity: 0.8;
     margin: 0;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   .decorative-line {
-    width: 50px;
-    height: 0.5px;
-    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
-    margin: 0.8rem 0;
+    width: 100px;
+    height: 2px;
+    background: #ffffff;
+    margin: 1rem 0;
+  }
+
+  .open-book {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #ffffff;
+    color: var(--book-color);
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .open-book:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+    transform: translateY(-2px);
   }
 
   .book-decoration {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
@@ -274,440 +290,121 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   .corner {
     position: absolute;
-    width: clamp(20px, 3vw, 30px);
-    height: clamp(20px, 3vw, 30px);
-    border: 1px solid rgba(212, 201, 184, 0.3);
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ffffff;
   }
 
   .top-left {
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
     border-right: none;
     border-bottom: none;
   }
 
   .top-right {
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     border-left: none;
     border-bottom: none;
   }
 
   .bottom-left {
-    bottom: 10px;
-    left: 10px;
+    bottom: 20px;
+    left: 20px;
     border-right: none;
     border-top: none;
   }
 
   .bottom-right {
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 20px;
     border-left: none;
     border-top: none;
   }
 
   .bookmark {
     position: absolute;
-    top: -10px;
-    right: 40px;
-    width: 40px;
-    height: 60px;
-    background: #E4DED1;
-    transform: rotate(15deg);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  .bookmark::before {
-    content: '';
-    position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent 48%, var(--book-color) 49%, var(--book-color) 51%, transparent 52%);
-    background-size: 10px 10px;
-  }
-
-  .chapter-number {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'EB Garamond', serif;
-    font-size: 1.2rem;
-    color: var(--book-color);
-  }
-
-  .open-book {
-    position: relative;
-    padding: 0.8rem 2.2rem;
-    background: var(--book-color);
-    color: var(--text-color);
-    text-decoration: none;
-    font-family: 'EB Garamond', serif;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 
-      0 4px 12px rgba(0, 0, 0, 0.2),
-      0 0 0 1px rgba(255, 255, 255, 0.1);
-    z-index: 10;
-    white-space: nowrap;
+    right: 20px;
+    width: 20px;
+    height: 60px;
+    background: #ffffff;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 0.6rem;
-    letter-spacing: 0.5px;
-    margin-top: 0.8rem;
-  }
-
-  .open-book::after {
-    content: '→';
-    font-size: 1.2em;
-    transition: transform 0.3s ease;
-    margin-left: 0.4rem;
-  }
-
-  .open-book:hover {
-    background: var(--book-color-light);
-    transform: translateY(-2px);
-    box-shadow: 
-      0 6px 16px rgba(0, 0, 0, 0.3),
-      0 0 0 1px rgba(255, 255, 255, 0.15);
-  }
-
-  .open-book:hover::after {
-    transform: translateX(4px);
+    font-family: var(--font-display);
+    color: var(--book-color);
+    font-size: 1.2rem;
+    font-weight: 600;
   }
 
   .copyright {
     position: absolute;
-    bottom: 0.4rem;
-    left: 0;
-    width: 100%;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    color: var(--accent-color);
-    font-family: 'EB Garamond', serif;
-    font-size: 0.75rem;
-    opacity: 0.9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.05rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: #ffffff;
+    opacity: 0.7;
   }
 
   .copyright p {
     margin: 0;
-    line-height: 1.1;
+    color: inherit;
   }
 
-  .publisher {
-    font-style: italic;
-    font-size: 0.65rem;
-    letter-spacing: 0.5px;
+  /* Open book animation */
+  body.book-opened .book-cover {
+    transform: rotateY(-180deg);
   }
 
-  @media (max-width: 1200px) {
-    .book {
-      width: min(85vw, 520px);
-      height: min(18vh, 180px);
+  body.book-opened .book {
+    transform: rotateY(0deg);
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --book-width: 90vw;
+      --book-height: 80vh;
+      --book-spine-width: 20px;
     }
-    .open-book {
-      padding: 0.7rem 1.8rem;
-      font-size: clamp(0.85rem, 1.6vw, 1rem);
+
+    .book-title h1 {
+      font-size: 2rem;
     }
+
     .subtitle {
-      font-size: clamp(0.9rem, 2.2vw, 1.3rem);
+      font-size: 1rem;
     }
-    h1::after {
-      width: 70px;
-    }
-    .copyright {
-      bottom: 0.3rem;
-      font-size: 0.7rem;
-    }
-    .publisher {
-      font-size: 0.6rem;
-    }
-  }
 
-  @media (max-width: 900px) {
-    .book {
-      width: min(95vw, 480px);
-      height: min(25vh, 180px);
-    }
-    .open-book {
-      padding: 0.7rem 2rem;
-      font-size: clamp(0.9rem, 1.9vw, 1.1rem);
-      margin-top: 0.6rem;
-    }
-    .book-title {
-      gap: 0.5rem;
-    }
-    h1 {
-      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
-      padding-bottom: 0.6rem;
-    }
-    .subtitle {
-      font-size: clamp(1rem, 2.3vw, 1.4rem);
-    }
     .author {
-      font-size: clamp(0.9rem, 1.9vw, 1.1rem);
-    }
-    .book-spine, .book-binding {
-      width: 30px;
-    }
-    h1::after {
-      width: 50px;
-    }
-    .copyright {
-      bottom: 0.5rem;
-      font-size: 0.7rem;
-    }
-    .publisher {
-      font-size: 0.6rem;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .book {
-      width: min(95vw, 420px);
-      height: min(25vh, 160px);
-      transform: rotateY(-10deg);
-    }
-    .open-book {
-      padding: 0.6rem 1.8rem;
-      font-size: clamp(0.85rem, 1.8vw, 1rem);
-      margin-top: 0.5rem;
-    }
-    .book-title {
-      gap: 0.4rem;
-    }
-    h1 {
-      font-size: clamp(1.6rem, 4vw, 2.5rem);
-      padding-bottom: 0.5rem;
-    }
-    .subtitle {
-      font-size: clamp(0.9rem, 2.1vw, 1.3rem);
-    }
-    .author {
-      font-size: clamp(0.85rem, 1.8vw, 1rem);
-    }
-    .subtitle::before,
-    .subtitle::after {
-      width: 20px;
-    }
-
-    .book:hover {
-      transform: rotateY(-15deg);
-    }
-
-    .book-spine, .book-binding {
-      width: 25px;
-    }
-
-    .bookmark {
-      width: 25px;
-      height: 35px;
-      right: 25px;
-    }
-
-    .chapter-number {
       font-size: 0.9rem;
     }
 
-    .decorative-line {
-      width: 40px;
-      margin: 0.6rem 0;
-    }
-    h1::after {
-      width: 40px;
-    }
-    .copyright {
-      bottom: 0.2rem;
-      font-size: 0.6rem;
-    }
-    .publisher {
-      font-size: 0.5rem;
-    }
-  }
-
-  @media (max-width: 400px) {
-    .book {
-      width: min(95vw, 380px);
-      height: min(25vh, 140px);
-    }
-    .open-book {
-      padding: 0.5rem 1.6rem;
-      font-size: clamp(0.8rem, 1.7vw, 0.95rem);
-      margin-top: 0.4rem;
-    }
-    .book-title {
-      gap: 0.3rem;
-    }
-    h1 {
-      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-      padding-bottom: 0.4rem;
-    }
-    .subtitle {
-      font-size: clamp(0.8rem, 1.9vw, 1.2rem);
-    }
-    .author {
-      font-size: clamp(0.8rem, 1.7vw, 0.95rem);
-    }
-    .book-spine, .book-binding {
-      width: 25px;
+    .corner {
+      width: 30px;
+      height: 30px;
     }
 
     .bookmark {
-      width: 20px;
-      height: 30px;
-      right: 20px;
-    }
-
-    .chapter-number {
-      font-size: 0.8rem;
-    }
-
-    .decorative-line {
-      width: 35px;
-      margin: 0.5rem 0;
-    }
-
-    .subtitle::before,
-    .subtitle::after {
       width: 15px;
+      height: 50px;
+      right: 10px;
+      font-size: 1rem;
     }
-    h1::after {
-      width: 35px;
-    }
+
     .copyright {
-      bottom: 0.15rem;
-      font-size: 0.55rem;
+      bottom: 10px;
+      font-size: 0.7rem;
     }
-    .publisher {
-      font-size: 0.45rem;
-    }
-  }
 
-  /* Add orientation-specific styles */
-  @media (orientation: landscape) {
-    .book {
-      width: min(95vw, 520px);
-      height: min(40vh, 220px);
-    }
-    .book-container {
-      max-height: 90vh;
-    }
-  }
-
-  /* Small screen adjustments */
-  @media (max-height: 600px) {
-    .book-container {
-      max-height: 95vh;
-      margin-top: 50px;
-    }
-    .book {
-      height: min(30vh, 160px);
-    }
-    .book-title {
-      gap: 0.4rem;
-    }
-    h1 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      padding-bottom: 0.4rem;
-    }
-    .subtitle {
-      font-size: clamp(0.8rem, 1.8vw, 1rem);
-    }
-    .author {
-      font-size: clamp(0.7rem, 1.6vw, 0.9rem);
-    }
     .open-book {
-      padding: 0.3rem 1rem;
-      font-size: 0.8rem;
-      margin-top: 0.3rem;
-    }
-    .copyright {
-      bottom: 0.1rem;
-      font-size: 0.5rem;
-    }
-    .publisher {
-      font-size: 0.4rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
     }
   }
-</style>
-
-<script>
-  // Performance optimizations
-  const supportsIntersectionObserver = 'IntersectionObserver' in window;
-  
-  if (supportsIntersectionObserver) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const book = document.getElementById('book');
-      if (book) {
-        observer.observe(book);
-      }
-    });
-  }
-
-  // Defer non-critical JavaScript
-  document.addEventListener('DOMContentLoaded', () => {
-    const book = document.getElementById('book');
-    const openBookBtn = document.getElementById('openBook');
-    let isFlipping = false;
-
-    if (book && openBookBtn) {
-      // Use passive event listener for better scroll performance
-      openBookBtn.addEventListener('click', () => {
-        if (!isFlipping) {
-          isFlipping = true;
-          book.classList.add('flipping');
-          
-          // Use requestAnimationFrame for smooth animations
-          requestAnimationFrame(() => {
-            const container = document.querySelector('.book-container') as HTMLElement;
-            if (container) {
-              container.style.transition = 'opacity 0.5s ease';
-              container.style.opacity = '0';
-            }
-          });
-          
-          // Redirect to TOC after animation completes
-          setTimeout(() => {
-            window.location.href = '/toc';
-          }, 800);
-        }
-      }, { passive: true });
-    }
-
-    // Display screen dimensions
-    const displayScreenSize = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      console.log(`Screen dimensions: ${width}x${height}px`);
-      console.log(`Viewport width: ${width}px`);
-      console.log(`Viewport height: ${height}px`);
-      console.log(`Device pixel ratio: ${window.devicePixelRatio}`);
-    };
-
-    // Display on load and resize
-    displayScreenSize();
-    window.addEventListener('resize', displayScreenSize);
-  });
-</script>
+</style> 

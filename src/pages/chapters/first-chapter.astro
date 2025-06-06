@@ -1,14 +1,15 @@
 ---
-import PostLayout from '../../layouts/PostLayout.astro';
+import ChapterLayout from '../../layouts/ChapterLayout.astro';
 ---
 
-<PostLayout
+<ChapterLayout
   title="Chapter 1: The Beginning"
   description="The opening chapter of our story, setting the stage for the journey ahead."
   pubDate={new Date('2024-03-20')}
-  author="Orvi"
+  author="Robat Das Orvi"
   category="Chapter"
   image="/book-texture.jpg"
+  readingTime={5}
 >
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -26,4 +27,4 @@ import PostLayout from '../../layouts/PostLayout.astro';
   <p>
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
   </p>
-</PostLayout> 
+</ChapterLayout> 

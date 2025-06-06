@@ -1,0 +1,336 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  story: CollectionEntry<'stories'>;
+}
+
+const { story } = Astro.props;
+const { Content } = await story.render();
+const { title, description, pubDate, author, image, readingTime, tags } = story.data;
+const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+// Get all stories to find the next story
+const allStories = await getCollection('stories');
+const currentIndex = allStories.findIndex((s: CollectionEntry<'stories'>) => s.slug === story.slug);
+const nextStory = allStories[currentIndex + 1];
+---
+
+<BaseLayout
+  title={`${title} – The Book of Life`}
+  description={description}
+  currentPath={`/chapters/stories/${story.slug}`}
+  image={image}
+  type="article"
+  pubDate={pubDate}
+>
+  <article class="story-container">
+    <div class="story-content">
+      <header class="story-header">
+        <h1>{title}</h1>
+        <div class="story-meta">
+          <span class="author">By {author}</span>
+          <span class="date">{formattedDate}</span>
+          {readingTime && <span class="reading-time">{readingTime} min read</span>}
+        </div>
+        {tags && (
+          <div class="story-tags">
+            {tags.map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {image && (
+        <figure class="story-image">
+          <img
+            src={image}
+            alt={title}
+            width="1200"
+            height="630"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </figure>
+      )}
+
+      <div class="story-body">
+        <Content />
+      </div>
+
+      <footer class="story-footer">
+        <div class="share-buttons">
+          <button class="share-button" data-share="twitter">
+            Share on Twitter
+          </button>
+          <button class="share-button" data-share="linkedin">
+            Share on LinkedIn
+          </button>
+        </div>
+      </footer>
+    </div>
+  </article>
+
+  {nextStory && (
+    <section class="next-story">
+      <h2>Next Story</h2>
+      <a href={`/chapters/stories/${nextStory.slug}`} class="next-story-link">
+        <h3>{nextStory.data.title}</h3>
+        <p>{nextStory.data.description}</p>
+      </a>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .story-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .story-content {
+    background: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+  }
+
+  .story-header {
+    padding: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .story-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+  }
+
+  .story-meta {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .story-tags {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: var(--hover-background);
+    color: var(--text-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+  }
+
+  .story-image {
+    width: 100%;
+    margin: 0;
+    background: var(--background-color);
+  }
+
+  .story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .story-body {
+    padding: var(--spacing-xl);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+  }
+
+  .story-body :global(h2) {
+    font-size: 1.8rem;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .story-body :global(h3) {
+    font-size: 1.5rem;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .story-body :global(p) {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .story-body :global(ul),
+  .story-body :global(ol) {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-xl);
+  }
+
+  .story-body :global(li) {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .story-body :global(blockquote) {
+    border-left: 4px solid var(--accent-color);
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+    font-style: italic;
+    color: var(--text-color-secondary);
+  }
+
+  .story-body :global(code) {
+    background: var(--hover-background);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+  .story-body :global(pre) {
+    background: var(--hover-background);
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: var(--spacing-md) 0;
+  }
+
+  .story-body :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .story-body :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: var(--spacing-md) 0;
+  }
+
+  .story-footer {
+    padding: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .share-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+  }
+
+  .share-button {
+    background: var(--hover-background);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background var(--transition-speed);
+    color: var(--text-color);
+  }
+
+  .share-button:hover {
+    background: var(--border-color);
+  }
+
+  .next-story {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+  }
+
+  .next-story h2 {
+    font-size: 1.2rem;
+    color: var(--text-color-secondary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .next-story-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .next-story-link h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
+  }
+
+  .next-story-link p {
+    color: var(--text-color-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .story-container {
+      padding: var(--spacing-md);
+    }
+
+    .story-header {
+      padding: var(--spacing-lg);
+    }
+
+    .story-header h1 {
+      font-size: 2rem;
+    }
+
+    .story-meta {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .story-body {
+      padding: var(--spacing-lg);
+      font-size: 1rem;
+    }
+
+    .story-footer {
+      padding: var(--spacing-lg);
+    }
+
+    .share-buttons {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  // Share functionality
+  const shareButtons = document.querySelectorAll('.share-button');
+  
+  shareButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+      const platform = button.getAttribute('data-share');
+      const url = window.location.href;
+      const title = document.title;
+      
+      let shareUrl = '';
+      
+      switch (platform) {
+        case 'twitter':
+          shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+          break;
+        case 'linkedin':
+          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+          break;
+      }
+      
+      if (shareUrl) {
+        window.open(shareUrl, '_blank', 'width=600,height=400');
+      }
+    });
+  });
+</script> 
