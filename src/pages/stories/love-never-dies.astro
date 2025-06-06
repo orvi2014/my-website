@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Love Never Dies - Short Story";
+const description = "An eternal love story that transcends time and space.";
+const currentPath = "/stories/love-never-dies";
+---
+
+<BaseLayout title={title} description={description} currentPath={currentPath}>
+  <main class="story-container">
+    <div class="flip-page">
+      <h1>Love Never Dies</h1>
+      <div class="story-content">
+        <p>
+          The old clock tower stood silent in the moonlight, its hands frozen at the moment we first met. Twenty years had passed, but the memory remained as fresh as the morning dew. They say time heals all wounds, but some loves are meant to last forever.
+        </p>
+        <p>
+          I still remember the way your eyes sparkled when you smiled, how your laughter echoed through the empty streets. We were young then, foolish enough to believe that love could conquer all. Perhaps we were right, after all.
+        </p>
+      </div>
+      <div class="page-number">Page 1</div>
+      <div class="nav-buttons">
+        <button class="prev-page">Previous</button>
+        <button class="next-page">Next</button>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .story-container {
+    padding: 6rem 2rem 4rem;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .story-content {
+    margin: 2rem 0;
+    line-height: 1.8;
+  }
+
+  .story-content p {
+    margin-bottom: 1.5rem;
+  }
+</style>
+
+<script>
+  // Add JavaScript for page flipping functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const nextButton = document.querySelector('.next-page');
+    const prevButton = document.querySelector('.prev-page');
+    
+    nextButton?.addEventListener('click', () => {
+      // Add page flipping logic here
+    });
+    
+    prevButton?.addEventListener('click', () => {
+      // Add page flipping logic here
+    });
+  });
+</script> 

@@ -1,4 +1,86 @@
-# Astro Starter Kit: Minimal
+# The Book of Robat Das Orvi
+
+A personal website built with Astro, featuring a book-like interface with chapters, stories, and interactive elements.
+
+## Features
+
+- 📚 Book-like interface with page-turning animations
+- 📖 Multiple content sections (Chapters, Stories, etc.)
+- 🔍 Global search functionality
+- 📱 Responsive design for all devices
+- 🎨 Beautiful typography and animations
+- 🔒 SEO optimized
+
+## Tech Stack
+
+- [Astro](https://astro.build/) - Static Site Generator
+- [TypeScript](https://www.typescriptlang.org/) - Type Safety
+- [Vercel](https://vercel.com) - Hosting & Deployment
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/personal-website.git
+cd personal-website
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Build for production:
+```bash
+npm run build
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable components
+├── layouts/        # Page layouts
+├── pages/         # Route pages
+│   ├── api/       # API endpoints
+│   ├── chapters/  # Chapter pages
+│   └── stories/   # Story pages
+└── styles/        # Global styles
+```
+
+## Deployment
+
+This project is configured for deployment on Vercel. Simply connect your GitHub repository to Vercel for automatic deployments.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Robat Das Orvi - [@yourtwitter](https://twitter.com/yourtwitter)
+
+Project Link: [https://github.com/yourusername/personal-website](https://github.com/yourusername/personal-website)
 
 ```sh
 npm create astro@latest -- --template minimal

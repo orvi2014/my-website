@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Glossary – The Book of Robat Das Orvi";
+const description = "A comprehensive glossary of terms, concepts, and definitions used throughout the book.";
+const currentPath = "/glossary";
+
+// Sample glossary terms - you can expand this with your actual terms
+const glossaryTerms = [
+  {
+    term: "AI & Automation",
+    definition: "The study and application of artificial intelligence and automated systems to solve complex problems and improve efficiency.",
+    category: "Technology"
+  },
+  {
+    term: "Systems Thinking",
+    definition: "A holistic approach to analysis that focuses on how a system's constituent parts interrelate and how systems work over time within the context of larger systems.",
+    category: "Philosophy"
+  },
+  {
+    term: "Digital Nomad",
+    definition: "A person who uses telecommunications technologies to earn a living and, more generally, conduct their life in a nomadic manner.",
+    category: "Travel"
+  },
+  {
+    term: "Philosophy",
+    definition: "The study of fundamental questions about existence, knowledge, values, reason, mind, and language.",
+    category: "Human"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} currentPath={currentPath}>
+  <main class="glossary-container">
+    <h1>Glossary</h1>
+    <p class="glossary-intro">
+      A collection of terms, concepts, and definitions used throughout the book. 
+      Use this as a reference to better understand the ideas and themes discussed.
+    </p>
+
+    <div class="glossary-content">
+      <div class="glossary-sidebar">
+        <h2>Categories</h2>
+        <nav class="category-nav">
+          <button class="category-btn active" data-category="all">All Terms</button>
+          <button class="category-btn" data-category="Technology">Technology</button>
+          <button class="category-btn" data-category="Philosophy">Philosophy</button>
+          <button class="category-btn" data-category="Travel">Travel</button>
+          <button class="category-btn" data-category="Human">Human</button>
+        </nav>
+      </div>
+
+      <div class="terms-container">
+        {glossaryTerms.map(term => (
+          <article class="term-card" data-category={term.category}>
+            <h3>{term.term}</h3>
+            <p class="term-definition">{term.definition}</p>
+            <span class="term-category">{term.category}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .glossary-container {
+    padding: 6rem 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .glossary-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    color: var(--text-color);
+    opacity: 0.8;
+  }
+
+  .glossary-content {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+  }
+
+  .glossary-sidebar {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--page-shadow);
+    height: fit-content;
+  }
+
+  .glossary-sidebar h2 {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+  }
+
+  .category-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .category-btn {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all var(--transition-speed);
+    border-radius: 4px;
+  }
+
+  .category-btn:hover {
+    background: rgba(74, 52, 40, 0.05);
+  }
+
+  .category-btn.active {
+    background: var(--accent-color);
+    color: white;
+  }
+
+  .terms-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .term-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--page-shadow);
+    transition: transform var(--transition-speed);
+  }
+
+  .term-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .term-card h3 {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+  }
+
+  .term-definition {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .term-category {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(74, 52, 40, 0.1);
+    color: var(--accent-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 900px) {
+    .glossary-content {
+      grid-template-columns: 1fr;
+    }
+
+    .glossary-sidebar {
+      position: sticky;
+      top: 80px;
+      z-index: 10;
+    }
+
+    .category-nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .category-btn {
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .glossary-container {
+      padding: 4rem 1rem 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .terms-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const categoryButtons = document.querySelectorAll('.category-btn') as NodeListOf<HTMLButtonElement>;
+  const termCards = document.querySelectorAll('.term-card') as NodeListOf<HTMLElement>;
+
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Update active button
+      categoryButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Filter terms
+      const category = button.dataset.category;
+      termCards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script> 

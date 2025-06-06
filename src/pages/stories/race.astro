@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Race - Short Story";
+const description = "A thrilling tale of determination and perseverance.";
+const currentPath = "/stories/race";
+---
+
+<BaseLayout title={title} description={description} currentPath={currentPath}>
+  <main class="story-container">
+    <div class="flip-page">
+      <h1>Race</h1>
+      <div class="story-content">
+        <p>
+          The starting line stretched before me, a thin white ribbon against the dark asphalt. My heart pounded in my chest, each beat echoing the anticipation of the crowd. This wasn't just any race; this was the moment I had been training for all year.
+        </p>
+        <p>
+          The morning sun cast long shadows across the track, and I could feel its warmth on my skin. My competitors stood beside me, each lost in their own thoughts, their own dreams of victory. We were all here for the same reason: to push ourselves beyond our limits.
+        </p>
+      </div>
+      <div class="page-number">Page 1</div>
+      <div class="nav-buttons">
+        <button class="prev-page">Previous</button>
+        <button class="next-page">Next</button>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .story-container {
+    padding: 6rem 2rem 4rem;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .story-content {
+    margin: 2rem 0;
+    line-height: 1.8;
+  }
+
+  .story-content p {
+    margin-bottom: 1.5rem;
+  }
+</style>
+
+<script>
+  // Add JavaScript for page flipping functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const nextButton = document.querySelector('.next-page');
+    const prevButton = document.querySelector('.prev-page');
+    
+    nextButton?.addEventListener('click', () => {
+      // Add page flipping logic here
+    });
+    
+    prevButton?.addEventListener('click', () => {
+      // Add page flipping logic here
+    });
+  });
+</script> 

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Chapters – The Book of Robat Das Orvi";
+const description = "Flip through the chapters of Robat Das Orvi's book – exploring technology, travel, human insight, and tools.";
+const currentPath = "/chapters";
+---
+
+<BaseLayout title={title} description={description} currentPath={currentPath}>
+  <main class="book-toc">
+    <section class="left-page">
+      <h2>Chapters</h2>
+      <ol>
+        <li>I. <a href="/chapters/about" data-page-turn>About Robat</a></li>
+        <li>II. <a href="/chapters/technology" data-page-turn>Technology</a></li>
+        <li>III. <a href="/chapters/ai-automation" data-page-turn>AI & Automation</a></li>
+        <li>IV. <a href="/chapters/human" data-page-turn>Human & Philosophy</a></li>
+        <li>V. <a href="/chapters/travel" data-page-turn>Travel</a></li>
+        <li>VI. <a href="/chapters/products" data-page-turn>Products & Tools</a></li>
+        <li>VII. <a href="/stories" data-page-turn>Short Stories</a></li>
+      </ol>
+    </section>
+    <section class="right-page">
+      <blockquote>
+        "Each chapter is a thought, each post a page from the journey."
+      </blockquote>
+      <p class="toc-description">Explore systems I build, cities I walk, truths I seek, and tools I share.</p>
+    </section>
+  </main>
+
+  <script>
+    // Add page turn animation
+    document.querySelectorAll('[data-page-turn]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = e.currentTarget as HTMLAnchorElement;
+        document.body.classList.add('page-turn');
+        setTimeout(() => {
+          window.location.href = target.href;
+        }, 500);
+      });
+    });
+  </script>
+</BaseLayout>

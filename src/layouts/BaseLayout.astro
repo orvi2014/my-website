@@ -1,0 +1,181 @@
+---
+import Search from '../components/Search.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  currentPath: string;
+  image?: string;
+  type?: string;
+  pubDate?: Date;
+}
+
+const {
+  title,
+  description,
+  currentPath,
+  image = "/images/default-og.jpg",
+  type = "website",
+  pubDate = new Date(),
+} = Astro.props;
+
+const canonicalURL = new URL(currentPath, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
+
+const navigation = [
+  { href: '/', label: 'Cover' },
+  { href: '/toc', label: 'Contents' },
+  { href: '/travel', label: 'Travel' },
+  { href: '/tech', label: 'Tech' },
+  { href: '/human', label: 'Human' },
+  { href: '/ai', label: 'AI' },
+  { href: '/products', label: 'Products' },
+];
+
+const currentIndex = navigation.findIndex(item => item.href === currentPath);
+const prevChapter = currentIndex > 0 ? navigation[currentIndex - 1] : null;
+const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentIndex + 1] : null;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImageURL} />
+
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Robat Das Orvi" />
+    <meta name="revisit-after" content="7 days" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "The Book of Robat Das Orvi",
+        "url": "https://robatdasorvi.com",
+        "description": description,
+        "author": {
+          "@type": "Person",
+          "name": "Robat Das Orvi"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Robat Das Orvi"
+        },
+        "datePublished": pubDate.toISOString(),
+        "dateModified": new Date().toISOString()
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <nav class="book-navigation">
+      <div class="nav-links">
+        {prevChapter && (
+          <a href={prevChapter.href} class="prev-chapter">
+            ← {prevChapter.label}
+          </a>
+        )}
+      </div>
+      <div class="nav-links">
+        <a href="/">Cover</a>
+        <a href="/toc">Contents</a>
+      </div>
+      <div class="nav-links">
+        {nextChapter && (
+          <a href={nextChapter.href} class="next-chapter">
+            {nextChapter.label} →
+          </a>
+        )}
+      </div>
+      <div class="nav-search">
+        <Search />
+      </div>
+    </nav>
+    <main class="book-content">
+      <slot />
+    </main>
+    <footer class="book-footer">
+      <div class="page-number"></div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .book-content {
+    min-height: calc(100vh - 120px);
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .book-footer {
+    text-align: center;
+    padding: 1rem;
+    font-family: 'EB Garamond', serif;
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+
+  .page-number {
+    font-style: italic;
+  }
+
+  .nav-search {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+  }
+
+  @media (max-width: 1200px) {
+    .nav-search {
+      position: static;
+      transform: none;
+      width: 100%;
+      margin-top: 1rem;
+      order: 2;
+    }
+
+    .book-navigation {
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      order: 1;
+    }
+  }
+</style> 

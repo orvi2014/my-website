@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Short Stories";
+const description = "A collection of short stories exploring different themes and emotions.";
+const currentPath = "/stories";
+---
+
+<BaseLayout title={title} description={description} currentPath={currentPath}>
+  <main class="stories-container">
+    <h1>Short Stories</h1>
+    <div class="stories-grid">
+      <article class="post-card">
+        <h2 class="post-title">Race</h2>
+        <p class="post-excerpt">
+          A thrilling tale of determination and perseverance, where the finish line is just the beginning of a greater journey.
+        </p>
+        <a href="/stories/race" class="read-more">Read Story</a>
+      </article>
+
+      <article class="post-card">
+        <h2 class="post-title">Love Never Dies</h2>
+        <p class="post-excerpt">
+          An eternal love story that transcends time and space, proving that true love knows no boundaries.
+        </p>
+        <a href="/stories/love-never-dies" class="read-more">Read Story</a>
+      </article>
+    </div>
+    <div class="scroll-indicator"></div>
+  </main>
+</BaseLayout>
+
+<style>
+  .stories-container {
+    padding: 6rem 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background var(--transition-speed);
+  }
+
+  .read-more:hover {
+    background: #6b4c3d;
+  }
+</style> 

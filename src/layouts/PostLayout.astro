@@ -1,0 +1,155 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author: string;
+  image?: string;
+  category: string;
+}
+
+const { title, description, pubDate, author, image, category } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}).format(pubDate);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  currentPath={Astro.url.pathname}
+>
+  <article class="post">
+    <header class="post-header">
+      <div class="post-meta">
+        <span class="post-category">{category}</span>
+        <span class="post-date">{formattedDate}</span>
+      </div>
+      <h1>{title}</h1>
+      <div class="post-author">By {author}</div>
+    </header>
+
+    {image && (
+      <figure class="post-image">
+        <img src={image} alt={title} />
+        <figcaption>{title}</figcaption>
+      </figure>
+    )}
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+        <span class="tag-label">Tags:</span>
+        <a href={`/category/${category.toLowerCase()}`} class="tag">{category}</a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .post {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+
+  .post-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .post-meta {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+  }
+
+  .post-category {
+    font-style: italic;
+    margin-right: 1rem;
+  }
+
+  .post-date {
+    opacity: 0.8;
+  }
+
+  .post-author {
+    font-style: italic;
+    margin-top: 1rem;
+    color: var(--accent-color);
+  }
+
+  .post-image {
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .post-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: var(--page-shadow);
+  }
+
+  .post-image figcaption {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--accent-color);
+  }
+
+  .post-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(139, 69, 19, 0.2);
+  }
+
+  .post-tags {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tag-label {
+    font-style: italic;
+    color: var(--accent-color);
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 3px;
+    font-size: 0.9rem;
+    transition: background-color var(--transition-speed);
+  }
+
+  .tag:hover {
+    background: rgba(139, 69, 19, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .post-content {
+      font-size: 1.1rem;
+    }
+
+    .post-header {
+      margin-bottom: 2rem;
+    }
+
+    .post-footer {
+      margin-top: 3rem;
+    }
+  }
+</style> 
