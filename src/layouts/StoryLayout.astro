@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { initShareButtons } from '../scripts/share';
 
 interface Props {
   story: CollectionEntry<'stories'>;
@@ -73,6 +74,9 @@ const nextStory = allStories[currentIndex + 1];
           </button>
           <button class="share-button" data-share="linkedin">
             Share on LinkedIn
+          </button>
+           <button class="share-button" data-share="copy">
+            Copy Link
           </button>
         </div>
       </footer>
@@ -248,48 +252,49 @@ const nextStory = allStories[currentIndex + 1];
   .next-story {
     margin-top: var(--spacing-xl);
     padding: var(--spacing-xl);
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .next-story h2 {
-    font-size: 1.2rem;
-    color: var(--text-color-secondary);
-    margin-bottom: var(--spacing-md);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
   }
 
   .next-story-link {
+    display: block;
+    background: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    padding: var(--spacing-xl);
     text-decoration: none;
-    color: inherit;
+    color: var(--text-color);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  }
+
+  .next-story-link:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--page-shadow);
   }
 
   .next-story-link h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-color);
+    margin-top: 0;
+    color: var(--accent-color);
   }
 
   .next-story-link p {
+    margin-bottom: 0;
     color: var(--text-color-secondary);
   }
 
   @media (max-width: 768px) {
     .story-container {
-      padding: var(--spacing-md);
-    }
-
-    .story-header {
-      padding: var(--spacing-lg);
+      padding: var(--spacing-lg) var(--spacing-sm);
     }
 
     .story-header h1 {
       font-size: 2rem;
-    }
-
-    .story-meta {
-      flex-direction: column;
-      gap: var(--spacing-sm);
     }
 
     .story-body {
@@ -301,36 +306,21 @@ const nextStory = allStories[currentIndex + 1];
       padding: var(--spacing-lg);
     }
 
-    .share-buttons {
-      flex-direction: column;
+    .next-story {
+      padding: var(--spacing-lg);
+    }
+
+    .next-story-link {
+      padding: var(--spacing-lg);
     }
   }
+
 </style>
 
 <script>
-  // Share functionality
-  const shareButtons = document.querySelectorAll('.share-button');
-  
-  shareButtons.forEach(button => {
-    button.addEventListener('click', async () => {
-      const platform = button.getAttribute('data-share');
-      const url = window.location.href;
-      const title = document.title;
-      
-      let shareUrl = '';
-      
-      switch (platform) {
-        case 'twitter':
-          shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
-          break;
-        case 'linkedin':
-          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
-          break;
-      }
-      
-      if (shareUrl) {
-        window.open(shareUrl, '_blank', 'width=600,height=400');
-      }
-    });
+  import { initShareButtons } from '../scripts/share';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initShareButtons();
   });
 </script> 

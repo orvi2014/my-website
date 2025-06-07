@@ -27,8 +27,23 @@ const storiesCollection = defineCollection({
   })
 });
 
+// Define the chapters collection for individual chapter posts
+const chaptersCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    // Add other relevant fields for your chapters here, e.g., pubDate, author, order
+    pubDate: z.date().optional(),
+    author: z.string().optional(),
+    order: z.number().optional(),
+    image: z.string().optional(),
+  })
+});
+
 // Export collections
 export const collections = {
   'categories': categoriesCollection,
   'stories': storiesCollection,
+  'chapters': chaptersCollection,
 }; 

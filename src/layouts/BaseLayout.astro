@@ -3,6 +3,8 @@ import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import NewsletterModal from '../components/NewsletterModal.astro';
+import SearchModal from '../components/SearchModal.astro';
 
 interface Props {
   title: string;
@@ -142,156 +144,18 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
     <Footer />
     
     <!-- Newsletter Modal -->
-    <div class="newsletter-overlay" id="newsletterOverlay"></div>
-    <div class="newsletter-modal" id="newsletterModal">
-      <h2>Join the Journey</h2>
-      <p>Subscribe to receive new chapters, stories, and insights directly in your inbox.</p>
-      <form class="newsletter-form" id="newsletterForm">
-        <input type="email" placeholder="Your email address" required />
-        <button type="submit">Subscribe</button>
-      </form>
-      <button class="close-modal" id="closeNewsletter">×</button>
-    </div>
+    <NewsletterModal isOpen={false} />
+    
+    <!-- Search Modal -->
+    <SearchModal />
 
-    <script>
-      // Newsletter Modal Logic
-      const modal = document.getElementById('newsletterModal');
-      const overlay = document.getElementById('newsletterOverlay');
-      const closeBtn = document.getElementById('closeNewsletter');
-      const form = document.getElementById('newsletterForm');
-      
-      // Show modal on first visit
-      if (!localStorage.getItem('newsletterShown')) {
-        setTimeout(() => {
-          modal?.classList.add('active');
-          overlay?.classList.add('active');
-          localStorage.setItem('newsletterShown', 'true');
-        }, 5000); // Show after 5 seconds
-      }
-      
-      // Close modal
-      function closeModal() {
-        modal?.classList.remove('active');
-        overlay?.classList.remove('active');
-      }
-      
-      closeBtn?.addEventListener('click', closeModal);
-      overlay?.addEventListener('click', closeModal);
-      
-      // Handle form submission
-      form?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const emailInput = form.querySelector('input[type="email"]');
-        const email = emailInput?.value;
-        
-        if (!email) return;
-        
-        try {
-          // TODO: Replace with your newsletter API endpoint
-          const response = await fetch('/api/newsletter', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email })
-          });
-          
-          if (response.ok) {
-            alert('Thank you for subscribing!');
-            closeModal();
-          } else {
-            throw new Error('Subscription failed');
-          }
-        } catch (error) {
-          alert('Something went wrong. Please try again later.');
-        }
-      });
-    </script>
   </body>
 </html>
 
 <style>
   /* Newsletter Modal Styles */
-  .newsletter-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-speed);
-  }
-
-  .newsletter-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .newsletter-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--card-background);
-    padding: var(--spacing-lg);
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
-    z-index: 1000;
-    max-width: 500px;
-    width: 90%;
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-speed);
-  }
-
-  .newsletter-modal.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .newsletter-form {
-    display: flex;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
-  }
-
-  .newsletter-form input {
-    flex: 1;
-    padding: 0.8rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-family: var(--font-body);
-  }
-
-  .newsletter-form button {
-    padding: 0.8rem 1.5rem;
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background var(--transition-speed);
-  }
-
-  .newsletter-form button:hover {
-    background: var(--text-color);
-  }
-
-  .close-modal {
-    position: absolute;
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-color);
-    opacity: 0.7;
-    transition: opacity var(--transition-speed);
-  }
-
-  .close-modal:hover {
-    opacity: 1;
-  }
+  /* Note: Newsletter modal styles are now within NewsletterModal.astro */
+  
+  /* Search Modal Styles */
+  /* Note: Search modal styles are now within SearchModal.astro */
 </style> 

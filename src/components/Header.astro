@@ -49,9 +49,6 @@ const navigation = [
       </button>
     </div>
   </nav>
-  <div class="search-container" id="searchContainer">
-    <Search />
-  </div>
 </header>
 
 <style>
@@ -156,32 +153,12 @@ const navigation = [
     color: var(--text-color);
     transition: all var(--transition-speed);
     border-radius: var(--border-radius);
+    z-index: 110;
   }
 
   .search-toggle:hover {
     color: var(--accent-color);
     background: var(--hover-background);
-  }
-
-  .search-container {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--background-color);
-    border-bottom: 1px solid var(--border-color);
-    padding: var(--spacing-md);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-speed);
-    box-shadow: var(--header-shadow);
-  }
-
-  .search-container.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
   }
 
   @media (max-width: 768px) {
@@ -207,23 +184,22 @@ const navigation = [
 <script>
   // Search toggle functionality
   const searchToggle = document.getElementById('searchToggle');
-  const searchContainer = document.getElementById('searchContainer');
+  console.log('Header Script: searchToggle element found:', searchToggle);
 
   searchToggle?.addEventListener('click', () => {
-    searchContainer?.classList.toggle('active');
+    console.log('Header Script: searchToggle clicked.');
+    (window as any).openSearchModal(); // Call the global function to open the search modal
   });
 
   // Close search when clicking outside
   document.addEventListener('click', (e) => {
-    if (!searchContainer?.contains(e.target as Node) && e.target !== searchToggle) {
-      searchContainer?.classList.remove('active');
-    }
+    // No longer needed as modal handles closing on outside click
   });
 
   // Close search on escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && searchContainer?.classList.contains('active')) {
-      searchContainer.classList.remove('active');
-    }
+    // No longer needed as modal handles closing on escape key
   });
+
+  console.log('Header page script loaded.');
 </script> 
