@@ -1,0 +1,129 @@
+---
+import Search from './Search.astro';
+---
+
+<div class="search-modal" id="searchModal" role="dialog" aria-labelledby="search-modal-title">
+  <div class="modal-content">
+    <button class="close-button" aria-label="Close search modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <h2 id="search-modal-title" class="modal-title">Search the Book of Life</h2>
+    <div class="search-container-in-modal">
+      <Search />
+    </div>
+  </div>
+</div>
+
+<style>
+  .search-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it's on top */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none; /* Prevent clicks when hidden */
+  }
+
+  .search-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all; /* Allow clicks when active */
+  }
+
+  .modal-content {
+    background: var(--book-color); /* Consistent with book theme */
+    color: #ffffff; /* White text for contrast */
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 700px; /* Slightly wider for search */
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1001;
+    box-sizing: border-box;
+    display: flex; /* Use flex for content layout */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-body);
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.5rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 1002; /* Ensure button is clickable */
+  }
+
+  .close-button:hover {
+    opacity: 1;
+  }
+
+  .modal-title {
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin: 0 0 1.5rem 0; /* More space below title */
+    text-align: center;
+  }
+
+  .search-container-in-modal {
+    width: 100%; /* Allow search bar to take full width */
+    /* Add any specific styling for the container around the search component */
+  }
+
+  /* Add script to handle modal visibility */
+</style>
+
+<script>
+  // Script to close the modal (opening handled by Header script)
+  const searchModal = document.getElementById('searchModal');
+  const closeButton = searchModal?.querySelector('.close-button');
+
+  function closeSearchModal() {
+    if (searchModal) {
+      searchModal.classList.remove('active');
+    }
+  }
+
+  closeButton?.addEventListener('click', closeSearchModal);
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchModal?.classList.contains('active')) {
+      closeSearchModal();
+    }
+  });
+
+  // Close on click outside modal content
+  searchModal?.addEventListener('click', (e) => {
+    if (e.target === searchModal) {
+      closeSearchModal();
+    }
+  });
+
+  // Expose function to open modal so Header script can call it
+  (window as any).openSearchModal = () => {
+     if (searchModal) {
+        searchModal.classList.add('active');
+     }
+  };
+</script> 
