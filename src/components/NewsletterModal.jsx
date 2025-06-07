@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import './newsletter.css';
 
-export default function NewsletterModal({ isOpen = true }) {
+export default function NewsletterModal({ isOpen = false }) {
   const [open, setOpen] = useState(isOpen);
   const [email, setEmail] = useState('');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     if (localStorage.getItem('newsletterSubscribed') || localStorage.getItem('newsletterDeclined')) {
       setOpen(false);
     }
@@ -34,6 +36,8 @@ export default function NewsletterModal({ isOpen = true }) {
     }
   };
 
+  // Don't render anything on the server
+  if (!mounted) return null;
   if (!open) return null;
 
   return (

@@ -6,7 +6,7 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://robatdasorvi.com',
   integrations: [react()],
-  output: 'server', // or 'hybrid' if needed
+  output: 'static', // Changed from 'server' to 'static'
   adapter: vercel(),
 });
 
