@@ -9,7 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.9.0"
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/vercel": "^8.1.5",
+    "astro": "^5.9.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.30",
