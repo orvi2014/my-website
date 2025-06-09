@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NewsletterModal from '../components/NewsletterModal.jsx';
+import NewsletterModal from '../components/NewsletterModal';
 
 const title = "The Book of Life";
 const description = "A journey through thoughts, experiences, and discoveries.";
@@ -27,98 +27,58 @@ const currentPath = "/";
   />
 
   <div class="book-container">
-    <div class="book" id="book">
-      <div class="book-cover">
-        <div class="book-spine"></div>
-        <div class="book-front">
-          <div class="book-title">
-            <h1>The Book of Life</h1>
-            <p class="subtitle">A collection of thoughts, experiences, and discoveries</p>
-            <p class="author">By Orvi</p>
-            <div class="decorative-line"></div>
-            <a 
-              href="/chapters" 
-              class="open-book" 
-              data-page-turn
-              aria-label="Open book to view table of contents"
-            >
-              <span>Open Book</span>
-            </a>
-          </div>
-          <div class="book-decoration" aria-hidden="true">
-            <div class="corner top-left"></div>
-            <div class="corner top-right"></div>
-            <div class="corner bottom-left"></div>
-            <div class="corner bottom-right"></div>
-          </div>
-          <aside class="bookmark" aria-hidden="true">
-            <span class="chapter-number">I</span>
-          </aside>
-          <div class="copyright">
-            <p>© 2025 Orvi. All rights reserved.</p>
-            <p class="publisher">First Edition</p>
-          </div>
+    <div class="book">
+      <div class="book-front">
+        <div class="book-title">
+          <h1>The Book of Life</h1>
+          <p class="subtitle">A collection of thoughts, experiences, and discoveries</p>
+          <p class="author">By Orvi</p>
+          <div class="decorative-line"></div>
+          <button 
+            type="button"
+            class="open-book" 
+            aria-label="Open book to view table of contents"
+            data-open-newsletter-modal
+          >
+            <span>Open Book</span>
+          </button>
         </div>
-        <div class="book-pages"></div>
-        <div class="book-binding"></div>
+        <div class="book-decoration" aria-hidden="true">
+          <div class="corner top-left"></div>
+          <div class="corner top-right"></div>
+          <div class="corner bottom-left"></div>
+          <div class="corner bottom-right"></div>
+        </div>
+        <aside class="bookmark" aria-hidden="true">
+          <span class="chapter-number">I</span>
+        </aside>
+        <div class="copyright">
+          <p>© 2025 Orvi. All rights reserved.</p>
+          <p class="publisher">First Edition</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <NewsletterModal client:load isOpen={false} />
+  <NewsletterModal client:load />
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const openBookButton = document.querySelector('[data-open-newsletter-modal]');
+      if (openBookButton) {
+        openBookButton.addEventListener('click', () => {
+          window.dispatchEvent(new CustomEvent('openNewsletterModal'));
+        });
+      }
+    });
+  </script>
 </BaseLayout>
-
-<script>
-  // Show newsletter modal when book is opened
-  const openBookButton = document.querySelector('.open-book');
-  const newsletterModal = document.querySelector('.newsletter-modal') as HTMLElement | null;
-
-  if (openBookButton && newsletterModal) {
-    console.log('Index Page Script: Open book button and modal found.');
-    openBookButton.addEventListener('click', (e) => {
-      console.log('Index Page Script: Open book button clicked.');
-      // Check if user has already subscribed or declined
-      const hasSubscribed = localStorage.getItem('newsletterSubscribed');
-      const hasDeclined = localStorage.getItem('newsletterDeclined');
-
-      console.log('Index Page Script: localStorage - newsletterSubscribed:', hasSubscribed);
-      console.log('Index Page Script: localStorage - newsletterDeclined:', hasDeclined);
-      
-      if (!hasSubscribed && !hasDeclined) {
-        console.log('Index Page Script: Neither subscribed nor declined. Showing modal.');
-        e.preventDefault(); // Prevent immediate navigation only if modal should show
-        newsletterModal.setAttribute('data-open', 'true');
-        // The closeModal function in the modal component will handle styles via data-open attribute CSS
-        // No automatic navigation after delay if modal is shown, user must interact
-        // Navigation will happen when 'No Thanks' is clicked, or after successful subscribe (handled in modal script)
-      } else if (hasSubscribed) {
-        console.log('Index Page Script: Already subscribed. Allowing navigation.');
-        // Allow immediate navigation (browser handles href)
-      } else if (hasDeclined) {
-         console.log('Index Page Script: Already declined. Allowing navigation.');
-        // Allow immediate navigation (browser handles href)
-      }
-    });
-
-    // Close modal if escape key is pressed when modal is open
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && newsletterModal && newsletterModal.getAttribute('data-open') === 'true') {
-        console.log('Index Page Script: Escape key pressed. Attempting to close modal.');
-        // Setting data-open to false will trigger the CSS and modal component's script to hide it
-        newsletterModal.setAttribute('data-open', 'false');
-      }
-    });
-  }
-
-  console.log('Index page script loaded.');
-</script>
 
 <style>
   /* Critical CSS */
   :root {
     --book-width: min(95vw, 520px);
     --book-height: min(85vh, 700px);
-    --book-spine-width: 30px;
     --book-color: #3E2C1A;
     --book-color-light: #1C1B18;
   }
@@ -136,18 +96,6 @@ const currentPath = "/";
     position: relative;
     width: var(--book-width);
     height: var(--book-height);
-    transform-style: preserve-3d;
-    transform: rotateY(-15deg);
-    transition: transform 0.5s ease;
-  }
-
-  .book-cover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transform-origin: left center;
-    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
 
   .book-front {
@@ -155,43 +103,8 @@ const currentPath = "/";
     width: 100%;
     height: 100%;
     background: linear-gradient(45deg, var(--book-color), var(--book-color-light));
-    transform: translateZ(20px);
     border-radius: 3px;
-    box-shadow: 
-      0 8px 20px rgba(0, 0, 0, 0.2),
-      inset 0 0 40px rgba(0, 0, 0, 0.2);
-    backface-visibility: hidden;
-  }
-
-  .book-spine {
-    position: absolute;
-    width: var(--book-spine-width);
-    height: 100%;
-    background: linear-gradient(to right, var(--book-color-light), var(--book-color));
-    transform: rotateY(90deg) translateZ(-20px);
-    box-shadow: inset -3px 0 10px rgba(0, 0, 0, 0.4);
-  }
-
-  .book-pages {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    transform: translateZ(1px);
-    border-radius: 3px;
-    box-shadow: 
-      inset 0 0 30px rgba(0, 0, 0, 0.1),
-      0 0 0 1px rgba(0, 0, 0, 0.1);
-    backface-visibility: hidden;
-  }
-
-  .book-binding {
-    position: absolute;
-    width: var(--book-spine-width);
-    height: 100%;
-    background: linear-gradient(to right, var(--book-color), var(--book-color-light));
-    transform: rotateY(90deg) translateZ(20px);
-    box-shadow: inset 3px 0 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
 
   .book-title {
@@ -357,20 +270,10 @@ const currentPath = "/";
     color: inherit;
   }
 
-  /* Open book animation */
-  body.book-opened .book-cover {
-    transform: rotateY(-180deg);
-  }
-
-  body.book-opened .book {
-    transform: rotateY(0deg);
-  }
-
   @media (max-width: 768px) {
     :root {
       --book-width: 90vw;
       --book-height: 80vh;
-      --book-spine-width: 20px;
     }
 
     .book-title h1 {

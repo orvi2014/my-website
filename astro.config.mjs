@@ -1,13 +1,15 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://robatdasorvi.com',
-  integrations: [react()],
-  output: 'static', // Changed from 'server' to 'static'
+  integrations: [tailwind(), react()],
+  output: 'server',
   adapter: vercel(),
+  trailingSlash: 'never'
 });
 
 

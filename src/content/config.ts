@@ -41,9 +41,18 @@ const chaptersCollection = defineCollection({
   })
 });
 
+const newsletter = defineCollection({
+  type: 'data',
+  schema: z.object({
+    email: z.string().email(),
+    subscribedAt: z.date(),
+  }),
+});
+
 // Export collections
 export const collections = {
   'categories': categoriesCollection,
   'stories': storiesCollection,
   'chapters': chaptersCollection,
+  newsletter,
 }; 

@@ -3,8 +3,9 @@ import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import NewsletterModal from '../components/NewsletterModal.jsx';
 import SearchModal from '../components/SearchModal.astro';
+import StructuredData from '../components/StructuredData.astro';
+import GoogleTagManager from '../components/GoogleTagManager.astro';
 
 interface Props {
   title: string;
@@ -14,6 +15,36 @@ interface Props {
   type?: string;
   pubDate?: Date;
   noindex?: boolean;
+}
+
+interface StructuredDataType {
+  "@context": string;
+  "@type": string;
+  name: string;
+  url: string;
+  description: string;
+  author: {
+    "@type": string;
+    name: string;
+  };
+  publisher: {
+    "@type": string;
+    name: string;
+    logo: {
+      "@type": string;
+      url: string;
+    };
+  };
+  datePublished?: string;
+  dateModified: string;
+  inLanguage: string;
+  isAccessibleForFree: boolean;
+  headline?: string;
+  image?: string;
+  mainEntityOfPage?: {
+    "@type": string;
+    "@id": string;
+  };
 }
 
 const {
@@ -30,24 +61,67 @@ const canonicalURL = new URL(currentPath, Astro.site);
 const socialImageURL = new URL(image, Astro.site);
 const formattedDate = pubDate ? new Date(pubDate).toISOString() : undefined;
 
-const navigation = [
-  { href: '/', label: 'Cover' },
-  { href: '/toc', label: 'Contents' },
-  { href: '/travel', label: 'Travel' },
-  { href: '/tech', label: 'Tech' },
-  { href: '/human', label: 'Human' },
-  { href: '/ai', label: 'AI' },
-  { href: '/products', label: 'Products' },
-];
+// Prepare structured data
+const structuredData: StructuredDataType = {
+  "@context": "https://schema.org",
+  "@type": type === "article" ? "Article" : "WebSite",
+  "name": title,
+  "url": canonicalURL.toString(),
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": "Orvi"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Book of Life",
+    "logo": {
+      "@type": "ImageObject",
+      "url": new URL('/images/logo.png', Astro.site).toString()
+    }
+  },
+  "datePublished": formattedDate,
+  "dateModified": new Date().toISOString(),
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true
+};
 
-const currentIndex = navigation.findIndex(item => item.href === currentPath);
-const prevChapter = currentIndex > 0 ? navigation[currentIndex - 1] : null;
-const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentIndex + 1] : null;
+// Add article-specific data if type is article
+if (type === "article") {
+  structuredData.headline = title;
+  structuredData.image = socialImageURL.toString();
+  structuredData.mainEntityOfPage = {
+    "@type": "WebPage",
+    "@id": canonicalURL.toString()
+  };
+}
+
+// Ensure all URLs are strings
+const processedData: StructuredDataType = {
+  ...structuredData,
+  url: structuredData.url.toString(),
+  image: structuredData.image?.toString(),
+  mainEntityOfPage: structuredData.mainEntityOfPage ? {
+    ...structuredData.mainEntityOfPage,
+    "@id": structuredData.mainEntityOfPage["@id"].toString()
+  } : undefined,
+  publisher: {
+    ...structuredData.publisher,
+    logo: {
+      ...structuredData.publisher.logo,
+      url: structuredData.publisher.logo.url.toString()
+    }
+  }
+};
+
+// Add GTM ID to your environment variables
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with your GTM ID
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <GoogleTagManager id={GTM_ID} />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -93,31 +167,7 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
     <meta name="color-scheme" content="light" />
     
     <!-- Structured Data -->
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "The Book of Life",
-        "url": Astro.site,
-        "description": description,
-        "author": {
-          "@type": "Person",
-          "name": "Orvi"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "The Book of Life",
-          "logo": {
-            "@type": "ImageObject",
-            "url": new URL('/images/logo.png', Astro.site)
-          }
-        },
-        "datePublished": formattedDate,
-        "dateModified": new Date().toISOString(),
-        "inLanguage": "en-US",
-        "isAccessibleForFree": true
-      })}
-    </script>
+    <StructuredData data={processedData} />
 
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -135,6 +185,35 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
       />
     </noscript>
     <ViewTransitions />
+
+    <!-- Add these meta tags for better performance -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000" />
+    <meta http-equiv="Expires" content="31536000" />
+    <meta http-equiv="Pragma" content="no-cache" />
+
+    <!-- Add resource hints for third-party domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Add more structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "The Book of Life",
+      "url": Astro.site,
+      "description": "A journey through thoughts, experiences, and discoveries.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": `${Astro.site}search?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+
+    <!-- Add more meta tags -->
+    <meta name="keywords" content="personal blog, thoughts, experiences, discoveries, life journey" />
+    <meta name="geo.region" content="US" />
+    <meta name="geo.placename" content="Your City" />
   </head>
   <body>
     <Header currentPath={currentPath} />
@@ -143,19 +222,15 @@ const nextChapter = currentIndex < navigation.length - 1 ? navigation[currentInd
     </main>
     <Footer />
     
-    <!-- Newsletter Modal -->
-    <NewsletterModal isOpen={false} />
-    
     <!-- Search Modal -->
     <SearchModal />
 
+    <!-- Portal container for modals -->
+    <div id="modal-root"></div>
   </body>
 </html>
 
 <style>
-  /* Newsletter Modal Styles */
-  /* Note: Newsletter modal styles are now within NewsletterModal.astro */
-  
   /* Search Modal Styles */
   /* Note: Search modal styles are now within SearchModal.astro */
 </style> 

@@ -1,17 +1,188 @@
 ---
+import StoryLayout from '../../../layouts/StoryLayout.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import StoryLayout from '../../../layouts/StoryLayout.astro';
+
+export const prerender = true;
 
 export async function getStaticPaths() {
-  const stories = await getCollection('stories');
-  return stories.map((story: CollectionEntry<'stories'>) => ({
-    params: { slug: story.slug },
-    props: { story },
-  }));
+  console.log('Executing getStaticPaths...');
+  try {
+    const stories = await getCollection('stories');
+    console.log('Found stories in getStaticPaths:', stories.map(s => ({ slug: s.slug, category: s.data.category })));
+    
+    return stories.map(story => ({
+      params: { slug: story.slug },
+      props: { story },
+    }));
+  } catch (error) {
+    console.error('Error in getStaticPaths:', error);
+    return [];
+  }
 }
 
 const { story } = Astro.props;
+
+if (!story) {
+  console.error('No story found for slug:', Astro.params.slug);
+  return Astro.redirect('/404');
+}
+
+console.log('Story object before rendering:', story);
+
+let Content;
+try {
+  console.log('Attempting to render story:', story.slug);
+  const result = await story.render();
+  console.log('Result of story.render():', result);
+  Content = result.Content;
+} catch (error) {
+  console.error('Error rendering story:', error);
+  return Astro.redirect('/404');
+}
 ---
 
-<StoryLayout story={story} /> 
+<StoryLayout story={story}>
+  <article class="story-content">
+    <h1>{story.data.title}</h1>
+    <div class="story-meta">
+      <time datetime={story.data.pubDate.toISOString()}>
+        {story.data.pubDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}
+      </time>
+      {story.data.readingTime && (
+        <span class="reading-time">{story.data.readingTime} min read</span>
+      )}
+    </div>
+    {story.data.tags && (
+      <div class="story-tags">
+        {story.data.tags.map((tag: string) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    )}
+    <div class="story-body">
+      <Content />
+    </div>
+  </article>
+</StoryLayout>
+
+<style>
+  .story-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .story-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .reading-time {
+    color: var(--accent-color);
+  }
+
+  .story-tags {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    color: var(--text-color-tertiary);
+    background: var(--hover-background);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--border-radius);
+  }
+
+  .story-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+  }
+
+  .story-body :global(p) {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .story-body :global(h2) {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+  }
+
+  .story-body :global(h3) {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+  }
+
+  .story-body :global(blockquote) {
+    border-left: 4px solid var(--accent-color);
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+    font-style: italic;
+    color: var(--text-color-secondary);
+  }
+
+  .story-body :global(code) {
+    background: var(--hover-background);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--border-radius);
+    font-family: var(--font-mono);
+  }
+
+  .story-body :global(pre) {
+    background: var(--hover-background);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    margin: var(--spacing-lg) 0;
+  }
+
+  .story-body :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .story-body :global(ul), .story-body :global(ol) {
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-lg);
+  }
+
+  .story-body :global(li) {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .story-body :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin: var(--spacing-lg) 0;
+  }
+
+  .story-body :global(a) {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+  }
+
+  .story-body :global(a:hover) {
+    text-decoration: underline;
+  }
+</style> 
