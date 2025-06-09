@@ -128,18 +128,47 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
     
     <!-- Critical CSS to prevent FOUC -->
     <style is:inline>
+      /* Hide everything by default */
       html {
         visibility: hidden;
       }
+      
+      /* Only show content when ready */
       html.js-ready {
         visibility: visible;
+      }
+      
+      /* Hide content during page transitions */
+      html.js-transitioning {
+        visibility: hidden;
+      }
+      
+      /* Ensure search modal is hidden during transitions */
+      .search-modal {
+        visibility: hidden !important;
+      }
+      
+      /* Ensure search results are hidden during transitions */
+      .search-results {
+        visibility: hidden !important;
       }
     </style>
     
     <!-- Critical JavaScript to prevent FOUC -->
     <script is:inline>
       (function() {
+        // Add ready class as soon as possible
         document.documentElement.classList.add('js-ready');
+        
+        // Handle page transitions
+        document.addEventListener('astro:before-preparation', () => {
+          document.documentElement.classList.add('js-transitioning');
+        });
+        
+        document.addEventListener('astro:after-swap', () => {
+          document.documentElement.classList.remove('js-transitioning');
+          document.documentElement.classList.add('js-ready');
+        });
       })();
     </script>
     
@@ -246,19 +275,6 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
 
     <!-- Portal container for modals -->
     <div id="modal-root"></div>
-
-    <script>
-      // Handle view transitions
-      document.addEventListener('astro:page-load', () => {
-        requestAnimationFrame(() => {
-          document.documentElement.classList.add('js-ready');
-        });
-      });
-
-      document.addEventListener('astro:before-preparation', () => {
-        document.documentElement.classList.remove('js-ready');
-      });
-    </script>
   </body>
 </html>
 

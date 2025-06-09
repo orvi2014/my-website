@@ -31,7 +31,20 @@ html.js-ready {
   opacity: 0;
 }
 
-/* Show content when JavaScript is ready */
+/* Ensure content is hidden during transitions */
+.js-transitioning * {
+  opacity: 0;
+}
+
+/* Show content when ready */
 .js-ready * {
   opacity: 1;
+}
+
+/* Ensure search components are properly hidden during transitions */
+.js-transitioning .search-modal,
+.js-transitioning .search-results {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 } 
