@@ -139,26 +139,17 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
         visibility: hidden;
       }
       
-      /* Only show content when ready */
-      html.js-ready {
-        visibility: visible;
+      /* Hide all content during transitions */
+      .page-content {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
       }
       
-      /* Hide content during page transitions */
-      html.js-transitioning {
-        visibility: visible;
+      /* Show content only when fully ready */
+      html.js-ready .page-content {
+        opacity: 1;
       }
       
-      /* Ensure search modal is hidden during transitions */
-      .search-modal {
-        visibility: hidden !important;
-      }
-      
-      /* Ensure search results are hidden during transitions */
-      .search-results {
-        visibility: hidden !important;
-      }
-
       /* Skeleton loading styles */
       .skeleton-wrapper {
         position: fixed;
@@ -168,24 +159,46 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
         bottom: 0;
         background: white;
         z-index: 9999;
-        display: none;
-        padding: 2rem;
-        overflow-y: auto;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
       }
 
       html.js-transitioning .skeleton-wrapper {
-        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Ensure search components are hidden */
+      .search-modal,
+      .search-results {
+        display: none !important;
       }
     </style>
     
     <!-- Critical JavaScript to prevent FOUC -->
     <script is:inline>
       (function() {
-        // Add ready class as soon as possible
-        document.documentElement.classList.add('js-ready');
+        // Function to show content
+        function showContent() {
+          document.documentElement.classList.add('js-ready');
+        }
+
+        // Function to hide content
+        function hideContent() {
+          document.documentElement.classList.remove('js-ready');
+        }
+
+        // Show content when DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', showContent);
+        } else {
+          showContent();
+        }
         
         // Handle page transitions
         document.addEventListener('astro:before-preparation', () => {
+          hideContent();
           document.documentElement.classList.add('js-transitioning');
         });
         
@@ -193,7 +206,8 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
           // Wait for the new content to be ready
           requestAnimationFrame(() => {
             document.documentElement.classList.remove('js-transitioning');
-            document.documentElement.classList.add('js-ready');
+            // Small delay to ensure content is ready
+            setTimeout(showContent, 50);
           });
         });
       })();
@@ -302,11 +316,13 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
       </div>
     </div>
 
-    <Header currentPath={currentPath} />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <div class="page-content">
+      <Header currentPath={currentPath} />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
     
     <!-- Search Modal -->
     <SearchModal />
