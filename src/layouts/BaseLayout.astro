@@ -134,18 +134,13 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
         --skeleton-end: #e0e0e0;
       }
 
-      /* Hide everything by default */
-      html {
-        visibility: hidden;
-      }
-      
-      /* Hide all content during transitions */
+      /* Initial state */
       .page-content {
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
       }
       
-      /* Show content only when fully ready */
+      /* Show content when ready */
       html.js-ready .page-content {
         opacity: 1;
       }
@@ -189,12 +184,8 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
           document.documentElement.classList.remove('js-ready');
         }
 
-        // Show content when DOM is ready
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', showContent);
-        } else {
-          showContent();
-        }
+        // Show content immediately
+        showContent();
         
         // Handle page transitions
         document.addEventListener('astro:before-preparation', () => {
@@ -203,12 +194,10 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
         });
         
         document.addEventListener('astro:after-swap', () => {
-          // Wait for the new content to be ready
-          requestAnimationFrame(() => {
-            document.documentElement.classList.remove('js-transitioning');
-            // Small delay to ensure content is ready
-            setTimeout(showContent, 50);
-          });
+          // Show skeleton first
+          document.documentElement.classList.remove('js-transitioning');
+          // Show content after a small delay
+          setTimeout(showContent, 100);
         });
       })();
     </script>
