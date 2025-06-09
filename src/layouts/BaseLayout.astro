@@ -120,15 +120,24 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="js-loading">
+<html lang="en">
   <head>
     <GoogleTagManager id={GTM_ID} />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <!-- Critical CSS to prevent FOUC -->
+    <style is:inline>
+      html {
+        visibility: hidden;
+      }
+      html.js-ready {
+        visibility: visible;
+      }
+    </style>
+    
     <!-- Critical JavaScript to prevent FOUC -->
     <script is:inline>
-      // Add js-ready class as soon as possible
       (function() {
         document.documentElement.classList.add('js-ready');
       })();
