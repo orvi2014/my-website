@@ -3,14 +3,15 @@
   view-transition-name: none;
 }
 
-/* Hide everything by default */
-html {
-  visibility: hidden;
+/* Hide content until styles are loaded */
+html:not(.js-ready) {
+  opacity: 0;
 }
 
-/* Only show content when JavaScript is ready */
+/* Show content when styles are ready */
 html.js-ready {
-  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
 }
 
 /* Smooth page transitions */

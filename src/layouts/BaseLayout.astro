@@ -128,9 +128,10 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
     
     <!-- Critical JavaScript to prevent FOUC -->
     <script is:inline>
-      // Immediately remove loading class and add ready class
-      document.documentElement.classList.remove('js-loading');
-      document.documentElement.classList.add('js-ready');
+      // Add js-ready class as soon as possible
+      (function() {
+        document.documentElement.classList.add('js-ready');
+      })();
     </script>
     
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -240,12 +241,12 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
     <script>
       // Handle view transitions
       document.addEventListener('astro:page-load', () => {
-        document.documentElement.classList.remove('js-loading');
-        document.documentElement.classList.add('js-ready');
+        requestAnimationFrame(() => {
+          document.documentElement.classList.add('js-ready');
+        });
       });
 
       document.addEventListener('astro:before-preparation', () => {
-        document.documentElement.classList.add('js-loading');
         document.documentElement.classList.remove('js-ready');
       });
     </script>
