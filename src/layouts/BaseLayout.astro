@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
+import '../styles/transitions.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SearchModal from '../components/SearchModal.astro';
@@ -119,11 +120,19 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="js-loading">
   <head>
     <GoogleTagManager id={GTM_ID} />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Critical JavaScript to prevent FOUC -->
+    <script is:inline>
+      // Immediately remove loading class and add ready class
+      document.documentElement.classList.remove('js-loading');
+      document.documentElement.classList.add('js-ready');
+    </script>
+    
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     
@@ -227,6 +236,19 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
 
     <!-- Portal container for modals -->
     <div id="modal-root"></div>
+
+    <script>
+      // Handle view transitions
+      document.addEventListener('astro:page-load', () => {
+        document.documentElement.classList.remove('js-loading');
+        document.documentElement.classList.add('js-ready');
+      });
+
+      document.addEventListener('astro:before-preparation', () => {
+        document.documentElement.classList.add('js-loading');
+        document.documentElement.classList.remove('js-ready');
+      });
+    </script>
   </body>
 </html>
 

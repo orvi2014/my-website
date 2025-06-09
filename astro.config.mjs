@@ -9,7 +9,12 @@ export default defineConfig({
   integrations: [tailwind(), react()],
   output: 'server',
   adapter: vercel(),
-  trailingSlash: 'never'
+  trailingSlash: 'never',
+  vite: {
+    ssr: {
+      noExternal: ['astro']
+    }
+  }
 });
 
 

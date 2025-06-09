@@ -1,0 +1,36 @@
+/* Prevent flash of unstyled content */
+:root {
+  view-transition-name: none;
+}
+
+/* Hide everything by default */
+html {
+  visibility: hidden;
+}
+
+/* Only show content when JavaScript is ready */
+html.js-ready {
+  visibility: visible;
+}
+
+/* Smooth page transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Add smooth transitions for all elements */
+* {
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Ensure content is hidden until JavaScript is ready */
+.js-loading * {
+  opacity: 0;
+}
+
+/* Show content when JavaScript is ready */
+.js-ready * {
+  opacity: 1;
+} 
