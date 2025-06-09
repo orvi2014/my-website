@@ -1,0 +1,37 @@
+---
+interface Props {
+  data: {
+    "@context": string;
+    "@type": string;
+    name: string;
+    url: string;
+    description: string;
+    author: {
+      "@type": string;
+      name: string;
+    };
+    publisher: {
+      "@type": string;
+      name: string;
+      logo: {
+        "@type": string;
+        url: string;
+      };
+    };
+    datePublished?: string;
+    dateModified: string;
+    inLanguage: string;
+    isAccessibleForFree: boolean;
+    headline?: string;
+    image?: string;
+    mainEntityOfPage?: {
+      "@type": string;
+      "@id": string;
+    };
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} /> 

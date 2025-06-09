@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "About - Robat Das Orvi | Systems, Clarity, and Thoughtful Tech";
+const description = "Discover the philosophy, projects, and reflections of Robat Das Orvi — a systems thinker and calm builder who chooses peace over chaos.";
+const currentPath = "/about";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  currentPath={currentPath}
+>
+  <main class="about-container">
+    <div class="about-content">
+      <h1>Robat Das Orvi</h1>
+
+      <section class="about-section">
+        <h2>This Is Not a Bio</h2>
+        <p>
+          This isn't a résumé. It’s not a brand. It’s a pause — a quiet space where clarity matters more than hustle. A digital journal shaped by thought, not trend.
+        </p>
+        <p>
+          I solve to feel, not escape feeling. I build to simplify, not amplify noise. I write to remember that clarity is power in a world obsessed with motion.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>The Work Is Context</h2>
+        <p>
+          I co-created <a href="https://onethread.app" target="_blank">OneThread</a> — a calm, focused workspace. And later, <a href="https://agencyhandy.com" target="_blank">AgencyHandy</a> — a thoughtful system for client workflows.
+        </p>
+        <p>
+          These aren’t trophies. They’re ongoing experiments in peace through product. You’re not here for what I built — but perhaps for why I built it.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>Chosen Peace</h2>
+        <p>
+          I design systems — not to escape life, but to embrace it. I believe virtue is underrated, and simplicity is a quiet rebellion. The world is loud; I aim for clarity.
+        </p>
+        <p>
+          I don’t believe chaos is inevitable. I believe peace is something we can design, repeatedly and with intention.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>This is Just a Journal</h2>
+        <p>
+          This is my personal operating system. A place where I think in public, sketch unfinished thoughts, and write to listen to myself.
+        </p>
+        <p>
+          It’s not optimized for clicks — just truth. Thanks for arriving.
+        </p>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .about-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .about-content {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    box-shadow: var(--card-shadow);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .about-section {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+  }
+
+  p {
+    color: var(--text-color-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+  }
+
+  a {
+    color: var(--accent-color);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      padding: var(--spacing-md);
+    }
+
+    .about-content {
+      padding: var(--spacing-lg);
+    }
+  }
+</style>
