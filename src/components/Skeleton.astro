@@ -1,0 +1,79 @@
+---
+interface Props {
+  type?: 'text' | 'title' | 'paragraph' | 'image';
+  width?: string;
+  height?: string;
+  className?: string;
+}
+
+const { 
+  type = 'text', 
+  width = '100%', 
+  height = '1rem',
+  className = ''
+} = Astro.props;
+---
+
+<div 
+  class:list={[
+    'skeleton',
+    `skeleton-${type}`,
+    className
+  ]}
+  style={`width: ${width}; height: ${height};`}
+>
+  {type === 'paragraph' && (
+    <>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+    </>
+  )}
+</div>
+
+<style>
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--skeleton-start) 0%,
+      var(--skeleton-end) 50%,
+      var(--skeleton-start) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .skeleton-title {
+    height: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .skeleton-paragraph {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skeleton-line {
+    height: 1rem;
+    width: 100%;
+    background: inherit;
+    border-radius: 4px;
+  }
+
+  .skeleton-image {
+    aspect-ratio: 16/9;
+    width: 100%;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+</style> 

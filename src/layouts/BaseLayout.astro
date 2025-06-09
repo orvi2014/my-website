@@ -7,6 +7,7 @@ import Footer from '../components/Footer.astro';
 import SearchModal from '../components/SearchModal.astro';
 import StructuredData from '../components/StructuredData.astro';
 import GoogleTagManager from '../components/GoogleTagManager.astro';
+import Skeleton from '../components/Skeleton.astro';
 
 interface Props {
   title: string;
@@ -128,6 +129,11 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
     
     <!-- Critical CSS to prevent FOUC -->
     <style is:inline>
+      :root {
+        --skeleton-start: #f0f0f0;
+        --skeleton-end: #e0e0e0;
+      }
+
       /* Hide everything by default */
       html {
         visibility: hidden;
@@ -140,7 +146,7 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
       
       /* Hide content during page transitions */
       html.js-transitioning {
-        visibility: hidden;
+        visibility: visible;
       }
       
       /* Ensure search modal is hidden during transitions */
@@ -151,6 +157,24 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
       /* Ensure search results are hidden during transitions */
       .search-results {
         visibility: hidden !important;
+      }
+
+      /* Skeleton loading styles */
+      .skeleton-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: white;
+        z-index: 9999;
+        display: none;
+        padding: 2rem;
+        overflow-y: auto;
+      }
+
+      html.js-transitioning .skeleton-wrapper {
+        display: block;
       }
     </style>
     
@@ -166,8 +190,11 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
         });
         
         document.addEventListener('astro:after-swap', () => {
-          document.documentElement.classList.remove('js-transitioning');
-          document.documentElement.classList.add('js-ready');
+          // Wait for the new content to be ready
+          requestAnimationFrame(() => {
+            document.documentElement.classList.remove('js-transitioning');
+            document.documentElement.classList.add('js-ready');
+          });
         });
       })();
     </script>
@@ -264,6 +291,17 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
     <meta name="geo.placename" content="Your City" />
   </head>
   <body>
+    <!-- Skeleton Loading -->
+    <div class="skeleton-wrapper">
+      <div class="skeleton-content">
+        <Skeleton type="title" width="60%" />
+        <Skeleton type="paragraph" />
+        <Skeleton type="paragraph" />
+        <Skeleton type="image" />
+        <Skeleton type="paragraph" />
+      </div>
+    </div>
+
     <Header currentPath={currentPath} />
     <main>
       <slot />
@@ -279,6 +317,20 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
 </html>
 
 <style>
-  /* Search Modal Styles */
-  /* Note: Search modal styles are now within SearchModal.astro */
+  .skeleton-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --skeleton-start: #2a2a2a;
+      --skeleton-end: #3a3a3a;
+    }
+
+    .skeleton-wrapper {
+      background: var(--background-color);
+    }
+  }
 </style> 
