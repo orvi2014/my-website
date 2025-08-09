@@ -18,18 +18,14 @@ interface PageEntry {
 export async function GET() {
   const baseUrl = 'https://robatdasorvi.com';
   
-  // Static pages
+  // Static pages that actually exist as routes
   const staticPages: PageEntry[] = [
     { path: '/', priority: '1.0', changefreq: 'weekly', lastmod: new Date() },
     { path: '/chapters', priority: '0.9', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/chapters/about', priority: '0.8', changefreq: 'monthly', lastmod: new Date() },
-    { path: '/chapters/technology', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/chapters/ai-automation', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/chapters/human', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/chapters/travel', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/chapters/products', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
     { path: '/chapters/stories', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/glossary', priority: '0.7', changefreq: 'monthly', lastmod: new Date() }
+    { path: '/chapters/extensions', priority: '0.8', changefreq: 'monthly', lastmod: new Date() },
+    { path: '/about', priority: '0.7', changefreq: 'monthly', lastmod: new Date() },
+    { path: '/glossary', priority: '0.7', changefreq: 'monthly', lastmod: new Date() },
   ];
 
   // Get dynamic content (if you have any collections)

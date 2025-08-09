@@ -146,7 +146,12 @@ const storiesByCategory = Object.fromEntries(
       const chapterLinks = document.querySelectorAll('.chapter-title');
       const storiesPreview = document.getElementById('stories-preview');
       const introSection = document.getElementById('intro-section');
+      // Controls removed; keep core state
       let activeCategory: string | null = null; // Track the currently active category
+      let loadedStories: any[] = []; // Current category stories
+      let visibleCount = 6; // How many to show
+      let filterText = '';
+      let sortKey: 'newest' | 'oldest' | 'shortest' | 'longest' = 'newest';
       
       // Hide all stories on load and show intro
       if (storiesPreview) storiesPreview.innerHTML = '';
@@ -155,57 +160,97 @@ const storiesByCategory = Object.fromEntries(
         console.log('Intro section display set to flex.', introSection);
       }
 
-      chapterLinks.forEach(link => {
-        // Instead of cloning the link, attach listener to the parent chapter-content
-        const chapterContent = link.closest('.chapter-content') as HTMLElement; // Find the parent with chapter-content class
+      const renderSkeleton = (count = 3) => {
+        if (!storiesPreview) return;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'stories-container';
+        const ul = document.createElement('ul');
+        ul.className = 'stories-list';
+        for (let i = 0; i < count; i++) {
+          const li = document.createElement('li');
+          li.className = 'story-item skeleton';
+          li.innerHTML = `
+            <div class="story-card">
+              <div class=\"skeleton-line h-lg w-60\"></div>
+              <div class=\"skeleton-line h-sm w-90\"></div>
+              <div class=\"skeleton-line h-sm w-70\"></div>
+              <div class=\"story-meta\">
+                <span class=\"skeleton-chip\"></span>
+                <span class=\"skeleton-chip\"></span>
+              </div>
+            </div>
+          `;
+          ul.appendChild(li);
+        }
+        wrapper.appendChild(ul);
+        storiesPreview.innerHTML = '';
+        storiesPreview.appendChild(wrapper);
+      };
 
-        if (chapterContent) {
-          chapterContent.addEventListener('click', (e) => {
-            e.preventDefault();
-            const category = chapterContent.getAttribute('data-category'); // Get category from chapter-content
-            if (!storiesPreview || !introSection || !category) return;
-            
-            if (activeCategory === category) {
-              // If the same chapter is clicked again, toggle back to intro
-              storiesPreview.innerHTML = '';
-              introSection.style.display = 'flex';
-              activeCategory = null; // No category is active now
-            } else {
-              // If a different chapter is clicked, or no chapter is active, show stories and hide intro
-              introSection.style.display = 'none';
-              storiesPreview.innerHTML = '';
-              activeCategory = category; // Set the new active category
-              
-              // Get stories for this category from the server
-              fetch(`/api/stories/${category}`)
-                .then(response => response.json())
-                .then(stories => {
-                  if (!Array.isArray(stories) || stories.length === 0) {
-                    storiesPreview.innerHTML = '<div class="no-stories">No stories in this chapter yet.</div>';
+      function applyFiltersAndSort(stories: any[]) {
+        const text = filterText.trim().toLowerCase();
+        let result = stories as any[];
+        if (text) {
+          result = result.filter((s: any) =>
+            (s.data?.title || '').toLowerCase().includes(text) ||
+            (s.data?.tags || []).join(' ').toLowerCase().includes(text) ||
+            (s.data?.description || '').toLowerCase().includes(text)
+          );
+        }
+        switch (sortKey) {
+          case 'oldest':
+            result = result.slice().sort((a: any, b: any) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime());
+            break;
+          case 'shortest':
+            result = result.slice().sort((a: any, b: any) => (a.data.readingTime || 0) - (b.data.readingTime || 0));
+            break;
+          case 'longest':
+            result = result.slice().sort((a: any, b: any) => (b.data.readingTime || 0) - (a.data.readingTime || 0));
+            break;
+          default:
+            result = result.slice().sort((a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+        }
+        return result;
+      }
+
+      function renderStories() {
+        if (!storiesPreview) return;
+        const filtered = applyFiltersAndSort(loadedStories);
+        const toShow = filtered.slice(0, visibleCount);
+
+        if (toShow.length === 0) {
+          storiesPreview.innerHTML = '<div class="no-stories">No matching stories.</div>';
                     return;
                   }
 
-                  // Create container for stories
-                  const storiesContainer = document.createElement('div');
-                  storiesContainer.className = 'stories-container';
-                  
-                  // Create stories list
+        const container = document.createElement('div');
+        container.className = 'stories-container';
                   const ul = document.createElement('ul');
                   ul.className = 'stories-list';
-                  stories.forEach((story, index) => {
+
+        toShow.forEach((story, index) => {
   const li = document.createElement('li');
   li.className = 'story-item';
   li.style.animationDelay = `${index * 0.1}s`;
-
   const storyLink = document.createElement('a');
   storyLink.href = `/chapters/stories/${story.slug}`;
   storyLink.className = 'story-card';
 
-  // Title
+          // Roman numeral
+          const numeral = document.createElement('span');
+          numeral.className = 'roman';
+          const romans = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+          numeral.textContent = (romans[index] || String(index + 1)).toLowerCase();
+
   const title = document.createElement('h3');
-title.className = 'story-title typewriter-text';
-title.textContent = story.data.title;
-storyLink.appendChild(title);
+          title.className = 'story-title';
+ title.textContent = story.data.title;
+ // Head row: roman + title on the same line
+ const head = document.createElement('div');
+ head.className = 'story-head';
+ head.appendChild(numeral);
+ head.appendChild(title);
+ storyLink.appendChild(head);
 
 if (story.data.description) {
   const description = document.createElement('p');
@@ -223,43 +268,81 @@ if (story.data.tags?.length) {
 
 const meta = document.createElement('div');
 meta.className = 'story-meta';
-
 if (story.data.readingTime) {
   const timeRead = document.createElement('span');
   timeRead.className = 'reading-time';
   timeRead.textContent = `${story.data.readingTime} min read`;
   meta.appendChild(timeRead);
 }
-
 const date = document.createElement('span');
 date.className = 'story-date';
-date.textContent = new Date(story.data.pubDate).toLocaleDateString('en-US', {
-  year: 'numeric', month: 'short', day: 'numeric',
-});
+          date.textContent = new Date(story.data.pubDate).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' });
 meta.appendChild(date);
+          const read = document.createElement('span');
+          read.className = 'read-cta';
+          read.textContent = 'Read →';
+          meta.appendChild(read);
 
-storyLink.appendChild(meta);
-
-  if (story.data.readingTime) {
-    const timeRead = document.createElement('span');
-    timeRead.textContent = `${story.data.readingTime} min read`;
-    meta.appendChild(timeRead);
-  }
-
-  // Append to story link and card
-  storyLink.appendChild(title);
   storyLink.appendChild(meta);
   li.appendChild(storyLink);
   ul.appendChild(li);
 });
 
+        container.appendChild(ul);
+        storiesPreview.innerHTML = '';
+        storiesPreview.appendChild(container);
 
-                  storiesContainer.appendChild(ul);
-                  storiesPreview.appendChild(storiesContainer);
+        // Footer removed; no visibility toggle
+      }
+
+      function attachControlListeners() {}
+
+      chapterLinks.forEach(link => {
+        // Instead of cloning the link, attach listener to the parent chapter-content
+        const chapterContent = link.closest('.chapter-content') as HTMLElement; // Find the parent with chapter-content class
+
+        if (chapterContent) {
+          chapterContent.addEventListener('click', (e) => {
+            e.preventDefault();
+            const category = chapterContent.getAttribute('data-category'); // Get category from chapter-content
+            if (!storiesPreview || !introSection || !category) return;
+            
+            if (activeCategory === category) {
+              // If the same chapter is clicked again, toggle back to intro
+              storiesPreview.innerHTML = '';
+              introSection.style.display = 'flex';
+              const rh = document.getElementById('running-head');
+              if (rh) rh.style.display = 'none';
+              activeCategory = null; // No category is active now
+            } else {
+              // If a different chapter is clicked, or no chapter is active, show stories and hide intro
+              introSection.style.display = 'none';
+              // running head removed
+              renderSkeleton(4);
+              activeCategory = category; // Set the new active category
+              
+              // Get stories for this category from the server
+              fetch(`/api/stories/${encodeURIComponent(category)}`)
+                .then(response => response.json())
+                .then(stories => {
+                  if (!Array.isArray(stories) || stories.length === 0) {
+                    storiesPreview.innerHTML = '<div class="no-stories">No stories in this chapter yet.</div>';
+                    
+                    return;
+                  }
+
+                  // Use controls + renderer for consistent UI
+                  loadedStories = stories;
+                  visibleCount = 6;
+                  filterText = '';
+                  sortKey = 'newest';
+                  
+                  renderStories();
                 })
                 .catch(error => {
                   console.error('Error fetching stories:', error);
                   storiesPreview.innerHTML = '<div class="no-stories">Failed to load stories. Please try again.</div>';
+                  
                 });
             }
           });
@@ -381,17 +464,24 @@ storyLink.appendChild(meta);
     .right-page {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start; /* Aligned to top */
-      align-items: flex-start;
+      justify-content: flex-start;
+      align-items: stretch;
       min-height: 100%;
-      height: 100%;
       position: relative;
       color: var(--text-color); 
-      background-color: var(--card-background);
-      padding: var(--spacing-xl);
+      background:
+        radial-gradient(1200px 600px at 100% -10%, rgba(229, 62, 62, 0.08), transparent 60%),
+        var(--card-background);
+      padding: 0;
       border-radius: var(--border-radius);
       box-shadow: var(--card-shadow);
+      overflow: clip;
     }
+
+    .right-header { position: sticky; top: 0; z-index: 1; background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.75)); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); }
+    .right-header-inner { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.25rem; }
+    .right-header-pill { font-size: 0.75rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--hover-background); color: var(--text-color-tertiary); border: 1px solid var(--border-color); }
+    #right-header-title { font-family: var(--font-display); font-size: 1rem; color: var(--text-color); letter-spacing: 0.01em; }
 
     .intro-section {
       text-align: center;
@@ -399,11 +489,11 @@ storyLink.appendChild(meta);
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100%;
+      min-height: 220px;
       width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      padding-top: 0;
+      max-width: 720px;
+      margin: 1rem auto 0 auto;
+      padding: 1.25rem 1rem 0 1rem;
     }
 
     .intro-section blockquote {
@@ -448,145 +538,61 @@ storyLink.appendChild(meta);
       50% { opacity: 0; }
     }
 
-    .stories-preview {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start; /* Ensure content starts from the top */
-      overflow-y: auto;
-      padding: 2rem;
-      background: transparent;
-      border-radius: var(--border-radius);
-      box-shadow: none;
-      padding-top: 0; /* Explicitly set to 0 to ensure top alignment */
-    }
+    /* right-controls removed per design */
+    .stories-preview { position: relative; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; overflow-y: auto; padding: 1.5rem 1.25rem 1.5rem 1.25rem; background: transparent; }
+    .stories-container { width: 100%; max-width: 880px; margin: 0 auto; animation: fadeIn 0.5s ease-out; }
+    .stories-list { list-style: none; padding: 0; margin: 0; width: 100%; }
+    .story-item { list-style: none; margin-bottom: 1.25rem; animation: fadeInUp 0.3s ease forwards; }
     .story-card {
-  display: block;
-  padding: 1.5rem 2rem;
-  background-color: var(--card-background);
-  border-radius: var(--border-radius);
-  box-shadow: var(--card-shadow);
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'head'
+        'desc'
+        'meta';
+      row-gap: 0.35rem;
+      align-items: start;
+      padding: 1.25rem 1.4rem;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+      border: 1px solid var(--border-color);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   text-decoration: none;
   color: var(--text-color);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.story-card:hover {
-  box-shadow: var(--card-shadow-hover);
-  transform: translateY(-2px);
-}
-
-.story-card-header {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 600;
-  line-height: 1.3;
-  margin-bottom: 0.5rem;
-  color: var(--text-color);
-}
-
-.story-description {
-  font-size: 1rem;
-  color: var(--text-color-secondary);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.story-tags {
-  font-size: 0.875rem;
-  color: var(--text-color-tertiary);
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
-}
-
-.story-meta {
-  font-size: 0.85rem;
-  color: var(--text-color-tertiary);
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: auto;
-}
-
-
-    .stories-container {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      animation: fadeIn 0.5s ease-out;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      text-align: left;
+    }
+    .story-head { grid-area: head; display: flex; align-items: baseline; gap: 0.6rem; }
+    .story-head .roman { font-family: var(--font-display); font-size: 0.85rem; color: var(--text-color-tertiary); flex: 0 0 2ch; width: 2ch; text-align: right; }
+    /* Ensure anchor cards do not inherit global link red */
+    .stories-preview .story-card,
+    .stories-preview .story-card:visited,
+    .stories-preview .story-card:hover,
+    .stories-preview .story-card:active { color: var(--text-color) !important; text-decoration: none; display: grid; }
+    .stories-preview .story-card * { color: inherit; }
+    .stories-preview .story-card:hover { color: var(--text-color) !important; }
+    .story-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.1); border-color: rgba(229, 62, 62, 0.25); }
+    .story-card:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; box-shadow: 0 0 0 2px rgba(229,62,62,0.15), 0 6px 16px rgba(0,0,0,0.08); }
+    .story-card:active { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
+    .stories-preview .story-title { font-size: 1.35rem; font-weight: 700; color: var(--text-color); margin: 0 0 0.25rem 0; letter-spacing: -0.01em; text-align: left; }
+    .stories-preview .story-description { grid-area: desc; font-size: 0.95rem; color: var(--text-color-secondary); margin: 0 0 0.5rem 0; line-height: 1.55; text-align: left; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .stories-preview .story-tags { font-size: 0.78rem; color: var(--text-color-tertiary) !important; margin-bottom: 0.45rem; text-align: left; }
+    .stories-preview .story-meta { grid-area: meta; display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--text-color-tertiary) !important; gap: 0.6rem; flex-wrap: wrap; text-align: left; }
+    .stories-preview .read-cta { margin-left: auto; color: var(--text-color-tertiary); opacity: 0; transition: opacity .2s ease; }
+    .story-card:hover .read-cta, .story-card:focus-visible .read-cta { opacity: 1; }
+    @supports not (gap: 1rem) {
+      .stories-preview .story-meta > * + * { margin-left: 0.6rem; }
     }
 
-    .stories-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
-
-    .story-item {
-  list-style: none;
-  margin-bottom: 2rem;
-  animation: fadeInUp 0.3s ease forwards;
-}
-
-.story-card {
-  display: block;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  background: var(--card-background);
-  box-shadow: var(--card-shadow);
-  text-decoration: none;
-  color: var(--text-color);
-  transition: transform 0.2s ease;
-}
-
-.story-card:hover {
-  transform: translateY(-2px);
-}
-
-.story-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 0.5rem;
-}
-
-.story-description {
-  font-size: 1rem;
-  color: var(--text-color-secondary);
-  margin-bottom: 0.75rem;
-  line-height: 1.6;
-}
-
-.story-tags {
-  font-size: 0.875rem;
-  color: var(--text-color-tertiary);
-  margin-bottom: 0.75rem;
-}
-
-.story-meta {
-  font-size: 0.85rem;
-  color: var(--text-color-tertiary);
-  display: flex;
-  gap: 1rem;
-}
-
-    .story-item {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.5s ease-out forwards;
-      margin-bottom: 2.5rem; 
-      padding: 1.5rem;
-      background: var(--card-background); 
-      border-radius: var(--border-radius);
-      box-shadow: var(--card-shadow); 
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; 
-      border: none; /* Explicitly removed border */
-      outline: none; /* Ensure no outline on focus */
-    }
+    .story-item.skeleton .story-card { position: relative; overflow: hidden; }
+    .skeleton-line { height: 14px; border-radius: 8px; background: linear-gradient(90deg, #f2f2f2, #e9e9e9, #f2f2f2); background-size: 200% 100%; animation: shimmer 1.2s infinite; margin: 10px 0; }
+    .skeleton-line.h-lg { height: 18px; }
+    .skeleton-line.h-sm { height: 12px; }
+    .skeleton-line.w-60 { width: 60%; }
+    .skeleton-line.w-70 { width: 70%; }
+    .skeleton-line.w-90 { width: 90%; }
+    .skeleton-chip { display: inline-block; height: 10px; width: 70px; border-radius: 999px; background: linear-gradient(90deg, #f2f2f2, #e9e9e9, #f2f2f2); background-size: 200% 100%; animation: shimmer 1.2s infinite; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
     .story-item:hover {
       transform: translateY(-2px);
@@ -607,7 +613,7 @@ storyLink.appendChild(meta);
       flex: 1;
     }
 
-    .story-title {
+    .story-link .story-title {
       display: block;
       font-family: var(--font-display);
       font-size: clamp(2rem, 4vw, 3rem); /* Significantly increased font size for strong distinction */
@@ -648,17 +654,7 @@ storyLink.appendChild(meta);
       transform: translateY(-1px);
     }
 
-    .story-meta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.5rem; /* Increased gap between meta items */
-      font-size: 0.85rem;
-      color: var(--text-color-tertiary);
-      min-width: 100px;
-      text-align: right;
-      margin-top: 1.5rem; /* Increased margin-top for more space from tags */
-    }
+    .story-meta { /* old style not used now in right panel cards */ }
 
     .reading-time,
     .story-meta time {
@@ -724,15 +720,12 @@ storyLink.appendChild(meta);
         padding: var(--spacing-lg) var(--spacing-sm);
       }
 
-      .left-page,
-      .right-page {
-        padding: var(--spacing-lg);
-      }
-
-      .story-item {
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-      }
+      .left-page { padding: var(--spacing-lg); }
+      .right-page { padding: var(--spacing-lg); }
+      /* controls removed */
+      .intro-section { padding: 0.5rem 0.5rem 0 0.5rem; margin-top: 0; }
+      .stories-preview { padding: 0; align-items: stretch; }
+      .story-card { padding: 1rem 1.1rem; }
 
       .story-link {
         flex-direction: column;
@@ -747,9 +740,31 @@ storyLink.appendChild(meta);
         margin-top: 0.5rem;
       }
 
-      .story-title {
-        font-size: 1.2rem;
-      }
+      .story-title { font-size: 1.1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .story-card { transition: none; }
+      .story-card:hover, .story-card:active { transform: none; box-shadow: var(--card-shadow); }
+      .story-item { animation: none; }
+    }
+  </style>
+  <style is:global>
+    /* Global rules so dynamically-inserted story cards get styled */
+    .stories-preview { align-items: flex-start; }
+    .stories-preview a.story-card,
+    .stories-preview a.story-card:visited,
+    .stories-preview a.story-card:hover,
+    .stories-preview a.story-card:active { color: var(--text-color) !important; text-decoration: none; text-align: left; }
+    .stories-preview a.story-card * { color: inherit; text-align: left; }
+    .stories-preview a.story-card:hover .story-title { color: var(--accent-color) !important; }
+
+    .stories-preview .story-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem; letter-spacing: -0.01em; }
+    .stories-preview .story-description { font-size: 0.95rem; color: var(--text-color-secondary); margin-bottom: 0.5rem; line-height: 1.55; }
+    .stories-preview .story-tags { font-size: 0.78rem; color: var(--text-color-tertiary) !important; margin-bottom: 0.45rem; }
+    .stories-preview .story-meta { font-size: 0.78rem; color: var(--text-color-tertiary) !important; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    @supports not (gap: 1rem) {
+      .stories-preview .story-meta > * + * { margin-left: 0.6rem; }
     }
   </style>
 </BaseLayout>

@@ -34,14 +34,13 @@ const currentPath = "/";
           <p class="subtitle">A collection of thoughts, experiences, and discoveries</p>
           <p class="author">By Orvi</p>
           <div class="decorative-line"></div>
-          <button 
-            type="button"
+          <a 
+            href="/chapters"
             class="open-book" 
             aria-label="Open book to view table of contents"
-            data-open-newsletter-modal
           >
             <span>Open Book</span>
-          </button>
+          </a>
         </div>
         <div class="book-decoration" aria-hidden="true">
           <div class="corner top-left"></div>
@@ -60,18 +59,7 @@ const currentPath = "/";
     </div>
   </div>
 
-  <NewsletterModal client:load />
-
-  <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
-      const openBookButton = document.querySelector('[data-open-newsletter-modal]');
-      if (openBookButton) {
-        openBookButton.addEventListener('click', () => {
-          window.dispatchEvent(new CustomEvent('openNewsletterModal'));
-        });
-      }
-    });
-  </script>
+  <!-- Newsletter modal no longer triggered from the Open Book CTA -->
 </BaseLayout>
 
 <style>

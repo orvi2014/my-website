@@ -15,16 +15,7 @@ export default function NewsletterModal() {
 
   useEffect(() => {
     setMounted(true);
-    const handleOpen = () => {
-      const hasInteracted = localStorage.getItem('hasInteractedWithNewsletter') === 'true';
-      if (hasInteracted) {
-        window.location.href = '/chapters';
-      } else {
-        setShowModal(true);
-      }
-    };
-    window.addEventListener('openNewsletterModal', handleOpen);
-    return () => window.removeEventListener('openNewsletterModal', handleOpen);
+    // Newsletter modal no longer auto-opens from homepage CTA
   }, []);
 
   useEffect(() => {
@@ -94,8 +85,8 @@ export default function NewsletterModal() {
     localStorage.setItem('newsletterSubscribed', 'false');
     localStorage.setItem('subscriberEmail', '');
     
-    // Redirect to the next chapter
-    window.location.href = '/toc';
+    // Redirect to chapters
+    window.location.href = '/chapters';
   };
 
   const getMessageClass = () =>
