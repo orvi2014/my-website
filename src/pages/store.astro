@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Store – Tools & Extensions';
+const description = 'Practical tools that enhance your workflow.';
+const currentPath = '/store';
+---
+
+<BaseLayout title={title} description={description} currentPath={currentPath}>
+  <main class="store">
+    <header class="store-hero">
+      <h1>Store</h1>
+      <p>Utilities that save time and reduce friction.</p>
+    </header>
+
+    <section class="products">
+      <article class="product">
+        <div class="product-media">
+          <img src="/images/classcatch-icon.png" alt="ClassCatch Icon" width="96" height="96" />
+        </div>
+        <div class="product-body">
+          <h2>ClassCatch</h2>
+          <p>Copy Tailwind classes from any element. Convert computed CSS into Tailwind utilities, instantly.</p>
+          <ul class="product-bullets">
+            <li>Copy Tailwind, CSS, or convert-to-Tailwind</li>
+            <li>Works across sites (incl. iframes)</li>
+            <li>Lightweight overlay, mobile-friendly</li>
+          </ul>
+          <div class="product-cta">
+            <a class="btn primary" href="https://robatdas.gumroad.com/l/classcatch" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+            <a class="btn" href="/extensions/test-bench.html" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <style>
+    .store { max-width: var(--content-width); margin: 0 auto; padding: var(--spacing-xl) var(--spacing-md); }
+    .store-hero { text-align: center; margin-bottom: var(--spacing-xl); }
+    .store-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); margin-bottom: var(--spacing-sm); }
+    .store-hero p { color: var(--text-color-secondary); }
+
+    .products { display: grid; grid-template-columns: 1fr; gap: var(--spacing-lg); }
+
+    .product { display: grid; grid-template-columns: 120px 1fr; gap: var(--spacing-lg); padding: var(--spacing-lg); background: var(--card-background); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: var(--card-shadow); align-items: center; }
+    .product-media img { display: block; width: 96px; height: 96px; border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .product h2 { font-size: 1.6rem; margin: 0 0 var(--spacing-xs) 0; }
+    .product p { color: var(--text-color-secondary); margin-bottom: var(--spacing-sm); }
+    .product-bullets { list-style: none; padding: 0; margin: 0 0 var(--spacing-sm) 0; color: var(--text-color-tertiary); display: grid; gap: 0.35rem; }
+    .product-bullets li::before { content: '✓'; color: var(--accent-color); margin-right: 0.35rem; }
+    .product-cta { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 0.9rem; border-radius: 10px; border: 1px solid var(--border-color); background: white; color: var(--text-color); text-decoration: none; }
+    .btn.primary { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+    .btn.primary:hover { filter: brightness(0.95); }
+
+    @media (max-width: 768px) {
+      .store { padding: var(--spacing-lg) var(--spacing-sm); }
+      .product { grid-template-columns: 1fr; text-align: center; }
+      .product-media { display: flex; justify-content: center; }
+      .product-cta { justify-content: center; }
+    }
+  </style>
+</BaseLayout>
+

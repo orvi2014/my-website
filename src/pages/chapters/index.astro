@@ -244,7 +244,7 @@ const storiesByCategory = Object.fromEntries(
 
   const title = document.createElement('h3');
           title.className = 'story-title';
- title.textContent = story.data.title;
+title.textContent = story.data.title;
  // Head row: roman + title on the same line
  const head = document.createElement('div');
  head.className = 'story-head';
@@ -562,7 +562,7 @@ meta.appendChild(date);
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       text-align: left;
     }
-    .story-head { grid-area: head; display: flex; align-items: baseline; gap: 0.6rem; }
+    .story-head { grid-area: head; display: inline-flex; align-items: baseline; gap: 0.6rem; }
     .story-head .roman { font-family: var(--font-display); font-size: 0.85rem; color: var(--text-color-tertiary); flex: 0 0 2ch; width: 2ch; text-align: right; }
     /* Ensure anchor cards do not inherit global link red */
     .stories-preview .story-card,
@@ -574,7 +574,7 @@ meta.appendChild(date);
     .story-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.1); border-color: rgba(229, 62, 62, 0.25); }
     .story-card:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; box-shadow: 0 0 0 2px rgba(229,62,62,0.15), 0 6px 16px rgba(0,0,0,0.08); }
     .story-card:active { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
-    .stories-preview .story-title { font-size: 1.35rem; font-weight: 700; color: var(--text-color); margin: 0 0 0.25rem 0; letter-spacing: -0.01em; text-align: left; }
+    .stories-preview .story-title { display: inline; font-size: 1.35rem; font-weight: 700; color: var(--text-color); margin: 0 0 0.25rem 0; letter-spacing: -0.01em; text-align: left; }
     .stories-preview .story-description { grid-area: desc; font-size: 0.95rem; color: var(--text-color-secondary); margin: 0 0 0.5rem 0; line-height: 1.55; text-align: left; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .stories-preview .story-tags { font-size: 0.78rem; color: var(--text-color-tertiary) !important; margin-bottom: 0.45rem; text-align: left; }
     .stories-preview .story-meta { grid-area: meta; display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--text-color-tertiary) !important; gap: 0.6rem; flex-wrap: wrap; text-align: left; }

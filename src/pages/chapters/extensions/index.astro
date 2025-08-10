@@ -1,0 +1,42 @@
+---
+import ChapterLayout from '../../../layouts/ChapterLayout.astro';
+
+const title = 'Store: ClassCatch';
+const description = 'Interactive test bench and details for the ClassCatch browser extension.';
+const pubDate = new Date();
+const author = 'Robat Das Orvi';
+---
+
+<ChapterLayout
+  title={title}
+  description={description}
+  pubDate={pubDate}
+  author={author}
+  category="Extensions"
+  readingTime={2}
+>
+  <p>Live demo of the ClassCatch extension. For pricing and purchase, visit the Store.</p>
+
+  <div class="embed">
+    <iframe src="/extensions/test-bench.html" title="ClassCatch Test Bench" loading="lazy"></iframe>
+  </div>
+
+  <style>
+    .embed {
+      margin-top: var(--spacing-lg);
+      background: var(--card-background);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+    .embed iframe {
+      width: 100%;
+      height: 70vh;
+      border: 0;
+      display: block;
+      background: #0a1019;
+    }
+  </style>
+</ChapterLayout>
+
