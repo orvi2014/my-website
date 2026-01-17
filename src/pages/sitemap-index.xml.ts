@@ -15,6 +15,8 @@ interface PageEntry {
   lastmod: Date;
 }
 
+export const prerender = true;
+
 export async function GET() {
   const baseUrl = 'https://robatdasorvi.com';
   

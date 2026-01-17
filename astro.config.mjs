@@ -7,7 +7,8 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://robatdasorvi.com',
   integrations: [tailwind(), react()],
-  output: 'static',
+  output: 'hybrid',
+  adapter: vercel(),
   trailingSlash: 'never',
   vite: {
     ssr: {
