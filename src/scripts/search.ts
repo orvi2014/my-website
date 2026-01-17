@@ -33,26 +33,39 @@ export function initSearch() {
     searchInput.value = '';
   });
 
-  async function performSearch(query: string) {
-    console.log('Search Component Script: Sending query to API:', query);
-    // Temporarily use a hardcoded query for testing
-    // const testQuery = 'testquery'; 
-    const searchUrl = `/api/search`; // Remove query from URL
-    console.log('Search Component Script: Fetching URL:', searchUrl);
+  let searchIndex: SearchResult[] | null = null;
+
+  async function loadSearchIndex() {
+    if (searchIndex) return searchIndex;
     try {
-      const response = await fetch(searchUrl, {
-        method: 'POST', // Change to POST request
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query: query }), // Send query in the request body
-      });
-      const results: SearchResult[] = await response.json();
-      
-      displayResults(results);
+      const response = await fetch('/search-index.json');
+      searchIndex = await response.json();
+      return searchIndex;
     } catch (error) {
-      console.error('Search failed:', error);
+      console.error('Failed to load search index:', error);
+      return [];
     }
+  }
+
+  async function performSearch(query: string) {
+    const index = await loadSearchIndex();
+    if (!index) {
+      displayResults([]);
+      return;
+    }
+
+    const queryLower = query.toLowerCase();
+    const filteredResults = index.filter(item => {
+      const searchableText = [
+        item.title,
+        item.excerpt,
+        item.body
+      ].filter(Boolean).join(' ').toLowerCase();
+      
+      return searchableText.includes(queryLower);
+    });
+    
+    displayResults(filteredResults);
   }
 
   function displayResults(results: SearchResult[]) {
