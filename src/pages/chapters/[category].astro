@@ -1,0 +1,484 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+  return Promise.all(
+    categories.map(async (category) => {
+      const { Content } = await category.render();
+      return {
+        params: { category: category.slug },
+        props: { category, Content },
+      };
+    })
+  );
+}
+
+const { category, Content } = Astro.props;
+const stories = await getCollection('stories', (story) => 
+  story.data.category === category.slug
+);
+
+const sortedStories = stories.sort((a, b) => 
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Get featured article (if exists)
+const featuredStory = sortedStories.find((story: CollectionEntry<'stories'>) => 
+  story.data.featured === true
+) || sortedStories[0];
+
+// Get non-featured stories
+const otherStories = sortedStories.filter((story: CollectionEntry<'stories'>) => 
+  story.slug !== featuredStory?.slug
+);
+
+// Get all categories for related categories section
+const allCategories = await getCollection('categories');
+const allStories = await getCollection('stories');
+const relatedCategories = allCategories
+  .filter((cat: CollectionEntry<'categories'>) => cat.slug !== category.slug)
+  .slice(0, 3)
+  .map((cat: CollectionEntry<'categories'>) => {
+    const catStories = allStories.filter((story: CollectionEntry<'stories'>) => 
+      story.data.category === cat.slug
+    );
+    return { category: cat, storyCount: catStories.length };
+  });
+
+const title = `${category.data.title} – The Book of Life`;
+const description = category.data.description;
+const currentPath = `/chapters/${category.slug}`;
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Chapters', href: '/chapters' },
+  { label: category.data.title, href: `/chapters/${category.slug}` }
+];
+---
+
+<BaseLayout 
+  title={title} 
+  description={description} 
+  currentPath={currentPath}
+>
+  <article class="category-hub">
+    <Breadcrumbs items={breadcrumbItems} />
+    
+    <header class="category-header">
+      <h1>{category.data.title}</h1>
+      <p class="category-description">{category.data.description}</p>
+      <p class="story-count">{stories.length} {stories.length === 1 ? 'story' : 'stories'}</p>
+    </header>
+
+    <!-- Category Context (300-600 words) -->
+    <section class="category-context">
+      <div class="category-content">
+        <Content />
+      </div>
+    </section>
+
+    <!-- Featured Pillar Article -->
+    {featuredStory && (
+      <section class="featured-article">
+        <h2>Featured Article</h2>
+        <article class="featured-card">
+          <a href={`/chapters/stories/${featuredStory.slug}`} class="featured-link">
+            <h3>{featuredStory.data.title}</h3>
+            <p class="featured-description">{featuredStory.data.description}</p>
+            <div class="featured-meta">
+              <time datetime={featuredStory.data.pubDate.toISOString()}>
+                {new Date(featuredStory.data.pubDate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+              {featuredStory.data.readingTime && (
+                <span class="reading-time">{featuredStory.data.readingTime} min read</span>
+              )}
+            </div>
+            {featuredStory.data.tags && (
+              <div class="featured-tags">
+                {featuredStory.data.tags.map((tag: string) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </a>
+        </article>
+      </section>
+    )}
+
+    <!-- All Stories in Category -->
+    {otherStories.length > 0 && (
+      <section class="stories-list">
+        <h2>All Stories</h2>
+        <div class="stories-grid">
+          {otherStories.map((story: CollectionEntry<'stories'>) => (
+            <article class="story-card">
+              <a href={`/chapters/stories/${story.slug}`} class="story-link">
+                <h3>{story.data.title}</h3>
+                <p class="story-excerpt">{story.data.description}</p>
+                <div class="story-meta">
+                  <time datetime={story.data.pubDate.toISOString()}>
+                    {new Date(story.data.pubDate).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </time>
+                  {story.data.readingTime && (
+                    <span class="reading-time">{story.data.readingTime} min read</span>
+                  )}
+                </div>
+                {story.data.tags && (
+                  <div class="story-tags">
+                    {story.data.tags.slice(0, 3).map((tag: string) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Related Categories -->
+    {relatedCategories.length > 0 && (
+      <section class="related-categories">
+        <h2>Explore Other Chapters</h2>
+        <div class="categories-grid">
+          {relatedCategories.map(({ category: cat, storyCount }) => (
+            <article class="category-card">
+              <a href={`/chapters/${cat.slug}`} class="category-link">
+                <span class="category-icon">{cat.data.icon}</span>
+                <h3>{cat.data.title}</h3>
+                <p class="category-card-description">{cat.data.description}</p>
+                <span class="category-story-count">{storyCount} {storyCount === 1 ? 'story' : 'stories'}</span>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": category.data.title,
+  "description": category.data.description,
+  "url": `https://robatdasorvi.com/chapters/${category.slug}`,
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://robatdasorvi.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Chapters",
+        "item": "https://robatdasorvi.com/chapters"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": category.data.title,
+        "item": `https://robatdasorvi.com/chapters/${category.slug}`
+      }
+    ]
+  }
+})} />
+
+<style>
+  .category-hub {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .category-header {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .category-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .category-description {
+    font-size: 1.2rem;
+    color: var(--text-color-secondary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+  }
+
+  .story-count {
+    font-size: 0.9rem;
+    color: var(--text-color-tertiary);
+  }
+
+  .category-context {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+  }
+
+  .category-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+  }
+
+  .category-content :global(p) {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .category-content :global(h2) {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+    color: var(--accent-color);
+  }
+
+  .category-content :global(h3) {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+  }
+
+  .featured-article {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .featured-article h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--accent-color);
+  }
+
+  .featured-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  }
+
+  .featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--page-shadow);
+  }
+
+  .featured-link {
+    display: block;
+    padding: var(--spacing-xl);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .featured-link h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--accent-color);
+  }
+
+  .featured-description {
+    font-size: 1.1rem;
+    color: var(--text-color-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+  }
+
+  .featured-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--text-color-tertiary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .featured-tags {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  .stories-list {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .stories-list h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--accent-color);
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .story-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  }
+
+  .story-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--page-shadow);
+  }
+
+  .story-link {
+    display: block;
+    padding: var(--spacing-lg);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .story-link h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
+  }
+
+  .story-link:hover h3 {
+    color: var(--accent-color);
+  }
+
+  .story-excerpt {
+    color: var(--text-color-secondary);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+  }
+
+  .story-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.85rem;
+    color: var(--text-color-tertiary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .story-tags {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: var(--hover-background);
+    color: var(--text-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+  }
+
+  .related-categories {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .related-categories h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--accent-color);
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .category-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--page-shadow);
+  }
+
+  .category-link {
+    display: block;
+    padding: var(--spacing-lg);
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+  }
+
+  .category-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .category-link h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
+  }
+
+  .category-link:hover h3 {
+    color: var(--accent-color);
+  }
+
+  .category-card-description {
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+  }
+
+  .category-story-count {
+    font-size: 0.85rem;
+    color: var(--text-color-tertiary);
+  }
+
+  @media (max-width: 768px) {
+    .category-hub {
+      padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .stories-grid,
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .category-context {
+      padding: var(--spacing-lg);
+    }
+  }
+</style>

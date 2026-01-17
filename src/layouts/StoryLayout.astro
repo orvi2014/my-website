@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { initShareButtons } from '../scripts/share';
@@ -17,10 +18,40 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   day: 'numeric'
 });
 
-// Get all stories to find the next story
+// Get all stories
 const allStories = await getCollection('stories');
 const currentIndex = allStories.findIndex((s: CollectionEntry<'stories'>) => s.slug === story.slug);
 const nextStory = allStories[currentIndex + 1];
+
+// Get category info
+const categories = await getCollection('categories');
+const category = categories.find((cat: CollectionEntry<'categories'>) => cat.slug === story.data.category);
+
+// Get related stories by category (exclude current)
+const relatedByCategory = allStories
+  .filter((s: CollectionEntry<'stories'>) => 
+    s.data.category === story.data.category && s.slug !== story.slug
+  )
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 3);
+
+// Get related stories by tags (exclude current and category matches)
+const relatedByTags = allStories
+  .filter((s: CollectionEntry<'stories'>) => {
+    if (s.slug === story.slug || !story.data.tags || !s.data.tags) return false;
+    if (s.data.category === story.data.category) return false; // Already in category section
+    return story.data.tags.some((tag: string) => s.data.tags?.includes(tag));
+  })
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 3);
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Chapters', href: '/chapters' },
+  ...(category ? [{ label: category.data.title, href: `/chapters/${category.slug}` }] : []),
+  { label: title, href: `/chapters/stories/${story.slug}` }
+];
 ---
 
 <BaseLayout
@@ -32,6 +63,7 @@ const nextStory = allStories[currentIndex + 1];
   pubDate={pubDate}
 >
   <article class="story-container">
+    <Breadcrumbs items={breadcrumbItems} />
     <div class="story-content">
       <header class="story-header">
         <h1>{title}</h1>
@@ -82,6 +114,73 @@ const nextStory = allStories[currentIndex + 1];
       </footer>
     </div>
   </article>
+
+  <!-- Category Hub Link -->
+  {category && (
+    <nav class="article-navigation">
+      <a href={`/chapters/${category.slug}`} class="category-link">
+        ← Back to {category.data.title}
+      </a>
+    </nav>
+  )}
+
+  <!-- Related Articles by Category -->
+  {relatedByCategory.length > 0 && (
+    <section class="related-stories">
+      <h2>More from {category?.data.title || story.data.category}</h2>
+      <ul class="related-list">
+        {relatedByCategory.map((related: CollectionEntry<'stories'>) => (
+          <li class="related-item">
+            <a href={`/chapters/stories/${related.slug}`} class="related-link">
+              <h3>{related.data.title}</h3>
+              <p class="related-description">{related.data.description}</p>
+              <div class="related-meta">
+                {related.data.readingTime && (
+                  <span class="reading-time">{related.data.readingTime} min read</span>
+                )}
+                <time datetime={related.data.pubDate.toISOString()}>
+                  {new Date(related.data.pubDate).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                  })}
+                </time>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <!-- Related Articles by Tags -->
+  {relatedByTags.length > 0 && (
+    <section class="related-stories">
+      <h2>Related Topics</h2>
+      <ul class="related-list">
+        {relatedByTags.map((related: CollectionEntry<'stories'>) => (
+          <li class="related-item">
+            <a href={`/chapters/stories/${related.slug}`} class="related-link">
+              <h3>{related.data.title}</h3>
+              <p class="related-description">{related.data.description}</p>
+              <div class="related-meta">
+                {related.data.readingTime && (
+                  <span class="reading-time">{related.data.readingTime} min read</span>
+                )}
+                <time datetime={related.data.pubDate.toISOString()}>
+                  {new Date(related.data.pubDate).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                  })}
+                </time>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   {nextStory && (
     <section class="next-story">
@@ -286,6 +385,94 @@ const nextStory = allStories[currentIndex + 1];
   .next-story-link p {
     margin-bottom: 0;
     color: var(--text-color-secondary);
+  }
+
+  .article-navigation {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .category-link {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color var(--transition-speed);
+  }
+
+  .category-link:hover {
+    text-decoration: underline;
+    color: var(--accent-color-dark);
+  }
+
+  .related-stories {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .related-stories h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--accent-color);
+  }
+
+  .related-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .related-item {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  }
+
+  .related-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--page-shadow);
+  }
+
+  .related-link {
+    display: block;
+    padding: var(--spacing-lg);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .related-link h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
+  }
+
+  .related-link:hover h3 {
+    color: var(--accent-color);
+  }
+
+  .related-description {
+    color: var(--text-color-secondary);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+  }
+
+  .related-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.85rem;
+    color: var(--text-color-tertiary);
   }
 
   @media (max-width: 768px) {

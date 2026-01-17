@@ -1,6 +1,13 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+  return categories.map((category) => ({
+    params: { category: category.slug },
+  }));
+}
+
 export const GET: APIRoute = async ({ params }) => {
   try {
     const { category } = params;

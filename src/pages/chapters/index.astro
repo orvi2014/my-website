@@ -64,7 +64,7 @@ const storiesByCategory = Object.fromEntries(
           <li class="chapter-item">
             <span class="chapter-number">{String.fromCharCode(65 + index)}.</span>
             <div class="chapter-content" data-category={category.slug} tabindex="0">
-              <a href="#" class="chapter-title">
+              <a href={`/chapters/${category.slug}`} class="chapter-title" data-page-turn>
                 <span class="chapter-icon">{category.data.icon}</span>
                 {category.data.title}
               </a>

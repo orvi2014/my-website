@@ -1,0 +1,89 @@
+---
+interface Props {
+  items: Array<{
+    label: string;
+    href: string;
+  }>;
+}
+
+const { items } = Astro.props;
+const site = Astro.site || 'https://robatdasorvi.com';
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol class="breadcrumb-list">
+    {items.map((item, index) => (
+      <li class="breadcrumb-item">
+        {index === items.length - 1 ? (
+          <span class="breadcrumb-current" aria-current="page">{item.label}</span>
+        ) : (
+          <a href={item.href} class="breadcrumb-link">{item.label}</a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.label,
+    "item": index === items.length - 1 
+      ? `${site}${item.href}`
+      : `${site}${item.href}`
+  }))
+})} />
+
+<style>
+  .breadcrumbs {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: var(--spacing-xs);
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb-item:not(:last-child)::after {
+    content: '/';
+    margin: 0 var(--spacing-xs);
+    color: var(--text-color-tertiary);
+  }
+
+  .breadcrumb-link {
+    color: var(--text-color-secondary);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+  }
+
+  .breadcrumb-current {
+    color: var(--text-color);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .breadcrumb-list {
+      font-size: 0.85rem;
+    }
+  }
+</style>

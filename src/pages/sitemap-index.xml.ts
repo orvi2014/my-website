@@ -31,14 +31,25 @@ export async function GET() {
   // Get dynamic content (if you have any collections)
   let dynamicPages: PageEntry[] = [];
   try {
+    // Get all categories for category hub pages
+    const categories = await getCollection('categories');
+    const categoryPages = categories.map(cat => ({
+      path: `/chapters/${cat.slug}`,
+      priority: '0.9',
+      changefreq: 'weekly',
+      lastmod: new Date()
+    }));
+    dynamicPages.push(...categoryPages);
+
     // Get all stories if you have a stories collection
     const stories = await getCollection('stories') as BlogPost[];
-    dynamicPages = stories.map(story => ({
+    const storyPages = stories.map(story => ({
       path: `/chapters/stories/${story.slug}`,
       priority: '0.8',
       changefreq: 'monthly',
       lastmod: story.data.pubDate || new Date()
     }));
+    dynamicPages.push(...storyPages);
   } catch (error) {
     console.warn('No content collections found');
   }
