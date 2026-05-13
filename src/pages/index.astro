@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = "The Book of Life — Orvi";
 const description = "A collection of thoughts, experiences, and discoveries.";
 const currentPath = "/";
+const year = new Date().getFullYear();
 ---
 
 <BaseLayout title={title} description={description} currentPath={currentPath}>
@@ -18,7 +19,7 @@ const currentPath = "/";
       <div class="bc-corner br"></div>
 
       <div class="bc-body">
-        <div class="bc-eyebrow">Est. 2025 &nbsp;·&nbsp; First Edition</div>
+        <div class="bc-eyebrow">Est. 1994 &nbsp;·&nbsp; First Edition</div>
         <div class="bc-hr">
           <span class="bc-hr-line"></span>
           <span class="bc-hr-diamond">◆</span>
@@ -41,7 +42,7 @@ const currentPath = "/";
 
       <div class="bc-footer">
         <div class="bc-author">By Orvi</div>
-        <div class="bc-edition">© 2025 · First Edition</div>
+        <div class="bc-edition">© 1994 · First Edition</div>
       </div>
     </div>
 
@@ -60,13 +61,13 @@ const currentPath = "/";
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 48px 24px 72px;
+    padding: 28px 24px 40px;
     background: var(--bg);
   }
 
   /* ── Book card ── */
   .book-card {
-    width: 348px;
+    width: 420px;
     position: relative;
     background: linear-gradient(148deg, #2e1a08 0%, #1e1008 35%, #140c06 65%, #0c0804 100%);
     transform: perspective(1100px) rotateY(-3deg) rotateX(1.5deg);
@@ -89,8 +90,8 @@ const currentPath = "/";
   .book-card::after {
     content: '';
     position: absolute;
-    top: 5px; right: -11px; bottom: 5px;
-    width: 13px;
+    top: 5px; right: -13px; bottom: 5px;
+    width: 15px;
     background: repeating-linear-gradient(
       to bottom,
       #f0e6d4 0, #f0e6d4 1.2px,
@@ -105,15 +106,15 @@ const currentPath = "/";
     content: '';
     position: absolute;
     top: 0; left: 0; bottom: 0;
-    width: 9px;
+    width: 11px;
     background: linear-gradient(to right, #060302 0%, #1a0a04 50%, #060302 100%);
   }
 
   /* Bookmark */
   .bc-bookmark {
     position: absolute;
-    top: 0; right: 52px;
-    width: 14px; height: 46px;
+    top: 0; right: 64px;
+    width: 16px; height: 52px;
     background: linear-gradient(to bottom, #8a2525, #b03030);
     clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
     box-shadow: -1px 2px 6px rgba(0,0,0,0.40);
@@ -123,7 +124,7 @@ const currentPath = "/";
   /* Inner frame */
   .bc-frame {
     position: absolute;
-    inset: 14px 12px;
+    inset: 16px 14px;
     border: 1px solid rgba(195,155,68,0.28);
     pointer-events: none;
     z-index: 1;
@@ -139,32 +140,32 @@ const currentPath = "/";
   /* Corner ornaments */
   .bc-corner {
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     z-index: 2;
     pointer-events: none;
   }
 
-  .bc-corner.tl { top: 20px;    left: 18px;  border-top: 1.5px solid rgba(195,155,68,0.42); border-left: 1.5px solid rgba(195,155,68,0.42); }
-  .bc-corner.tr { top: 20px;    right: 18px; border-top: 1.5px solid rgba(195,155,68,0.42); border-right: 1.5px solid rgba(195,155,68,0.42); }
-  .bc-corner.bl { bottom: 20px; left: 18px;  border-bottom: 1.5px solid rgba(195,155,68,0.42); border-left: 1.5px solid rgba(195,155,68,0.42); }
-  .bc-corner.br { bottom: 20px; right: 18px; border-bottom: 1.5px solid rgba(195,155,68,0.42); border-right: 1.5px solid rgba(195,155,68,0.42); }
+  .bc-corner.tl { top: 22px;    left: 20px;  border-top: 1.5px solid rgba(195,155,68,0.42); border-left: 1.5px solid rgba(195,155,68,0.42); }
+  .bc-corner.tr { top: 22px;    right: 20px; border-top: 1.5px solid rgba(195,155,68,0.42); border-right: 1.5px solid rgba(195,155,68,0.42); }
+  .bc-corner.bl { bottom: 22px; left: 20px;  border-bottom: 1.5px solid rgba(195,155,68,0.42); border-left: 1.5px solid rgba(195,155,68,0.42); }
+  .bc-corner.br { bottom: 22px; right: 20px; border-bottom: 1.5px solid rgba(195,155,68,0.42); border-right: 1.5px solid rgba(195,155,68,0.42); }
 
   /* Body */
   .bc-body {
     position: relative;
     z-index: 1;
-    padding: 50px 34px 72px;
+    padding: 46px 40px 68px;
     display: flex;
     flex-direction: column;
   }
 
   .bc-eyebrow {
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: rgba(196,156,70,0.62);
-    margin-bottom: 22px;
+    margin-bottom: 18px;
     font-family: var(--font-sans);
   }
 
@@ -172,45 +173,45 @@ const currentPath = "/";
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .bc-hr-line { flex: 1; height: 1px; background: rgba(195,155,68,0.34); }
-  .bc-hr-diamond { font-size: 8px; color: rgba(200,162,72,0.52); }
+  .bc-hr-diamond { font-size: 9px; color: rgba(200,162,72,0.52); }
 
   .bc-title {
     font-family: var(--font-serif);
-    font-size: 54px;
-    line-height: 0.95;
+    font-size: 68px;
+    line-height: 0.92;
     letter-spacing: -0.025em;
     font-weight: 400;
     color: #f5e4c0;
     text-shadow: 0 2px 20px rgba(0,0,0,0.35);
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
   .bc-ornament {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
-  .bc-orn-line { width: 26px; height: 1px; background: rgba(195,155,68,0.36); }
-  .bc-orn-glyph { font-size: 13px; color: rgba(200,162,72,0.52); font-family: serif; }
+  .bc-orn-line { width: 30px; height: 1px; background: rgba(195,155,68,0.36); }
+  .bc-orn-glyph { font-size: 15px; color: rgba(200,162,72,0.52); font-family: serif; }
 
   .bc-subtitle {
-    font-size: 13px;
-    line-height: 1.75;
+    font-size: 15px;
+    line-height: 1.7;
     color: rgba(185,150,80,0.70);
-    margin-bottom: 22px;
+    margin-bottom: 18px;
     font-family: var(--font-serif);
     font-style: italic;
   }
 
   .bc-topics {
-    font-size: 11px;
-    line-height: 2.0;
+    font-size: 12px;
+    line-height: 1.9;
     color: rgba(175,140,72,0.52);
     font-family: var(--font-sans);
     letter-spacing: 0.02em;
@@ -219,8 +220,8 @@ const currentPath = "/";
   /* Footer inside card */
   .bc-footer {
     position: absolute;
-    bottom: 20px;
-    left: 34px; right: 22px;
+    bottom: 22px;
+    left: 40px; right: 26px;
     border-top: 1px solid rgba(195,155,68,0.18);
     padding-top: 11px;
     display: flex;
@@ -228,12 +229,12 @@ const currentPath = "/";
     z-index: 2;
   }
 
-  .bc-author  { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(196,152,70,0.65); font-family: var(--font-sans); }
-  .bc-edition { font-size: 9px; color: rgba(160,125,55,0.40); font-family: var(--font-sans); }
+  .bc-author  { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(196,152,70,0.65); font-family: var(--font-sans); }
+  .bc-edition { font-size: 10px; color: rgba(160,125,55,0.40); font-family: var(--font-sans); }
 
   /* ── Actions below card ── */
   .cover-actions {
-    margin-top: 28px;
+    margin-top: 22px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -242,11 +243,11 @@ const currentPath = "/";
 
   .bc-open {
     display: inline-block;
-    padding: 12px 38px;
+    padding: 12px 42px;
     border: 1px solid rgba(100,60,20,0.28);
     background: var(--ink);
     color: var(--bg);
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0.04em;
     cursor: pointer;
     font-family: var(--font-serif);
@@ -268,8 +269,10 @@ const currentPath = "/";
     font-family: var(--font-sans);
   }
 
-  @media (max-width: 420px) {
-    .book-card { width: 290px; }
-    .bc-title { font-size: 44px; }
+  @media (max-width: 480px) {
+    .book-card { width: 320px; }
+    .bc-title { font-size: 52px; }
+    .bc-body { padding: 38px 30px 60px; }
+    .bc-footer { left: 30px; right: 20px; }
   }
 </style>

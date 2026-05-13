@@ -48,7 +48,7 @@ const dateModified  = new Date().toISOString();
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID || '';
 const GSC_VERIFICATION = import.meta.env.PUBLIC_GSC_VERIFICATION || '';
-const GA4_ID = import.meta.env.PUBLIC_GA4_ID || '';
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID || 'G-8MDK069LNK';
 
 // ── Person / author entity (used across all pages) ──────────────────────────
 const personSchema = {
@@ -199,8 +199,8 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
       />
     </noscript>
 
-    <!-- GA4 direct (fallback if GTM not configured) -->
-    {GA4_ID && !GTM_ID && (
+    <!-- Google Analytics 4 -->
+    {GA4_ID && (
       <>
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
         <script define:vars={{ GA4_ID }} is:inline>
