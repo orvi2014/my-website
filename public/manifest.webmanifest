@@ -1,0 +1,19 @@
+{
+  "name": "The Book of Life — Orvi",
+  "short_name": "Book of Life",
+  "description": "A collection of thoughts, experiences, and discoveries on travel, technology, startups, philosophy, and football.",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#f5f1eb",
+  "theme_color": "#f5f1eb",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["books", "news", "lifestyle", "education"]
+}

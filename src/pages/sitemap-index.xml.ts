@@ -1,92 +1,66 @@
-import { defineConfig } from 'astro/config';
 import { getCollection } from 'astro:content';
-
-interface BlogPost {
-  slug: string;
-  data: {
-    pubDate?: Date;
-  };
-}
-
-interface PageEntry {
-  path: string;
-  priority: string;
-  changefreq: string;
-  lastmod: Date;
-}
 
 export const prerender = true;
 
 export async function GET() {
-  const baseUrl = 'https://robatdasorvi.com';
-  
-  // Static pages that actually exist as routes
-  const staticPages: PageEntry[] = [
-    { path: '/', priority: '1.0', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/chapters', priority: '0.9', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/chapters/stories', priority: '0.8', changefreq: 'weekly', lastmod: new Date() },
-    { path: '/chapters/extensions', priority: '0.8', changefreq: 'monthly', lastmod: new Date() },
-    { path: '/about', priority: '0.7', changefreq: 'monthly', lastmod: new Date() },
-    { path: '/glossary', priority: '0.7', changefreq: 'monthly', lastmod: new Date() },
+  const BASE = 'https://www.robatdasorvi.com';
+  const now  = new Date().toISOString();
+
+  const staticPages = [
+    { path: '/',          priority: '1.0', changefreq: 'weekly',  lastmod: now },
+    { path: '/chapters',  priority: '0.9', changefreq: 'weekly',  lastmod: now },
+    { path: '/about',     priority: '0.7', changefreq: 'monthly', lastmod: now },
+    { path: '/store',     priority: '0.6', changefreq: 'monthly', lastmod: now },
+    { path: '/glossary',  priority: '0.6', changefreq: 'monthly', lastmod: now },
   ];
 
-  // Get dynamic content (if you have any collections)
-  let dynamicPages: PageEntry[] = [];
-  try {
-    // Get all categories for category hub pages
-    const categories = await getCollection('categories');
-    const categoryPages = categories.map(cat => ({
-      path: `/chapters/${cat.slug}`,
-      priority: '0.9',
-      changefreq: 'weekly',
-      lastmod: new Date()
-    }));
-    dynamicPages.push(...categoryPages);
+  const dynamicPages: Array<{ path: string; priority: string; changefreq: string; lastmod: string }> = [];
 
-    // Get all stories if you have a stories collection
-    const stories = await getCollection('stories') as BlogPost[];
-    const storyPages = stories.map(story => ({
-      path: `/chapters/stories/${story.slug}`,
-      priority: '0.8',
-      changefreq: 'monthly',
-      lastmod: story.data.pubDate || new Date()
-    }));
-    dynamicPages.push(...storyPages);
-  } catch (error) {
-    console.warn('No content collections found');
+  try {
+    const categories = await getCollection('categories');
+    for (const cat of categories) {
+      dynamicPages.push({
+        path: `/chapters/${cat.slug}`,
+        priority: '0.8',
+        changefreq: 'weekly',
+        lastmod: now,
+      });
+    }
+
+    const stories = await getCollection('stories');
+    for (const story of stories) {
+      const d = story.data.pubDate instanceof Date
+        ? story.data.pubDate.toISOString()
+        : String(story.data.pubDate);
+      dynamicPages.push({
+        path: `/chapters/stories/${story.slug}`,
+        priority: '0.8',
+        changefreq: 'monthly',
+        lastmod: d,
+      });
+    }
+  } catch {
+    // no collections
   }
 
-  // Combine static and dynamic pages
-  const allPages = [...staticPages, ...dynamicPages];
+  const all = [...staticPages, ...dynamicPages];
 
-  // Create sitemap entries
-  const sitemapEntries = allPages.map(page => ({
-    loc: `${baseUrl}${page.path}`,
-    lastmod: page.lastmod.toISOString(),
-    changefreq: page.changefreq,
-    priority: page.priority
-  }));
-
-  // Generate sitemap XML
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  ${sitemapEntries.map(entry => `
-    <url>
-      <loc>${entry.loc}</loc>
-      <lastmod>${entry.lastmod}</lastmod>
-      <changefreq>${entry.changefreq}</changefreq>
-      <priority>${entry.priority}</priority>
-    </url>
-  `).join('')}
+${all.map(p => `  <url>
+    <loc>${BASE}${p.path}</loc>
+    <lastmod>${p.lastmod}</lastmod>
+    <changefreq>${p.changefreq}</changefreq>
+    <priority>${p.priority}</priority>
+  </url>`).join('\n')}
 </urlset>`;
 
-  return new Response(sitemap, {
+  return new Response(xml, {
     headers: {
-      'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600'
-    }
+      'Content-Type': 'application/xml; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+    },
   });
-} 
+}

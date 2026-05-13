@@ -1,0 +1,32 @@
+# The Book of Life — Orvi
+
+> A personal essay collection exploring travel, technology, startups, philosophy, psychology, and football.
+
+## About
+
+This is the personal writing of Robat Das Orvi (known as Orvi), a builder and systems thinker based online. The Book of Life is a collection of long-form essays written across three years — in airports, cafés, hotel rooms, and at least one football stadium.
+
+The central question running through every essay: how do we pay attention to the right things?
+
+## Chapters
+
+- **Travel & Wandering** — Essays on slow travel, wrong turns, and the wisdom found when you stop following a plan.
+- **Technology & Automation** — On building AI systems, the hidden cost of automating your life, and what remains when machines handle the rest.
+- **The Startup Mind** — On founder psychology, the pivot myth, and the necessary fictions that make building possible.
+- **Philosophy & Psychology** — On the examined life, self-awareness, and the gap between knowing and actually changing.
+- **The Beautiful Game** — On football as a lens for attention, pressure, and the ninety-minute version of everything.
+
+## Author
+
+**Robat Das Orvi** (Orvi) — Writer, builder of [OneThread](https://onethread.app) and [AgencyHandy](https://agencyhandy.com). Writes about systems, attention, and the things worth doing slowly.
+
+## Content License
+
+All essays are original work by Orvi. Citation with attribution is welcome.
+
+## Links
+
+- Home: https://www.robatdasorvi.com
+- Chapters: https://www.robatdasorvi.com/chapters
+- About: https://www.robatdasorvi.com/about
+- Glossary: https://www.robatdasorvi.com/glossary

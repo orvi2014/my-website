@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  site: 'https://robatdasorvi.com',
+  site: 'https://www.robatdasorvi.com',
   integrations: [tailwind(), react()],
   output: 'static',
   trailingSlash: 'never',

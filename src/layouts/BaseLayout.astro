@@ -5,7 +5,6 @@ import '../styles/transitions.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SearchModal from '../components/SearchModal.astro';
-import StructuredData from '../components/StructuredData.astro';
 import GoogleTagManager from '../components/GoogleTagManager.astro';
 import Skeleton from '../components/Skeleton.astro';
 
@@ -14,39 +13,15 @@ interface Props {
   description: string;
   currentPath: string;
   image?: string;
-  type?: string;
+  type?: 'website' | 'article';
   pubDate?: Date;
   noindex?: boolean;
-}
-
-interface StructuredDataType {
-  "@context": string;
-  "@type": string;
-  name: string;
-  url: string;
-  description: string;
-  author: {
-    "@type": string;
-    name: string;
-  };
-  publisher: {
-    "@type": string;
-    name: string;
-    logo: {
-      "@type": string;
-      url: string;
-    };
-  };
-  datePublished?: string;
-  dateModified: string;
-  inLanguage: string;
-  isAccessibleForFree: boolean;
-  headline?: string;
-  image?: string;
-  mainEntityOfPage?: {
-    "@type": string;
-    "@id": string;
-  };
+  /** Article category label, e.g. "Technology" */
+  category?: string;
+  /** Reading time in minutes */
+  readingTime?: number;
+  /** Article tags */
+  tags?: string[];
 }
 
 const {
@@ -55,200 +30,160 @@ const {
   currentPath,
   image = "/images/default-og.jpg",
   type = "website",
-  pubDate = new Date(),
+  pubDate,
   noindex = false,
+  category,
+  readingTime,
+  tags = [],
 } = Astro.props;
 
-const canonicalURL = new URL(currentPath, Astro.site);
-const socialImageURL = new URL(image, Astro.site);
-const formattedDate = pubDate ? new Date(pubDate).toISOString() : undefined;
+const SITE   = 'https://www.robatdasorvi.com';
+const AUTHOR = 'Robat Das Orvi';
+const AUTHOR_ID = `${SITE}/#orvi`;
 
-// Prepare structured data
-const structuredData: StructuredDataType = {
+const canonicalURL  = new URL(currentPath, SITE).toString();
+const socialImage   = new URL(image, SITE).toString();
+const datePublished = pubDate ? new Date(pubDate).toISOString() : undefined;
+const dateModified  = new Date().toISOString();
+
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID || '';
+const GSC_VERIFICATION = import.meta.env.PUBLIC_GSC_VERIFICATION || '';
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID || '';
+
+// ── Person / author entity (used across all pages) ──────────────────────────
+const personSchema = {
   "@context": "https://schema.org",
-  "@type": type === "article" ? "Article" : "WebSite",
-  "name": title,
-  "url": canonicalURL.toString(),
-  "description": description,
-  "author": {
-    "@type": "Person",
-    "name": "Orvi"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "The Book of Life",
-    "logo": {
-      "@type": "ImageObject",
-      "url": new URL('/images/logo.png', Astro.site).toString()
-    }
-  },
-  "datePublished": formattedDate,
-  "dateModified": new Date().toISOString(),
-  "inLanguage": "en-US",
-  "isAccessibleForFree": true
+  "@type": "Person",
+  "@id": AUTHOR_ID,
+  "name": AUTHOR,
+  "alternateName": "Orvi",
+  "url": SITE,
+  "description": "Writer, systems thinker, and builder of calm products. Co-creator of OneThread and AgencyHandy.",
+  "knowsAbout": [
+    "Travel", "Technology", "Artificial Intelligence", "Automation",
+    "Startups", "Founder Psychology", "Philosophy", "Psychology", "Football"
+  ],
+  "sameAs": [
+    "https://agencyhandy.com",
+    "https://onethread.app"
+  ]
 };
 
-// Add article-specific data if type is article
-if (type === "article") {
-  structuredData.headline = title;
-  structuredData.image = socialImageURL.toString();
-  structuredData.mainEntityOfPage = {
-    "@type": "WebPage",
-    "@id": canonicalURL.toString()
-  };
-}
-
-// Ensure all URLs are strings
-const processedData: StructuredDataType = {
-  ...structuredData,
-  url: structuredData.url.toString(),
-  image: structuredData.image?.toString(),
-  mainEntityOfPage: structuredData.mainEntityOfPage ? {
-    ...structuredData.mainEntityOfPage,
-    "@id": structuredData.mainEntityOfPage["@id"].toString()
-  } : undefined,
-  publisher: {
-    ...structuredData.publisher,
-    logo: {
-      ...structuredData.publisher.logo,
-      url: structuredData.publisher.logo.url.toString()
-    }
+// ── Website / blog entity ────────────────────────────────────────────────────
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": `${SITE}/#website`,
+  "name": "The Book of Life",
+  "url": SITE,
+  "description": "A collection of long-form essays on travel, technology, startups, philosophy, psychology, and football.",
+  "inLanguage": "en-US",
+  "author": { "@id": AUTHOR_ID },
+  "publisher": { "@id": AUTHOR_ID },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": { "@type": "EntryPoint", "urlTemplate": `${SITE}/search?q={search_term_string}` },
+    "query-input": "required name=search_term_string"
   }
 };
 
-// Add GTM ID to your environment variables
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with your GTM ID
+// ── Article schema (only on article pages) ───────────────────────────────────
+const articleSchema = type === 'article' ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": canonicalURL,
+  "headline": title,
+  "name": title,
+  "description": description,
+  "url": canonicalURL,
+  "image": socialImage,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true,
+  "author": { "@id": AUTHOR_ID },
+  "publisher": {
+    "@type": "Person",
+    "@id": AUTHOR_ID,
+    "name": AUTHOR
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalURL },
+  ...(category ? { "articleSection": category } : {}),
+  ...(readingTime ? { "timeRequired": `PT${readingTime}M` } : {}),
+  ...(tags.length ? { "keywords": tags.join(', ') } : {}),
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".art-kicker", ".art-title", ".art-pull", ".art-body p:first-of-type"]
+  }
+} : null;
+
+// ── BreadcrumbList (article pages only) ──────────────────────────────────────
+const pathParts = currentPath.replace(/^\/|\/$/g, '').split('/');
+const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE },
+    { "@type": "ListItem", "position": 2, "name": "Chapters", "item": `${SITE}/chapters` },
+    { "@type": "ListItem", "position": 3, "name": title, "item": canonicalURL }
+  ]
+} : null;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <GoogleTagManager id={GTM_ID} />
+    {GTM_ID && <GoogleTagManager id={GTM_ID} />}
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="impact-site-verification" content="810750bc-c8e9-404c-905c-b41cc7d94284" />
-    
-    <!-- Critical CSS to prevent FOUC -->
-    <style is:inline>
-      :root {
-        --skeleton-start: #f0f0f0;
-        --skeleton-end: #e0e0e0;
-      }
-
-      /* Initial state */
-      .page-content {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-      }
-      
-      /* Show content when ready */
-      html.js-ready .page-content {
-        opacity: 1;
-      }
-      
-      /* Skeleton loading styles */
-      .skeleton-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: white;
-        z-index: 9999;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-      }
-
-      html.js-transitioning .skeleton-wrapper {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      /* Ensure search components are hidden */
-      .search-modal,
-      .search-results {
-        display: none !important;
-      }
-    </style>
-    
-    <!-- Critical JavaScript to prevent FOUC -->
-    <script is:inline>
-      (function() {
-        // Function to show content
-        function showContent() {
-          document.documentElement.classList.add('js-ready');
-        }
-
-        // Function to hide content
-        function hideContent() {
-          document.documentElement.classList.remove('js-ready');
-        }
-
-        // Show content immediately
-        showContent();
-        
-        // Handle page transitions
-        document.addEventListener('astro:before-preparation', () => {
-          hideContent();
-          document.documentElement.classList.add('js-transitioning');
-        });
-        
-        document.addEventListener('astro:after-swap', () => {
-          // Show skeleton first
-          document.documentElement.classList.remove('js-transitioning');
-          // Show content after a small delay
-          setTimeout(showContent, 100);
-        });
-      })();
-    </script>
-    
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
-    <!-- Primary Meta Tags -->
+
+    <!-- Google Search Console verification (set PUBLIC_GSC_VERIFICATION in .env) -->
+    {GSC_VERIFICATION && <meta name="google-site-verification" content={GSC_VERIFICATION} />}
+
+    <!-- Primary Meta -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
+    <meta name="author" content={AUTHOR} />
+    <meta name="language" content="en" />
+    <meta name="theme-color" content="#f5f1eb" />
 
-    <!-- Performance Optimizations -->
-    <link rel="preload" href="/fonts/eb-garamond-v26-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    
-    <!-- Robots -->
-    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
-    <meta name="googlebot" content={noindex ? "noindex, nofollow" : "index, follow"} />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content={type} />
+    <!-- Open Graph -->
+    <meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="The Book of Life" />
     <meta property="og:locale" content="en_US" />
+    {type === 'article' && datePublished && <meta property="article:published_time" content={datePublished} />}
+    {type === 'article' && <meta property="article:author" content={AUTHOR} />}
+    {type === 'article' && category && <meta property="article:section" content={category} />}
+    {tags.map(tag => <meta property="article:tag" content={tag} />)}
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={socialImageURL} />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:creator" content="@orvi" />
 
-    <!-- Additional Meta Tags -->
-    <meta name="language" content="English" />
-    <meta name="author" content="Orvi" />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="theme-color" content="#f9f6ef" />
-    <meta name="color-scheme" content="light" />
-    
-    <!-- Structured Data -->
-    <StructuredData data={processedData} />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Preconnect to external resources -->
+    <!-- Font preloads (served from /public/fonts/) -->
+    <link rel="preload" href="/fonts/eb-garamond-v26-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-v12-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Google Fonts (deferred) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -263,39 +198,60 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
         rel="stylesheet"
       />
     </noscript>
-    <ViewTransitions />
 
-    <!-- Add these meta tags for better performance -->
-    <meta http-equiv="Cache-Control" content="public, max-age=31536000" />
-    <meta http-equiv="Expires" content="31536000" />
-    <meta http-equiv="Pragma" content="no-cache" />
+    <!-- GA4 direct (fallback if GTM not configured) -->
+    {GA4_ID && !GTM_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+        <script define:vars={{ GA4_ID }} is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', GA4_ID);
+        </script>
+      </>
+    )}
 
-    <!-- Add resource hints for third-party domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <!-- ── Structured Data ────────────────────────────────────────────── -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+    {breadcrumbs && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />}
 
-    <!-- Add more structured data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "The Book of Life",
-      "url": Astro.site,
-      "description": "A journey through thoughts, experiences, and discoveries.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": `${Astro.site}search?q={search_term_string}`,
-        "query-input": "required name=search_term_string"
+    <!-- Critical CSS to prevent FOUC -->
+    <style is:inline>
+      .page-content { opacity: 0; transition: opacity 0.25s ease; }
+      html.js-ready .page-content { opacity: 1; }
+      .skeleton-wrapper {
+        position: fixed; inset: 0;
+        background: #f5f1eb;
+        z-index: 9999;
+        opacity: 0; visibility: hidden;
+        transition: opacity 0.25s, visibility 0.25s;
       }
-    })} />
+      html.js-transitioning .skeleton-wrapper { opacity: 1; visibility: visible; }
+      .search-modal, .search-results { display: none !important; }
+    </style>
 
-    <!-- Add more meta tags -->
-    <meta name="keywords" content="personal blog, thoughts, experiences, discoveries, life journey" />
-    <meta name="geo.region" content="US" />
-    <meta name="geo.placename" content="Your City" />
+    <script is:inline>
+      (function() {
+        document.documentElement.classList.add('js-ready');
+        document.addEventListener('astro:before-preparation', function() {
+          document.documentElement.classList.remove('js-ready');
+          document.documentElement.classList.add('js-transitioning');
+        });
+        document.addEventListener('astro:after-swap', function() {
+          document.documentElement.classList.remove('js-transitioning');
+          setTimeout(function() {
+            document.documentElement.classList.add('js-ready');
+          }, 80);
+        });
+      })();
+    </script>
+
+    <ViewTransitions />
   </head>
   <body>
-    <!-- Skeleton Loading -->
     <div class="skeleton-wrapper">
       <div class="skeleton-content">
         <Skeleton type="title" width="60%" />
@@ -313,30 +269,16 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-XXXXXXX'; // Replace with y
       </main>
       <Footer />
     </div>
-    
-    <!-- Search Modal -->
-    <SearchModal />
 
-    <!-- Portal container for modals -->
+    <SearchModal />
     <div id="modal-root"></div>
   </body>
 </html>
 
 <style>
   .skeleton-content {
-    max-width: var(--content-width);
+    max-width: 860px;
     margin: 0 auto;
     padding: 2rem;
   }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --skeleton-start: #2a2a2a;
-      --skeleton-end: #3a3a3a;
-    }
-
-    .skeleton-wrapper {
-      background: var(--background-color);
-    }
-  }
-</style> 
+</style>

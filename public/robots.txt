@@ -1,20 +1,51 @@
-# Allow all crawlers
+# Allow all standard crawlers
 User-agent: *
 Allow: /
-
-# Disallow admin and private areas
+Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
-Disallow: /api/
+Crawl-delay: 1
 
-# Allow specific bots
+# Google
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+# ── AI / Answer Engine crawlers — explicitly allowed for AEO ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 # Sitemaps
-Sitemap: https://robatdasorvi.com/sitemap-index.xml 
+Sitemap: https://www.robatdasorvi.com/sitemap-index.xml

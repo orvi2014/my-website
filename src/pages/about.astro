@@ -1,114 +1,79 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "About - Robat Das Orvi | Systems, Clarity, and Thoughtful Tech";
-const description = "Discover the philosophy, projects, and reflections of Robat Das Orvi — a systems thinker and calm builder who chooses peace over chaos.";
+const title = "About – The Book of Life";
+const description = "On the essays, the questions underneath them, and the person writing them.";
 const currentPath = "/about";
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  currentPath={currentPath}
->
-  <main class="about-container">
-    <div class="about-content">
-      <h1>Robat Das Orvi</h1>
+<BaseLayout title={title} description={description} currentPath={currentPath}>
+  <div class="simple-wrap">
+    <div class="pg-title">About</div>
+    <div class="pg-rule"></div>
 
-      <section class="about-section">
-        <h2>This Is Not a Bio</h2>
-        <p>
-          This isn't a résumé. It’s not a brand. It’s a pause — a quiet space where clarity matters more than hustle. A digital journal shaped by thought, not trend.
-        </p>
-        <p>
-          I solve to feel, not escape feeling. I build to simplify, not amplify noise. I write to remember that clarity is power in a world obsessed with motion.
-        </p>
-      </section>
-
-      <section class="about-section">
-        <h2>The Work Is Context</h2>
-        <p>
-          I co-created <a href="https://onethread.app" target="_blank">OneThread</a> — a calm, focused workspace. And later, <a href="https://agencyhandy.com" target="_blank">AgencyHandy</a> — a thoughtful system for client workflows.
-        </p>
-        <p>
-          These aren’t trophies. They’re ongoing experiments in peace through product. You’re not here for what I built — but perhaps for why I built it.
-        </p>
-      </section>
-
-      <section class="about-section">
-        <h2>Chosen Peace</h2>
-        <p>
-          I design systems — not to escape life, but to embrace it. I believe virtue is underrated, and simplicity is a quiet rebellion. The world is loud; I aim for clarity.
-        </p>
-        <p>
-          I don’t believe chaos is inevitable. I believe peace is something we can design, repeatedly and with intention.
-        </p>
-      </section>
-
-      <section class="about-section">
-        <h2>This is Just a Journal</h2>
-        <p>
-          This is my personal operating system. A place where I think in public, sketch unfinished thoughts, and write to listen to myself.
-        </p>
-        <p>
-          It’s not optimized for clicks — just truth. Thanks for arriving.
-        </p>
-      </section>
+    <div class="pg-bio">
+      <p>These essays were written across three years, in airports, cafés, hotel rooms, and one football stadium. They were not written to be a book. They became one in retrospect, when I noticed the same questions surfacing in different clothes.</p>
+      <p>The question underneath all of them: how do we pay attention to the right things? Technology automates it. Travel disrupts it. Startups consume it. Philosophy interrogates it. Football demands it for ninety minutes.</p>
+      <p>I do not have a better answer. But I find the question worth asking every time.</p>
+      <p>I co-created <a href="https://onethread.app" target="_blank" rel="noopener">OneThread</a> — a calm, focused workspace. And later, <a href="https://agencyhandy.com" target="_blank" rel="noopener">AgencyHandy</a> — a thoughtful system for client workflows. These are experiments in peace through product.</p>
+      <div class="pg-sig">— Orvi, 2025</div>
     </div>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
-  .about-container {
-    max-width: var(--content-width);
+  .simple-wrap {
+    max-width: 720px;
     margin: 0 auto;
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: 52px 40px 100px;
   }
 
-  .about-content {
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-xl);
-    box-shadow: var(--card-shadow);
+  .pg-title {
+    font-family: var(--font-serif);
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 10px;
   }
 
-  h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--text-color);
-    margin-bottom: var(--spacing-xl);
-    text-align: center;
+  .pg-rule {
+    width: 40px;
+    height: 2px;
+    background: var(--sienna);
+    margin-bottom: 36px;
   }
 
-  .about-section {
-    margin-bottom: var(--spacing-xl);
+  .pg-bio {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    line-height: 1.82;
+    color: var(--ink);
+    max-width: 600px;
   }
 
-  h2 {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    color: var(--text-color);
-    margin-bottom: var(--spacing-md);
+  .pg-bio p {
+    margin-bottom: 1.4em;
   }
 
-  p {
-    color: var(--text-color-secondary);
-    line-height: 1.8;
-    margin-bottom: var(--spacing-md);
-  }
-
-  a {
-    color: var(--accent-color);
+  .pg-bio a {
+    color: var(--sienna);
     text-decoration: underline;
+    text-decoration-color: rgba(139,94,60,0.35);
+    text-underline-offset: 2px;
   }
 
-  @media (max-width: 768px) {
-    .about-container {
-      padding: var(--spacing-md);
-    }
+  .pg-sig {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sienna);
+    margin-top: 2em;
+  }
 
-    .about-content {
-      padding: var(--spacing-lg);
-    }
+  @media (max-width: 640px) {
+    .simple-wrap { padding: 36px 24px 72px; }
+    .pg-title { font-size: 32px; }
+    .pg-bio { font-size: 17px; }
   }
 </style>

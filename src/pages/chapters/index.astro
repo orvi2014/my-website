@@ -4,767 +4,449 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
 const title = "Chapters – The Book of Life";
-const description = "Flip through the chapters of The Book of Life – exploring thoughts, experiences, and discoveries.";
+const description = "Six chapters on travel, technology, startups, philosophy, psychology, and football. Long-form essays by Orvi.";
 const currentPath = "/chapters";
 
-// Get all categories and stories
 const categories = await getCollection('categories');
 const stories = await getCollection('stories');
 
-// Sort categories by order
-const sortedCategories = categories.sort((a: CollectionEntry<'categories'>, b: CollectionEntry<'categories'>) => 
-  a.data.order - b.data.order
+const sortedCategories = categories.sort(
+  (a: CollectionEntry<'categories'>, b: CollectionEntry<'categories'>) => a.data.order - b.data.order
 );
 
-// Group stories by category
-const storiesByCategoryRaw = stories.reduce((acc: Record<string, CollectionEntry<'stories'>[]>, story: CollectionEntry<'stories'>) => {
-  const category = story.data.category;
-  if (!acc[category]) {
-    acc[category] = [];
-  }
-  acc[category].push(story);
-  return acc;
-}, {});
+const ROMANS = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
 
-// Sort stories within each category by publication date
-Object.keys(storiesByCategoryRaw).forEach((category: string) => {
-  storiesByCategoryRaw[category].sort((a: CollectionEntry<'stories'>, b: CollectionEntry<'stories'>) => 
-    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-  );
+const catData = sortedCategories.map((cat: CollectionEntry<'categories'>, i: number) => {
+  const catStories = stories
+    .filter((s: CollectionEntry<'stories'>) => s.data.category === cat.slug)
+    .sort((a: CollectionEntry<'stories'>, b: CollectionEntry<'stories'>) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+    )
+    .map((s: CollectionEntry<'stories'>) => ({
+      slug: s.slug,
+      title: s.data.title,
+      description: s.data.description || '',
+      readingTime: s.data.readingTime || null,
+      pubDate: s.data.pubDate instanceof Date ? s.data.pubDate.toISOString() : String(s.data.pubDate),
+      tags: s.data.tags || [],
+    }));
+
+  return {
+    slug: cat.slug,
+    title: cat.data.title,
+    description: cat.data.description,
+    roman: ROMANS[i] || String(i + 1),
+    pg: i * 6 + 1,
+    stories: catStories,
+  };
 });
 
-// Number of stories to show initially per category
-const INITIAL_STORIES = 5;
-
-// Create a serializable object for the client
-const storiesByCategory = Object.fromEntries(
-  sortedCategories.map(cat => [
-    cat.slug,
-    (storiesByCategoryRaw[cat.slug] || []).map(story => ({
-      slug: story.slug,
-      data: {
-        title: story.data.title,
-        tags: story.data.tags || [],
-        readingTime: story.data.readingTime || null,
-        pubDate: typeof story.data.pubDate === 'string'
-          ? story.data.pubDate
-          : new Date(story.data.pubDate).toISOString(),
-      }
-    }))
-  ])
-);
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "The Book of Life — Chapters",
+  "description": description,
+  "url": "https://www.robatdasorvi.com/chapters",
+  "numberOfItems": catData.length,
+  "itemListElement": catData.map((cat, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": cat.title,
+    "description": cat.description,
+    "url": `https://www.robatdasorvi.com/chapters/${cat.slug}`,
+  })),
+};
 ---
 
 <BaseLayout title={title} description={description} currentPath={currentPath}>
-  <main class="book-toc">
-    <section class="left-page">
-      <h2>Table of Contents</h2>
-      <ol class="chapters-list">
-        {sortedCategories.map((category: CollectionEntry<'categories'>, index: number) => (
-          <li class="chapter-item">
-            <span class="chapter-number">{String.fromCharCode(65 + index)}.</span>
-            <div class="chapter-content" data-category={category.slug} tabindex="0">
-              <a href={`/chapters/${category.slug}`} class="chapter-title" data-page-turn>
-                <span class="chapter-icon">{category.data.icon}</span>
-                {category.data.title}
-              </a>
-              <p class="chapter-description">{category.data.description}</p>
-              <span class="story-count">
-                {storiesByCategory[category.slug]?.length || 0} stories
-              </span>
-            </div>
-          </li>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <div class="ch-scene">
+    <div class="open-book">
+
+      <!-- Left page: Table of Contents -->
+      <div class="bl-page">
+        <div class="page-head">
+          <span>Table of Contents</span>
+          <span>The Book of Life</span>
+        </div>
+        <div class="toc-header">Contents</div>
+        <div class="toc-rule"></div>
+
+        {catData.map((cat, i) => (
+          <div class:list={['toc-entry', { active: i === 0 }]} data-idx={i}>
+            <span class="toc-roman">{cat.roman}</span>
+            <span class="toc-name">{cat.title}</span>
+            <span class="toc-leader"></span>
+            <span class="toc-pg">{cat.pg}</span>
+          </div>
         ))}
-      </ol>
-    </section>
-    <section class="right-page">
-      <div class="intro-section" id="intro-section">
-        <blockquote class="typewriter-text">
-          "Every chapter begins with a question. Every story is an attempt to answer."
-        </blockquote>
-        <p class="typewriter-text">
-          Step into the unfolding pages of The Book of Life — a quiet exploration of ideas, systems, and the human search for meaning. Each entry blends reflection with clarity, turning thoughts into stories and moments into meaning.
-        </p>
+
+        <div class="page-foot">
+          <span>The Book of Life</span>
+          <span>i</span>
+        </div>
       </div>
-      <div class="stories-preview" id="stories-preview">
-        {/* Stories will be injected here by JS only when a chapter is selected */}
+
+      <!-- Spine -->
+      <div class="book-spine">
+        <div class="spine-title">The Book of Life · Orvi</div>
       </div>
-    </section>
-  </main>
 
-  <script>
-    function initializeChaptersPage() {
-      console.log('initializeChaptersPage called.');
-      // Typewriter animation
-      const typewriterElements = document.querySelectorAll('.typewriter-text');
-      typewriterElements.forEach(element => {
-        const htmlElement = element as HTMLElement; // Cast element to HTMLElement
+      <!-- Right page: rendered by JS -->
+      <div class="br-page" id="rightPage"></div>
 
-        // Store original text if not already stored
-        if (!htmlElement.dataset.originalText) {
-          htmlElement.dataset.originalText = htmlElement.textContent || '';
-        }
-        const text = htmlElement.dataset.originalText; // Use stored text
+    </div>
+  </div>
 
-        // Clear content for re-typing and remove any existing cursors
-        htmlElement.textContent = '';
-        const existingCursor = htmlElement.querySelector('.typewriter-cursor');
-        if (existingCursor) {
-          existingCursor.remove();
-        }
+  <script define:vars={{ catData }}>
+    const STORY_NUMS = ['01','02','03','04','05','06','07','08','09','10'];
 
-        htmlElement.style.opacity = '1';
-        htmlElement.classList.add('typing');
-        const delay = parseInt(htmlElement.getAttribute('data-delay') || '0');
-        const cursor = document.createElement('span');
-        cursor.className = 'typewriter-cursor';
-        htmlElement.appendChild(cursor);
-        
-        setTimeout(() => {
-          let i = 0;
-          const type = () => {
-            // Ensure cursor is still a child before trying to insert
-            if (!htmlElement.contains(cursor)) {
-                console.log('Cursor missing, stopping typewriter for element:', htmlElement);
-                return; // Cursor was removed, stop typing for this element
-            }
+    function renderRightPage(cat) {
+      const rp = document.getElementById('rightPage');
+      if (!rp) return;
 
-            if (i < text.length) {
-              htmlElement.insertBefore(document.createTextNode(text[i]), cursor);
-              i++;
-              requestAnimationFrame(type);
-            } else {
-              cursor.remove();
-              htmlElement.classList.remove('typing');
-            }
-          };
-          requestAnimationFrame(type);
-        }, delay);
-      });
+      rp.style.opacity = '0';
 
-      // Chapter navigation
-      const chapterLinks = document.querySelectorAll('.chapter-title');
-      const storiesPreview = document.getElementById('stories-preview');
-      const introSection = document.getElementById('intro-section');
-      // Controls removed; keep core state
-      let activeCategory: string | null = null; // Track the currently active category
-      let loadedStories: any[] = []; // Current category stories
-      let visibleCount = 6; // How many to show
-      let filterText = '';
-      let sortKey: 'newest' | 'oldest' | 'shortest' | 'longest' = 'newest';
-      
-      // Hide all stories on load and show intro
-      if (storiesPreview) storiesPreview.innerHTML = '';
-      if (introSection) {
-        introSection.style.display = 'flex';
-        console.log('Intro section display set to flex.', introSection);
-      }
+      const storyRows = (cat.stories || []).map((s, i) => {
+        const num = STORY_NUMS[i] || String(i + 1).padStart(2, '0');
+        const meta = s.readingTime ? `${s.readingTime} min read` : '';
+        return `<a class="rp-story" href="/chapters/stories/${s.slug}">
+          <span class="rp-s-num">${num}</span>
+          <div class="rp-s-body">
+            <div class="rp-s-title">${s.title}</div>
+            ${meta ? `<div class="rp-s-meta">${meta}</div>` : ''}
+          </div>
+          <span class="rp-s-arrow">›</span>
+        </a>`;
+      }).join('');
 
-      const renderSkeleton = (count = 3) => {
-        if (!storiesPreview) return;
-        const wrapper = document.createElement('div');
-        wrapper.className = 'stories-container';
-        const ul = document.createElement('ul');
-        ul.className = 'stories-list';
-        for (let i = 0; i < count; i++) {
-          const li = document.createElement('li');
-          li.className = 'story-item skeleton';
-          li.innerHTML = `
-            <div class="story-card">
-              <div class=\"skeleton-line h-lg w-60\"></div>
-              <div class=\"skeleton-line h-sm w-90\"></div>
-              <div class=\"skeleton-line h-sm w-70\"></div>
-              <div class=\"story-meta\">
-                <span class=\"skeleton-chip\"></span>
-                <span class=\"skeleton-chip\"></span>
-              </div>
-            </div>
-          `;
-          ul.appendChild(li);
-        }
-        wrapper.appendChild(ul);
-        storiesPreview.innerHTML = '';
-        storiesPreview.appendChild(wrapper);
-      };
+      const empty = cat.stories.length === 0
+        ? '<p style="font-size:12px;color:rgba(90,70,50,0.5);padding:12px 0;">No stories in this chapter yet.</p>'
+        : '';
 
-      function applyFiltersAndSort(stories: any[]) {
-        const text = filterText.trim().toLowerCase();
-        let result = stories as any[];
-        if (text) {
-          result = result.filter((s: any) =>
-            (s.data?.title || '').toLowerCase().includes(text) ||
-            (s.data?.tags || []).join(' ').toLowerCase().includes(text) ||
-            (s.data?.description || '').toLowerCase().includes(text)
-          );
-        }
-        switch (sortKey) {
-          case 'oldest':
-            result = result.slice().sort((a: any, b: any) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime());
-            break;
-          case 'shortest':
-            result = result.slice().sort((a: any, b: any) => (a.data.readingTime || 0) - (b.data.readingTime || 0));
-            break;
-          case 'longest':
-            result = result.slice().sort((a: any, b: any) => (b.data.readingTime || 0) - (a.data.readingTime || 0));
-            break;
-          default:
-            result = result.slice().sort((a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
-        }
-        return result;
-      }
+      rp.innerHTML = `
+        <div class="page-head">
+          <span>Chapter ${cat.roman}</span>
+          <span>The Book of Life</span>
+        </div>
+        <div class="rp-watermark">${cat.roman}</div>
+        <div class="rp-ch-label">Chapter ${cat.roman}</div>
+        <div class="rp-ch-title">${cat.title}</div>
+        <div class="rp-ch-desc">${cat.description}</div>
+        <div class="rp-divider"></div>
+        ${storyRows}${empty}
+        <div class="page-foot">
+          <span>The Book of Life</span>
+          <span>${cat.pg}</span>
+        </div>
+      `;
 
-      function renderStories() {
-        if (!storiesPreview) return;
-        const filtered = applyFiltersAndSort(loadedStories);
-        const toShow = filtered.slice(0, visibleCount);
+      requestAnimationFrame(() => { rp.style.opacity = '1'; });
+    }
 
-        if (toShow.length === 0) {
-          storiesPreview.innerHTML = '<div class="no-stories">No matching stories.</div>';
-                    return;
-                  }
+    function init() {
+      if (catData.length > 0) renderRightPage(catData[0]);
 
-        const container = document.createElement('div');
-        container.className = 'stories-container';
-                  const ul = document.createElement('ul');
-                  ul.className = 'stories-list';
-
-        toShow.forEach((story, index) => {
-  const li = document.createElement('li');
-  li.className = 'story-item';
-  li.style.animationDelay = `${index * 0.1}s`;
-  const storyLink = document.createElement('a');
-  storyLink.href = `/chapters/stories/${story.slug}`;
-  storyLink.className = 'story-card';
-
-          // Roman numeral
-          const numeral = document.createElement('span');
-          numeral.className = 'roman';
-          const romans = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
-          numeral.textContent = (romans[index] || String(index + 1)).toLowerCase();
-
-  const title = document.createElement('h3');
-          title.className = 'story-title';
-title.textContent = story.data.title;
- // Head row: roman + title on the same line
- const head = document.createElement('div');
- head.className = 'story-head';
- head.appendChild(numeral);
- head.appendChild(title);
- storyLink.appendChild(head);
-
-if (story.data.description) {
-  const description = document.createElement('p');
-  description.className = 'story-description';
-  description.textContent = story.data.description;
-  storyLink.appendChild(description);
-}
-
-if (story.data.tags?.length) {
-  const tags = document.createElement('div');
-  tags.className = 'story-tags';
-  tags.textContent = story.data.tags.join(' · ');
-  storyLink.appendChild(tags);
-}
-
-const meta = document.createElement('div');
-meta.className = 'story-meta';
-if (story.data.readingTime) {
-  const timeRead = document.createElement('span');
-  timeRead.className = 'reading-time';
-  timeRead.textContent = `${story.data.readingTime} min read`;
-  meta.appendChild(timeRead);
-}
-const date = document.createElement('span');
-date.className = 'story-date';
-          date.textContent = new Date(story.data.pubDate).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' });
-meta.appendChild(date);
-          const read = document.createElement('span');
-          read.className = 'read-cta';
-          read.textContent = 'Read →';
-          meta.appendChild(read);
-
-  storyLink.appendChild(meta);
-  li.appendChild(storyLink);
-  ul.appendChild(li);
-});
-
-        container.appendChild(ul);
-        storiesPreview.innerHTML = '';
-        storiesPreview.appendChild(container);
-
-        // Footer removed; no visibility toggle
-      }
-
-      function attachControlListeners() {}
-
-      chapterLinks.forEach(link => {
-        // Instead of cloning the link, attach listener to the parent chapter-content
-        const chapterContent = link.closest('.chapter-content') as HTMLElement; // Find the parent with chapter-content class
-
-        if (chapterContent) {
-          chapterContent.addEventListener('click', (e) => {
-            e.preventDefault();
-            const category = chapterContent.getAttribute('data-category'); // Get category from chapter-content
-            if (!storiesPreview || !introSection || !category) return;
-            
-            if (activeCategory === category) {
-              // If the same chapter is clicked again, toggle back to intro
-              storiesPreview.innerHTML = '';
-              introSection.style.display = 'flex';
-              const rh = document.getElementById('running-head');
-              if (rh) rh.style.display = 'none';
-              activeCategory = null; // No category is active now
-            } else {
-              // If a different chapter is clicked, or no chapter is active, show stories and hide intro
-              introSection.style.display = 'none';
-              // running head removed
-              renderSkeleton(4);
-              activeCategory = category; // Set the new active category
-              
-              // Get stories for this category from the server
-              fetch(`/api/stories/${encodeURIComponent(category)}`)
-                .then(response => response.json())
-                .then(stories => {
-                  if (!Array.isArray(stories) || stories.length === 0) {
-                    storiesPreview.innerHTML = '<div class="no-stories">No stories in this chapter yet.</div>';
-                    
-                    return;
-                  }
-
-                  // Use controls + renderer for consistent UI
-                  loadedStories = stories;
-                  visibleCount = 6;
-                  filterText = '';
-                  sortKey = 'newest';
-                  
-                  renderStories();
-                })
-                .catch(error => {
-                  console.error('Error fetching stories:', error);
-                  storiesPreview.innerHTML = '<div class="no-stories">Failed to load stories. Please try again.</div>';
-                  
-                });
-            }
-          });
-        }
+      const entries = document.querySelectorAll('.toc-entry');
+      entries.forEach((entry, i) => {
+        entry.addEventListener('click', () => {
+          entries.forEach(e => e.classList.remove('active'));
+          entry.classList.add('active');
+          renderRightPage(catData[i]);
+        });
       });
     }
 
-    // Initial call to set up the page elements correctly
-    // This ensures typewriter animation runs on page load and stories are hidden.
-    document.addEventListener('DOMContentLoaded', initializeChaptersPage);
-    document.addEventListener('astro:after-swap', initializeChaptersPage); // For view transitions
+    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('astro:after-swap', init);
   </script>
 
-  <style>
-    .book-toc {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-xl);
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: var(--spacing-xl) var(--spacing-md);
-      min-height: calc(100vh - var(--header-height) - var(--footer-height));
-      contain: layout style paint;
-    }
-
-    .left-page,
-    .right-page {
-      padding: var(--spacing-xl);
-      background: var(--card-background);
-      border-radius: var(--border-radius);
-      box-shadow: var(--card-shadow);
-      contain: content;
-    }
-
-    .left-page {
-      border-right: 1px solid var(--border-color);
-    }
-
-    .left-page h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      color: var(--text-color);
-      margin-bottom: var(--spacing-xl);
-      text-align: center;
-    }
-
-    .chapters-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      contain: content;
-    }
-
-    .chapter-item {
-      display: flex; /* Use flexbox to align number and content */
-      align-items: baseline; /* Align items based on their text baseline */
-      margin-bottom: 1.5rem;
-      gap: 0.5rem; /* Add some space between the number and the content */
-    }
-
-    .chapter-number {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: var(--accent-color);
-      min-width: 1.5rem; /* Adjust min-width to better fit the letter */
-      text-align: right; /* Align the number to the right */
-      flex-shrink: 0; /* Prevent the number from shrinking */
-      padding-top: 0.1rem; /* Fine-tune vertical alignment */
-    }
-
-    .chapter-content {
-      flex-grow: 1; /* Allow content to take available space */
-      cursor: pointer;
-      padding: 0.75rem 1rem;
-      border-radius: var(--border-radius);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      outline: none; /* Removed default outline */
-    }
-
-    .chapter-content:hover {
-      background-color: var(--hover-background);
-    }
-
-    .chapter-content:focus {
-      box-shadow: 0 0 0 3px var(--accent-color-light), inset 0 0 0 1px var(--accent-color); /* Custom focus ring */
-      background-color: var(--hover-background);
-    }
-
-    .chapter-title {
-      pointer-events: none; /* Make the anchor not directly clickable, parent handles */
-      font-family: var(--font-display);
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--text-color);
-      text-decoration: none;
-      margin-bottom: var(--spacing-xs);
-      transition: color var(--transition-speed);
-    }
-
-    .chapter-content:hover .chapter-title {
-      color: var(--accent-color);
-    }
-
-    .chapter-icon {
-      font-size: 1.2em;
-    }
-
-    .chapter-description {
-      color: var(--text-color-secondary);
-      font-size: clamp(0.9rem, 1.5vw, 0.95rem);
-      line-height: 1.5;
-      margin-bottom: var(--spacing-xs);
-    }
-
-    .story-count {
-      font-size: 0.9rem;
-      color: var(--text-color-tertiary);
-    }
-
-    .right-page {
+  <style is:global>
+    .ch-scene {
+      min-height: calc(100vh - 54px);
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: stretch;
-      min-height: 100%;
-      position: relative;
-      color: var(--text-color); 
-      background:
-        radial-gradient(1200px 600px at 100% -10%, rgba(229, 62, 62, 0.08), transparent 60%),
-        var(--card-background);
-      padding: 0;
-      border-radius: var(--border-radius);
-      box-shadow: var(--card-shadow);
-      overflow: clip;
-    }
-
-    .right-header { position: sticky; top: 0; z-index: 1; background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.75)); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); }
-    .right-header-inner { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.25rem; }
-    .right-header-pill { font-size: 0.75rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--hover-background); color: var(--text-color-tertiary); border: 1px solid var(--border-color); }
-    #right-header-title { font-family: var(--font-display); font-size: 1rem; color: var(--text-color); letter-spacing: 0.01em; }
-
-    .intro-section {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 220px;
-      width: 100%;
-      max-width: 720px;
-      margin: 1rem auto 0 auto;
-      padding: 1.25rem 1rem 0 1rem;
+      background: #e6e0d6;
+      padding: 32px 16px;
+      overflow-x: auto;
     }
 
-    .intro-section blockquote {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      font-style: italic;
-      color: var(--accent-color);
-      margin: 0 0 1.5rem 0;
-      padding: 0;
-      line-height: 1.3;
-      max-width: 80%;
+    .open-book {
+      display: flex;
+      width: min(880px, 98vw);
+      height: clamp(480px, 62vh, 560px);
+      transform: perspective(2000px) rotateX(2deg) rotateY(-0.8deg);
+      filter:
+        drop-shadow(0 26px 60px rgba(0,0,0,0.32))
+        drop-shadow(0 6px 14px rgba(0,0,0,0.18));
+      flex-shrink: 0;
     }
 
-    .intro-section p {
-      font-size: clamp(1rem, 1.5vw, 1.1rem);
-      color: var(--text-color-secondary);
-      margin-top: 0;
-      max-width: 70%;
-      line-height: 1.6;
-    }
-
-    .typewriter-text {
-      opacity: 0;
-      overflow: visible;
-      white-space: normal;
-      margin: 0 auto;
+    .bl-page {
+      flex: 0 0 calc(50% - 14px);
+      background: linear-gradient(to right, #eee8de 0%, #faf7f2 70%);
+      padding: 28px 30px 54px;
       position: relative;
-      max-width: 100%;
+      overflow: hidden;
+      border-radius: 3px 0 0 3px;
+      border-right: 1px solid rgba(0,0,0,0.07);
     }
 
-    .typewriter-cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1em;
-      background-color: var(--accent-color);
-      margin-left: 2px;
-      animation: blink 0.7s step-end infinite;
-    }
-
-    @keyframes blink {
-      from, to { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    /* right-controls removed per design */
-    .stories-preview { position: relative; width: 100%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; overflow-y: auto; padding: 1.5rem 1.25rem 1.5rem 1.25rem; background: transparent; }
-    .stories-container { width: 100%; max-width: 880px; margin: 0 auto; animation: fadeIn 0.5s ease-out; }
-    .stories-list { list-style: none; padding: 0; margin: 0; width: 100%; }
-    .story-item { list-style: none; margin-bottom: 1.25rem; animation: fadeInUp 0.3s ease forwards; }
-    .story-card {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        'head'
-        'desc'
-        'meta';
-      row-gap: 0.35rem;
-      align-items: start;
-      padding: 1.25rem 1.4rem;
-      border-radius: 14px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-      border: 1px solid var(--border-color);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  text-decoration: none;
-  color: var(--text-color);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      text-align: left;
-    }
-    .story-head { grid-area: head; display: inline-flex; align-items: baseline; gap: 0.6rem; }
-    .story-head .roman { font-family: var(--font-display); font-size: 0.85rem; color: var(--text-color-tertiary); flex: 0 0 2ch; width: 2ch; text-align: right; }
-    /* Ensure anchor cards do not inherit global link red */
-    .stories-preview .story-card,
-    .stories-preview .story-card:visited,
-    .stories-preview .story-card:hover,
-    .stories-preview .story-card:active { color: var(--text-color) !important; text-decoration: none; display: grid; }
-    .stories-preview .story-card * { color: inherit; }
-    .stories-preview .story-card:hover { color: var(--text-color) !important; }
-    .story-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.1); border-color: rgba(229, 62, 62, 0.25); }
-    .story-card:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; box-shadow: 0 0 0 2px rgba(229,62,62,0.15), 0 6px 16px rgba(0,0,0,0.08); }
-    .story-card:active { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
-    .stories-preview .story-title { display: inline; font-size: 1.35rem; font-weight: 700; color: var(--text-color); margin: 0 0 0.25rem 0; letter-spacing: -0.01em; text-align: left; }
-    .stories-preview .story-description { grid-area: desc; font-size: 0.95rem; color: var(--text-color-secondary); margin: 0 0 0.5rem 0; line-height: 1.55; text-align: left; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .stories-preview .story-tags { font-size: 0.78rem; color: var(--text-color-tertiary) !important; margin-bottom: 0.45rem; text-align: left; }
-    .stories-preview .story-meta { grid-area: meta; display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--text-color-tertiary) !important; gap: 0.6rem; flex-wrap: wrap; text-align: left; }
-    .stories-preview .read-cta { margin-left: auto; color: var(--text-color-tertiary); opacity: 0; transition: opacity .2s ease; }
-    .story-card:hover .read-cta, .story-card:focus-visible .read-cta { opacity: 1; }
-    @supports not (gap: 1rem) {
-      .stories-preview .story-meta > * + * { margin-left: 0.6rem; }
-    }
-
-    .story-item.skeleton .story-card { position: relative; overflow: hidden; }
-    .skeleton-line { height: 14px; border-radius: 8px; background: linear-gradient(90deg, #f2f2f2, #e9e9e9, #f2f2f2); background-size: 200% 100%; animation: shimmer 1.2s infinite; margin: 10px 0; }
-    .skeleton-line.h-lg { height: 18px; }
-    .skeleton-line.h-sm { height: 12px; }
-    .skeleton-line.w-60 { width: 60%; }
-    .skeleton-line.w-70 { width: 70%; }
-    .skeleton-line.w-90 { width: 90%; }
-    .skeleton-chip { display: inline-block; height: 10px; width: 70px; border-radius: 999px; background: linear-gradient(90deg, #f2f2f2, #e9e9e9, #f2f2f2); background-size: 200% 100%; animation: shimmer 1.2s infinite; }
-    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-
-    .story-item:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--card-shadow-hover); 
-      background: var(--card-background-hover); 
-    }
-
-    .story-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      text-decoration: none;
-      color: var(--text-color); /* Primary text color for links */
-      gap: 2rem;
-    }
-
-    .story-info {
-      flex: 1;
-    }
-
-    .story-link .story-title {
-      display: block;
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem); /* Significantly increased font size for strong distinction */
-      font-weight: 700;
-      color: var(--text-color); /* Primary text color for distinctness */
-      margin-bottom: 0.85rem; /* Adjusted margin-bottom */
-      line-height: 1.15; /* Adjusted line-height */
-      transition: color 0.3s ease;
-      letter-spacing: -0.04em; /* Tighter letter spacing for headings */
-    }
-
-    .story-link:hover .story-title {
-      color: var(--accent-color); /* Accent color on hover */
-    }
-
-    .story-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 1.2rem; /* Increased margin-top for more space from title */
-    }
-
-    .tag {
-      font-size: 0.85rem; /* Slightly larger tag font */
-      color: var(--text-color-secondary);
-      background: var(--hover-background);
-      padding: 0.25rem 0.7rem; /* Adjusted padding for tags */
-      border-radius: var(--border-radius-sm);
-      transition: all 0.3s ease;
-      font-weight: 500;
-      border: none; /* Explicitly removed border for tags */
-      outline: none; /* Ensure no outline on focus */
-    }
-
-    .tag:hover {
-      background: var(--accent-color-light);
-      color: var(--accent-color-dark);
-      transform: translateY(-1px);
-    }
-
-    .story-meta { /* old style not used now in right panel cards */ }
-
-    .reading-time,
-    .story-meta time {
+    .book-spine {
+      width: 28px;
+      flex-shrink: 0;
+      background: linear-gradient(to right, #0c0604 0%, #28160a 38%, #36200e 58%, #180c06 100%);
       display: flex;
       align-items: center;
-      gap: 0.35rem; /* Increased gap for icons and text */
-      font-style: normal;
-      color: var(--text-color-secondary);
+      justify-content: center;
+      box-shadow: inset -3px 0 8px rgba(0,0,0,0.35), inset 3px 0 8px rgba(0,0,0,0.35);
     }
 
-    .reading-time::before {
-      content: "⏱";
-      font-size: 0.9em;
+    .spine-title {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      font-family: var(--font-serif);
+      font-size: 7px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(210,170,90,0.50);
+      white-space: nowrap;
+      user-select: none;
     }
 
-    .story-meta time::before {
-      content: "📅";
-      font-size: 0.9em;
+    .br-page {
+      flex: 1;
+      background: linear-gradient(to left, #eee8de 0%, #faf7f2 70%);
+      padding: 28px 30px 54px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 3px 3px 0;
+      border-left: 1px solid rgba(0,0,0,0.07);
+      transition: opacity 0.18s ease;
     }
 
-    .no-stories {
-      color: var(--text-color-tertiary);
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(90,70,50,0.45);
+      margin-bottom: 22px;
+      padding-bottom: 7px;
+      border-bottom: 0.5px solid rgba(0,0,0,0.09);
+      font-family: var(--font-sans);
+    }
+
+    .page-foot {
+      position: absolute;
+      bottom: 18px;
+      left: 30px;
+      right: 30px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      color: rgba(90,70,50,0.42);
+      font-family: var(--font-serif);
+      border-top: 0.5px solid rgba(0,0,0,0.09);
+      padding-top: 7px;
+    }
+
+    /* TOC — left page */
+    .toc-header {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 400;
+      color: #1e1006;
+      margin-bottom: 8px;
+      letter-spacing: 0.005em;
+    }
+
+    .toc-rule {
+      width: 28px;
+      height: 1px;
+      background: var(--sienna);
+      opacity: 0.7;
+      margin-bottom: 18px;
+    }
+
+    .toc-entry {
+      display: flex;
+      align-items: baseline;
+      padding: 9px 0;
+      cursor: pointer;
+      border-bottom: 0.5px solid rgba(0,0,0,0.07);
+      transition: opacity 0.12s;
+    }
+
+    .toc-entry:hover .toc-name,
+    .toc-entry.active .toc-name { color: var(--sienna); }
+    .toc-entry.active .toc-roman { color: var(--sienna); }
+
+    .toc-roman {
+      font-family: var(--font-serif);
+      font-size: 11px;
       font-style: italic;
-      text-align: center;
-      padding: 2rem;
-      background: var(--card-background);
-      border-radius: var(--border-radius);
-      box-shadow: var(--card-shadow);
-      width: 100%;
+      color: rgba(90,70,50,0.48);
+      width: 24px;
+      flex-shrink: 0;
+      transition: color 0.12s;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .toc-name {
+      font-family: var(--font-serif);
+      font-size: 14.5px;
+      color: #1e1006;
+      flex-shrink: 0;
+      line-height: 1.25;
+      transition: color 0.12s;
+      max-width: 170px;
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .toc-leader {
+      flex: 1;
+      border-bottom: 1px dotted rgba(0,0,0,0.18);
+      margin: 0 8px;
+      align-self: flex-end;
+      margin-bottom: 3px;
     }
 
-    /* Add animation delay for each story item */
-    .story-item:nth-child(1) { animation-delay: 0.1s; }
-    .story-item:nth-child(2) { animation-delay: 0.2s; }
-    .story-item:nth-child(3) { animation-delay: 0.3s; }
-    .story-item:nth-child(4) { animation-delay: 0.4s; }
-    .story-item:nth-child(5) { animation-delay: 0.5s; }
-
-    @media (max-width: 1024px) {
-      .book-toc {
-        grid-template-columns: 1fr;
-        align-items: stretch;
-      }
-
-      .left-page {
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-      }
+    .toc-pg {
+      font-family: var(--font-serif);
+      font-size: 11px;
+      font-style: italic;
+      color: rgba(90,70,50,0.48);
+      flex-shrink: 0;
     }
 
-    @media (max-width: 768px) {
-      .book-toc {
-        padding: var(--spacing-lg) var(--spacing-sm);
-      }
+    /* Right page — chapter content (JS-injected) */
+    .rp-watermark {
+      position: absolute;
+      bottom: 46px;
+      right: 18px;
+      font-family: var(--font-serif);
+      font-size: 100px;
+      font-weight: 700;
+      font-style: italic;
+      color: rgba(0,0,0,0.035);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
 
-      .left-page { padding: var(--spacing-lg); }
-      .right-page { padding: var(--spacing-lg); }
-      /* controls removed */
-      .intro-section { padding: 0.5rem 0.5rem 0 0.5rem; margin-top: 0; }
-      .stories-preview { padding: 0; align-items: stretch; }
-      .story-card { padding: 1rem 1.1rem; }
+    .rp-ch-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sienna);
+      margin-bottom: 6px;
+      opacity: 0.85;
+      font-family: var(--font-sans);
+    }
 
-      .story-link {
+    .rp-ch-title {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 400;
+      color: #1e1006;
+      margin-bottom: 5px;
+      line-height: 1.18;
+    }
+
+    .rp-ch-desc {
+      font-size: 11.5px;
+      color: rgba(90,70,50,0.62);
+      line-height: 1.58;
+      margin-bottom: 16px;
+      font-family: var(--font-sans);
+    }
+
+    .rp-divider {
+      width: 24px;
+      height: 1px;
+      background: var(--sienna);
+      opacity: 0.55;
+      margin-bottom: 14px;
+    }
+
+    .rp-story {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 6px;
+      margin: 0 -6px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.12s;
+      border-bottom: 0.5px solid rgba(0,0,0,0.07);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .rp-story + .rp-story { }
+    .br-page .rp-story:first-of-type { border-top: 0.5px solid rgba(0,0,0,0.07); }
+    .rp-story:hover { background: rgba(139,94,60,0.07); }
+    .rp-story:hover .rp-s-title { color: var(--sienna); }
+
+    .rp-s-num {
+      font-family: var(--font-serif);
+      font-size: 10px;
+      font-style: italic;
+      color: rgba(90,70,50,0.42);
+      width: 20px;
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    .rp-s-body { flex: 1; min-width: 0; }
+
+    .rp-s-title {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: #1e1006;
+      line-height: 1.28;
+      margin-bottom: 3px;
+      transition: color 0.12s;
+    }
+
+    .rp-s-meta {
+      font-size: 10.5px;
+      color: rgba(90,70,50,0.52);
+      font-family: var(--font-sans);
+    }
+
+    .rp-s-arrow {
+      font-size: 12px;
+      color: rgba(90,70,50,0.36);
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    @media (max-width: 680px) {
+      .open-book {
+        height: auto;
         flex-direction: column;
-        gap: 1rem;
+        transform: none;
+        filter: drop-shadow(0 8px 28px rgba(0,0,0,0.22));
       }
-
-      .story-meta {
-        align-items: flex-start;
-        text-align: left;
+      .bl-page, .br-page {
+        border-radius: 0;
+        flex: none;
+        width: 100%;
+        height: auto;
+      }
+      .book-spine {
+        width: 100%;
+        height: 18px;
         flex-direction: row;
-        gap: 1rem;
-        margin-top: 0.5rem;
       }
-
-      .story-title { font-size: 1.1rem; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .story-card { transition: none; }
-      .story-card:hover, .story-card:active { transform: none; box-shadow: var(--card-shadow); }
-      .story-item { animation: none; }
-    }
-  </style>
-  <style is:global>
-    /* Global rules so dynamically-inserted story cards get styled */
-    .stories-preview { align-items: flex-start; }
-    .stories-preview a.story-card,
-    .stories-preview a.story-card:visited,
-    .stories-preview a.story-card:hover,
-    .stories-preview a.story-card:active { color: var(--text-color) !important; text-decoration: none; text-align: left; }
-    .stories-preview a.story-card * { color: inherit; text-align: left; }
-    .stories-preview a.story-card:hover .story-title { color: var(--accent-color) !important; }
-
-    .stories-preview .story-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem; letter-spacing: -0.01em; }
-    .stories-preview .story-description { font-size: 0.95rem; color: var(--text-color-secondary); margin-bottom: 0.5rem; line-height: 1.55; }
-    .stories-preview .story-tags { font-size: 0.78rem; color: var(--text-color-tertiary) !important; margin-bottom: 0.45rem; }
-    .stories-preview .story-meta { font-size: 0.78rem; color: var(--text-color-tertiary) !important; display: flex; gap: 0.6rem; flex-wrap: wrap; }
-    @supports not (gap: 1rem) {
-      .stories-preview .story-meta > * + * { margin-left: 0.6rem; }
+      .spine-title {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 7px;
+      }
+      .toc-leader { display: none; }
     }
   </style>
 </BaseLayout>

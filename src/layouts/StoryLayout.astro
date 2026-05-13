@@ -1,9 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import { initShareButtons } from '../scripts/share';
 
 interface Props {
   story: CollectionEntry<'stories'>;
@@ -11,47 +9,20 @@ interface Props {
 
 const { story } = Astro.props;
 const { Content } = await story.render();
-const { title, description, pubDate, author, image, readingTime, tags } = story.data;
+const { title, description, pubDate, author, readingTime, tags, category, image } = story.data;
+
 const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
+  year: 'numeric', month: 'short', day: 'numeric'
 });
 
-// Get all stories
-const allStories = await getCollection('stories');
-const currentIndex = allStories.findIndex((s: CollectionEntry<'stories'>) => s.slug === story.slug);
-const nextStory = allStories[currentIndex + 1];
-
-// Get category info
 const categories = await getCollection('categories');
-const category = categories.find((cat: CollectionEntry<'categories'>) => cat.slug === story.data.category);
-
-// Get related stories by category (exclude current)
-const relatedByCategory = allStories
-  .filter((s: CollectionEntry<'stories'>) => 
-    s.data.category === story.data.category && s.slug !== story.slug
-  )
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
-  .slice(0, 3);
-
-// Get related stories by tags (exclude current and category matches)
-const relatedByTags = allStories
-  .filter((s: CollectionEntry<'stories'>) => {
-    if (s.slug === story.slug || !story.data.tags || !s.data.tags) return false;
-    if (s.data.category === story.data.category) return false; // Already in category section
-    return story.data.tags.some((tag: string) => s.data.tags?.includes(tag));
-  })
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
-  .slice(0, 3);
-
-// Breadcrumb items
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Chapters', href: '/chapters' },
-  ...(category ? [{ label: category.data.title, href: `/chapters/${category.slug}` }] : []),
-  { label: title, href: `/chapters/stories/${story.slug}` }
-];
+const categoryInfo = categories.find((c: CollectionEntry<'categories'>) => c.slug === category);
+const kicker = categoryInfo ? categoryInfo.data.title : category;
+const meta = [
+  readingTime ? `${readingTime} min read` : null,
+  formattedDate,
+  `By ${author}`,
+].filter(Boolean).join(' · ');
 ---
 
 <BaseLayout
@@ -61,453 +32,282 @@ const breadcrumbItems = [
   image={image}
   type="article"
   pubDate={pubDate}
+  category={kicker}
+  readingTime={readingTime}
+  tags={tags || []}
 >
-  <article class="story-container">
-    <Breadcrumbs items={breadcrumbItems} />
-    <div class="story-content">
-      <header class="story-header">
-        <h1>{title}</h1>
-        <div class="story-meta">
-          <span class="author">By {author}</span>
-          <span class="date">{formattedDate}</span>
-          {readingTime && <span class="reading-time">{readingTime} min read</span>}
-        </div>
-        {tags && (
-          <div class="story-tags">
-            {tags.map((tag: string) => (
-              <span class="tag">{tag}</span>
-            ))}
-          </div>
-        )}
-      </header>
+  <div class="art-scene">
+    <div class="art-nav">
+      <a href="/chapters" class="art-back">← Back to Chapters</a>
+    </div>
 
-      {image && (
-        <figure class="story-image">
-          <img
-            src={image}
-            alt={title}
-            width="1200"
-            height="630"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </figure>
+    <div class="art-page">
+      <div class="art-page-head">
+        <span>{kicker}</span>
+        <span>The Book of Life</span>
+      </div>
+
+      <div class="art-kicker">{kicker}</div>
+      <h1 class="art-title">{title}</h1>
+      <div class="art-rule"></div>
+      <div class="art-meta">{meta}</div>
+
+      {description && (
+        <blockquote class="art-pull">{description}</blockquote>
       )}
 
-      <div class="story-body">
+      <div class="art-body">
         <Content />
       </div>
 
-      <footer class="story-footer">
-        <div class="share-buttons">
-          <button class="share-button" data-share="twitter">
-            Share on Twitter
-          </button>
-          <button class="share-button" data-share="linkedin">
-            Share on LinkedIn
-          </button>
-           <button class="share-button" data-share="copy">
-            Copy Link
-          </button>
-        </div>
-      </footer>
+      <div class="art-page-foot">
+        <span>The Book of Life</span>
+        <span>Orvi · {new Date(pubDate).getFullYear()}</span>
+      </div>
     </div>
-  </article>
 
-  <!-- Category Hub Link -->
-  {category && (
-    <nav class="article-navigation">
-      <a href={`/chapters/${category.slug}`} class="category-link">
-        ← Back to {category.data.title}
-      </a>
-    </nav>
-  )}
-
-  <!-- Related Articles by Category -->
-  {relatedByCategory.length > 0 && (
-    <section class="related-stories">
-      <h2>More from {category?.data.title || story.data.category}</h2>
-      <ul class="related-list">
-        {relatedByCategory.map((related: CollectionEntry<'stories'>) => (
-          <li class="related-item">
-            <a href={`/chapters/stories/${related.slug}`} class="related-link">
-              <h3>{related.data.title}</h3>
-              <p class="related-description">{related.data.description}</p>
-              <div class="related-meta">
-                {related.data.readingTime && (
-                  <span class="reading-time">{related.data.readingTime} min read</span>
-                )}
-                <time datetime={related.data.pubDate.toISOString()}>
-                  {new Date(related.data.pubDate).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric'
-                  })}
-                </time>
-              </div>
-            </a>
-          </li>
+    {tags && tags.length > 0 && (
+      <div class="art-tags">
+        {tags.map((tag: string) => (
+          <span class="art-tag">{tag}</span>
         ))}
-      </ul>
-    </section>
-  )}
-
-  <!-- Related Articles by Tags -->
-  {relatedByTags.length > 0 && (
-    <section class="related-stories">
-      <h2>Related Topics</h2>
-      <ul class="related-list">
-        {relatedByTags.map((related: CollectionEntry<'stories'>) => (
-          <li class="related-item">
-            <a href={`/chapters/stories/${related.slug}`} class="related-link">
-              <h3>{related.data.title}</h3>
-              <p class="related-description">{related.data.description}</p>
-              <div class="related-meta">
-                {related.data.readingTime && (
-                  <span class="reading-time">{related.data.readingTime} min read</span>
-                )}
-                <time datetime={related.data.pubDate.toISOString()}>
-                  {new Date(related.data.pubDate).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric'
-                  })}
-                </time>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )}
-
-  {nextStory && (
-    <section class="next-story">
-      <h2>Next Story</h2>
-      <a href={`/chapters/stories/${nextStory.slug}`} class="next-story-link">
-        <h3>{nextStory.data.title}</h3>
-        <p>{nextStory.data.description}</p>
-      </a>
-    </section>
-  )}
+      </div>
+    )}
+  </div>
 </BaseLayout>
 
 <style>
-  .story-container {
-    max-width: var(--content-width);
+  .art-scene {
+    background: #e6e0d6;
+    min-height: calc(100vh - 54px);
+    padding: 32px 20px 64px;
+  }
+
+  .art-nav {
+    max-width: 680px;
+    margin: 0 auto 18px;
+  }
+
+  .art-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(90,70,50,0.6);
+    font-family: var(--font-sans);
+    text-decoration: none;
+    transition: color 0.14s;
+  }
+
+  .art-back:hover { color: var(--ink); }
+
+  .art-page {
+    max-width: 680px;
     margin: 0 auto;
-    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--paper);
+    border: 0.5px solid rgba(0,0,0,0.1);
+    padding: 38px 56px 80px;
+    position: relative;
+    box-shadow:
+      0 4px 28px rgba(0,0,0,0.11),
+      0 1px 5px rgba(0,0,0,0.07),
+      4px 0 18px rgba(0,0,0,0.04),
+      -4px 0 18px rgba(0,0,0,0.04);
+    min-height: 640px;
   }
 
-  .story-content {
-    background: var(--card-background);
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-  }
-
-  .story-header {
-    padding: var(--spacing-xl);
-    text-align: center;
-  }
-
-  .story-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
-    line-height: 1.2;
-  }
-
-  .story-meta {
+  .art-page-head {
     display: flex;
-    justify-content: center;
-    gap: var(--spacing-md);
-    color: var(--text-color-secondary);
-    font-size: 0.9rem;
-    margin-bottom: var(--spacing-md);
+    justify-content: space-between;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(90,70,50,0.42);
+    margin-bottom: 38px;
+    padding-bottom: 7px;
+    border-bottom: 0.5px solid rgba(0,0,0,0.09);
+    font-family: var(--font-sans);
   }
 
-  .story-tags {
+  .art-kicker {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sienna);
+    margin-bottom: 12px;
+    font-family: var(--font-sans);
+  }
+
+  .art-title {
+    font-family: var(--font-serif);
+    font-size: 40px;
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+    font-weight: 400;
+    color: #1a0e06;
+    margin-bottom: 14px;
+  }
+
+  .art-rule {
+    width: 32px;
+    height: 1.5px;
+    background: var(--sienna);
+    margin-bottom: 12px;
+  }
+
+  .art-meta {
+    font-size: 12px;
+    color: rgba(90,70,50,0.60);
+    margin-bottom: 30px;
+    font-family: var(--font-sans);
+  }
+
+  .art-pull {
+    border-inline-start: 2px solid var(--sienna);
+    padding: 4px 0 4px 18px;
+    margin: 0 0 28px;
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 1.52;
+    font-style: italic;
+    color: #1a0e06;
+  }
+
+  .art-body {
+    font-family: var(--font-serif);
+    font-size: 17px;
+    line-height: 1.88;
+    color: #2a1a0a;
+  }
+
+  .art-page-foot {
+    position: absolute;
+    bottom: 22px;
+    left: 56px;
+    right: 56px;
     display: flex;
-    justify-content: center;
-    gap: var(--spacing-sm);
+    justify-content: space-between;
+    font-size: 9px;
+    color: rgba(90,70,50,0.38);
+    font-family: var(--font-serif);
+    border-top: 0.5px solid rgba(0,0,0,0.09);
+    padding-top: 7px;
+  }
+
+  .art-tags {
+    max-width: 680px;
+    margin: 18px auto 0;
+    display: flex;
+    gap: 8px;
     flex-wrap: wrap;
   }
 
-  .tag {
-    background: var(--hover-background);
-    color: var(--text-color);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
+  .art-tag {
+    font-size: 11px;
+    color: rgba(90,70,50,0.55);
+    font-family: var(--font-sans);
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+    border: 0.5px solid rgba(90,70,50,0.22);
+    border-radius: 2px;
   }
 
-  .story-image {
-    width: 100%;
-    margin: 0;
-    background: var(--background-color);
+  @media (max-width: 680px) {
+    .art-page {
+      padding: 28px 24px 72px;
+    }
+    .art-page-head { display: none; }
+    .art-title { font-size: 30px; }
+    .art-body { font-size: 16px; }
+    .art-page-foot { left: 24px; right: 24px; }
+    .art-pull { font-size: 16px; }
+  }
+</style>
+
+<style is:global>
+  .art-body p {
+    margin-bottom: 1.45em;
   }
 
-  .story-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
+  .art-body p:first-of-type::first-letter {
+    float: left;
+    font-size: 64px;
+    line-height: 0.80;
+    padding: 5px 10px 0 0;
+    color: var(--sienna);
+    font-weight: 400;
+    font-family: var(--font-serif);
   }
 
-  .story-body {
-    padding: var(--spacing-xl);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-color);
+  .art-body h2 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: #1a0e06;
+    margin: 2em 0 0.6em;
   }
 
-  .story-body :global(h2) {
-    font-size: 1.8rem;
-    margin-top: var(--spacing-xl);
-    margin-bottom: var(--spacing-md);
+  .art-body h3 {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 400;
+    color: #1a0e06;
+    margin: 1.5em 0 0.5em;
   }
 
-  .story-body :global(h3) {
-    font-size: 1.5rem;
-    margin-top: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .story-body :global(p) {
-    margin-bottom: var(--spacing-md);
-  }
-
-  .story-body :global(ul),
-  .story-body :global(ol) {
-    margin-bottom: var(--spacing-md);
-    padding-left: var(--spacing-xl);
-  }
-
-  .story-body :global(li) {
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .story-body :global(blockquote) {
-    border-left: 4px solid var(--accent-color);
-    padding-left: var(--spacing-md);
-    margin: var(--spacing-lg) 0;
+  .art-body blockquote {
+    border-inline-start: 2px solid var(--sienna);
+    padding: 4px 0 4px 18px;
+    margin: 1.5em 0;
     font-style: italic;
-    color: var(--text-color-secondary);
+    color: rgba(26,14,6,0.75);
   }
 
-  .story-body :global(code) {
-    background: var(--hover-background);
-    padding: 0.2em 0.4em;
+  .art-body a {
+    color: var(--sienna);
+    text-decoration: underline;
+    text-decoration-color: rgba(139,94,60,0.35);
+    text-underline-offset: 2px;
+  }
+
+  .art-body ul, .art-body ol {
+    padding-left: 1.5em;
+    margin-bottom: 1.45em;
+  }
+
+  .art-body li { margin-bottom: 0.4em; }
+
+  .art-body code {
+    font-size: 0.88em;
+    background: rgba(0,0,0,0.05);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+  }
+
+  .art-body pre {
+    background: rgba(0,0,0,0.04);
+    padding: 1em 1.25em;
     border-radius: 3px;
-    font-size: 0.9em;
-  }
-
-  .story-body :global(pre) {
-    background: var(--hover-background);
-    padding: var(--spacing-md);
-    border-radius: 4px;
     overflow-x: auto;
-    margin: var(--spacing-md) 0;
+    margin-bottom: 1.45em;
+    font-size: 0.88em;
   }
 
-  .story-body :global(pre code) {
+  .art-body pre code {
     background: none;
     padding: 0;
   }
 
-  .story-body :global(img) {
+  .art-body img {
     max-width: 100%;
     height: auto;
-    border-radius: 4px;
-    margin: var(--spacing-md) 0;
+    display: block;
+    margin: 1.5em 0;
   }
 
-  .story-footer {
-    padding: var(--spacing-xl);
-    border-top: 1px solid var(--border-color);
-  }
-
-  .share-buttons {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-  }
-
-  .share-button {
-    background: var(--hover-background);
+  .art-body hr {
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background var(--transition-speed);
-    color: var(--text-color);
+    border-top: 0.5px solid rgba(0,0,0,0.14);
+    margin: 2em 0;
   }
-
-  .share-button:hover {
-    background: var(--border-color);
-  }
-
-  .next-story {
-    margin-top: var(--spacing-xl);
-    padding: var(--spacing-xl);
-    max-width: var(--content-width);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .next-story h2 {
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .next-story-link {
-    display: block;
-    background: var(--card-background);
-    border-radius: 8px;
-    box-shadow: var(--card-shadow);
-    padding: var(--spacing-xl);
-    text-decoration: none;
-    color: var(--text-color);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  }
-
-  .next-story-link:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--page-shadow);
-  }
-
-  .next-story-link h3 {
-    margin-top: 0;
-    color: var(--accent-color);
-  }
-
-  .next-story-link p {
-    margin-bottom: 0;
-    color: var(--text-color-secondary);
-  }
-
-  .article-navigation {
-    margin-top: var(--spacing-xl);
-    padding: var(--spacing-lg);
-    max-width: var(--content-width);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .category-link {
-    display: inline-block;
-    color: var(--accent-color);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color var(--transition-speed);
-  }
-
-  .category-link:hover {
-    text-decoration: underline;
-    color: var(--accent-color-dark);
-  }
-
-  .related-stories {
-    margin-top: var(--spacing-xl);
-    padding: var(--spacing-xl);
-    max-width: var(--content-width);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .related-stories h2 {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    margin-bottom: var(--spacing-lg);
-    color: var(--accent-color);
-  }
-
-  .related-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: var(--spacing-md);
-  }
-
-  .related-item {
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  }
-
-  .related-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--page-shadow);
-  }
-
-  .related-link {
-    display: block;
-    padding: var(--spacing-lg);
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .related-link h3 {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-color);
-  }
-
-  .related-link:hover h3 {
-    color: var(--accent-color);
-  }
-
-  .related-description {
-    color: var(--text-color-secondary);
-    font-size: 0.95rem;
-    margin-bottom: var(--spacing-sm);
-    line-height: 1.5;
-  }
-
-  .related-meta {
-    display: flex;
-    gap: var(--spacing-md);
-    font-size: 0.85rem;
-    color: var(--text-color-tertiary);
-  }
-
-  @media (max-width: 768px) {
-    .story-container {
-      padding: var(--spacing-lg) var(--spacing-sm);
-    }
-
-    .story-header h1 {
-      font-size: 2rem;
-    }
-
-    .story-body {
-      padding: var(--spacing-lg);
-      font-size: 1rem;
-    }
-
-    .story-footer {
-      padding: var(--spacing-lg);
-    }
-
-    .next-story {
-      padding: var(--spacing-lg);
-    }
-
-    .next-story-link {
-      padding: var(--spacing-lg);
-    }
-  }
-
 </style>
-
-<script>
-  import { initShareButtons } from '../scripts/share';
-
-  document.addEventListener('DOMContentLoaded', () => {
-    initShareButtons();
-  });
-</script> 
