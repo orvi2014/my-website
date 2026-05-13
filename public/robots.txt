@@ -4,6 +4,7 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
+Disallow: /search-index.json
 Crawl-delay: 1
 
 # Google

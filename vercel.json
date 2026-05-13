@@ -39,15 +39,21 @@
     }
   ],
   "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/index",
-      "destination": "/",
-      "permanent": true
-    }
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/index", "destination": "/", "permanent": true },
+    { "source": "/chapters/about", "destination": "/about", "permanent": true },
+    { "source": "/stories", "destination": "/chapters", "permanent": true },
+    { "source": "/stories/race", "destination": "/chapters/technology/race", "permanent": true },
+    { "source": "/stories/love-never-dies", "destination": "/chapters/human/love-never-dies", "permanent": true },
+    { "source": "/stories/classcatch", "destination": "/chapters/extensions/classcatch", "permanent": true },
+    { "source": "/stories/why-does-universe-have-laws", "destination": "/chapters/philosophy/why-does-universe-have-laws", "permanent": true },
+    { "source": "/stories/sample-post", "destination": "/chapters/ai-automation/sample-post", "permanent": true },
+    { "source": "/chapters/stories/race", "destination": "/chapters/technology/race", "permanent": true },
+    { "source": "/chapters/stories/love-never-dies", "destination": "/chapters/human/love-never-dies", "permanent": true },
+    { "source": "/chapters/stories/classcatch", "destination": "/chapters/extensions/classcatch", "permanent": true },
+    { "source": "/chapters/stories/why-does-universe-have-laws", "destination": "/chapters/philosophy/why-does-universe-have-laws", "permanent": true },
+    { "source": "/chapters/stories/sample-post", "destination": "/chapters/ai-automation/sample-post", "permanent": true },
+    { "source": "/chapters/stories", "destination": "/chapters", "permanent": true },
+    { "source": "/chapters/first-chapter", "destination": "/chapters", "permanent": true }
   ]
 } 
