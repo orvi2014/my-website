@@ -1,6 +1,6 @@
 ---
 title: "Why We Support Countries We've Never Lived In — Bangladesh's Obsession with Brazil and Argentina"
-description: "It was midnight in 1998. I didn't understand football. But I understood the crowd — and that was enough to make me a Brazil fan for life."
+description: "It was midnight in 1998. I watched with my father. Brazil lost — and the silence that followed made me a fan for life."
 pubDate: 2026-05-14
 category: "football"
 author: "Orvi"
@@ -11,13 +11,19 @@ featured: true
 
 It was 1998. I was a child who did not understand football.
 
+I watched it with my father.
+
 What I understood was this: it was past midnight, and my entire neighbourhood had woken up. People spilled out of houses. Someone had dragged a television onto a veranda. There were colours I had no name for — yellow and green, blue and white — worn by grown men who seemed, for once in their adult lives, to have forgotten how to be calm. My grandfather, who went to bed every night at nine, was sitting in a plastic chair under the open sky, wide awake.
 
 France versus Brazil. The 1998 World Cup Final.
 
-I did not know what a World Cup was. I did not know the offside rule, what a clean sheet meant, or why a man running with a ball should produce this much feeling in human beings who had never been to France or Brazil, who would never go. I only knew that something important was happening, and that the importance was not in the game — it was in the people watching it. The way my uncle leaned forward when Brazil had the ball. The collective exhale when France scored. The silence after, which was its own kind of sound.
+I did not know what a World Cup was. I did not know the offside rule, what a clean sheet meant, or why a man running with a ball should produce this much feeling in human beings who had never been to France or Brazil, who would never go. I only knew that something important was happening, and that the importance was not in the game — it was in the people watching it.
 
-That night, I became a Brazil fan. Not because of Ronaldo or Rivaldo or the yellow shirt. Because of the crowd standing in the dark, and the feeling that belonging to something bigger than yourself is one of the few things worth staying awake for.
+France scored. And the crowd stopped.
+
+Not the slow exhale of a team going behind — a full stop. Like someone had cut the sound. All those people, all that colour and noise, and suddenly nothing. My father said nothing. Everyone said nothing. I did not understand the game but I understood that feeling — the way a crowd that loud can become that quiet, and what that silence means when it does.
+
+That night, I became a Brazil fan. Not because they won. Because they lost, and the silence that followed told me how much they were loved.
 
 Bangladesh has never qualified for a World Cup. There is no shared language, no colonial history, no migration story linking us to South America. And yet, millions of Bangladeshis split themselves between Brazil and Argentina every four years with an intensity that has drawn coverage from [Al Jazeera](https://www.aljazeera.com/news/2022/12/18/bangladeshis-albicelestes-biggest-fan-are-gearing-up-for), the [Buenos Aires Times](https://www.batimes.com.ar/news/sports/chants-of-messi-messi-as-bangladeshis-celebrate-argentinas-world-cup-triumph.phtml), and an [academic paper in Soccer & Society](https://www.tandfonline.com/doi/abs/10.1080/14660970.2025.2480054). The passion ran deep enough that during the 2022 World Cup, [23 people died and 35 were hospitalised](https://pmc.ncbi.nlm.nih.gov/articles/PMC12646357/) in clashes between rival Brazil and Argentina fans across Bangladesh.
 
@@ -49,9 +55,7 @@ You do not need to have lived somewhere to love what comes from there. You need 
 
 Bangladeshis support Brazil and Argentina because football culture reached Bangladesh through radio broadcasts and oral storytelling in the 1970s and 80s — long before television became widespread. The mythology of Pelé, Maradona, and *jogo bonito* was inherited, not chosen. A generation heard these names on the radio and passed them down as something closer to religion than sport.
 
-People always ask Bangladesh fans: why Brazil? Why not England, why not Germany, why not a country you have some cultural proximity to?
-
-The honest answer is: it was never a rational decision. No one sat down and decided. Brazil chose us the way great things choose people — not through argument but through beauty.
+Nobody sat down and decided. Brazil chose us the way great things choose people — not through argument but through beauty.
 
 *Jogo bonito.* The beautiful game. Brazil has always played football as if the point was not to win but to make winning look like art. The yellow shirt is the most recognizable piece of clothing in the sport. Pelé, Ronaldo, Ronaldinho — the names alone carry a kind of music. In a country where football is feeling before it is sport, Brazil made sense. Their way of playing looked the way devotion feels.
 
