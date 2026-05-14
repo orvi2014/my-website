@@ -19,7 +19,7 @@
 
 set -euo pipefail
 
-SITE="${GSC_SITE:-https://robatdasorvi.com}"
+SITE="${GSC_SITE:-https://www.robatdasorvi.com}"
 REPORT_DIR="$(dirname "$0")/../.seo-reports"
 TODAY="$(date +%Y-%m-%d)"
 REPORT_FILE="$REPORT_DIR/$TODAY.json"
