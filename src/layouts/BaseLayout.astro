@@ -187,8 +187,20 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
     <!-- LinkedIn -->
     <meta property="og:author" content={AUTHOR} />
 
+    <!-- Pinterest -->
+    <meta name="pinterest-rich-pin" content="true" />
+
+    <!-- Fediverse / Mastodon author verification -->
+    <meta name="fediverse:creator" content="@orvi_onethread" />
+
+    <!-- Social profile links (machine-readable, used by Google + Mastodon) -->
+    <link rel="me" href="https://twitter.com/orvi_onethread" />
+    <link rel="me" href="https://github.com/orvi2014" />
+
     <!-- Web App Manifest -->
     <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Font preloads (served from /public/fonts/) -->
