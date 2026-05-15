@@ -87,7 +87,7 @@ const breadcrumbItems = [
       <section class="featured-article">
         <h2>Featured Article</h2>
         <article class="featured-card">
-          <a href={`/chapters/stories/${featuredStory.slug}`} class="featured-link">
+          <a href={`/chapters/${featuredStory.data.category}/${featuredStory.slug}`} class="featured-link">
             <h3>{featuredStory.data.title}</h3>
             <p class="featured-description">{featuredStory.data.description}</p>
             <div class="featured-meta">
@@ -121,7 +121,7 @@ const breadcrumbItems = [
         <div class="stories-grid">
           {otherStories.map((story: CollectionEntry<'stories'>) => (
             <article class="story-card">
-              <a href={`/chapters/stories/${story.slug}`} class="story-link">
+              <a href={`/chapters/${story.data.category}/${story.slug}`} class="story-link">
                 <h3>{story.data.title}</h3>
                 <p class="story-excerpt">{story.data.description}</p>
                 <div class="story-meta">

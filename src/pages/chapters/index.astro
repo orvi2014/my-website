@@ -24,6 +24,7 @@ const catData = sortedCategories.map((cat: CollectionEntry<'categories'>, i: num
     )
     .map((s: CollectionEntry<'stories'>) => ({
       slug: s.slug,
+      category: s.data.category,
       title: s.data.title,
       description: s.data.description || '',
       readingTime: s.data.readingTime || null,
@@ -110,7 +111,7 @@ const itemListSchema = {
       const storyRows = (cat.stories || []).map((s, i) => {
         const num = STORY_NUMS[i] || String(i + 1).padStart(2, '0');
         const meta = s.readingTime ? `${s.readingTime} min read` : '';
-        return `<a class="rp-story" href="/chapters/stories/${s.slug}">
+        return `<a class="rp-story" href="/chapters/${s.category}/${s.slug}">
           <span class="rp-s-num">${num}</span>
           <div class="rp-s-body">
             <div class="rp-s-title">${s.title}</div>
@@ -157,8 +158,7 @@ const itemListSchema = {
       });
     }
 
-    document.addEventListener('DOMContentLoaded', init);
-    document.addEventListener('astro:after-swap', init);
+    document.addEventListener('astro:page-load', init);
   </script>
 
   <style is:global>
