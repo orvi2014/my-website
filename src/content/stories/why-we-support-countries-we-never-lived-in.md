@@ -31,15 +31,7 @@ This is the story of how that happened. And why it makes complete sense.
 
 ---
 
-**Key takeaways:**
-- Bangladesh has never qualified for the World Cup but hosts millions of passionate Brazil and Argentina supporters
-- Football fandom spread through radio culture and oral storytelling decades before television
-- The Brazil–Argentina rivalry divides families, neighbourhoods, and the entire country every four years
-- After 2022, Argentina officially recognised Bangladeshi fans — and a Bangladeshi brand became the first to sponsor the Argentine national team
-
----
-
-## The History of Football Fandom in Bangladesh
+## How Did Football Fandom Take Root in Bangladesh?
 
 My grandfather knew who Maradona was. He knew Gullit. He knew Socrates — not the philosopher, the Brazilian midfielder who was also a philosopher, which tells you something about football's capacity for mythology. He knew these names the way people know the names of gods: not from seeing them, but from hearing about them so often that they became true.
 
@@ -107,18 +99,3 @@ And we will all be, for those weeks, exactly where we are supposed to be.
 
 *The 2026 FIFA World Cup begins June 11 in the United States, Canada, and Mexico — the first edition with 48 teams.*
 
----
-
-## Frequently Asked Questions
-
-**Why do Bangladeshis support Brazil and Argentina when they've never qualified for the World Cup?**
-Bangladeshis support Brazil and Argentina because football culture reached the country through radio and oral storytelling in the 1970s–80s, before television was widespread. The mythology of Pelé, Maradona, and *jogo bonito* was inherited across generations — not chosen, but absorbed — and became part of national identity.
-
-**How passionate are Bangladesh football fans about Brazil and Argentina?**
-Extremely. During the 2022 World Cup, [23 people died and 35 were hospitalised](https://pmc.ncbi.nlm.nih.gov/articles/PMC12646357/) in clashes between rival Brazil and Argentina supporters across the country. Hundreds of thousands gathered in Dhaka's public squares to watch the final on giant screens.
-
-**Did Argentina officially acknowledge Bangladeshi fans after the 2022 World Cup?**
-Yes. The Argentine Football Association thanked Bangladesh directly, released a [15-minute documentary](https://www.dhakatribune.com/sport/football/307796/argentina-fa-pays-heartfelt-tribute-to-bangladesh) about Bangladeshi fans that gathered over 913,000 views, and AFA President Claudio Tapia publicly acknowledged their support. [bKash also became the first Bangladeshi brand to sponsor the Argentine national team](https://www.tbsnews.net/sports/bkash-becomes-first-bangladeshi-sponsor-argentinas-national-football-team-628470).
-
-**Why do Bangladeshis feel more passionate about football than many countries that actually compete?**
-Devotion without a team to pin it to becomes pure. Bangladesh fans support Brazil or Argentina with no expectation of personal gain — no national pride, no local hero on the pitch. That unconditional, inherited feeling produces an intensity that transactional fandom rarely matches.

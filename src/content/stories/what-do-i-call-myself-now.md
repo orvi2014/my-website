@@ -51,7 +51,7 @@ I do not follow Agile anymore. Ship now. Ship today. The methodology was designe
 
 ---
 
-## Operator vs Orchestrator: What AI Developers Actually Do Now
+## What Do I Actually Call Myself Now?
 
 The identity question this raises is real: what do I call myself?
 
@@ -65,7 +65,7 @@ The developers who thrive in this model are not the ones who know the most synta
 
 ---
 
-## The Loop Nobody Is Talking About
+## Are We Training AI on Human Thought — or on Human-Plus-AI Thought?
 
 Here is the thing that keeps me up at night.
 
@@ -95,18 +95,3 @@ I feel like a god at the terminal. I still draw on what I learned when I felt li
 
 There is something in the struggle worth keeping. I have not figured out how to keep it while removing the tax.
 
----
-
-## Frequently Asked Questions
-
-**What is the AI training data feedback loop in software development?**
-AI models trained on human-generated content — code, Stack Overflow answers, documentation — captured how developers thought before AI changed them. But developers in 2026 think and write differently, shaped by years of working with AI agents. This means future models increasingly train on AI-influenced human output, creating a feedback loop whose long-term effects on how humans think and learn are unknown.
-
-**What is the difference between an AI operator and an AI orchestrator?**
-An operator runs a defined system with known inputs. An orchestrator directs how multiple systems interact, decides what context each agent needs, and makes judgment calls about when to intervene. Most developers working extensively with AI agents are functioning as orchestrators: the work is directing, reviewing, and deciding — not implementing.
-
-**How has AI actually changed developer productivity?**
-[GitHub research](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/) shows developers using AI tools complete tasks up to 55% faster. But the more significant shift is qualitative: developers report their cognitive energy moving from implementation mechanics to problem-solving and architecture — the parts that most developers found most meaningful to begin with.
-
-**What is vibe coding and does it actually work?**
-The term, [coined by Andrej Karpathy in February 2025](https://x.com/karpathy/status/1886192184808149383), describes AI-first development where you describe intent and let the model handle implementation. It works — with a condition: it works best when the developer has enough underlying knowledge to catch confident errors, evaluate output quality, and make architectural decisions the model cannot make alone. Vibe coding on top of shallow foundations produces confident-sounding broken systems.
