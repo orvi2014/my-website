@@ -20,6 +20,7 @@
 set -euo pipefail
 
 SITE="${GSC_SITE:-https://www.robatdasorvi.com}"
+GSC_SERVICE_KEY="${GSC_SERVICE_KEY:-$(dirname "$0")/gsc-key.json}"
 REPORT_DIR="$(dirname "$0")/../.seo-reports"
 TODAY="$(date +%Y-%m-%d)"
 REPORT_FILE="$REPORT_DIR/$TODAY.json"
@@ -90,7 +91,11 @@ if [ -n "${GSC_SERVICE_KEY:-}" ] && [ -f "$GSC_SERVICE_KEY" ]; then
 
   # Get access token via service account
   TOKEN=$(python3 -c "
-import json, time, base64, hashlib, hmac, urllib.request, urllib.parse
+import json, time, base64, urllib.request, urllib.parse, subprocess, tempfile, os, ssl
+try:
+  import certifi; ctx = ssl.create_default_context(cafile=certifi.where())
+except ImportError:
+  ctx = ssl.create_default_context()
 key_data = json.load(open('$GSC_SERVICE_KEY'))
 now = int(time.time())
 header = base64.urlsafe_b64encode(json.dumps({'alg':'RS256','typ':'JWT'}).encode()).rstrip(b'=').decode()
@@ -100,18 +105,16 @@ claim = base64.urlsafe_b64encode(json.dumps({
   'aud': 'https://oauth2.googleapis.com/token',
   'iat': now, 'exp': now+3600
 }).encode()).rstrip(b'=').decode()
-import subprocess, tempfile, os
 with tempfile.NamedTemporaryFile(delete=False, suffix='.pem') as f:
   f.write(key_data['private_key'].encode()); fname = f.name
-sig_input = f'{header}.{claim}'.encode()
 result = subprocess.run(['openssl','dgst','-sha256','-sign',fname,'-keyform','PEM'],
-  input=sig_input, capture_output=True)
+  input=f'{header}.{claim}'.encode(), capture_output=True)
 os.unlink(fname)
 sig = base64.urlsafe_b64encode(result.stdout).rstrip(b'=').decode()
 jwt = f'{header}.{claim}.{sig}'
 data = urllib.parse.urlencode({'grant_type':'urn:ietf:params:oauth:grant-type:jwt-bearer','assertion':jwt}).encode()
 req = urllib.request.Request('https://oauth2.googleapis.com/token', data=data)
-print(json.loads(urllib.request.urlopen(req).read())['access_token'])
+print(json.loads(urllib.request.urlopen(req, context=ctx).read())['access_token'])
 " 2>/dev/null || echo "")
 
   if [ -n "$TOKEN" ]; then
