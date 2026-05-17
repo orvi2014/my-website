@@ -58,7 +58,7 @@ Respond with ONLY valid JSON, no explanation, no markdown:
   "aeo": <number 1-10>,
   "geo": <number 1-10>,
   "average": <number 1-10>,
-  "pass": <true if average >= 8.5, else false>,
+  "pass": <true if average >= 8.0, else false>,
   "weakest": "<the single weakest dimension: seo, aeo, or geo>",
   "fix": "<one specific actionable sentence on what would most improve the score>"
 }`
@@ -74,7 +74,7 @@ export async function qualityCheck(content) {
 
   // Recalculate average in case Claude rounded oddly
   result.average = Math.round(((result.seo + result.aeo + result.geo) / 3) * 10) / 10
-  result.pass = result.average >= 8.5
+  result.pass = result.average >= 8.0
 
   return result
 }

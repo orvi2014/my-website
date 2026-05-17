@@ -68,7 +68,7 @@ VOICE:
 - No "Key Takeaways", no "Frequently Asked Questions", no bullet summaries
 - End with a short punchy reflection — no call-to-action
 
-LENGTH: 1600–2000 words
+LENGTH: 1300–1600 words. CRITICAL: Write the complete article — do not stop mid-sentence, do not truncate, complete every section including the final paragraph.
 
 OUTPUT FORMAT — produce exactly this:
 ---
@@ -114,7 +114,7 @@ IMPROVEMENT RULES:
 BLOG POST:
 ${content}
 
-Output ONLY the full improved markdown starting with ---.`
+Output ONLY the full improved markdown starting with ---. CRITICAL: Write the complete article — do not truncate, complete every section including the final paragraph.`
 }
 
 export async function generateStory(topic) {
@@ -151,7 +151,7 @@ Apply all of these hard rules:
 - Minimum 3 real statistics with year and source
 - Minimum 3 real external citations with actual working URLs
 - Every H2 is a question someone Googles, followed immediately by a direct answer
-- 1600–2000 words
+- 1300–1600 words. CRITICAL: Write the complete article, do not truncate, complete every section.
 - No Key Takeaways, no FAQ, no bullet summaries
 - End with short punchy reflection, no call-to-action
 
