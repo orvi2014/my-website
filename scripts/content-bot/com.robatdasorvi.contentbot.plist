@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.robatdasorvi.contentbot</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/caffeinate</string>
+    <string>-s</string>
+    <string>-i</string>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/Users/orvi/my-website/scripts/content-bot/index.js</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/orvi/my-website/scripts/content-bot</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>TELEGRAM_BOT_TOKEN</key>
+    <string>REPLACE_TOKEN</string>
+    <key>TELEGRAM_CHAT_ID</key>
+    <string>REPLACE_CHAT_ID</string>
+    <key>INTERVAL_HOURS</key>
+    <string>4</string>
+    <key>PATH</key>
+    <string>/Users/orvi/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>HOME</key>
+    <string>/Users/orvi</string>
+    <key>NODE_EXTRA_CA_CERTS</key>
+    <string>/etc/ssl/cert.pem</string>
+    <key>SSL_CERT_FILE</key>
+    <string>/etc/ssl/cert.pem</string>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>KeepAlive</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/orvi/my-website/scripts/content-bot/bot.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/orvi/my-website/scripts/content-bot/bot.error.log</string>
+</dict>
+</plist>

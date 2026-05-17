@@ -1,0 +1,9 @@
+{
+  "name": "content-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test-generate": "node -e \"import('./generate.js').then(m => m.generateStory({key:'test',category:'technology',title:'Test Story About Building Things',query:'how to build things fast'})).then(c => console.log(c)).catch(console.error)\""
+  }
+}
