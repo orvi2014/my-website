@@ -33,7 +33,7 @@ export async function GET() {
         ? story.data.pubDate.toISOString()
         : String(story.data.pubDate);
       dynamicPages.push({
-        path: `/chapters/stories/${story.slug}`,
+        path: `/chapters/${story.data.category}/${story.slug}`,
         priority: '0.8',
         changefreq: 'monthly',
         lastmod: d,
