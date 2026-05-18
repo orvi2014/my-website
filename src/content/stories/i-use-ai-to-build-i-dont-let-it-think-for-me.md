@@ -5,7 +5,7 @@ pubDate: 2026-05-17
 category: "ai-automation"
 author: "Orvi"
 readingTime: 6
-tags: ["AI", "software development", "vibe coding", "testing", "developer mindset", "Claude Code", "engineering"]
+tags: ["AI", "software development", "vibe coding", "testing", "developer mindset", "Claude Code", "engineering", "AI-assisted development", "test-driven development"]
 featured: false
 ---
 
@@ -19,9 +19,11 @@ There is a difference and it matters more than almost anything else I have learn
 
 ---
 
-## What Vibe Coding Actually Is
+## What is vibe coding?
 
-Vibe coding is not just "using AI to help write code." That is a category error that people make to either defend or attack it. Using AI to help write code is just programming now. That is what the tools are for.
+Vibe coding is prompting an AI without understanding the output, accepting generated code without reading it, and shipping without testing. It is a specific workflow — not a synonym for AI-assisted development — and the term was [coined by Andrej Karpathy in February 2025](https://x.com/karpathy/status/1886192184808149163).
+
+Vibe coding is not just "using AI to help write code." That is a category error that people make to either defend or attack it. Using AI to help write code is just programming now. That is what the tools are for. According to the [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/), 76% of developers are already using or plan to use AI coding tools in their workflow.
 
 Vibe coding is something specific: it is prompting without understanding, accepting without reading, and shipping without testing. It is the workflow where the developer's job becomes describing what they want and clicking approve.
 
@@ -33,7 +35,9 @@ The cost is invisible until it is not.
 
 ---
 
-## The Line I Draw
+## How do you use AI coding tools without losing control of your work?
+
+The answer is to understand what you want before you prompt — write the test first, then hand the model a specific, bounded question. The model handles the typing; you remain responsible for the thinking.
 
 My workflow goes in one direction: I understand first, then I use AI to execute faster.
 
@@ -47,7 +51,9 @@ This sounds obvious. It is not practiced as much as it sounds.
 
 ---
 
-## What AI Is Actually Good At
+## What are AI coding tools actually good at in software development?
+
+AI coding tools are genuinely valuable for boilerplate generation, surfacing unfamiliar patterns, catching missed edge cases, and writing test cases — provided the developer already understands the shape of what they need. [GitHub's 2022 research](https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/) found developers using Copilot completed tasks 55% faster, but those gains concentrate in well-specified, bounded work.
 
 The honest list of where AI makes me dramatically faster:
 
@@ -63,7 +69,9 @@ What it is not good at: deciding what to build, deciding how to architect someth
 
 ---
 
-## The Senior Developer Problem
+## Will AI replace senior developers?
+
+No — but it may stall developers who outsource their thinking to it. The judgment senior developers carry is built through accumulated mistakes, not generated on demand, and that is the part AI cannot replicate.
 
 There is a version of this conversation that gets framed as: AI will replace junior developers but senior developers are safe because they can guide it.
 
@@ -71,13 +79,15 @@ I do not think this is quite right, and I think believing it creates a complacen
 
 The thing that makes a senior developer valuable is not primarily the ability to generate correct code. It is the ability to know which code should not exist, which abstractions will turn into debt, which requirements are wrong before you build them. That judgment comes from having been wrong enough times to develop taste.
 
-AI does not have taste. It has pattern completion. It will write you a technically correct solution to the wrong problem with the same confidence it writes a technically correct solution to the right one. It cannot tell the difference.
+AI does not have taste. It has pattern completion. It will write you a technically correct solution to the wrong problem with the same confidence it writes a technically correct solution to the right one. It cannot tell the difference. An AI that cannot tell the difference between the right and wrong problem is not a collaborator — it is a very fast typist with no stake in the outcome.
 
 If you are not developing the judgment — because you are outsourcing the thinking to the model — you are not building toward senior. You are extending the period where you do not yet know what you do not know.
 
 ---
 
-## Why This Is Not About Being Anti-AI
+## Does using AI for coding make you a worse developer?
+
+Only if you stop verifying what you ship. Used with discipline — understand first, prompt second, read everything, test before committing — AI-assisted development makes experienced developers significantly faster without eroding their judgment.
 
 I am not arguing for slowing down or using fewer tools. I am arguing for staying in the driver's seat of your own work.
 
