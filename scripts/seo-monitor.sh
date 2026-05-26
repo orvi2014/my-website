@@ -19,7 +19,8 @@
 
 set -euo pipefail
 
-SITE="${GSC_SITE:-https://www.robatdasorvi.com}"
+GSC_SITE_ID="${GSC_SITE:-sc-domain:robatdasorvi.com}"
+SITE="https://www.robatdasorvi.com"
 GSC_SERVICE_KEY="${GSC_SERVICE_KEY:-$(dirname "$0")/gsc-key.json}"
 REPORT_DIR="$(dirname "$0")/../.seo-reports"
 TODAY="$(date +%Y-%m-%d)"
@@ -85,34 +86,25 @@ for PAGE in "${PAGES[@]}"; do
 done
 
 # ── GSC API (requires credentials) ───────────────────────────────────────────
-if [ -n "${GSC_SERVICE_KEY:-}" ] && [ -f "$GSC_SERVICE_KEY" ]; then
+GSC_ADC="${HOME}/.config/gcloud/application_default_credentials.json"
+if [ -f "$GSC_ADC" ]; then
   echo ""
   echo "► Google Search Console (last 7 days vs prior 7 days)"
 
-  # Get access token via service account
+  # Get access token via user OAuth refresh token (gcloud ADC)
   TOKEN=$(python3 -c "
-import json, time, base64, urllib.request, urllib.parse, subprocess, tempfile, os, ssl
+import json, urllib.request, urllib.parse, ssl
 try:
   import certifi; ctx = ssl.create_default_context(cafile=certifi.where())
 except ImportError:
   ctx = ssl.create_default_context()
-key_data = json.load(open('$GSC_SERVICE_KEY'))
-now = int(time.time())
-header = base64.urlsafe_b64encode(json.dumps({'alg':'RS256','typ':'JWT'}).encode()).rstrip(b'=').decode()
-claim = base64.urlsafe_b64encode(json.dumps({
-  'iss': key_data['client_email'],
-  'scope': 'https://www.googleapis.com/auth/webmasters.readonly',
-  'aud': 'https://oauth2.googleapis.com/token',
-  'iat': now, 'exp': now+3600
-}).encode()).rstrip(b'=').decode()
-with tempfile.NamedTemporaryFile(delete=False, suffix='.pem') as f:
-  f.write(key_data['private_key'].encode()); fname = f.name
-result = subprocess.run(['openssl','dgst','-sha256','-sign',fname,'-keyform','PEM'],
-  input=f'{header}.{claim}'.encode(), capture_output=True)
-os.unlink(fname)
-sig = base64.urlsafe_b64encode(result.stdout).rstrip(b'=').decode()
-jwt = f'{header}.{claim}.{sig}'
-data = urllib.parse.urlencode({'grant_type':'urn:ietf:params:oauth:grant-type:jwt-bearer','assertion':jwt}).encode()
+creds = json.load(open('$GSC_ADC'))
+data = urllib.parse.urlencode({
+  'client_id': creds['client_id'],
+  'client_secret': creds['client_secret'],
+  'refresh_token': creds['refresh_token'],
+  'grant_type': 'refresh_token',
+}).encode()
 req = urllib.request.Request('https://oauth2.googleapis.com/token', data=data)
 print(json.loads(urllib.request.urlopen(req, context=ctx).read())['access_token'])
 " 2>/dev/null || echo "")
@@ -121,8 +113,9 @@ print(json.loads(urllib.request.urlopen(req, context=ctx).read())['access_token'
     # Fetch 7-day performance
     PAYLOAD='{"startDate":"'"$DATE_7D_AGO"'","endDate":"'"$DATE_YESTERDAY"'","dimensions":[]}'
     RESPONSE=$(curl -s -X POST \
-      "https://searchconsole.googleapis.com/webmasters/v3/sites/$(python3 -c "import urllib.parse; print(urllib.parse.quote('$SITE', safe=''))")/searchAnalytics/query" \
+      "https://searchconsole.googleapis.com/webmasters/v3/sites/$(python3 -c "import urllib.parse; print(urllib.parse.quote('$GSC_SITE_ID', safe=''))")/searchAnalytics/query" \
       -H "Authorization: Bearer $TOKEN" \
+      -H "x-goog-user-project: seo-monitor-496506" \
       -H "Content-Type: application/json" \
       -d "$PAYLOAD")
 
@@ -142,8 +135,9 @@ print(json.loads(urllib.request.urlopen(req, context=ctx).read())['access_token'
     # Top 5 queries
     PAYLOAD_Q='{"startDate":"'"$DATE_7D_AGO"'","endDate":"'"$DATE_YESTERDAY"'","dimensions":["query"],"rowLimit":5}'
     QUERIES=$(curl -s -X POST \
-      "https://searchconsole.googleapis.com/webmasters/v3/sites/$(python3 -c "import urllib.parse; print(urllib.parse.quote('$SITE', safe=''))")/searchAnalytics/query" \
+      "https://searchconsole.googleapis.com/webmasters/v3/sites/$(python3 -c "import urllib.parse; print(urllib.parse.quote('$GSC_SITE_ID', safe=''))")/searchAnalytics/query" \
       -H "Authorization: Bearer $TOKEN" \
+      -H "x-goog-user-project: seo-monitor-496506" \
       -H "Content-Type: application/json" \
       -d "$PAYLOAD_Q")
 
@@ -151,13 +145,12 @@ print(json.loads(urllib.request.urlopen(req, context=ctx).read())['access_token'
     echo "► Top 5 search queries (last 7 days)"
     echo "$QUERIES" | jq -r '.rows[]? | "  \(.clicks) clicks — \(.keys[0])"'
   else
-    echo "  ⚠ Could not obtain token — check GSC_SERVICE_KEY path and permissions"
+    echo "  ⚠ Could not obtain token — run: gcloud auth application-default login"
   fi
 else
   echo ""
   echo "  ℹ  GSC API not configured."
-  echo "     Set GSC_SERVICE_KEY=/path/to/service-account.json to enable."
-  echo "     See: scripts/SETUP_GSC_MONITORING.md"
+  echo "     Run: bash /tmp/gsc-login.sh"
 fi
 
 echo ""
