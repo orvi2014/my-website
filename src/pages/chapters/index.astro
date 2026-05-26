@@ -151,11 +151,10 @@ const itemListSchema = {
           <span>The Book of Life</span>
         </div>
         <div class="rp-watermark">${cat.roman}</div>
-        <div class="rp-ch-label">Chapter ${cat.roman}</div>
         <div class="rp-ch-title">${cat.title}</div>
         <div class="rp-ch-desc">${cat.description}</div>
         <div class="rp-divider"></div>
-        ${storyRows}${empty}
+        <div class="rp-stories">${storyRows}${empty}</div>
         <div class="page-foot">
           <span>The Book of Life</span>
           ${pgFoot}
@@ -303,6 +302,7 @@ const itemListSchema = {
       transition: opacity 0.12s;
     }
 
+    .toc-entry:last-child { border-bottom: none; }
     .toc-entry:hover .toc-name,
     .toc-entry.active .toc-name { color: var(--sienna); }
     .toc-entry.active .toc-roman { color: var(--sienna); }
@@ -361,16 +361,6 @@ const itemListSchema = {
       user-select: none;
     }
 
-    .rp-ch-label {
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sienna);
-      margin-bottom: 6px;
-      opacity: 0.85;
-      font-family: var(--font-sans);
-    }
-
     .rp-ch-title {
       font-family: var(--font-serif);
       font-size: 21px;
@@ -394,6 +384,10 @@ const itemListSchema = {
       background: var(--sienna);
       opacity: 0.55;
       margin-bottom: 14px;
+    }
+
+    .rp-stories {
+      overflow: hidden;
     }
 
     .rp-story {
