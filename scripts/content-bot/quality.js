@@ -50,7 +50,7 @@ GEO (Generative Engine Optimisation):
 - No vague hedging like "it depends" without explanation
 
 CONTENT TO EVALUATE:
-${content.slice(0, 8000)}
+${content.slice(0, 14000)}
 
 Respond with ONLY valid JSON, no explanation, no markdown:
 {

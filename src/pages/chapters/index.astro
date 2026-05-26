@@ -100,16 +100,28 @@ const itemListSchema = {
   </div>
 
   <script define:vars={{ catData }}>
-    const STORY_NUMS = ['01','02','03','04','05','06','07','08','09','10'];
+    const STORY_NUMS = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15'];
+    const ITEMS_PER_PAGE = 5;
 
-    function renderRightPage(cat) {
+    let currentCat = null;
+    let currentPage = 0;
+
+    function renderRightPage(cat, page = 0) {
+      currentCat = cat;
+      currentPage = page;
+
       const rp = document.getElementById('rightPage');
       if (!rp) return;
 
       rp.style.opacity = '0';
 
-      const storyRows = (cat.stories || []).map((s, i) => {
-        const num = STORY_NUMS[i] || String(i + 1).padStart(2, '0');
+      const stories = cat.stories || [];
+      const totalPages = Math.max(1, Math.ceil(stories.length / ITEMS_PER_PAGE));
+      const pageStories = stories.slice(page * ITEMS_PER_PAGE, (page + 1) * ITEMS_PER_PAGE);
+
+      const storyRows = pageStories.map((s, i) => {
+        const absIdx = page * ITEMS_PER_PAGE + i;
+        const num = STORY_NUMS[absIdx] || String(absIdx + 1).padStart(2, '0');
         const meta = s.readingTime ? `${s.readingTime} min read` : '';
         return `<a class="rp-story" href="/chapters/${s.category}/${s.slug}">
           <span class="rp-s-num">${num}</span>
@@ -121,9 +133,17 @@ const itemListSchema = {
         </a>`;
       }).join('');
 
-      const empty = cat.stories.length === 0
+      const empty = stories.length === 0
         ? '<p style="font-size:12px;color:rgba(90,70,50,0.5);padding:12px 0;">No stories in this chapter yet.</p>'
         : '';
+
+      const pgFoot = totalPages > 1
+        ? `<span class="rp-pg-nav">
+            <button class="rp-pg-btn rp-pg-prev" ${page === 0 ? 'disabled' : ''}>‹</button>
+            <span>${page + 1}&thinsp;/&thinsp;${totalPages}</span>
+            <button class="rp-pg-btn rp-pg-next" ${page >= totalPages - 1 ? 'disabled' : ''}>›</button>
+           </span>`
+        : `<span>${cat.pg}</span>`;
 
       rp.innerHTML = `
         <div class="page-head">
@@ -138,22 +158,25 @@ const itemListSchema = {
         ${storyRows}${empty}
         <div class="page-foot">
           <span>The Book of Life</span>
-          <span>${cat.pg}</span>
+          ${pgFoot}
         </div>
       `;
+
+      rp.querySelector('.rp-pg-prev')?.addEventListener('click', () => renderRightPage(currentCat, currentPage - 1));
+      rp.querySelector('.rp-pg-next')?.addEventListener('click', () => renderRightPage(currentCat, currentPage + 1));
 
       requestAnimationFrame(() => { rp.style.opacity = '1'; });
     }
 
     function init() {
-      if (catData.length > 0) renderRightPage(catData[0]);
+      if (catData.length > 0) renderRightPage(catData[0], 0);
 
       const entries = document.querySelectorAll('.toc-entry');
       entries.forEach((entry, i) => {
         entry.addEventListener('click', () => {
           entries.forEach(e => e.classList.remove('active'));
           entry.classList.add('active');
-          renderRightPage(catData[i]);
+          renderRightPage(catData[i], 0);
         });
       });
     }
@@ -298,10 +321,13 @@ const itemListSchema = {
       font-family: var(--font-serif);
       font-size: 14.5px;
       color: #1e1006;
-      flex-shrink: 0;
+      flex: 1;
+      min-width: 0;
       line-height: 1.25;
       transition: color 0.12s;
-      max-width: 170px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .toc-leader {
@@ -422,6 +448,26 @@ const itemListSchema = {
       flex-shrink: 0;
       padding-top: 3px;
     }
+
+    .rp-pg-nav {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .rp-pg-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      color: rgba(90,70,50,0.6);
+      padding: 0 1px;
+      line-height: 1;
+    }
+
+    .rp-pg-btn:disabled { opacity: 0.25; cursor: default; }
+    .rp-pg-btn:not(:disabled):hover { color: var(--sienna); }
 
     @media (max-width: 680px) {
       .open-book {
