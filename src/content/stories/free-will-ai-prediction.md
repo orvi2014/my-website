@@ -1,6 +1,6 @@
 ---
 title: "Does Free Will Still Exist If an AI Can Predict Your Next Decision?"
-description: "AI systems can now predict human behaviour with uncomfortable accuracy. If your next choice can be modelled before you make it, what does that mean for the idea that you are choosing at all?"
+description: "If AI can predict your next choice before you make it, does free will mean anything? A rigorous look at determinism, agency, and algorithmic manipulation."
 pubDate: 2026-05-16
 category: "philosophy"
 author: "Orvi"
