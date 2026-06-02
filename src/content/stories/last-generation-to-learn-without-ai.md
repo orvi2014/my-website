@@ -1,6 +1,6 @@
 ---
 title: "We Are the Last Generation to Have Learned Without AI. Here's What That Means."
-description: "The people building AI systems today are the last ones who learned everything the hard way — through friction, failure, and slow accumulation. What we carry is not just knowledge. It is a different kind of knowing."
+description: "Learning without AI built understanding through friction and failure — why the last generation to learn the hard way carries something now becoming scarce."
 pubDate: 2026-05-16
 category: "future"
 author: "Orvi"
@@ -41,7 +41,7 @@ The honest answer is: we do not know yet.
 
 What the next generation will have is something different. They will interact with AI systems from the beginning of their cognitive development. They will learn to frame problems, to evaluate outputs, to direct systems toward goals — skills that my generation is learning in our thirties and forties after learning the previous way first. They will likely be better at certain things than we are. They will likely be worse at others.
 
-[A 2024 study from Wharton's Operations, Information and Decisions department](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4895486) tracked exactly this split. Researchers gave students access to an AI tutor for math practice. Students who used it performed substantially better during AI-assisted sessions — but scored significantly worse on subsequent assessments taken without AI assistance. The paper's title is direct: *Generative AI Can Harm Learning*. The finding was not that AI made students worse overall; it was that AI dependency formed quickly enough to undermine independent performance on tasks the AI had not seen.
+[A 2024 study from Wharton's Operations, Information and Decisions department](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4895486) tracked exactly this split. Researchers gave nearly 1,000 high school students access to an AI tutor for math practice. Students who used it performed substantially better during AI-assisted sessions — but scored significantly worse on subsequent assessments taken without AI assistance. The paper's title is direct: *Generative AI Can Harm Learning*. The finding was not that AI made students worse overall; it was that AI dependency formed quickly enough to undermine independent performance on tasks the AI had not seen. Put plainly: the tool that raised their scores in the room lowered them the moment it left.
 
 The question is what we are optimising for. If we optimise for task completion, AI-assisted learning is superior. If we optimise for the ability to operate in genuinely novel situations where no prior pattern applies, the picture is less clear.
 
@@ -57,7 +57,7 @@ The AI systems being built today were trained on content produced by people who 
 
 That data captured something: the thinking of humans who built their understanding through friction.
 
-The data being generated now is different. Developers who use AI agents think differently. They reach for a prompt before they reach for a solution. They work in handoffs and reviews rather than line-by-line construction. A [2023 study published in the Communications of the ACM](https://cacm.acm.org/research/measuring-github-copilots-impact-on-developer-productivity/) found developers using GitHub Copilot completed tasks 55% faster than those working unassisted — a speed gain that inevitably reshapes how problems are approached before they are even fully understood. This is not worse. But it is a different cognitive texture, and that texture is becoming the training data for the next generation of models.
+The data being generated now is different. Developers who use AI agents think differently. They reach for a prompt before they reach for a solution. They work in handoffs and reviews rather than line-by-line construction. A [2023 study published in the Communications of the ACM](https://cacm.acm.org/research/measuring-github-copilots-impact-on-developer-productivity/) found developers using GitHub Copilot completed tasks 55% faster than those working unassisted — a speed gain that inevitably reshapes how problems are approached before they are even fully understood. The texture of that work is changing too: GitHub reported in 2023 that Copilot was already writing [around 46% of code](https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/) in files where it was enabled. This is not worse. But it is a different cognitive texture, and that texture is becoming the training data for the next generation of models.
 
 We are not, in any simple sense, training AI on human thought anymore. We are training AI on human thought that has already been shaped by AI. The feedback loop is closed. Nobody fully knows what it produces.
 
