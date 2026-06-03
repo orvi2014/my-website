@@ -1,8 +1,5 @@
 ---
-
-```markdown
----
-title: "How Galatasaray Turned Stadium Noise Into a Tactical Weapon — and the Science Behind It"
+title: "Galatasaray Atmosphere: Stadium Noise as a Tactical Weapon"
 description: "Galatasaray's atmosphere intimidation isn't folklore — decibel records, referee studies and ghost-game data show how noise wins matches."
 pubDate: 2026-06-03
 category: "football"
@@ -20,7 +17,7 @@ That match is where I want to start, because it's the moment a feeling became a 
 
 It came from a single European night in 1993, when an organic, improvised wall of hostility visibly subdued one of the best teams in Europe. What started as spontaneous fury at Ali Sami Yen became, over the next three decades, something deliberately engineered.
 
-Ali Sami Yen was small — barely 25,000 — and that was the point. A low, tight bowl with stands climbing almost vertically off the touchline traps sound the way a cupped hand traps a shout. The players who walked out there in 1993 didn't describe a big crowd; they described a *close* one. United's younger players — Gary Neville, a teenage David Beckham on the fringes — later spoke about the noise as a physical thing. The tactical consequence was concrete: United, normally a side that built patiently from the back, started rushing their passes and conceding fouls. Cantona's red card wasn't bad luck. It was a disciplined player losing his composure in an environment specifically designed to break it. ([Manchester United's own account](https://www.manutd.com/en/news/detail/bryan-robson-recalls-welcome-to-hell-game-at-galatasaray-in-1993) doesn't dress this up.)
+Ali Sami Yen was small — barely 25,000 — and that was the point. A low, tight bowl with stands climbing almost vertically off the touchline traps sound the way a cupped hand traps a shout. The players who walked out there in 1993 didn't describe a big crowd; they described a *close* one. United's younger players — Gary Neville, a teenage David Beckham on the fringes — later spoke about the noise as a physical thing. The tactical consequence was concrete: United, normally a side that built patiently from the back, started rushing their passes and conceding fouls. Cantona's red card wasn't bad luck. It was a disciplined player losing his composure in an environment specifically designed to break it. ([Manchester United's own account](https://www.manutd.com/en/news/bryan-robson-recalls-welcome-to-hell-game-at-galatasaray-in-1993) doesn't dress this up.)
 
 Here's the part that interests me as the story moves forward: in 1993, none of this was planned. The acoustics were an accident of a cheap old stadium. The intimidation was real but unrepeatable — you can't bottle a riot. The next phase of the evolution was Galatasaray learning to manufacture on purpose what Ali Sami Yen had produced by accident.
 
@@ -52,7 +49,7 @@ This is the quotable core of the whole story: *a hostile crowd doesn't just lift
 
 It's real, and we know exactly how much of it the crowd supplies, because COVID-19 ran the experiment for us. When stadiums emptied in 2020, home advantage didn't shrink — large chunks of it vanished.
 
-The "ghost games" of 2020 are the closest thing football has ever had to a controlled trial. In one widely cited Bundesliga analysis comparing 83 empty matches to the equivalent fixtures with fans, home win rates collapsed from 48.2% to 32.5% once the crowd was removed — and the referee bias went with it. With no one to intimidate them, officials handed out *more* even-handed cards and stoppage time, and the home side's protection evaporated. ([The referee-bias finding is documented in *Economics Letters*.](https://www.sciencedirect.com/science/article/pii/S0165176520303815)) Strip the crowd out, and the unconscious tilt Nevill measured in a lab showed up — or rather, disappeared — across a whole league in real matches.
+The "ghost games" of 2020 are the closest thing football has ever had to a controlled trial. In one widely cited Bundesliga analysis comparing 83 empty matches to the equivalent fixtures with fans, home win rates collapsed from 48.2% to 32.5% once the crowd was removed — and the referee bias went with it. With no one to intimidate them, officials handed out *more* even-handed cards and stoppage time, and the home side's protection evaporated. ([The referee-bias finding is documented in *Economics Letters*.](https://www.sciencedirect.com/science/article/pii/S0165176520304249)) Strip the crowd out, and the unconscious tilt Nevill measured in a lab showed up — or rather, disappeared — across a whole league in real matches.
 
 Put the two studies together and Galatasaray's century-old instinct turns into a near-equation. Nevill (2002) isolated the *cause*: noise makes referees flinch. The 2020 ghost games measured the *effect*: remove the noise and the home side loses about a third of its winning edge. Galatasaray didn't read the papers. They just built a stadium that maximises the input.
 
