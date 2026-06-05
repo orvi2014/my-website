@@ -23,7 +23,7 @@ Within a single agent, the failure surface is bounded. One model, one context wi
 
 The exception is recoverable. The silent partial-state continuation is not — because the system logs a success.
 
-Microsoft Research documented this failure class directly in the AutoGen framework paper (Wu et al., 2023). The framework required explicit termination callbacks and shared state contracts to prevent what the authors called "conversation derailment" — agents in a loop that are coherent, confident, and wrong. The team treated this failure mode as a design requirement because it appeared so consistently in evaluation that it could not be treated as an edge case. The fix was not a model improvement. It was an architectural primitive. [arxiv.org/abs/2308.08155]
+Microsoft Research documented this failure class directly in the [AutoGen framework paper (Wu et al., 2023)](https://arxiv.org/abs/2308.08155). The framework required explicit termination callbacks and shared state contracts to prevent what the authors called "conversation derailment" — agents in a loop that are coherent, confident, and wrong. The team treated this failure mode as a design requirement because it appeared so consistently in evaluation that it could not be treated as an edge case. The fix was not a model improvement. It was an architectural primitive.
 
 The seam is where the system lives. The center is where the team tests.
 
@@ -35,7 +35,7 @@ Here is the exact failure sequence. An orchestrator sends a research task to a s
 
 Every agent completed its assigned step. The task-completion metric logged a success. The pipeline itself is the problem.
 
-This is precisely what the AgentBench benchmark (Liu et al., 2023) was designed to stress-test. Across eight distinct real-world task environments — including OS interaction, database management, and knowledge reasoning — even GPT-4, the top-performing model at time of publication, showed substantial failure rates on tasks requiring multi-step grounded reasoning. The dominant failure mode was not reasoning breakdown within a single step. It was error propagation across steps: each agent was positioned to complete its local task, and no agent had the global context required to catch what had gone wrong upstream. [arxiv.org/abs/2308.03688]
+This is precisely what the [AgentBench benchmark (Liu et al., 2023)](https://arxiv.org/abs/2308.03688) was designed to stress-test. Across eight distinct real-world task environments — including OS interaction, database management, and knowledge reasoning — even GPT-4, the top-performing model at time of publication, showed substantial failure rates on tasks requiring multi-step grounded reasoning. The dominant failure mode was not reasoning breakdown within a single step. It was error propagation across steps: each agent was positioned to complete its local task, and no agent had the global context required to catch what had gone wrong upstream.
 
 The system that produces this outcome has a name: it is an evaluation architecture that rewards local optimization without measuring global correctness. Every incentive at every layer is to pass the output downstream. Challenging upstream output is not part of any agent's job description, because job descriptions in agent pipelines are written by engineers optimizing for modularity, not for truth. That is structural, not incidental. The system produces cascading trust because cascading trust is what the system was built to produce.
 
@@ -45,7 +45,7 @@ The system that produces this outcome has a name: it is an evaluation architectu
 
 The counterargument is coherent: if you add a verification agent after every step, or run three agents in parallel and take a majority vote, you get more coverage. Three checks are better than one.
 
-What this argument misses is that agents sharing the same base model share the same systematic failure modes. Three GPT-4o instances reviewing the same claim are not three independent auditors — they are the same prior sampled three times. Du et al. (2023) tested this directly in a structured multi-agent debate setup: language models explicitly challenged each other's reasoning across factual and mathematical tasks. Performance improved only when agents were initialized with *genuinely different framings* of the problem. Without that divergence, agents converged toward agreement, not accuracy — they debated toward shared confidence rather than toward the truth. [arxiv.org/abs/2305.14325]
+What this argument misses is that agents sharing the same base model share the same systematic failure modes. Three GPT-4o instances reviewing the same claim are not three independent auditors — they are the same prior sampled three times. [Du et al. (2023)](https://arxiv.org/abs/2305.14325) tested this directly in a structured multi-agent debate setup: language models explicitly challenged each other's reasoning across factual and mathematical tasks. Performance improved only when agents were initialized with *genuinely different framings* of the problem. Without that divergence, agents converged toward agreement, not accuracy — they debated toward shared confidence rather than toward the truth.
 
 Redundancy without diversity is latency. A verification agent that reads the orchestrator's output and confirms it looks reasonable is not adding a check — it is adding a step. The check is only real if the verification agent has access to ground truth the original agent lacked, or if it is operating on a structurally different reasoning path. Spinning up three homogeneous agents to vote on a claim is not error correction. It is error laundering.
 
@@ -57,7 +57,7 @@ What holds: a single orchestrator that owns the task definition and the success 
 
 What does not hold: flat graphs where any agent can message any other agent without an orchestrator mediating state; shared write access to external resources without coordination primitives; pipelines longer than three hops without a human-in-the-loop checkpoint; dynamic agent spawning without hard resource ceilings.
 
-Anthropic's 2024 documentation on building effective agents draws a precise line between pipelines — where agent steps are predetermined before execution — and dynamic orchestration, where an agent decides at runtime which tools or sub-agents to call. The guidance is explicit: use pipelines when reliability is the primary constraint; use dynamic orchestration only when the task genuinely cannot be decomposed in advance, and accept the expanded failure surface as a conscious architectural choice, not an implicit one. [anthropic.com/research/building-effective-agents]
+Anthropic's 2024 guidance on [building effective agents](https://www.anthropic.com/engineering/building-effective-agents) draws a precise line between workflows — where agent steps are predetermined before execution — and dynamic agents, where the model decides at runtime which tools or sub-agents to call. The guidance is explicit: use predetermined workflows when reliability is the primary constraint; use dynamic orchestration only when the task genuinely cannot be decomposed in advance, and accept the expanded failure surface as a conscious architectural choice, not an implicit one.
 
 That distinction almost never survives implementation, because a predetermined pipeline feels less impressive than an autonomous orchestrator. The demo pressure is toward autonomy. The production pressure is toward reliability. These are in direct tension, and the tension is almost never named at architecture review.
 
@@ -73,7 +73,7 @@ What practitioners do that papers do not recommend: they set hard step ceilings 
 
 ## Where Is This System Headed That Most People Have Not Accounted For?
 
-The next major wave of multi-agent production failures will not be technical. It will be organizational.
+**The next major wave of multi-agent production failures will not be technical — it will be organizational.**
 
 As these systems move from engineering experiments into operational infrastructure — into decision support, into automated reporting, into anything that informs resource allocation — the gap between what an agent pipeline reports and what is actually true becomes a liability question, not an engineering question. The teams that built the systems understand their failure modes. The stakeholders consuming the outputs often do not, and are not being given the context to evaluate them.
 
