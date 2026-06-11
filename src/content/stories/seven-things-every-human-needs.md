@@ -1,6 +1,6 @@
 ---
 title: "Seven Core Human Needs: A Framework for When Life Feels Off"
-description: "Dignity. Power. Freedom. Love. Meaning. Celebration. Rest. Strip everything else away and what remains is this. A framework I return to whenever I lose the thread."
+description: "The seven core human needs — dignity, power, freedom, love, meaning, celebration, and rest — and how to diagnose which one is going hungry when life feels wrong but looks fine. A framework I return to whenever I lose the thread."
 pubDate: 2026-05-16
 category: "human"
 author: "Orvi"
@@ -27,7 +27,7 @@ This is the first one and the most foundational, and it is the one nobody talks 
 
 I have been in rooms where I was treated as a function and rooms where I was treated as a person, and the difference registers in the body before it registers in the mind. Your shoulders change. Your voice changes. The quality of your thinking changes.
 
-The places we spend our time are either feeding dignity or eroding it. This includes jobs, relationships, the stories we tell about ourselves at 2am. The erosion is slow and the damage accumulates quietly, which is why people sometimes look up one day and do not recognise who they have become. Christina Maslach's decades of research on burnout identifies how a person is treated relative to their perceived worth — fairness, community, recognition — as primary drivers of burnout, distinct from workload alone. Dignity is not a soft variable. It is structural.
+The places we spend our time are either feeding dignity or eroding it. This includes jobs, relationships, the stories we tell about ourselves at 2am. The erosion is slow and the damage accumulates quietly, which is why people sometimes look up one day and do not recognise who they have become. [Christina Maslach's decades of research on burnout](https://pmc.ncbi.nlm.nih.gov/articles/PMC4911781/) identifies how a person is treated relative to their perceived worth — fairness, community, recognition — as primary drivers of burnout, distinct from workload alone. Dignity is not a soft variable. It is structural.
 
 Dignity is not pride. It is not the performance of confidence. It is the baseline experience of mattering — to yourself, to the people around you, in the space you occupy. And it is the need most quietly destroyed by bad environments.
 
@@ -65,7 +65,7 @@ The surrenders compound. At some point you look at the life you have and you can
 
 ## Why Is Love a Need, Not Just a Feeling?
 
-Love, as a need, is the experience of being fully known by another person and not abandoned because of it. Epidemiologist Julianne Holt-Lunstad's 2015 meta-analysis of 70 studies found that social isolation increases mortality risk by 26 percent — comparable to smoking 15 cigarettes a day. Love is not sentiment. It is survival infrastructure.
+Love, as a need, is the experience of being fully known by another person and not abandoned because of it. Epidemiologist [Julianne Holt-Lunstad's 2015 meta-analysis of 70 studies](https://pubmed.ncbi.nlm.nih.gov/25910392/) found that social isolation increases mortality risk by 26 percent — comparable to smoking 15 cigarettes a day. Love is not sentiment. It is survival infrastructure.
 
 I am not going to define love. Nobody has defined it satisfactorily in the history of attempting to define it, and I do not think this paragraph will resolve the question.
 
@@ -97,7 +97,7 @@ Celebration is the need to mark that something mattered — to let an experience
 
 This one is underrated and I include it deliberately.
 
-Celebration is not parties. Celebration is the act of marking that something happened, that something mattered, that someone or something is worth acknowledging with more than a nod and a move-on. It is the practice of letting good things land before turning to the next thing. Research on savoring — the deliberate positive attention to good experiences — identifies it as one of the most reliable predictors of sustained wellbeing, independent of how objectively good the experiences themselves are. The bottleneck is rarely the absence of good things. It is the failure to register them.
+Celebration is not parties. Celebration is the act of marking that something happened, that something mattered, that someone or something is worth acknowledging with more than a nod and a move-on. It is the practice of letting good things land before turning to the next thing. [Research on savoring](https://pmc.ncbi.nlm.nih.gov/articles/PMC8712667/) — the deliberate positive attention to good experiences, a field Fred Bryant has led since the 1980s — identifies it as one of the most reliable predictors of sustained wellbeing, independent of how objectively good the experiences themselves are. The bottleneck is rarely the absence of good things. It is the failure to register them.
 
 Founders are terrible at this. I am terrible at this. The ship-date passes, the milestone hits, the thing that was hard becomes done — and immediately the attention moves to what is next. The next problem, the next target, the next thing to fix.
 
@@ -109,7 +109,7 @@ Celebration is not indulgence. It is the practice of making experience real. Of 
 
 ## Why Is Rest a Core Human Need, Not a Productivity Hack?
 
-Rest is the biological and psychological need for active restoration of capacity. The CDC estimates that 1 in 3 American adults do not get enough sleep — and the resulting deficits are worst in judgment, creativity, and complex decision-making, which are exactly the functions that can't be offloaded or recovered with caffeine.
+Rest is the biological and psychological need for active restoration of capacity. The [CDC estimates that 1 in 3 American adults](https://www.cdc.gov/sleep/data-research/facts-stats/index.html) do not get enough sleep — and the resulting deficits are worst in judgment, creativity, and complex decision-making, which are exactly the functions that can't be offloaded or recovered with caffeine.
 
 The last one is the one most resisted by people who value productivity, which means it is the one most commonly missing from the lives of driven people.
 
