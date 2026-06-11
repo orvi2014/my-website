@@ -1,5 +1,5 @@
 ---
-title: "The Economics of AI Agents: When Autonomous Beats Human-in-the-Loop"
+title: "Human-in-the-Loop vs Autonomous AI Agents: A Cost Comparison"
 description: "AI agent economics show autonomous pipelines beat human-in-the-loop on cost AND accuracy at scale — here's the threshold most teams are missing."
 pubDate: 2026-05-27
 category: "ai-agents"
@@ -29,7 +29,7 @@ At low volume, human review is negligible. At scale, it becomes the dominant cos
 
 Consider a realistic enterprise document classification pipeline. A knowledge worker reviewing classifications earns roughly $35–50 per hour fully loaded (salary, benefits, management overhead, tooling). At a review rate of 60 documents per hour — generous for sustained accurate attention — that's $0.58–$0.83 per review. A Claude Sonnet-class API call on a structured classification task runs $0.003–$0.015. Even with a 10% error rate requiring rework, the autonomous pipeline runs at one-fiftieth the per-unit cost.
 
-At 10,000 decisions per day — moderate volume for a meaningful business process — human review costs $5,800–$8,300 daily. The autonomous pipeline costs $30–$150. The differential compounds annually into millions. For the companies watching Gartner's projection that 40% of enterprise applications will embed agentic AI by 2026, the teams still funding HITL at scale are building a structural cost disadvantage into their operations.
+At 10,000 decisions per day — moderate volume for a meaningful business process — human review costs $5,800–$8,300 daily. The autonomous pipeline costs $30–$150. The differential compounds annually into millions. Gartner predicts that 40% of enterprise applications will feature task-specific AI agents by 2026, up from less than 5% in 2025 ([Gartner, 2025](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025)) — and for the companies watching that projection, the teams still funding HITL at scale are building a structural cost disadvantage into their operations.
 
 The counterargument is that errors have costs too. That's true. We'll get to what that actually means in a moment.
 
