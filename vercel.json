@@ -52,6 +52,8 @@
     { "source": "/chapters/stories/classcatch", "destination": "/chapters/extensions/classcatch", "permanent": true },
     { "source": "/chapters/stories/why-does-universe-have-laws", "destination": "/chapters/philosophy/why-does-universe-have-laws", "permanent": true },
     { "source": "/chapters/stories", "destination": "/chapters", "permanent": true },
-    { "source": "/chapters/first-chapter", "destination": "/chapters", "permanent": true }
+    { "source": "/chapters/first-chapter", "destination": "/chapters", "permanent": true },
+    { "source": "/chapters/ai-automation/agent-rule-wars", "destination": "/chapters/ai-agents/multi-agent-coordination-the-patterns-that-work-and-the-ones-that-blow-up", "permanent": true },
+    { "source": "/chapters/ai-automation/i-use-ai-to-build-i-dont-let-it-think-for-me", "destination": "/chapters/ai-automation/what-the-ai-agent-still-cannot-replace-about-a-senior-developer", "permanent": true }
   ]
 } 
