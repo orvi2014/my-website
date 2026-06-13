@@ -5,12 +5,10 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: /search-index.json
-Crawl-delay: 1
 
 # Google
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Googlebot-Image
 Allow: /
@@ -18,7 +16,6 @@ Allow: /
 # Bing
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
 # ── AI / Answer Engine crawlers — explicitly allowed for AEO ──
 User-agent: GPTBot
