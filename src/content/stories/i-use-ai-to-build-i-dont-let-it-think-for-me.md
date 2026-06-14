@@ -1,5 +1,5 @@
 ---
-title: "I use AI to build. I don't let it think for me."
+title: "Vibe coding vs AI-assisted development: where to draw the line"
 description: "76% of developers now use AI coding tools. Here's the line between AI-assisted development and vibe coding, and why it's the only one worth drawing."
 pubDate: 2026-05-17
 category: "ai-automation"
@@ -31,7 +31,7 @@ The output looks like software. It passes the smell test. It runs. And then, thr
 
 I have seen this happen to smart people. I have started to do it myself on late nights when I was tired and the model was confident. It is seductive because the short loop feels productive. You say a thing, the code appears, it works. The feedback is immediate and positive.
 
-The cost is invisible until it is not.
+The cost is invisible until it is not. Vibe coding does not save you the work of understanding your code. It just moves that work to production, where it is most expensive.
 
 ---
 
@@ -55,6 +55,8 @@ This sounds obvious. It is not practiced as often as it sounds.
 
 AI coding tools are genuinely valuable for boilerplate generation, surfacing unfamiliar patterns, catching missed edge cases, and writing test cases, provided the developer already understands the shape of what they need. [GitHub's 2022 research on Copilot](https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/) found developers completed tasks 55% faster, but those gains concentrate in well-specified, bounded work.
 
+The nuance is in that last clause. A [randomized controlled trial published by METR in July 2025](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) found that experienced open-source developers were actually 19% *slower* when using AI tools on large codebases they already knew well, even though they believed they had been 20% faster. The speedup is real, but it lives in the bounded, unfamiliar work, not in the parts where you already hold the whole system in your head. The tool helps most exactly where you understand least about the typing and most about the goal.
+
 The areas where it actually makes me faster:
 
 Boilerplate I already know the shape of. If I need a repository pattern with five methods, I describe it precisely and get it in thirty seconds instead of fifteen minutes. The AI just types faster than I do.
@@ -71,7 +73,9 @@ This is not a principled stance. It is just the pattern that has saved me the mo
 
 ---
 
-## The test-first habit that changed how I use AI
+## Why should you write tests before you prompt the AI?
+
+Because writing the test first moves the thinking to the front of the process, where it is cheap, instead of the back, where it is expensive. The test defines the exact contract you hand the model, which turns a vague prompt into a bounded one the model can actually satisfy.
 
 Before I started writing tests first, my AI-assisted sessions had a predictable shape: I would get code back quickly, it would look reasonable, I would drop it in, and it would work until it did not. The failure modes were always in the edges I had not thought about because I had not been forced to think about them before asking.
 
@@ -117,7 +121,7 @@ The people I have watched get the most out of these tools are the ones who get m
 
 I am not arguing for slowing down or using fewer tools. I am arguing for staying in the driver's seat of your own work.
 
-There is a 2024 study from [GitClear](https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality) that tracked 211 million lines of code across repositories before and after AI adoption. They found a significant increase in code churn, code written and then reverted or altered within two weeks, which they attribute in part to AI-generated code that passed review but failed in practice. I think about that study a lot.
+There is a 2024 study from [GitClear](https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality) that tracked 211 million lines of code across repositories before and after AI adoption. They found code churn, code written and then reverted or altered within two weeks, was projected to double in 2024 compared to its 2021 pre-AI baseline, and that copy-pasted code began outpacing refactored code for the first time in the dataset. They attribute part of that to AI-generated code that passed review but failed in practice. I think about that study a lot. The tool that lets you write more code also lets you throw more of it away.
 
 The AI handles the typing. I stay responsible for the thinking.
 
@@ -125,9 +129,11 @@ That is the only arrangement I trust.
 
 ---
 
-## A practical note on prompting
+## How do you write a good prompt for AI coding tools?
 
-The quality of what you get back scales almost entirely with the quality of what you put in. This is not a metaphor. It is a literal constraint of how these models work.
+Put the understanding in before you write the prompt. A concrete schema, a test the output has to pass, an explicit list of things it should not do, the quality of what you get back scales almost entirely with the precision of what you put in.
+
+This is not a metaphor. It is a literal constraint of how these models work.
 
 When I give Claude a vague instruction, I get a plausible-looking response that requires significant rework. When I give it a specific constraint, a concrete schema, a test it has to pass, a list of things it should not do, I get something I can use with minimal editing.
 
@@ -137,7 +143,9 @@ That sounds harsh. I mean it as a practical filter, not a moral judgment. The fi
 
 ---
 
-## Why this matters more as AI gets better
+## Why does judgment matter more as AI coding tools get better?
+
+Because better models produce more convincing output, which makes their confident mistakes harder to catch. You are the error bar the model cannot provide, and the more fluent the output gets, the more that role matters.
 
 The models are getting better fast. They are already capable of writing entire files of reasonable code from minimal description. By the time you read this, they may be capable of more.
 
