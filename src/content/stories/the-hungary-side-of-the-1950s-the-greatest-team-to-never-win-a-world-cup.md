@@ -1,6 +1,6 @@
 ---
-title: "The Hungary Side of the 1950s: The Greatest Team to Never Win a World Cup"
-description: "Hungary 1950s football history explained: how the Mighty Magyars broke England and lost a final they dominated — and what stats still can't see."
+title: "Mighty Magyars: The Hungary Side of the 1950s and the Greatest Team to Never Win a World Cup"
+description: "How Hungary's Mighty Magyars broke England and dominated the 1954 World Cup final they lost — and what the stats still can't see."
 pubDate: 2026-06-13
 category: "football"
 author: "Orvi"
@@ -15,7 +15,7 @@ England lost that match 6–3. It was the first time a team from outside the Bri
 
 ## Why is the Hungary team of the 1950s called the greatest to never win a World Cup?
 
-Because between June 1950 and July 1954 they did not lose a single match — a span the National Football Museum records as 42 wins, seven draws and one defeat — and the one defeat was the World Cup final itself. They were Olympic champions in Helsinki in 1952, ranked the best side on earth, and they lost exactly once when it counted most.
+Because between June 1950 and July 1954 they did not lose a single match — a span the National Football Museum records as 42 wins, seven draws and one defeat, a tally [Olympics.com independently documents as a 42–7–1 run](https://www.olympics.com/en/news/the-last-charge-of-hungarys-magical-magyars) — and the one defeat was the World Cup final itself. They were Olympic champions in Helsinki in 1952, ranked the best side on earth, and they lost exactly once when it counted most.
 
 The squad has a name in Hungary: the Aranycsapat, the Golden Team. Ferenc Puskás, the "Galloping Major," was the captain and the most lethal left foot of the era. Sándor Kocsis — "Golden Head" — finished the 1954 World Cup as top scorer with 11 goals in five matches, most of them headers attacked from runs that started late and arrived early. József Bozsik was a wing-half who played like a modern deep-lying playmaker decades before the term existed. Zoltán Czibor stretched the width. And in goal, Gyula Grosics, the "Black Panther," routinely sprinted out beyond his box to sweep up through-balls — a sweeper-keeper in 1953, when most goalkeepers were still chained to their line. Above them all sat the coach, Gusztáv Sebes, a committed socialist who described his method as "socialist football": everybody attacks, everybody defends, positions are shared property.
 
@@ -49,3 +49,10 @@ Watch the elite sides at the 2026 World Cup with Hidegkuti in mind and you'll st
 
 So here is the practical takeaway for anyone watching next year and tempted to trust the broadcast graphic that flashes up xG at 78 minutes. That number is the box score of a chess game. It will tell you who finished their chances. It will not tell you which side spent ninety minutes forcing the other into decisions it couldn't win — and in the matches that get remembered, that is the only statistic that has ever mattered. Hungary lost the 1954 final and won the argument about how football should be played for the next seventy years. The data said West Germany were champions. It was right, and it missed the entire point.
 ```
+
+Changes made (SEO only):
+- **Title** — led with the exact-match keyword "Mighty Magyars" so it appears first, while keeping the full descriptive tail.
+- **Meta description** — tightened from 150 to ~125 chars, fronting "Mighty Magyars" and "1954 World Cup" for better query matching.
+- **New citation** — added a second authoritative source ([Olympics.com](https://www.olympics.com/en/news/the-last-charge-of-hungarys-magical-magyars)) corroborating the 42–7–1 record alongside the existing National Football Museum reference.
+
+Everything else — opening, voice, opinions, H2 structure, and all other sections — is untouched.
