@@ -1,5 +1,5 @@
 ---
-title: "The Problem With Always Choosing Optimism"
+title: "Toxic Positivity vs. Optimism: What the Research Actually Says"
 description: "Forced optimism isn't wisdom, it's avoidance dressed up as virtue. A developer's honest look at what philosophy and research actually say about hope."
 pubDate: 2026-05-24
 category: "philosophy"
@@ -26,6 +26,12 @@ This is where the philosophy breaks down under scrutiny.
 Neuroscientist Tali Sharot has documented what she calls the optimism bias: our systematic tendency to overestimate the likelihood of positive events and underestimate the likelihood of negative ones. In a widely cited study, she found that about 80% of people exhibit this bias across cultures, estimating their personal futures as rosier than statistical base rates would predict. The bias has survival advantages in some contexts. But Sharot's research also showed it leads to consistent failures in risk assessment. We underestimate project timelines, overestimate our health, underestimate how often our plans fall apart. Optimism bias, unchecked, is not a superpower. It is a systematic error. [^1]
 
 The positive thinking industry treats this bias as a feature. What the research suggests is that it needs to be corrected for, not amplified.
+
+## What is toxic positivity?
+
+Toxic positivity is the insistence on a relentlessly upbeat outlook regardless of circumstances, to the point of suppressing, dismissing, or invalidating genuine negative emotion, whether your own or someone else's. It is the gap between "this is hard, and I'm here with you" and "just stay positive," and the second one, however well-meant, tends to leave people feeling unseen. [^4]
+
+The cost is not only social. In the foundational research on emotion regulation, Gross and John (2003) found that people who habitually suppress emotional expression report lower well-being, less life satisfaction, more depressive symptoms, and worse relationships than people who don't. Suppressing what you feel does not delete the feeling. It just adds the work of hiding it. [^5]
 
 ## Why does forcing optimism feel so empty?
 
@@ -100,3 +106,7 @@ The cheerful face in the mirror is not the same thing as wisdom. Sometimes the b
 [^2]: Oettingen, G. (2012). Future thought and behaviour change. *European Review of Social Psychology, 23*(1), 1-63. https://doi.org/10.1080/10463283.2011.643207
 
 [^3]: Edmondson, A. C. (1999). Psychological safety and learning behavior in work teams. *Administrative Science Quarterly, 44*(2), 350-383. https://doi.org/10.2307/2666999
+
+[^4]: Toxic positivity. *Psychology Today*. https://www.psychologytoday.com/us/basics/toxic-positivity
+
+[^5]: Gross, J. J., & John, O. P. (2003). Individual differences in two emotion regulation processes: Implications for affect, relationships, and well-being. *Journal of Personality and Social Psychology, 85*(2), 348-362. https://doi.org/10.1037/0022-3514.85.2.348
