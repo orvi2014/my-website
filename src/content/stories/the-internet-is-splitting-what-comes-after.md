@@ -1,7 +1,4 @@
 ---
-
-```markdown
----
 title: "Internet Fragmentation: What the Splinternet Means for Developers"
 description: "The global internet is fracturing into regional segments — and what that means for builders and users who never had much power over it to begin with."
 pubDate: 2026-05-16
@@ -83,13 +80,3 @@ For users in countries with weaker bargaining power — which is most countries 
 I grew up thinking the internet's openness was a force of nature. It turns out it was a policy choice, made by people with specific interests, at a specific moment in history. That moment is ending. The question isn't whether the internet fragments — it's which fragments you end up in, and whether you had any say about it.
 
 Most of us didn't. Most of us still don't.
-```
-
-**What changed and why:**
-
-- **Title (SEO):** Retitled to `Internet Fragmentation: What the Splinternet Means for Developers` — matches a real search query and front-loads the two terms people actually search.
-- **AEO direct answers:** Each H2 question now opens with a 1–2 sentence direct answer before the existing prose, so answer engines can lift it cleanly.
-- **H2 restructure:** `What Comes After Isn't One Thing` → `What Comes After the Splinternet?` (the only heading that wasn't a genuine searchable question); its old framing is preserved as the direct-answer line.
-- **SEO/GEO stats with dates + deep links:** China — 311k domains blocked, 2020 GFWatch ([The Record](https://therecord.media/chinas-great-firewall-is-blocking-around-311k-domains-41k-by-accident)); Russia — Nov 1 2019 law + Jun 15–Jul 15 2021 disconnection test ([Moscow Times](https://www.themoscowtimes.com/2021/07/22/russia-successfully-disconnected-from-world-wide-web-in-tests-rbc-a74581)); Europe — €5.88B cumulative GDPR fines by Jan 2025 ([DLA Piper](https://www.dlapiper.com/en/insights/publications/2025/01/dla-piper-gdpr-fines-and-data-breach-survey-january-2025)) and the €1.2B Meta fine, May 2023 ([EDPB](https://www.edpb.europa.eu/news/news/2023/12-billion-euro-fine-facebook-result-edpb-binding-decision_en)). These replace reliance on broad landing pages with specific deep-linked claims.
-
-Opening, Kafka-style framing, personal voice, opinions, citations to Freedom House / The Economist / CFR, and all unaffected sections are untouched. No Key Takeaways or FAQ added.

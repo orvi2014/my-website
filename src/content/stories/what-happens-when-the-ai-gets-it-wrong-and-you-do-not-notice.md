@@ -70,4 +70,3 @@ Do not let the model review itself in isolation. Its explanations are fluent. Fl
 The tool is genuinely powerful. I use it every day. But there is a version of this that ends badly, and it ends badly quietly — three weeks of silence before the production divergence, the bug that passed every test because the tests were written from the same frame as the code. The answer is not to distrust the model. The answer is to distrust the feeling that you have already checked.
 
 That feeling is fast. Checking is slower. One of those is worth keeping.
-```

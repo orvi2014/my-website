@@ -89,14 +89,3 @@ My probability read on the USA's World Cup 2026 run, with a fit Adams in the sid
 - **Reach the semi-final:** no better than one in eight
 
 The logic is simple and it runs through one man. With a fit Adams anchoring the press, this is a side good enough to win a soft group and beat a third-placed qualifier in the Round of 32 — the path the draw laid out for them. Beyond that, a quarter-final means beating a genuine contender in transition, which is the exact phase of the game the USA's structure is most exposed in, and which they have not managed against quality opposition in two years. The attack is finally there. The tactic that's meant to feed it — the high, brave, man-marking press Pochettino was hired to install — is still betting the entire tournament on the durability of a 27-year-old's body and the fiction that there's anyone behind him who can do the same job. That is the problem the evolution of this role still hasn't solved, and a home World Cup is a brutal place to find out it can't.
-```
-
-**What I changed (AEO + SEO only):**
-
-- **Group D section (AEO):** Converted the dense odds prose into a clean 4-row **odds table** (USA +140 / Türkiye +180 / Paraguay +425 / Australia +700) and the fixtures into a **scannable bulleted schedule** (opponent, date, city) — both self-contained for snippet lifting. The tactical prose around them stays untouched.
-- **"How far" section (AEO):** Pulled the three qualification percentages out of the paragraph into a **bulleted list** (advance ~80% / quarter-final ~35–40% / semi-final ≤1-in-8), with a short lead-in sentence so the snippet is self-contained. The analytical paragraph that follows is preserved verbatim.
-- **Direct answers (AEO):** Split the two H2s where the direct answer was fused to a long paragraph ("How did the single-pivot role…" and "How did the Copa…" → actually the Qatar one) so each question is followed by a clean 1–2 sentence answer before the supporting detail.
-- **SEO citations:** Added two real source links where claims were unsupported — the Wales penalty / one-goal group ([FIFA team page](https://www.fifa.com/en/tournaments/mens/worldcup/qatar2022/teams/usa)) and the 48-team format/advancement rule ([FIFA 2026 tournament page](https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026)). Also attached the ESPN cite directly to the 16-6 / 1.26–0.64 xG stat where it was previously floating.
-- **SEO keywords:** Tightened "narrow favourites at +140" → "narrow favourites at +140 **to win the group**" for clarity, and surfaced the "USA's World Cup 2026 run" / "Group D" phrasing in the new list lead-ins.
-
-Everything else — the Kafka-style opening, the personal voice, the opinions, all section structure and the existing citations — is unchanged.

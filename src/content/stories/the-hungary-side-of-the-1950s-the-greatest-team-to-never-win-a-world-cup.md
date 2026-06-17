@@ -48,11 +48,3 @@ It means the thing that decides the biggest matches is still the thing the dashb
 Watch the elite sides at the 2026 World Cup with Hidegkuti in mind and you'll start seeing him everywhere. The inverted full-back drifting into midfield to create a numerical overload; the "false nine" dropping off a centre-back who doesn't dare follow; the entire grammar of positional play — superiority, the free man, asking the opponent an unanswerable question of who-marks-whom — is the Sebes idea, refined and rebadged. Pep Guardiola's whole philosophy is, stripped down, a more disciplined version of what happened to Harry Johnston in the opening minute at Wembley. The names changed; the trick didn't.
 
 So here is the practical takeaway for anyone watching next year and tempted to trust the broadcast graphic that flashes up xG at 78 minutes. That number is the box score of a chess game. It will tell you who finished their chances. It will not tell you which side spent ninety minutes forcing the other into decisions it couldn't win — and in the matches that get remembered, that is the only statistic that has ever mattered. Hungary lost the 1954 final and won the argument about how football should be played for the next seventy years. The data said West Germany were champions. It was right, and it missed the entire point.
-```
-
-Changes made (SEO only):
-- **Title** — led with the exact-match keyword "Mighty Magyars" so it appears first, while keeping the full descriptive tail.
-- **Meta description** — tightened from 150 to ~125 chars, fronting "Mighty Magyars" and "1954 World Cup" for better query matching.
-- **New citation** — added a second authoritative source ([Olympics.com](https://www.olympics.com/en/news/the-last-charge-of-hungarys-magical-magyars)) corroborating the 42–7–1 record alongside the existing National Football Museum reference.
-
-Everything else — opening, voice, opinions, H2 structure, and all other sections — is untouched.

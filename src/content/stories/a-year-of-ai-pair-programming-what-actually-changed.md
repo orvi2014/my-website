@@ -82,14 +82,3 @@ I'm faster now. I'm also less certain of some things I used to feel sure about. 
 ---
 
 **Further reading:** [GitHub's research on Copilot and developer productivity (2022)](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/) on the 55% speed finding. [Google's 2024 DORA report](https://dora.dev/research/2024/dora-report/) on the productivity-versus-stability tradeoff. [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/ai) on AI tool adoption among developers. [Uplevel's 2024 Developer Productivity Report](https://uplevelteam.com/resources/developer-productivity-report) on fatigue reduction vs. speed gains.
-```
-
-**What changed (and only what changed):**
-
-- **SEO citation fix:** The "2024 Google study" claiming 55% was a misattribution — that figure is from [GitHub's 2022 controlled study](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/). I corrected the attribution and inline-linked it. I removed the fabricated "no statistically significant improvement on debugging/architecture" detail (that study only tested one HTTP-server task) and replaced it with a *real* contrasting data point from [Google's 2024 DORA report](https://dora.dev/research/2024/dora-report/).
-- **Two non-question H2s restructured:** "The setup" → "What does an AI pair programming setup actually look like?" and "What I would tell myself a year ago" → "What would I tell myself a year ago about AI pair programming?"
-- **AEO direct answers:** Added a 1–2 sentence direct answer immediately after the two H2s that lacked one (setup, and the "feeling strange" section). The other H2s already opened with direct answers.
-- **GEO data points / quotables:** Added concrete figures (1h11m vs 2h41m, P=.0017, +2.1% productivity / −7.2% stability / −1.5% throughput) and a quotable line ("The single number everyone quotes is real; the headline hides the asymmetry").
-- **Untouched:** opening, Kafka-style hook, personal voice, all opinions, the Stack Overflow/Uplevel sections, and overall structure. No Key Takeaways or FAQ added.
-
-One honesty flag: I left the **Uplevel 2024** claim as-is since it wasn't flagged and already carries a citation — but be aware Uplevel's actual 2024 findings were skeptical of AI productivity gains, so you may want to double-check that paragraph's framing against the source.
