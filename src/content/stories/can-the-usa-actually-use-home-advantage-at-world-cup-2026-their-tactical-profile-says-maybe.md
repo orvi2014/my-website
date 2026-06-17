@@ -21,9 +21,9 @@ This is the uncomfortable physics of Mauricio Pochettino's project. The Argentin
 
 ## How did the single-pivot role become the USMNT's tactical spine?
 
-It crystallised in Qatar in November 2022, when Gregg Berhalter built his World Cup around a 4-3-3 with Adams as a lone screen — and the United States conceded exactly one goal across three group games. That tournament didn't just produce a good result; it produced a template the federation has been unable to move past.
+It crystallised in Qatar in November 2022, when Gregg Berhalter built his World Cup around a 4-3-3 with Adams as a lone screen — and the United States conceded exactly one goal across three group games.
 
-Berhalter ran that single-pivot 4-3-3 roughly 95 percent of the time in Qatar, with Adams shielding and Weston McKennie and Yunus Musah breaking forward around him — the trio the American press christened the "MMA midfield" ([CBS Sports](https://www.cbssports.com/soccer/news/2022-world-cup-usas-mma-midfield-of-yunus-musah-weston-mckennie-tyler-adams-gives-blueprint-for-success)). The defining ninety minutes was the 0-0 against England, a game the USA arguably should have won, in which Adams personally smothered a midfield of Jude Bellingham, Declan Rice and Mason Mount. The only group-stage goal the Americans conceded was a Gareth Bale penalty against Wales. For a nation whose tournament history is mostly about getting overrun in transition, a one-goal group was a genuine identity: we will be hard to play through, because the man in the middle is always there.
+That tournament didn't just produce a good result; it produced a template the federation has been unable to move past. Berhalter ran that single-pivot 4-3-3 roughly 95 percent of the time in Qatar, with Adams shielding and Weston McKennie and Yunus Musah breaking forward around him — the trio the American press christened the "MMA midfield" ([CBS Sports](https://www.cbssports.com/soccer/news/2022-world-cup-usas-mma-midfield-of-yunus-musah-weston-mckennie-tyler-adams-gives-blueprint-for-success)). The defining ninety minutes was the 0-0 against England, a game the USA arguably should have won, in which Adams personally smothered a midfield of Jude Bellingham, Declan Rice and Mason Mount. The only group-stage goal the Americans conceded was a Gareth Bale penalty against Wales ([FIFA](https://www.fifa.com/en/tournaments/mens/worldcup/qatar2022/teams/usa)). For a nation whose tournament history is mostly about getting overrun in transition, a one-goal group was a genuine identity: we will be hard to play through, because the man in the middle is always there.
 
 The problem with building an identity around one man is obvious the moment he isn't there.
 
@@ -33,7 +33,7 @@ Everything and nothing. Berhalter was fired after the USA went out in the group 
 
 The Copa exit was the inflection point that should have forced a rethink and mostly didn't. Pochettino arrived in late 2024 with a reputation for high-intensity pressing built at Tottenham and Chelsea, and he leaned straight into a 4-4-2 mid-block that presses man-to-man when it goes high ([Total Football Analysis](https://totalfootballanalysis.com/head-coach-analysis/mauricio-pochettino-tactics-usmnt-2025-tactical-analysis)). It is a slightly different shape from Berhalter's 4-3-3, but it asks for the same thing at its base: one midfielder who can defend a huge zone alone while everyone ahead of him gambles.
 
-Then came the evidence. At the March 2025 Nations League Finals — on home soil, with most of the first-choice spine available — the USA lost to Panama in the semi-final and to Canada in the third-place game. Pochettino's record against serious opposition got uglier from there: by the time of the 2025 Gold Cup final he was 0-5 against teams ranked in FIFA's top 30 ([ESPN](https://www.espn.com/soccer/story/_/id/45686030/sloppy-usmnt-blame-us-loses-another-gold-cup-mexico)). That Gold Cup run to the final, reached largely with a second-string roster, was the genuine bright spot of the cycle, and it ended 2-1 to Mexico at a sold-out NRG Stadium. The scoreline flattered the hosts: Mexico out-shot them 16-6 and won the expected-goals battle 1.26 to 0.64. Chris Richards headed the USA in front inside four minutes; for the eighty-six that followed, the midfield could not hold the middle of the pitch.
+Then came the evidence. At the March 2025 Nations League Finals — on home soil, with most of the first-choice spine available — the USA lost to Panama in the semi-final and to Canada in the third-place game. Pochettino's record against serious opposition got uglier from there: by the time of the 2025 Gold Cup final he was 0-5 against teams ranked in FIFA's top 30 ([ESPN](https://www.espn.com/soccer/story/_/id/45686030/sloppy-usmnt-blame-us-loses-another-gold-cup-mexico)). That Gold Cup run to the final, reached largely with a second-string roster, was the genuine bright spot of the cycle, and it ended 2-1 to Mexico at a sold-out NRG Stadium. The scoreline flattered the hosts: Mexico out-shot them 16-6 and won the expected-goals battle 1.26 to 0.64 ([ESPN](https://www.espn.com/soccer/story/_/id/45686030/sloppy-usmnt-blame-us-loses-another-gold-cup-mexico)). Chris Richards headed the USA in front inside four minutes; for the eighty-six that followed, the midfield could not hold the middle of the pitch.
 
 What unites the 2022 high and the 2024-25 lows is not personnel turnover at the top. It is the pivot. In Qatar, Adams played every minute. Across the Nations League and the worst of the Pochettino results, he was either injured, managed, or shielded behind a makeshift double-pivot that diluted the very pressing the coach was hired to install. The role evolved from Berhalter's lone screen toward Pochettino's man-marking enforcer, but its fragility never changed.
 
@@ -49,11 +49,28 @@ Here is the quotable truth of this team: the USA will go exactly as far as Tyler
 
 ## Is the Group D draw actually as easy as it looks?
 
-It looks kind and it is genuinely winnable, but "winnable" and "safe" are different words. The December 2025 draw in Washington put the USA in Group D with Paraguay, Australia and Türkiye, and the bookmakers made the hosts narrow favourites at +140 — but only just ahead of Türkiye at +180 ([ESPN](https://www.espn.com/soccer/story/_/id/48953200/usmnt-usa-world-cup-scenarios-bracket-permutations-qualify-betting-odds-projections-predictions)).
+It looks kind and it is genuinely winnable, but "winnable" and "safe" are different words. The December 2025 draw in Washington put the USA in Group D with Paraguay, Australia and Türkiye, and the bookmakers made the hosts narrow favourites at +140 to win the group — but only just ahead of Türkiye at +180 ([ESPN](https://www.espn.com/soccer/story/_/id/48953200/usmnt-usa-world-cup-scenarios-bracket-permutations-qualify-betting-odds-projections-predictions)).
 
-The fixtures are set: the USA open against Paraguay in Los Angeles on June 12, meet Australia in Seattle on June 19, and close against Türkiye in Los Angeles on June 25. Paraguay (+425) and Australia (+700) are the kind of organised, low-block sides the Americans have historically struggled to break down precisely because those teams sit deep and dare the hosts to play through them — which removes the high turnovers Adams's pressing is built to create. Türkiye, with a midfield led by Hakan Çalhanoğlu and the generation behind Arda Güler, is the one group opponent who will genuinely try to out-football the USA, and they are the side most likely to expose a lone pivot in transition.
+Here is the full Group D picture at a glance.
 
-The format raises the stakes on every one of those ninety minutes. In a 48-team World Cup with 12 groups, all 12 group winners, 12 runners-up and the eight best third-place teams advance to a new Round of 32 — so the gap between winning Group D and finishing second is not survival, it's the entire shape of the knockout draw. Win the group and the USA play a third-placed side from Group B, E, F, I or J in Santa Clara on July 1 — the gentlest possible Round of 32 ([ESPN](https://www.espn.com/soccer/story/_/id/48953200/usmnt-usa-world-cup-scenarios-bracket-permutations-qualify-betting-odds-projections-predictions)). Finish second and the bracket funnels them toward a group winner — potentially a European heavyweight — far sooner. The draw didn't just hand the USA three beatable opponents; it handed them a reason to chase first place hard, which means pressing high, which means leaning on the pivot for 270 minutes against teams designed to punish it.
+**Group D — odds to win the group ([ESPN](https://www.espn.com/soccer/story/_/id/48953200/usmnt-usa-world-cup-scenarios-bracket-permutations-qualify-betting-odds-projections-predictions)):**
+
+| Team | Odds to win Group D |
+|------|---------------------|
+| USA | +140 |
+| Türkiye | +180 |
+| Paraguay | +425 |
+| Australia | +700 |
+
+**Group D fixtures — USA schedule:**
+
+- **vs Paraguay** — June 12, Los Angeles
+- **vs Australia** — June 19, Seattle
+- **vs Türkiye** — June 25, Los Angeles
+
+The tactical read behind those numbers is what matters. Paraguay (+425) and Australia (+700) are the kind of organised, low-block sides the Americans have historically struggled to break down precisely because those teams sit deep and dare the hosts to play through them — which removes the high turnovers Adams's pressing is built to create. Türkiye, with a midfield led by Hakan Çalhanoğlu and the generation behind Arda Güler, is the one group opponent who will genuinely try to out-football the USA, and they are the side most likely to expose a lone pivot in transition.
+
+The format raises the stakes on every one of those ninety minutes. In a 48-team World Cup with 12 groups, all 12 group winners, 12 runners-up and the eight best third-place teams advance to a new Round of 32 ([FIFA](https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026)) — so the gap between winning Group D and finishing second is not survival, it's the entire shape of the knockout draw. Win the group and the USA play a third-placed side from Group B, E, F, I or J in Santa Clara on July 1 — the gentlest possible Round of 32 ([ESPN](https://www.espn.com/soccer/story/_/id/48953200/usmnt-usa-world-cup-scenarios-bracket-permutations-qualify-betting-odds-projections-predictions)). Finish second and the bracket funnels them toward a group winner — potentially a European heavyweight — far sooner. The draw didn't just hand the USA three beatable opponents; it handed them a reason to chase first place hard, which means pressing high, which means leaning on the pivot for 270 minutes against teams designed to punish it.
 
 ## What's the counterargument — and does home advantage survive it?
 
@@ -63,6 +80,12 @@ Here is the rebuttal in one line: this team has not beaten a single top-30 natio
 
 ## How far can the USA actually go at World Cup 2026?
 
-A quarter-final is the realistic ceiling and the round of 16 is the honest median — with a hard floor of group-stage embarrassment if the pivot breaks down. I'd put advancing from Group D at roughly 80 percent, reaching the quarter-final at around 35 to 40 percent, and a semi-final at no better than one in eight.
+A quarter-final is the realistic ceiling and the round of 16 is the honest median — with a hard floor of group-stage embarrassment if the pivot breaks down.
+
+My probability read on the USA's World Cup 2026 run, with a fit Adams in the side:
+
+- **Advance from Group D:** roughly 80 percent
+- **Reach the quarter-final:** around 35 to 40 percent
+- **Reach the semi-final:** no better than one in eight
 
 The logic is simple and it runs through one man. With a fit Adams anchoring the press, this is a side good enough to win a soft group and beat a third-placed qualifier in the Round of 32 — the path the draw laid out for them. Beyond that, a quarter-final means beating a genuine contender in transition, which is the exact phase of the game the USA's structure is most exposed in, and which they have not managed against quality opposition in two years. The attack is finally there. The tactic that's meant to feed it — the high, brave, man-marking press Pochettino was hired to install — is still betting the entire tournament on the durability of a 27-year-old's body and the fiction that there's anyone behind him who can do the same job. That is the problem the evolution of this role still hasn't solved, and a home World Cup is a brutal place to find out it can't.

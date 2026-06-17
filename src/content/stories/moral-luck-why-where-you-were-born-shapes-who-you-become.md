@@ -1,5 +1,5 @@
 ---
-title: "Moral Luck: Why Where You Were Born Shapes Who You Become"
+title: "What Is Moral Luck? How Where You're Born Shapes Who You Become"
 description: "A Bangladeshi developer reflects on Thomas Nagel's moral luck and how birthplace shapes character, opportunity, and the stories we tell about success."
 pubDate: 2026-05-21
 category: "philosophy"
@@ -15,11 +15,15 @@ The philosopher Thomas Nagel published an essay in 1979 called "Moral Luck." The
 
 I keep returning to it because I build things. I've shipped software, started a company, spent nights debugging APIs while Dhaka slept. For years, I narrated that as a story of will and work. Then I started noticing the gaps.
 
-## What does it mean for luck to be moral?
+## What is moral luck?
 
-Moral luck is not the same as ordinary luck. It is the idea that factors entirely outside our control shape the moral judgements we make about people, including ourselves, in ways we rarely acknowledge.
+Moral luck is the idea that factors entirely outside our control shape the moral judgements we make about people, including ourselves, in ways we rarely acknowledge. The term was coined by philosopher Thomas Nagel in his 1979 essay "Moral Luck," and it is not the same thing as ordinary luck.
 
 Most people understand luck in the casual sense: winning a raffle, avoiding an accident, meeting someone useful at a useful time. Moral luck is different, and considerably stranger. Nagel identified four varieties, but three are the ones that matter here.
+
+## What are the four types of moral luck? (Thomas Nagel explained)
+
+Nagel named four: resultant luck (how your actions happen to turn out), constitutive luck (the temperament and character you're born with), causal luck (how you're shaped by prior events you didn't cause), and circumstantial luck (the situations you happen to face). Three of them — resultant, constitutive, and circumstantial — do most of the work in shaping the moral judgements we make.
 
 Resultant luck: two drivers run the same red light, one hits a pedestrian, one doesn't. The choices were identical. The moral and legal consequences are not. Constitutive luck: the temperament, the capacity for empathy or cruelty, the impulse control that a person wakes up with having had no role in forming. And circumstantial luck, the situational variety I find hardest to stop thinking about. The soldier who might have been a pacifist if born elsewhere. The person who never steals because they have never been hungry enough. The person who learned honesty in an environment where dishonesty wasn't necessary for survival.
 
@@ -27,11 +31,11 @@ The [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/mor
 
 My family was comfortable enough by Bangladeshi standards. But comfortable in Dhaka in the 1990s is a fundamentally different relationship to risk than comfortable in London or Toronto. Different assumptions about which doors open when you knock. Different expectations about paperwork, access to capital, the ambient mental tax of navigating institutions not built with you in mind. That is not something you can simply work harder to overcome. It is structural, and it was set before I had any say.
 
-## How much of my story did I actually choose?
+## Does where you are born determine your success?
 
-The honest answer: less than I once believed, and more than pure determinism would allow.
+Statistically, more than almost any other factor you can name. Research on global economic mobility consistently shows that the single largest predictor of lifetime income is not education level, not personality traits, not effort — it is the country of birth.
 
-Research on global economic mobility consistently shows that the single largest predictor of lifetime income is not education level, not personality traits, not effort. It is the country of birth. [Our World in Data](https://ourworldindata.org/global-economic-inequality) documents this in terms that are hard to look away from. The economist Branko Milanovic, in [empirical work on citizenship and global inequality](https://doi.org/10.1162/REST_a_00181), coined the phrase "citizenship premium" to describe the economic windfall from being born into a wealthy nation. For most people born into wealthy countries, that windfall exceeds, in real dollar terms, anything they will ever earn through individual effort alone. The gap between Bangladesh and a high-income OECD country is not a skills gap or a motivation gap. It is a luck gap, and it compounds over a lifetime.
+[Our World in Data](https://ourworldindata.org/global-economic-inequality) documents this in terms that are hard to look away from: the average person in the richest countries earns on the order of 100 times what the average person in the poorest countries earns, a ratio that has nothing to do with how hard either of them works. The economist Branko Milanovic, in [empirical work on citizenship and global inequality](https://doi.org/10.1162/REST_a_00181), coined the phrase "citizenship premium" to describe the economic windfall from being born into a wealthy nation. His data show that more than half of the variation in people's global incomes is explained by a single factor they never chose — the country they happen to live in (Milanovic, 2015). Put plainly: your passport is, statistically, one of the most valuable assets you will ever hold, and you did nothing to earn it. For most people born into wealthy countries, that windfall exceeds, in real dollar terms, anything they will ever earn through individual effort alone. The gap between Bangladesh and a high-income OECD country is not a skills gap or a motivation gap. It is a luck gap, and it compounds over a lifetime.
 
 I don't raise this to be gloomy. I raise it because ignoring it produces a very particular kind of arrogance: the kind that allows people born into working systems to conclude that their success is mostly a story about their own virtue. It is partly that. It is not only that.
 
@@ -39,7 +43,7 @@ When I moved deeper into the world of technology and startups, this pattern appe
 
 I am not immune to the same blindspot in reverse. There are ways I benefited from luck I spent years not naming. A family that treated education as the one non-negotiable. A city with just-functional-enough internet infrastructure at exactly the right historical moment. An uncle who put a laptop in front of me at an age when it rewired how I thought about problems. I worked hard with those conditions. I did not create them.
 
-## Does acknowledging this make effort pointless?
+## Does moral luck mean effort is pointless?
 
 No. This is the misreading that makes most people shut the conversation down too quickly.
 
@@ -49,11 +53,13 @@ Nagel's essay was not a brief for passivity. It was an argument about the gap be
 
 What I've found practically useful is a kind of ongoing moral accounting that takes circumstance seriously. Not as excuse. I am impatient with excuses, including my own. But as calibration. Am I being too harsh on myself for failing at something where I never had fair odds? Am I being too generous with my own success in areas where I had structural advantages I did nothing to earn? Those questions change how I treat other people. That is, ultimately, why the philosophy matters beyond the seminar room.
 
-A 2014 study by economist Miles Corak, published in the [Journal of Economic Perspectives](https://doi.org/10.1257/jep.27.3.79), found that countries with high income inequality also tend to have low intergenerational mobility, a relationship now known as the Great Gatsby Curve. The structural starting line matters not just for one generation but for the children, and the grandchildren. Circumstantial moral luck does not reset between generations. It compounds.
+A 2013 study by economist Miles Corak, published in the [Journal of Economic Perspectives](https://doi.org/10.1257/jep.27.3.79), found that countries with high income inequality also tend to have low intergenerational mobility, a relationship now known as the Great Gatsby Curve. In the United States and the UK, roughly half of a father's earnings advantage is passed down to his son; in Denmark and Norway, less than a fifth is (Corak, 2013). The structural starting line matters not just for one generation but for the children, and the grandchildren. Circumstantial moral luck does not reset between generations. It compounds.
 
-## What actually changes when you take this seriously?
+## How should moral luck change the way we judge people?
 
-I stopped treating certain success narratives as instructional. The "I started with nothing" story, which is almost always on closer inspection "I started with something that didn't look like much but functioned as quite a lot," stopped feeling motivating and started feeling like a lie I was being asked to accept. What did they actually start with? Parents who couldn't give cash but could absorb risk. A passport that didn't require months of visa paperwork to attend a conference. A name that got callbacks. A network that felt like just staying in touch. These things don't appear in the hustle memoir. They are the water the fish is swimming in.
+It should make you slower to judge and more honest about your own starting conditions — taking circumstance seriously when you assess both other people's failures and your own success.
+
+In practice, I stopped treating certain success narratives as instructional. The "I started with nothing" story, which is almost always on closer inspection "I started with something that didn't look like much but functioned as quite a lot," stopped feeling motivating and started feeling like a lie I was being asked to accept. What did they actually start with? Parents who couldn't give cash but could absorb risk. A passport that didn't require months of visa paperwork to attend a conference. A name that got callbacks. A network that felt like just staying in touch. These things don't appear in the hustle memoir. They are the water the fish is swimming in.
 
 I became less reflexively contemptuous of failure. Not less demanding. I still think effort is real and that choices accumulate into something that resembles a character over time. But I'm less inclined to assume that someone who didn't build what they set out to build simply didn't want it badly enough. Maybe they were building on sand. Maybe they were paying a tax I happened to be exempted from. Maybe their grit was identical to mine and their system was structured differently.
 
