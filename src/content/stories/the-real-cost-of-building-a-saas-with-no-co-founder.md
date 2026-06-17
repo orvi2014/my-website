@@ -15,7 +15,7 @@ That sentence took me three years to be able to write. For most of that time I w
 
 The wreckage, concretely: a billing-and-onboarding module I was certain agencies wanted, built over four months, used by almost no one, eventually ripped back out. Not a dramatic crater. The boring kind of failure, the kind that doesn't even get a post-mortem because nothing technically broke. The code worked. The decision didn't.
 
-## Why Do Solo Founders Actually Fail More Often Than Teams?
+## Why Do Solo Founder SaaS Challenges Cause More Failures Than Team Conflict?
 
 Solo founders fail more often not because they lack hands, but because no one with real standing ever audits their decisions. The data points at people problems, and a solo founder is the one person who has quietly removed every other person from the room.
 
@@ -43,7 +43,7 @@ But advisors comfort you; they don't have standing to stop you. They give input 
 
 A co-founder disagrees with you from inside the same risk. Everyone you hire, contract, or consult disagrees with you from outside it, which means they default to deference, because contradicting the person who signs the cheque is a bad career move and a worse client relationship.
 
-I tested this without realising it. I had contractors. I had freelancers who were, in raw skill, better than most co-founders I could have recruited. Not one of them ever told me the billing module was a mistake, and I now understand they'd have been insane to. You don't tell the founder paying your invoice that his pet project is a waste of his money; you build it well and you cash the cheque. Harvard Business Review's work on founding teams makes the point that the value is in productive disagreement, the kind that only happens between people with equal standing and shared exposure ([Harvard Business Review, 2022](https://hbr.org/2022/12/cofounders-need-to-learn-how-to-productively-disagree)). Paul Graham put it more bluntly fifteen years ago, ranking "single founder" as the very first of the eighteen mistakes that kill startups, partly because no one is there to talk you out of dumb decisions ([Paul Graham, 2006](https://www.paulgraham.com/startupmistakes.html)). I had read that essay. I had nodded. I had then done the thing it warned about and called it focus.
+I tested this without realising it. I had contractors. I had freelancers who were, in raw skill, better than most co-founders I could have recruited. Not one of them ever told me the billing module was a mistake, and I now understand they'd have been insane to. You don't tell the founder paying your invoice that his pet project is a waste of his money; you build it well and you cash the cheque. Harvard Business Review's work on founding teams makes the point that the value is in productive disagreement, the kind that only happens between people with equal standing and shared exposure ([Harvard Business Review, 2022](https://hbr.org/2022/12/cofounders-need-to-learn-how-to-productively-disagree)). Paul Graham put it more bluntly twenty years ago, ranking "single founder" as the very first of the eighteen mistakes that kill startups, partly because no one is there to talk you out of dumb decisions ([Paul Graham, 2006](https://www.paulgraham.com/startupmistakes.html)). I had read that essay. I had nodded. I had then done the thing it warned about and called it focus.
 
 ## Can't You Just Replace a Co-Founder With Advisors and AI Now?
 
