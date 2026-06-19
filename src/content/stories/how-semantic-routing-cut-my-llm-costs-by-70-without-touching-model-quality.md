@@ -1,6 +1,6 @@
 ---
 title: "How Semantic Routing Cut My LLM Costs by 70% Without Touching Model Quality"
-description: "Semantic routing cut my LLM cost by 70% with no quality drop. The data on why 86% of your frontier-model calls are wasted — and what nobody says out loud."
+description: "Semantic routing cut my LLM cost by 70% with no quality drop. The data on why 86% of your frontier-model calls are wasted."
 pubDate: 2026-06-18
 category: "ai-agents"
 author: "Orvi"
