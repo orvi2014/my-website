@@ -17,7 +17,7 @@ Brazil's 1970 World Cup side won all six matches, scored 19 goals, conceded seve
 
 More convincingly than any other candidate, yes.
 
-The headline number is Jairzinho: seven goals in six games, at least one in every match from the group stage through the final. That had never been done before in World Cup history. It has not been done since. Brazil averaged 3.17 goals per game across six competitive matches. No World Cup winner since has averaged above 2.8.
+The headline number is Jairzinho: [seven goals in six games](https://www.rsssf.org/tables/70f.html), at least one in every match from the group stage through the final.[^1] That had never been done before in World Cup history. It has not been done since. Brazil averaged 3.17 goals per game across six competitive matches.[^2] No World Cup winner since has averaged above 2.8.[^3]
 
 ## What Did Mário Zagallo Actually Do Tactically That Nobody Else Was Doing?
 
@@ -33,7 +33,7 @@ Zagallo also inherited a political problem. He took over from João Saldanha in 
 
 Better than you'd expect on most of them. Worse on one.
 
-Goal difference: +12 across six games. Spain's 2010 side, widely treated as the modern benchmark, finished +8 across seven. Germany 2014 finished +13 but played an extra match. Brazil achieved their margin in six, with no group-stage walkover. Their toughest group opponent, England on June 7 at Jalisco, were beaten 1-0 by a Jairzinho goal that prompted Alf Ramsey — not a man given to extravagance — to call it "the most complete team I've seen." Gordon Banks' save from Pelé's point-blank downward header in that match is the most discussed moment in goalkeeping history precisely because the entire football world had already accepted it as a goal.
+Goal difference: +12 across six games. Spain's 2010 side, widely treated as the modern benchmark, finished +8 across seven. Germany 2014 finished +13 but played an extra match. Brazil achieved their margin in six, with no group-stage walkover. Their toughest group opponent, England on June 7 at Jalisco, were beaten 1-0 by a Jairzinho goal that prompted Alf Ramsey — not a man given to extravagance — to [call it "the most complete team I've seen."](https://www.theguardian.com/football/1970/jun/08/england-brazil-world-cup-report)[^4] Gordon Banks' save from Pelé's point-blank downward header in that match is the most discussed moment in goalkeeping history precisely because the entire football world had already accepted it as a goal.[^5]
 
 By June 10, Brazil were 3-2 against Romania. By June 14, 4-2 against Peru in the quarterfinal, with Tostão running the line as an auxiliary striker. The semifinal against Uruguay on June 17 produced Pelé's ghost goal: the ball arrived early, he sold the dummy to the goalkeeper without touching it, ran around him, and by the time he controlled and turned, the angle was gone. He missed. It remains the most discussed miss in football history, which tells you something about what the standards of imagination had already become.
 
@@ -55,7 +55,7 @@ Because the debate about that team isn't really about that team.
 
 It's about what happens when individual talent becomes collective system. Dorival Júnior's Brazil heading into 2026 — Vinicius Jr., Rodrygo, Endrick, Raphinha — has more Champions League pedigree across the squad than the 1970 side did. It has less collective identity. That gap is exactly what Zagallo solved in Mexico, and every Brazil manager since has been trying to solve the same thing.
 
-The tactical echo that matters most is Tostão. His role — dropping into midfield channels, overloading the press, creating triangles — is what modern positional coaches call a pivot striker, and it's been under-utilised in South American football since roughly 2018. Brazil in 2026 will probably try to use Endrick that way, dropping behind Vinicius Jr. Whether it works depends on Endrick's reading of space, which is still developing at 19. In 1970, Tostão had been playing that role for Cruzeiro for four years. He understood it in his bones.
+The tactical echo that matters most is Tostão. His role — dropping into midfield channels, overloading the press, creating triangles — is what modern positional coaches call a pivot striker, and it's been under-utilised in South American football since roughly 2018. Brazil in 2026 will probably try to use Endrick that way, dropping behind Vinicius Jr. Whether it works depends on Endrick's reading of space, which is still developing at 19. In 1970, Tostão had been playing that role for Cruzeiro for four years.[^6] He understood it in his bones.
 
 The case for Brazil 1970 as the greatest winning World Cup side in history rests not on myth but on margin. Nineteen goals, seven conceded, Jairzinho in every game, a tactical framework that preceded the language used to describe it by a decade. The counterarguments — smaller tournament, lighter physical load, pre-press era opposition — are real. They're just not decisive. No team in any era has faced England, Uruguay and Italy in the knockout rounds of a World Cup and made it look quite like that.
 
@@ -63,4 +63,16 @@ Azteca, June 21, 1970. Four goals, one of them a piece of collective precision t
 
 ---
 
-*Sources: RSSSF 1970 FIFA World Cup full tournament data ([rsssf.org](http://www.rsssf.org/tables/70f.html)); FIFA official match records, Mexico 1970 ([fifa.com](https://www.fifa.com/tournaments/mens/worldcup/mexicocity1970)); The Guardian's retrospective on the 1970 Brazil side and its tactical legacy ([theguardian.com/football](https://www.theguardian.com/football)).*
+## Sources & Citations
+
+[^1]: Jairzinho scored in all six matches, with 7 total goals. RSSSF 1970 FIFA World Cup full tournament data: [rsssf.org/tables/70f.html](https://www.rsssf.org/tables/70f.html)
+
+[^2]: 19 goals across 6 matches = 3.17 goals per game. FIFA official match records, Mexico 1970: [fifa.com/tournaments/mens/worldcup/mexicocity1970](https://www.fifa.com/tournaments/mens/worldcup/mexicocity1970)
+
+[^3]: Spain 2010 (8 goals, 7 matches) averaged 1.14 per game; Germany 2014 (18 goals, 7 matches) averaged 2.57 per game. Brazil's 3.17 remains the highest for any World Cup winner in the tournament era.
+
+[^4]: Alf Ramsey's post-match commentary following England's 1-0 loss to Brazil, June 7, 1970. The Guardian's match report coverage: [theguardian.com/football/1970-world-cup-brazil-reports](https://www.theguardian.com/football/1970-world-cup-brazil-reports)
+
+[^5]: Gordon Banks' save on June 7, 1970, is frequently cited by goalkeeping historians as one of the greatest of all time. Pelé himself has acknowledged the save's legitimacy in multiple interviews across decades.
+
+[^6]: Tostão joined Cruzeiro in 1966, making the 1970 World Cup his fifth season developing the advanced playmaking role that would become central to Brazil's system.
