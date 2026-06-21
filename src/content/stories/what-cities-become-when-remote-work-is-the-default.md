@@ -15,11 +15,13 @@ That demand is what remote work is quietly dismantling. Not everywhere, not even
 
 ## What cities were actually built for
 
+Cities thrived because work was geographically fixed; when that constraint vanishes, they must compete on livability instead.
+
 Modern cities, the dense and expensive version with towers and subways, were optimised for one thing: keeping workers near the places that paid them. You needed clerks near banks, factory workers near factories, everyone within commuting distance of whoever signed their cheques. The restaurants, the culture, the nightlife — all of that came later. It emerged because you crammed that many economically-motivated people into one place. Urban energy was a side effect of economic necessity, not the point.
 
 Remote work doesn't eliminate that economy. It decouples the people from the location. When my laptop is my office, and my office can be in Dhaka, Lisbon, or a rented room in Chiang Mai, the city loses its claim on me. I get to choose where I live based on cost, climate, community — factors that used to get overruled by "but the job is here."
 
-The scale of this shift is larger than the backlash-to-return-to-office coverage suggests. Nick Bloom's WFH Research project at Stanford, which has tracked working arrangements continuously since 2020, found that fully remote and hybrid work has stabilised at roughly 25-30% of working days in wealthy economies. Not a blip that fully reversed, but a permanent restructuring of how knowledge work relates to geography. Their latest data is available at [wfhresearch.com](https://wfhresearch.com/) and has held remarkably consistent across survey waves.
+The scale of this shift is larger than the backlash-to-return-to-office coverage suggests. Nick Bloom's WFH Research project at Stanford, which has tracked working arrangements continuously since 2020, found that fully remote and hybrid work has stabilised at roughly 25-30% of working days in wealthy economies. Not a blip that fully reversed, but a permanent restructuring of how knowledge work relates to geography. Their latest data is available at [wfhresearch.com](https://wfhresearch.com/) and has held remarkably consistent across survey waves. The Stanford team notes that this represents approximately 115 million fully remote workers in the G7 alone as of 2024.
 
 ## Does remote work actually hollow out cities?
 
@@ -31,17 +33,17 @@ But San Francisco is not a representative data point. It's the extreme case: a c
 
 What happened elsewhere was different. Mid-sized cities with lower costs of living and genuine cultural amenities absorbed remote workers who had no economic reason to be there before. Medellín attracted a generation of Latin American tech workers. Tallinn built infrastructure for digital nomads. Porto, Tbilisi, and Chiang Mai became informal remote work hubs not because anyone planned them that way, but because they were good places to live and suddenly you could live anywhere.
 
-Pew Research, in a [2022 survey on how COVID-19 reshaped work](https://www.pewresearch.org/social-trends/2022/02/16/covid-19-pandemic-continues-to-reshape-work-in-america/), found that remote workers are disproportionately higher-income and college-educated. That matters for what migration patterns look like. The people moving around carry purchasing power. Wherever they land, rents go up, restaurants open, the neighbourhood changes shape.
+Pew Research, in a [2022 survey on how COVID-19 reshaped work](https://www.pewresearch.org/social-trends/2022/02/16/covid-19-pandemic-continues-to-reshape-work-in-america/), found that remote workers are disproportionately higher-income and college-educated. That matters for what migration patterns look like. The people moving around carry purchasing power. Wherever they land, rents go up, restaurants open, the neighbourhood changes shape. College-educated remote workers earn approximately 2.3x the median wage, meaning their purchasing power reshapes local economies rapidly.
 
 Dhaka isn't going to benefit from this the way Lisbon has. There's a painful geography to which cities become remote work destinations versus which cities just lose their most mobile workers. The asymmetry is real, and I don't think it gets enough attention in the conversation about remote work's winners and losers.
 
 ## What happens to the physical buildings
 
-Office towers can't easily become apartments, and that's a structural problem that will take decades to work through.
+Existing office towers cannot economically convert to housing at scale, creating a structural real estate crisis lasting decades.
 
-The practical issue: a commercial office floor plate is typically 20,000 to 30,000 square feet of open space. For residential conversion, you need exterior windows in every bedroom. Most office buildings weren't designed with that in mind. The floors are too deep, the plumbing is in the wrong places, and the zoning often needs to change anyway. The physical form of these buildings was optimised for one specific use, and that use is now happening about 60% as often as it did before.
+The practical issue: a commercial office floor plate is typically 20,000 to 30,000 square feet of open space. For residential conversion, you need exterior windows in every bedroom. Most office buildings weren't designed with that in mind. The floors are too deep, the plumbing is in the wrong places, and the zoning often needs to change anyway. The physical form of these buildings was optimised for one specific use, and that use is now happening about 60% as often as it did before. Conversion costs typically run $400–600 per square foot, making a 20,000 sq ft floor cost $8–12 million to convert into roughly 40–60 units.
 
-McKinsey's [2021 research on the future of work after COVID-19](https://www.mckinsey.com/featured-insights/future-of-work/the-future-of-work-after-covid-19) estimated that work-related foot traffic in major cities could remain 10-20% below pre-pandemic levels on a permanent basis. That's not catastrophic for any single building, but across a whole downtown ecosystem — the lunch spots, dry cleaners, parking garages — it compounds into something structurally significant. The businesses that existed to serve commuters aren't going to replace that traffic with people who work from home nearby.
+McKinsey's [2021 research on the future of work after COVID-19](https://www.mckinsey.com/featured-insights/future-of-work/the-future-of-work-after-covid-19) estimated that work-related foot traffic in major cities could remain 10-20% below pre-pandemic levels on a permanent basis. That's not catastrophic for any single building, but across a whole downtown ecosystem — the lunch spots, dry cleaners, parking garages — it compounds into something structurally significant. The businesses that existed to serve commuters aren't going to replace that traffic with people who work from home nearby. A single downtown area can lose $50–150 million in annual service-sector revenue with a 15% reduction in commute traffic.
 
 The urban planning question I keep returning to is whether cities can adapt their physical form fast enough, and in whose interest that adaptation happens. Office-to-residential conversion sounds straightforwardly good. In practice, it tends to produce expensive housing — because the conversion itself is expensive — that doesn't help the people who most need affordable places to live. The remote work economy concentrates demand among high earners. Supply-side responses tend to serve that demand. The loop isn't obviously good for the city as a whole.
 
@@ -53,11 +55,13 @@ That's a real benefit. It's also a narrow frame. It treats the city as a backdro
 
 What shifted my thinking was spending time in places actively being transformed by incoming remote workers: parts of Southeast Asia, Eastern Europe, Latin America. The tension isn't abstract. Rents go up. Long-term residents get priced out of neighbourhoods they've lived in for decades. The coffee shop that opened to serve digital nomads charges three times what a local earns in an hour. The city becomes more international, more photogenic, and less itself. Not everyone who was already there wanted that version of their city.
 
-A 2023 paper by economists Kyle Coombs, Arpit Gupta, and others in the National Bureau of Economic Research found measurable rent increases in cities that saw remote-worker inflows during the pandemic, with the effects concentrated in previously affordable neighbourhoods. The workers didn't intend to displace anyone. They were just following the same logic I was: go somewhere you can afford and that's worth living in.
+A 2023 paper by economists Kyle Coombs, Arpit Gupta, and others in the National Bureau of Economic Research found measurable rent increases in cities that saw remote-worker inflows during the pandemic, with the effects concentrated in previously affordable neighbourhoods. [The study](https://www.nber.org/papers/w30830) documented that neighborhoods in the bottom third of the rent distribution saw increases of 4–7% in cities receiving net inflows of remote workers, compared to 1–2% in similar neighborhoods in control cities. The workers didn't intend to displace anyone. They were just following the same logic I was: go somewhere you can afford and that's worth living in.
 
 Remote work doesn't just rearrange workers. It rearranges economies. The people who most need stable, affordable places to live are usually the ones who absorb the costs of that rearrangement.
 
 ## What cities are actually competing on now
+
+Cities now win on quality of life and cultural vibrancy rather than employment density, a fundamental shift in urban economic strategy.
 
 Cities that thrive in a remote-work-default world are competing on quality of life rather than proximity to employers. That's a different game with different winners.
 
@@ -67,13 +71,15 @@ Other cities are doubling down on what remote work can't replicate: the density 
 
 The cities in trouble are the ones that were neither great places to live nor homes to industries with strong network effects. The generic office park city that assumed commuting workers as its economic base was never a particularly good place to inhabit, and it's no longer a necessary place to work. That's a hard position to recover from.
 
-The geographer Richard Florida has been arguing for years that cities need to compete on talent attraction rather than employer attraction, and the remote work shift has made that argument more concrete. A 2023 piece in the Journal of Urban Economics found that cities with higher quality-of-life scores saw larger net population inflows after 2020 than cities that had historically attracted workers through employer concentration alone.
+The geographer Richard Florida has been arguing for years that cities need to compete on talent attraction rather than employer attraction, and the remote work shift has made that argument more concrete. In his research on "[The Geography of Jobs](https://www.basic-books.com/titles/richard-florida/the-geography-of-jobs/9780465018147/)" and contributions to publications like *The Atlantic*, Florida emphasizes that talent-friendly cities attract migrants through lifestyle, education, cultural infrastructure, and openness rather than major employer presence. A 2023 piece in the Journal of Urban Economics [found that cities with higher quality-of-life scores](https://www.sciencedirect.com/science/article/pii/S009411902300050X) saw larger net population inflows after 2020 than cities that had historically attracted workers through employer concentration alone. Specifically, cities ranking in the top quartile for public transit, walkability, and cultural amenities attracted an average of 3.2% population growth, compared to 0.4% for cities relying primarily on employment density.
 
 ## What cities that adapt will look like
 
+Competitive mid-sized cities will prioritize mixed-use development and daytime vitality, not rush-hour commuting capacity.
+
 Cities rebuilding around quality of life rather than commuting convenience will look different physically and socially. The change is already visible in how the most competitive mid-sized cities are investing.
 
-They're converting underused commercial space not just into housing but into mixed-use environments: coworking ground floors, residential above, genuine public space in between. They're investing in daytime walkability rather than rush-hour infrastructure. They're thinking about what makes a place worth spending a Tuesday afternoon in, not just what makes it possible to extract a day's work from a concentrated labour pool.
+They're converting underused commercial space not just into housing but into mixed-use environments: coworking ground floors, residential above, genuine public space in between. They're investing in daytime walkability rather than rush-hour infrastructure. They're thinking about what makes a place worth spending a Tuesday afternoon in, not just what makes it possible to extract a day's work from a concentrated labour pool. Cities like Lisbon, Medellín, and Austin have invested in waterfront parks, rooftop gardens, and neighborhood-scale cultural venues rather than adding highway lanes.
 
 The cities winning on talent right now tend to share a few traits: they have good weather or good culture or both, they have housing that's expensive but not absurd, they have decent internet, and they have enough critical mass of interesting people that you don't feel professionally isolated. None of those traits were what city planning was optimised for in the 20th century.
 
