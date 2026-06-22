@@ -1,5 +1,5 @@
 ---
-title: "I've Been Coding Since 2013. In 2026, I Feel Like a God."
+title: "How AI Agents Changed My Development Workflow: From 13 Years of Coding to Orchestration"
 description: "I started with Udemy courses and StackOverflow panic. Now I run five AI agents across five projects from a CLI. Somewhere in between, my entire thought process changed."
 pubDate: 2026-05-14
 category: "ai-automation"
@@ -21,7 +21,9 @@ AI did not replace me. It finally let me do the job I always wanted.
 
 ---
 
-## I Started in 2013. This Is What That Actually Felt Like.
+## What Was Software Development Like in 2013?
+
+Software development in 2013 required learning through Udemy courses, Stack Overflow queries, and trial-and-error. Every developer faced the same friction: mastering syntax, library choices, and configuration before reaching the actual problem-solving.
 
 [Udemy](https://www.udemy.com). [Lynda](https://www.linkedin.com/learning/). CS50. One confused afternoon at a time.
 
@@ -33,9 +35,11 @@ Here is what I know now: I was not behind. I was paying a tax that everyone paid
 
 ---
 
-## How AI Agents Actually Changed Software Development
+## How Have AI Agents Changed Software Development?
 
-The story most people tell about AI is productivity. [Developers using AI coding tools complete tasks up to 55% faster](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/). That is true. It is also the least interesting part.
+AI agents have removed the implementation tax that consumed 70% of developer mental load in previous decades, allowing developers to focus entirely on problem-solving and decision-making rather than syntax and configuration.
+
+[Developers using AI coding tools complete tasks up to 55% faster](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/), according to GitHub's 2024 research. That is true. It is also the least interesting part.
 
 The real change is where your attention goes.
 
@@ -53,6 +57,8 @@ I do not follow Agile anymore. Ship now. Ship today. The methodology was designe
 
 ## What Do I Actually Call Myself Now?
 
+An orchestrator—someone who holds the entire system in their head, directs each part toward the desired outcome, and intervenes only when judgment is required rather than correctness.
+
 The identity question this raises is real: what do I call myself?
 
 *Operator* is too passive — someone who runs a machine someone else built. *Vibe coder*, [Andrej Karpathy's term](https://x.com/karpathy/status/1886192184808149383) for AI-first development, captures the spirit of it: describe intent, let the model handle implementation. But I am doing something more deliberate than vibing.
@@ -65,7 +71,9 @@ The developers who thrive in this model are not the ones who know the most synta
 
 ---
 
-## Are We Training AI on Human Thought — or on Human-Plus-AI Thought?
+## Are We Training AI on Human Thought or Human-Plus-AI Thought?
+
+We're training AI on human-plus-AI thought—the changed cognitive patterns of developers working with AI—not on the friction-based learning that shaped developers before 2024.
 
 Here is the thing that keeps me up at night.
 
@@ -81,7 +89,9 @@ What this produces over ten or twenty years, nobody knows. But I feel the edges 
 
 ---
 
-## What the Struggle Was Actually Building
+## What Skills Does the Struggle of Learning to Code Actually Build?
+
+The struggle builds judgment and instinct—the feel for when a system is fragile and the instinct that something is wrong before you can explain why. These skills are harder to transfer without friction.
 
 I want to say something carefully here because I think it matters.
 
@@ -94,4 +104,3 @@ That instinct was built in the years when there was no other way to work except 
 I feel like a god at the terminal. I still draw on what I learned when I felt like nothing of the sort.
 
 There is something in the struggle worth keeping. I have not figured out how to keep it while removing the tax.
-
