@@ -1,6 +1,6 @@
 ---
-title: "Mighty Magyars: The Hungary Side of the 1950s and the Greatest Team to Never Win a World Cup"
-description: "How Hungary's Mighty Magyars broke England and dominated the 1954 World Cup final they lost — and what the stats still can't see."
+title: "Hungary 1954: 42 Games Unbeaten But Lost the World Cup Final"
+description: "Hungary went unbeaten for 42 straight matches but lost the 1954 World Cup final. Why the Mighty Magyars remain the greatest team to never win it."
 pubDate: 2026-06-13
 category: "football"
 author: "Orvi"
