@@ -1,6 +1,6 @@
 ---
-title: "Can the USA Actually Use Home Advantage at World Cup 2026? Their Tactical Profile Says Maybe"
-description: "USA World Cup 2026 tactics hinge on one overlooked man — not Pulisic. Why the hosts' home advantage lives or dies with a single midfielder."
+title: "World Cup 2026: Why Tyler Adams Matters More Than Pulisic for the USA"
+description: "The USA's success at home depends on a defensive midfielder, not their star attacker. Here's the tactical case for why Tyler Adams is critical."
 pubDate: 2026-06-13
 category: "football"
 author: "Orvi"

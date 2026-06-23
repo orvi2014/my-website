@@ -1,6 +1,6 @@
 ---
-title: "Multi-Agent Coordination: The Patterns That Work and the Ones That Blow Up"
-description: "Multi-agent AI coordination patterns fail in production for four structural reasons — and most teams don't see them until the damage is done."
+title: "Why Multi-Agent AI Systems Fail at the Seams (4 Structural Reasons)"
+description: "Multi-agent systems work in isolation but break when combined. Here's why coordination fails at agent interfaces — and what causes the hidden failures."
 pubDate: 2026-05-27
 category: "ai-agents"
 author: "Orvi"

@@ -1,6 +1,6 @@
 ---
-title: "Multi-Agent AI System Failures: Why Agent Rules Break Pipelines"
-description: "When agents from different operators share a pipeline, rule conflicts produce wrong answers that look right. Here's what I've seen break, and what nobody's agreed on yet."
+title: "Multi-Agent AI: Why Silent Failures Produce Wrong Answers That Look Right"
+description: "Agent rule conflicts cause multi-agent pipelines to fail silently. Here's what breaks when multiple AI agents share one system and can't see it."
 pubDate: 2026-05-27
 category: "ai-automation"
 author: "Orvi"
