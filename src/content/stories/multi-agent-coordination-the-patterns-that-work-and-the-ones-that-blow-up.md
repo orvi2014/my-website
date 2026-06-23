@@ -1,6 +1,6 @@
 ---
-title: "Why Multi-Agent AI Systems Fail at the Seams (4 Structural Reasons)"
-description: "Multi-agent systems work in isolation but break when combined. Here's why coordination fails at agent interfaces — and what causes the hidden failures."
+title: "Context Window Poisoning in Multi-Agent Pipelines: Why Agents Hallucinate Together"
+description: "When one agent's hallucination spreads through a pipeline, no agent catches it. Here's why cascading trust causes silent failures — and how to stop it."
 pubDate: 2026-05-27
 category: "ai-agents"
 author: "Orvi"
@@ -82,9 +82,3 @@ The structural incentive inside every organization deploying multi-agent AI is t
 That incentive, at scale, is how you end up with entire operational processes running on cascading agent outputs that no individual human has verified end to end. Not because anyone made a reckless decision. Because the system made verification irrational.
 
 The organizations that explicitly design human verification back into the pipeline — not as an override, but as a structural feature with a dedicated role and budget line — will be the ones worth learning from in three years. The rest will be the case studies.
-
----
-
-## Related reading
-
-For more on how multi-agent failures emerge silently, read about [why agent rule conflicts produce wrong answers that look right](/chapters/ai-automation/multi-agent-ai-why-silent-failures-produce-wrong-answers-that-look-right). Or explore [why most AI automation dies within six months of going live](/chapters/ai-agents/why-most-ai-automation-dies-within-six-months-of-going-live) — the organizational failure modes that coordination architectures alone cannot solve.
