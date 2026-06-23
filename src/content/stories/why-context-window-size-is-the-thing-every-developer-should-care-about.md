@@ -1,6 +1,6 @@
 ---
-title: "Why Context Window Size Matters More Than Developers Think"
-description: "Context window size isn't a marketing metric. It fundamentally shapes what you can build with AI, and most developers misuse it until something breaks."
+title: "Context Windows in AI: Why Feeding Your Model Too Much Text Breaks Production"
+description: "Models perform worse with long context. Lost in the Middle research shows 20-30% accuracy drops. Here's how to architect AI systems around this constraint."
 pubDate: 2026-06-08
 category: "ai-automation"
 author: "Orvi"

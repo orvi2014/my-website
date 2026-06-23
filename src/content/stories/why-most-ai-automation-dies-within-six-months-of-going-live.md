@@ -1,6 +1,6 @@
 ---
-title: "Why Most AI Automation Dies Within Six Months of Going Live"
-description: "Why 42% of AI projects are abandoned within months. The real reason isn't technical—it's systemic. | AI automation failure"
+title: "42% of AI Projects Fail Within 6 Months: The Real Reason (It's Not Technical)"
+description: "Your AI automation project goes live and works perfectly for 4 months. Then distribution drift kills it. Here's why 42% get abandoned and how to prevent it."
 pubDate: 2026-06-19
 category: "ai-agents"
 author: "Orvi"
