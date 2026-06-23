@@ -63,6 +63,12 @@ Azteca, June 21, 1970. Four goals, one of them a piece of collective precision t
 
 ---
 
+## Related reading
+
+For more on how great teams manufacture tactical dominance, read about [Hungary's 1954 team: 42 games unbeaten but lost the World Cup final](/chapters/football/hungary-1954-42-games-unbeaten-but-lost-the-world-cup-final). Or explore [why tactical positioning, not star power, decides World Cup 2026](/chapters/football/world-cup-2026-why-tyler-adams-matters-more-than-pulisic-for-the-usa) — the same systemic thinking that made Brazil and Hungary era-defining.
+
+---
+
 ## Sources & Citations
 
 [^1]: Jairzinho scored in all six matches, with 7 total goals. RSSSF 1970 FIFA World Cup full tournament data: [rsssf.org/tables/70f.html](https://www.rsssf.org/tables/70f.html)

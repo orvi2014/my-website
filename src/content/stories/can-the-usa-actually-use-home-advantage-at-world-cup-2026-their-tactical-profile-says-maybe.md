@@ -89,3 +89,9 @@ My probability read on the USA's World Cup 2026 run, with a fit Adams in the sid
 - **Reach the semi-final:** no better than one in eight
 
 The logic is simple and it runs through one man. With a fit Adams anchoring the press, this is a side good enough to win a soft group and beat a third-placed qualifier in the Round of 32 — the path the draw laid out for them. Beyond that, a quarter-final means beating a genuine contender in transition, which is the exact phase of the game the USA's structure is most exposed in, and which they have not managed against quality opposition in two years. The attack is finally there. The tactic that's meant to feed it — the high, brave, man-marking press Pochettino was hired to install — is still betting the entire tournament on the durability of a 27-year-old's body and the fiction that there's anyone behind him who can do the same job. That is the problem the evolution of this role still hasn't solved, and a home World Cup is a brutal place to find out it can't.
+
+---
+
+## Related reading
+
+Interested in how single players define tournament outcomes? Read about [Hungary's 1954 side: 42 games unbeaten but lost the World Cup final](/chapters/football/hungary-1954-42-games-unbeaten-but-lost-the-world-cup-final) — the same principle of structural dependence on one position. Or explore [Brazil 1970's 19 goals in 6 matches](/chapters/football/was-the-1970-brazil-side-actually-the-greatest-team-ever-assembled-the-data-says-yes-but) — what happens when every position supports the system instead of breaking it.
