@@ -82,3 +82,9 @@ The structural incentive inside every organization deploying multi-agent AI is t
 That incentive, at scale, is how you end up with entire operational processes running on cascading agent outputs that no individual human has verified end to end. Not because anyone made a reckless decision. Because the system made verification irrational.
 
 The organizations that explicitly design human verification back into the pipeline — not as an override, but as a structural feature with a dedicated role and budget line — will be the ones worth learning from in three years. The rest will be the case studies.
+
+---
+
+## Related reading
+
+For more on how multi-agent failures emerge silently, read about [why agent rule conflicts produce wrong answers that look right](/chapters/ai-automation/multi-agent-ai-why-silent-failures-produce-wrong-answers-that-look-right). Or explore [why most AI automation dies within six months of going live](/chapters/ai-agents/why-most-ai-automation-dies-within-six-months-of-going-live) — the organizational failure modes that coordination architectures alone cannot solve.

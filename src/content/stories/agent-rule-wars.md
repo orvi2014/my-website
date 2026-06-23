@@ -107,6 +107,12 @@ The companies doing multi-agent coordination well are doing it through disciplin
 
 The rule wars are already happening. They happen every time two agents interact under different instructions and nobody checked whether those instructions were compatible. That is happening at scale, right now, mostly quietly.
 
+---
+
+## Related reading
+
+For a deeper look at the structural issues that make multi-agent systems fail, read about [why multi-agent coordination fails at the seams](/chapters/ai-agents/why-multi-agent-ai-systems-fail-at-the-seams-4-structural-reasons). Or explore [why most AI automation dies within six months of going live](/chapters/ai-agents/why-most-ai-automation-dies-within-six-months-of-going-live) — where rule conflicts intersect with organizational reality.
+
 The failures look like success because the pipeline completed. An answer went out. A task got queued. No exception was thrown. The problem surfaces four days later, or it never surfaces, and you are making decisions on outputs that were quietly wrong the whole time.
 
 The breakage is invisible by default. Visibility requires work you have to do on purpose.
