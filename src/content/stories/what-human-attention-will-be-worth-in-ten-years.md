@@ -17,7 +17,7 @@ I am not particularly proud of this. But I also do not think it is purely a char
 
 The supply of content is now effectively decoupled from human effort, and that changes the economics of attention permanently.
 
-The economist Herbert Simon identified the core problem back in 1971, well before anyone had a smartphone. A wealth of information, he wrote, creates a poverty of attention. He was describing the early days of television and print media. He had no idea what was coming.
+The economist Herbert Simon identified the core problem back in 1971 in his paper "Designing Organizations for an Information-Rich World," well before anyone had a smartphone. A wealth of information, he wrote, creates a poverty of attention. He had no idea what was coming.
 
 For most of recorded history, information supply was constrained by how many humans could write, film, or broadcast things. That constraint kept a rough equilibrium in place: more content than anyone could consume, yes, but still anchored to human labor hours.
 
@@ -49,7 +49,7 @@ A 2023 Microsoft report on hybrid work found that the average time workers spend
 
 I notice this in myself constantly. There is a version of me who could hold a hard technical problem in his head for three hours without fragmenting his concentration across twelve channels. I am not sure that version of me exists anymore in the same form. I have been working to get him back.
 
-## What this means for the next ten years
+## What will happen to deep attention in the next decade?
 
 The ability to pay deep, sustained attention to something will become a credential, even if nobody puts it on a resume.
 
@@ -61,7 +61,9 @@ There is a bleak version of this trajectory, where the population stratifies bet
 
 What I find less ambiguous is this: the skills that require sustained attention are exactly the skills that AI cannot replicate, almost by definition. AI can generate content at scale. It cannot be the person who reads that content carefully and decides what it actually means for a specific situation. That person is still a human, and that person is becoming rarer.
 
-## What changes when you treat your attention like money
+## What changes when you treat your attention like money?
+
+Your engagement becomes more intentional, your selection criteria become stricter, and the quality of everything you focus on goes up noticeably.
 
 About eight months ago I started being more deliberate about this. Not in a dramatic way. I did not go off-grid or start a meditation practice. I just started treating my attention more like a budget.
 
@@ -74,6 +76,8 @@ This is not a productivity hack. It is closer to an acknowledgment of market con
 The platforms know this. The next wave of products being built around AI is not primarily about delivering more content faster. The interesting ones are about helping people spend their attention better, through filtering, curation, and summarization, so that actual reading or watching or listening time becomes higher quality. This is already happening and will intensify.
 
 ## What a focused hour will actually be worth
+
+In ten years, the ability to give something your genuine, undivided attention for an extended period will be recognized as close to a professional differentiator, not formally, but economically.
 
 My rough guess is that in ten years, the ability to give something your genuine, undivided attention for an extended period will be recognized as close to a professional differentiator. Not formally, nobody will list "high attention span" on their CV, but economically, in the sense that people who have it will command better outcomes in most domains that require thinking.
 
