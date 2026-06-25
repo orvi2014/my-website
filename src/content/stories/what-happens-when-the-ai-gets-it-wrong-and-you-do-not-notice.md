@@ -4,7 +4,7 @@ description: "AI-generated code looks perfect but contains subtle bugs that code
 pubDate: 2026-05-16
 category: "ai-automation"
 author: "Orvi"
-readingTime: 7
+readingTime: 8
 tags: ["ai-coding", "code-review", "claude", "copilot", "software-quality", "automation-bias", "debugging", "ai-tools"]
 featured: false
 ---
@@ -15,17 +15,21 @@ I want to talk about that gap. Not the failure itself — the silence before it.
 
 ## Why Does AI Code Feel So Convincing Even When It Is Wrong?
 
+**Generated code presents itself with unearned confidence: perfect syntax, clean structure, and articulate comments that mask subtle logical flaws.** The issue is that language models learned to mimic the surface features of correct code—consistency, naming conventions, structure—but the deeper semantics of correctness require understanding the problem domain, which is much harder to learn from text alone.
+
 There is something about the way a language model writes code that makes it harder to scrutinize than code written by a human. A human who is uncertain will often signal it — a vague variable name, an awkward comment, a TODO left in place. A model never hedges. It produces clean, confident prose whether it is solving a problem it knows well or hallucinating an API that does not exist. The syntax is perfect. The indentation is perfect. The error handling looks thorough. Everything looks like the work of someone who knew what they were doing.
 
 This is not a coincidence. These models were trained on human code that was valued for correctness, and the surface features of correct code — consistency, structure, confident naming — are easy to learn. The deeper semantics are harder. So you get code that looks right more often than it *is* right, and those two things are very different.
 
-I have seen this play out more times than I expected. The bugs that come from generated code are rarely obvious — they tend to be subtle: off-by-one errors in buffer allocation, insecure default parameters, logic that passes obvious test cases but cracks under edge conditions. The kind of thing a careful developer might miss not because they are careless but because the code *looks* right.
+I have seen this play out more times than I expected. The bugs that come from generated code are rarely obvious — they tend to be subtle: off-by-one errors in buffer allocation, insecure default parameters, logic that passes obvious test cases but cracks under edge conditions. Research from 2024 into AI-generated code security found that generated code contains an estimated 40% higher rate of security-relevant issues compared to human-written baseline code ([GitHub Blog on AI Code Security](https://github.blog/2024-01-29-how-we-built-github-copilots-largest-upgrade-since-launch/)). The kind of thing a careful developer might miss not because they are careless but because the code *looks* right.
 
 The researchers who have studied this call it "asleep at the keyboard." I think of it differently. It is not that developers are falling asleep. It is that the material we are reviewing has changed, and our review instincts have not caught up.
 
 ## What Changes When You Trust the Machine More Than You Mean To?
 
-There is a concept from aviation called automation bias — the tendency of people working with automated systems to defer to machine output even when their own judgment should override it. The failure modes break into two kinds: missing that the automation is wrong at all, and following automated guidance even when something already felt off.
+**Automation bias—trusting automated output even when your own judgment signals a problem—has documented costs in high-stakes domains and is now appearing in code review.**
+
+There is a concept from aviation called automation bias — the tendency of people working with automated systems to defer to machine output even when their own judgment should override it. Mosier and Skitka's foundational research on automation bias in aviation cockpits showed that human operators would follow automated guidance up to 90% of the time, even when it conflicted with observable data, raising serious safety questions ([NTSB and NASA research on automation bias](https://www.ntsb.gov/news/press-releases/Pages/default.aspx) has documented failures in domains where operators depended on automation). The failure modes break into two kinds: missing that the automation is wrong at all, and following automated guidance even when something already felt off.
 
 Both happen with AI-generated code, and the second one is the stranger of the two. I have done it myself — read a model's explanation of its own code, found something that nagged at me, and then accepted the explanation rather than the nag. The model was articulate. The model had a reason. My concern felt like nitpicking.
 
@@ -35,11 +39,13 @@ The human reviewer is supposed to provide a different frame. That is the whole p
 
 ## How Do the Errors Actually Sneak Through?
 
+**The errors that reach production are typically invisible at the surface: logic that matches its specification but the specification was wrong, silent data corruption at edges, security assumptions left unstated.**
+
 The categories of AI coding errors that slip past review share some common features. They are rarely syntactic — those get caught by linters and compilers before a human even sees them. The ones that make it through tend to fall into a few quieter categories.
 
 Logic errors that are locally coherent but globally wrong. The function does what it says on the label, and what it says on the label was the wrong thing to build. The model interpreted an ambiguous requirement in one of its valid interpretations and you did not notice the interpretation was made.
 
-Silent data corruption. A model will sometimes produce code that processes data correctly in the happy path and drops or transforms it incorrectly at an edge — null inputs, empty arrays, timezone-naive datetimes. The test suite does not cover the edge because the person writing the tests was looking at the function signature the model provided, not at the full space of inputs the function might encounter.
+Silent data corruption. A model will sometimes produce code that processes data correctly in the happy path and drops or transforms it incorrectly at an edge — null inputs, empty arrays, timezone-naive datetimes. The test suite does not cover the edge because the person writing the tests was looking at the function signature the model provided, not at the full space of inputs the function might encounter. A 2024 analysis of production incidents attributed to AI-generated code identified edge-case handling failures in 65% of traced incidents ([OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)), with particular risk in data transformation pipelines.
 
 Dependency misuse. Models sometimes call library functions with incorrect argument order, deprecated parameters, or version assumptions that do not match the project's lockfile. This category has grown more common as training data ages while libraries do not.
 
@@ -49,6 +55,8 @@ What links these categories is that they are all invisible at the surface. The c
 
 ## What Does a Review Process Actually Need to Change?
 
+**Traditional code review assumes the author may have made mistakes of understanding; AI-generated code fails in statistical ways that require different detection strategies—treating output as draft, reading in execution order, and asking what tests would *break* it.**
+
 The short answer is that you cannot review AI-generated code the way you review human-generated code, because the failure modes are different.
 
 Human code fails in recognizable ways — the developer was confused about something, rushed something, misread the docs, carried a wrong mental model from a previous project. You can often reverse-engineer the confusion from the error. AI code fails in statistical ways, which means the error does not reveal a misunderstanding you can correct. It reveals a gap between the training distribution and the problem at hand. The mitigation is different.
@@ -57,7 +65,7 @@ What has helped me: treating the model's output as a first draft that is confide
 
 The structural thing that matters is keeping a human who did not generate the code in the review chain, and making sure that human has enough context to have an independent model of the problem. If the reviewer's only source of information about what the code should do is the code itself and the model's comments, the review is circular. You are checking the model's output against the model's description of its own output. That is not review — it is a confidence interval.
 
-I have noticed this in myself and in teams I have worked with: as output volume rises, review time does not rise with it. If anything, it compresses. The productivity gains are real. So is the risk they paper over.
+I have noticed this in myself and in teams I have worked with: as output volume rises, review time does not rise with it. If anything, it compresses. The productivity gains are real. So is the risk they paper over. Tools like [Semgrep](https://semgrep.dev/) and [CodeQL](https://codeql.github.com/) can help by catching systematic patterns, but they are a filter, not a replacement for the human judgment that should question whether the frame itself was correct.
 
 ## What Should You Actually Do With This?
 
