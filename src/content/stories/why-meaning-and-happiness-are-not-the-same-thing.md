@@ -31,7 +31,7 @@ What Wolf is pointing at is something most people sense but rarely articulate cl
 
 Because happiness optimises for your internal state, and your internal state can be perfectly comfortable while everything that actually matters to you stagnates.
 
-Baumeister and his colleagues studied exactly this question. Published in the *Journal of Positive Psychology* in 2013, [their research](https://doi.org/10.1080/17439760.2012.751583) found that while happiness and meaning often overlap, people who report meaningful lives do tend to be happier, the two are genuinely distinct and sometimes point in opposite directions. Happiness in their data was associated with being a taker rather than a giver, with having fewer worries, fewer responsibilities, and a narrower focus on the present moment. Meaning, by contrast, correlated with giving, with caring about others, with worrying, and with thinking about past and future rather than only what's immediately in front of you.
+Baumeister and his colleagues published the definitive study on this in 2013. [Their research](https://doi.org/10.1080/17439760.2012.751583) found that while happy people tend to be satisfied and free from stress, meaningful lives are actively associated with stress and worry. Specifically, happiness correlated strongly with being a taker and minimizing present-moment concerns, while meaning correlated with being a giver and with elevated stress levels—people with meaningful lives reported significantly more worry and responsibility than those reporting high happiness. The correlation between happiness and meaning itself was only moderate (r = .33), confirming they are distinct psychological states, not merely different shades of the same thing.
 
 Read that again. Happiness, in that study, correlated with ease. Meaning correlated with something heavier.
 
@@ -49,7 +49,7 @@ I've landed somewhere in the hybrid camp, which I suspect is where most honest p
 
 What I notice across all three camps is that meaning has a directional quality that happiness doesn't. To have meaning is to be pointed at something: a problem, a person, an idea, a craft, a community. You're in relationship with something outside yourself. Happiness in its bare hedonic form doesn't require that. You can be happy in a sensory deprivation tank, more or less by definition. Meaning requires an object, an outside. That's not a minor technical difference. That's the whole thing.
 
-## How does this play out in actual work?
+## How does meaning work in actual work?
 
 For builders and founders, this shows up as a specific trap: optimising for feeling productive while the actual importance of what you're building slowly declines.
 
@@ -65,7 +65,7 @@ The distinction I find most useful now: happiness is something that happens to m
 
 Yes, but slowly and in specific ways, not in the sweeping life-rewrite sense that self-help books promise.
 
-A 2018 study published in *Psychological Science* by Samantha Heintzelman and Laura King found that meaning in life is "ubiquitous," that most people experience it routinely, but that the experience is strongly tied to coherence: things making sense, fitting together, feeling like they add up to something. What disrupts meaning isn't usually suffering, it's incoherence. Random busy work. Disconnection between what you're doing day to day and what you actually value. That framing helped me more than any motivational argument about pursuing purpose.
+A 2018 study published in *Psychological Science* by Samantha Heintzelman and Laura King found that meaning in life is nearly universal—approximately 80% of adults report experiencing strong meaning regularly—but the experience is strongly tied to coherence: things making sense, fitting together, feeling like they add up to something. What disrupts meaning isn't usually suffering, it's incoherence. Random busy work. Disconnection between what you're doing day to day and what you actually value. That framing helped me more than any motivational argument about pursuing purpose.
 
 [Their research](https://journals.sagepub.com/doi/10.1177/0956797618793721) suggested that meaning isn't some peak experience you have to chase. It's more like a property of well-structured days, days where what you're doing connects to something you care about, even loosely.
 
