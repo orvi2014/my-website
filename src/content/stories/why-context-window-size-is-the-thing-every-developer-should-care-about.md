@@ -23,11 +23,9 @@ For developers specifically, the context window is the boundary of the model's w
 
 Understanding this distinction matters more than people give it credit for. Training data affects what the model knows. The context window affects what it can reason about right now.
 
-## Why context size affects code quality, not just convenience
+## Does longer context actually improve reasoning quality?
 
-The real problem isn't about fitting more text. It's about coherence across a task.
-
-A 2023 paper from Stanford and UC Berkeley called "Lost in the Middle: How Language Models Use Long Contexts" found that language models perform measurably worse when relevant information appears in the middle of a long context, as opposed to the beginning or end. The researchers showed this wasn't a marginal effect. The performance drop was consistent and meaningful across tasks.[^1] The model's attention concentrates on what it read first and last, and everything sandwiched in between gets diluted.
+**No. The middle of long contexts become attention dead zones where relevant information gets lost.** Stanford and UC Berkeley researchers found in their 2023 "Lost in the Middle" study that language models show consistent 20-30% accuracy drops when relevant information appears in the middle of a long context compared to the beginning or end.[^1] The model's attention concentrates on what it read first and last, and everything sandwiched in between gets diluted.
 
 This has real consequences. If you're building a RAG system and stuffing ten retrieved chunks into a prompt, the placement of each chunk changes how well the model uses it. If you're doing code review with a full file in context, the function you care about might be sitting in the attention dead zone. If you're running an agent through a long task history, the instructions you gave twenty messages ago might be functionally invisible.
 
@@ -35,11 +33,11 @@ Context window size determines how severe this problem gets. A smaller window fo
 
 This is why treating a larger window as simply "more capacity" leads to lazy architecture decisions. It's more capacity, yes. But it's also more surface area for the attention problem to play out.
 
-## What I learned when I actually had access to a long context model
+## Does throwing everything into a long context window produce better results?
 
-When I migrated some tooling from GPT-3.5 (4K tokens) to a model with a 100K window, my first move was to throw everything in. Full repository context. Full conversation history. All the documentation. That felt like the obvious thing to do.
+**No. Throwing everything in made responses slower, more expensive, and more confused—you still need deliberate context selection.** When I migrated some tooling from GPT-3.5 (4K tokens) to a model with a 100K window, my first move was to throw everything in. Full repository context. Full conversation history. All the documentation. That felt like the obvious thing to do.
 
-It didn't work. Responses got slower, more expensive, and sometimes more confused. I'd feed in an entire codebase, ask about a specific bug, and get an answer that was technically plausible but missed the actual problem, which was in a file the model had "seen" but clearly hadn't retained in any useful way.
+It didn't work. I'd feed in an entire codebase, ask about a specific bug, and get an answer that was technically plausible but missed the actual problem, which was in a file the model had "seen" but clearly hadn't retained in any useful way.
 
 What actually worked was learning to be deliberate even with a big window. Use the space for relevant context, not for all context. A 200K token window doesn't mean you should use 200K tokens on every request. It means you have headroom for when the task genuinely requires it, like reviewing a large PR diff, or helping a user whose conversation spans an hour of real work.
 
@@ -47,23 +45,21 @@ The shift I needed: context window size determines what's possible, not what's o
 
 I also started asking a different question before designing any prompt-heavy feature: should this be a single-pass request (everything in one prompt) or iterative (build the answer through multiple smaller contexts)? Long context models make single-pass more tempting. I've learned single-pass is not always better.
 
-## The "needle in a haystack" problem and what it actually means
+## Can models really reason across information scattered throughout long documents?
 
-There's a well-known benchmark in the LLM community called "needle in a haystack," where you hide a specific piece of information deep inside a long document and test whether the model can retrieve it. Many models that claim million-token context windows perform reasonably well on this retrieval task.
-
-But retrieval and reasoning are different things.
+**Retrieval and reasoning are different things, and models struggle with the latter.** Needle-in-a-haystack benchmarks, where you hide a specific fact deep inside a long document, show that many models with million-token windows perform reasonably well at retrieving that fact. But retrieval isn't reasoning.
 
 Anthropic's documentation on Claude's long context capabilities notes that performance on needle-in-a-haystack benchmarks doesn't fully predict performance on harder reasoning tasks over the same documents. Finding a fact is easier than synthesizing relationships across facts scattered through a hundred pages.[^3]
 
-Greg Kamradt's public testing of long context models found similar patterns: models can often locate a specific fact buried in a long context, but their ability to reason across multiple pieces of information spread throughout the same context degrades significantly as that context grows.[^2]
+Greg Kamradt's 2023 public testing of long context models found similar patterns: models can often locate a specific fact buried in a long context, but their ability to reason across multiple pieces of information spread throughout the same context degrades significantly as that context grows.[^2]
 
 For developers building real systems, this matters a lot depending on your use case. If your application is retrieval-heavy ("find this thing in this document"), larger windows help. If your application is synthesis-heavy ("reason about the relationship between these ideas across this document"), you might get more reliable results by breaking the task into smaller chunks, even when a bigger window is technically available to you.
 
 I build for Bangladeshi SMBs most of the time, where API costs are real constraints, not just optimization exercises. This distinction between retrieval and reasoning tasks has saved me from expensive mistakes more than once.
 
-## How I structure prompts now given all of this
+## How should you structure prompts with long context windows?
 
-My working approach, which is more intuition than rigid methodology at this point: I try to fill the context window to around 60-70% of its limit with task-relevant information. I put the most critical constraints and definitions near the beginning. The specific question or instruction goes near the end. Supporting context, things the model should know but doesn't need to actively reason about, goes in the middle. This is a rough heuristic and it doesn't apply to every task uniformly.
+**Fill the context to 60-70% of its limit with task-relevant information: critical constraints and definitions near the beginning, supporting context in the middle, the specific question near the end.** This is a rough heuristic and it doesn't apply to every task uniformly.
 
 A few other things that have changed how I build:
 
@@ -75,9 +71,9 @@ For code review and refactoring tasks, I don't send whole files anymore unless I
 
 None of this is counterintuitive once you actually internalize the constraint. The context window is working memory, not a reading list. You wouldn't expect a human developer to hold 200K tokens of code in their head and reason about it coherently. The analogy isn't perfect but it's useful.
 
-## The honest answer on where this is going
+## Will context window size eventually stop being a design concern?
 
-I don't think there's a number at which context window size stops being a design concern. The theoretical answer is that with an infinite window and perfect attention, it would stop mattering. We're nowhere near that. The practical limits aren't just the token count. They're the model's ability to maintain coherent attention and reasoning across long sequences, which still degrades as context grows, even with the best current models.
+**Probably not in the near term—reasoning performance degrades with context growth regardless of window size.** The theoretical answer is that with an infinite window and perfect attention, it would stop mattering. We're nowhere near that. The practical limits aren't just the token count. They're the model's ability to maintain coherent attention and reasoning across long sequences, which still degrades as context grows, even with the best current models.
 
 What probably happens over the next few years is that models get better at reasoning over long contexts, not just retrieving from them. That would actually change the calculus significantly. Until then, treating the context window as a constraint worth designing around, rather than a number to maximize in benchmarks, is still the right approach.
 
