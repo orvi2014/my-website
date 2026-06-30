@@ -1,4 +1,7 @@
 ---
+
+```markdown
+---
 title: "Solo Founder Burnout: Why 49% Consider Quitting 4–9 Months After Launch"
 description: "Solo founder burnout doesn't strike randomly. There's a specific stage where 49% consider quitting — and the system was engineered to produce it."
 pubDate: 2026-05-28
@@ -35,7 +38,7 @@ Most solo founders arrive at their product via technical skill or domain experti
 
 This is where the isolation tax comes due in full. [CB Insights' analysis of 101 failed startups](https://www.cbinsights.com/research/report/startup-failure-reasons-top/) found that 34% never achieved product-market fit — the single most common cited cause of failure. But product-market fit isn't a threshold you cross alone. It's a signal you interpret in conversation with the market, with users, with people who can push back on your read of what you're seeing. Solo founders do the interpretation alone. Every ambiguous data point passes through one filter. That filter is you, at hour nine of a Tuesday, checking a dashboard that hasn't moved in three weeks.
 
-Research from QuickBooks found that solopreneurs report nearly 40% more stress and burnout compared to founders with partners, and 46% say they experience significant loneliness with no reliable external input on key decisions. A 2019 study found that 100% of founders surveyed described their work as "lonely" — and solo founders don't have even the buffer of a founding team to distribute that weight. The growth loop is hard for everyone. It is structurally harder when you are the only one in the loop, and the loop is feeding back nothing coherent.
+[Research from QuickBooks](https://quickbooks.intuit.com/r/small-business-data/mental-health-2024/) found that solopreneurs report nearly 40% more stress and burnout compared to founders with partners, and 46% say they experience significant loneliness with no reliable external input on key decisions. A 2019 study found that 100% of founders surveyed described their work as "lonely" — and solo founders don't have even the buffer of a founding team to distribute that weight. The growth loop is hard for everyone. It is structurally harder when you are the only one in the loop, and the loop is feeding back nothing coherent.
 
 ## Am I Staying for the Right Reasons, or Am I Just Scared to Quit?
 
@@ -53,7 +56,7 @@ Yes — but solo founders go through it without the structural counterweight tha
 
 The counterargument here is reasonable: funded teams go through the trough. Cofounding duos go through it. This isn't solo-founder specific. Why treat it as one?
 
-Because the experience is not the same, and the data confirms it. Cofounded startups are statistically 3x more likely to succeed than solo-founded ones — a pattern identified across multiple studies, including Noam Wasserman's 2012 research on over 10,000 venture-backed startups — and the gap isn't explained by resource access or skill distribution alone. It's explained by the presence of a second nervous system in the building. When one founder is in the trough, the other pulls. When one misreads the signal, the other corrects. Solo founders don't just go through the trough alone — they interpret it alone, which compounds both the duration and severity of the experience. The trough exists for everyone. Solo founders enter it without the mechanism that breaks the spiral.
+Because the experience is not the same, and the data confirms it. Cofounded startups are statistically 3x more likely to succeed than solo-founded ones — a pattern identified across multiple studies, including [Noam Wasserman's 2012 research on over 10,000 venture-backed startups](https://www.hbs.edu/faculty/Pages/item.aspx?num=42425) — and the gap isn't explained by resource access or skill distribution alone. It's explained by the presence of a second nervous system in the building. When one founder is in the trough, the other pulls. When one misreads the signal, the other corrects. Solo founders don't just go through the trough alone — they interpret it alone, which compounds both the duration and severity of the experience. The trough exists for everyone. Solo founders enter it without the mechanism that breaks the spiral.
 
 This is the system named: **the Feedback Desert**. It's the structural condition that emerges when a solo founder working without a co-founder, community, or regular outside input hits the ambiguous growth phase. In the Feedback Desert, all interpretations of slow traction converge toward the pessimistic. There's no external force to introduce a competing reading. The founder's mounting exhaustion makes the pessimistic read increasingly convincing. The sunk cost fallacy amplifies the psychological cost of leaving. And the comparison engine — Twitter, LinkedIn, every founder content creator showing you a product launch story that cuts from "I built this" to "we hit $10k MRR" — shows you only the exit from the trough, never the middle. Never the twenty-three daily active users on a Tuesday night.
 
@@ -72,3 +75,4 @@ The Feedback Desert is a feature of how solo founding works, not a flaw in how y
 ---
 
 You've been staring at that number long enough to have it memorized. Before you make a decision about the product, make one decision about the process: find one person whose read of that number you'd actually trust, and get their read before yours. Your interpretation of the signal is the least reliable instrument in this room right now. That's not a character judgment. That's what the system does.
+```
