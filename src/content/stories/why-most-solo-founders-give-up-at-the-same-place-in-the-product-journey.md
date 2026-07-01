@@ -1,7 +1,4 @@
 ---
-
-```markdown
----
 title: "Solo Founder Burnout: Why 49% Consider Quitting 4–9 Months After Launch"
 description: "Solo founder burnout doesn't strike randomly. There's a specific stage where 49% consider quitting — and the system was engineered to produce it."
 pubDate: 2026-05-28
@@ -26,7 +23,7 @@ Because the feedback loop that sustained them — building — has ended, and th
 
 When you were building, the feedback was immediate and legible. You wrote a function and it ran. You shipped a feature and users touched it. There was a clean, fast relationship between effort and visible output. That loop kept you sane for eighteen months. Now you're doing growth work, and the feedback is none of the above. You send cold emails and hear nothing. You post on forums and get a handful of likes that mean nothing. You run an ad at a sample size too thin to interpret. The work feels identical whether you're doing the right thing or the completely wrong thing — which is maddening, because your nervous system has been trained by building to expect the opposite.
 
-A [2024 survey published by Sifted](https://sifted.eu/articles/founder-mental-health-2024) found that 49% of founders say they're considering quitting their startup. That's not 49% of struggling founders. That's 49% of founders, period. And when you dig into when that consideration peaks, it's not year three when money runs out. It's the quiet middle — after launch, before traction. The moment the build loop ends and the growth loop hasn't started producing anything you know how to read. According to [Lenny Rachitsky's benchmarks across hundreds of SaaS startups](https://www.lennysnewsletter.com/p/how-long-does-it-take-to-find-product), the median time to a clear product-market fit signal is 12–18 months post-launch — meaning most founders are flying blind through exactly the period the system has made most psychologically costly.
+A [2024 survey published by Sifted](https://sifted.eu/articles/founder-mental-health-2024) found that 49% of founders say they're considering quitting their startup. That's not 49% of struggling founders. That's 49% of founders, period. And when you dig into when that consideration peaks, it's not year three when money runs out. It's the quiet middle — after launch, before traction. The moment the build loop ends and the growth loop hasn't started producing anything you know how to read. According to [Lenny Rachitsky's research on product-market fit timelines](https://www.lennysnewsletter.com/p/time-to-product-market-fit), most founders don't feel product-market fit until 9 to 18 months after they have a working product — and Rachitsky's own benchmark is that you should start worrying past the two-year mark. That puts the four-to-nine-month window dead center in the range where founders are, by the numbers, still flying blind — and exactly where the system has made confusion most psychologically expensive.
 
 The system designed this. Building solo removes the one correction mechanism that would help here: another person in the room whose interpretation of the signal differs from yours. With a co-founder, you have at least two reads on ambiguous data. Solo, you have one — yours — and it is increasingly influenced by how tired, isolated, and demoralized you already are. You are using a corrupted instrument to assess the very condition corrupting it.
 
@@ -38,13 +35,13 @@ Most solo founders arrive at their product via technical skill or domain experti
 
 This is where the isolation tax comes due in full. [CB Insights' analysis of 101 failed startups](https://www.cbinsights.com/research/report/startup-failure-reasons-top/) found that 34% never achieved product-market fit — the single most common cited cause of failure. But product-market fit isn't a threshold you cross alone. It's a signal you interpret in conversation with the market, with users, with people who can push back on your read of what you're seeing. Solo founders do the interpretation alone. Every ambiguous data point passes through one filter. That filter is you, at hour nine of a Tuesday, checking a dashboard that hasn't moved in three weeks.
 
+The stakes of that filter breaking are not abstract. A [2015 study by Michael Freeman](https://michaelafreemanmd.com/Research_files/Are%20Entrepreneurs%20Touched%20with%20Fire-summary.pdf) and colleagues at UC Berkeley and UCSF found that entrepreneurs reported a lifetime history of depression at roughly 30%, and that 40% had at least one diagnosable mental health condition. Solo founders are running that exact vulnerability profile through the growth loop's blind period, with no second filter in the room to catch a bad read before it becomes a bad decision.
+
 [Research from QuickBooks](https://quickbooks.intuit.com/r/small-business-data/mental-health-2024/) found that solopreneurs report nearly 40% more stress and burnout compared to founders with partners, and 46% say they experience significant loneliness with no reliable external input on key decisions. A 2019 study found that 100% of founders surveyed described their work as "lonely" — and solo founders don't have even the buffer of a founding team to distribute that weight. The growth loop is hard for everyone. It is structurally harder when you are the only one in the loop, and the loop is feeding back nothing coherent.
 
 ## How Do You Know When to Quit Your Startup?
 
 By the time you're asking this at month six, the sunk cost fallacy has likely already colonized your judgment — most founders staying past their signal window are defending an identity, not executing a strategy. The tell: when quitting feels like identity death rather than a business decision, the sunk cost fallacy has already won, and the signal is no longer the real variable in the equation.
-
-This question arrives around month six. It is not a useful question — not because the answer doesn't matter, but because by the time you're asking it in this form, the sunk cost fallacy has already colonized your judgment.
 
 The sunk cost fallacy operates at peak leverage precisely here. You've spent twelve to eighteen months on this. You've told people about it. It's on your LinkedIn, your Twitter, maybe your family dinner conversations for three consecutive years. The company is not a thing you made — it is, by now, something close to who you are. [Psychology Today's 2025 analysis of founder burnout](https://www.psychologytoday.com/us/blog/the-architecture-of-identity/202605/why-traits-that-help-founders-succeed-also-burn-them-out) found that founders are especially vulnerable to achievement becoming identity, and that when the company becomes "a source of competence, a public measure of worth," quitting stops being a business decision and starts being an identity threat. You're not assessing a product anymore. You're defending a self-concept.
 
@@ -62,7 +59,7 @@ This is the system named: **the Feedback Desert**. It's the structural condition
 
 Most solo founders don't quit because they ran out of money. They quit because they ran out of interpretable signal. The Feedback Desert doesn't kill ideas. It kills the founder's capacity to assess them clearly.
 
-## How to Break Out of the Solo Founder Burnout Cycle
+## How Do You Break the Solo Founder Burnout Cycle?
 
 Nothing, if you keep the same inputs. Everything, if you change one input first. The input that breaks the cycle is structural, not motivational: a second reader for your signal — a peer founder, an advisor, an accountability group — whose interpretation of your traction data isn't distorted by the same exhaustion running yours.
 
