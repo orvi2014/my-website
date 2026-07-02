@@ -25,13 +25,15 @@ Not the slow exhale of a team going behind — a full stop. Like someone had cut
 
 That night, I became a Brazil fan. Not because they won. Because they lost, and the silence that followed told me how much they were loved.
 
-Bangladesh has never qualified for a World Cup. There is no shared language, no colonial history, no migration story linking us to South America. And yet, millions of Bangladeshis split themselves between Brazil and Argentina every four years with an intensity that has drawn coverage from [Al Jazeera](https://www.aljazeera.com/news/2022/12/18/bangladeshis-albicelestes-biggest-fan-are-gearing-up-for), the [Buenos Aires Times](https://www.batimes.com.ar/news/sports/chants-of-messi-messi-as-bangladeshis-celebrate-argentinas-world-cup-triumph.phtml), and an [academic paper in Soccer & Society](https://www.tandfonline.com/doi/abs/10.1080/14660970.2025.2480054). The passion ran deep enough that during the 2022 World Cup, [23 people died and 35 were hospitalised](https://pmc.ncbi.nlm.nih.gov/articles/PMC12646357/) in clashes between rival Brazil and Argentina fans across Bangladesh.
+Bangladesh has never qualified for a World Cup. There is no shared language, no colonial history, no migration story linking us to South America. And yet, millions of Bangladeshis split themselves between Brazil and Argentina every four years with an intensity that has drawn coverage from [Al Jazeera](https://www.aljazeera.com/news/2022/12/18/bangladeshis-albicelestes-biggest-fan-are-gearing-up-for), the [Buenos Aires Times](https://www.batimes.com.ar/news/sports/chants-of-messi-messi-as-bangladeshis-celebrate-argentinas-world-cup-triumph.phtml), and an [academic paper in Soccer & Society](https://www.tandfonline.com/doi/abs/10.1080/14660970.2025.2480054). The passion ran deep enough that during the 2022 World Cup, [23 people died, 35 were hospitalised, and 45 were injured](https://pmc.ncbi.nlm.nih.gov/articles/PMC12646357/) in clashes between rival Brazil and Argentina fans across Bangladesh.
 
 This is the story of how that happened. And why it makes complete sense.
 
 ---
 
 ## How Did Football Fandom Take Root in Bangladesh?
+
+Football fandom took root in Bangladesh in the 1970s through radio and word of mouth, decades before most households owned a television — Pelé's Brazil arrived first as a story passed between neighbours, then Maradona's Argentina arrived the same way after his single-handed demolition of England in 1986. Bangladeshis latched onto Pelé's Brazil as a symbol of beauty and excellence in a newly independent country looking for something to believe in, and when Maradona beat England almost alone at the 1986 World Cup, a nation that had lived under empire found an even more personal hero, according to [Al Jazeera](https://www.aljazeera.com/news/2026/7/2/maradona-to-messi-why-bangladesh-loves-argentinas-footballers) and [The Daily Star](https://www.thedailystar.net/life-living/news/argentina-vs-brazil-the-history-behind-the-rivalry-4207246).
 
 My grandfather knew who Maradona was. He knew Gullit. He knew Socrates — not the philosopher, the Brazilian midfielder who was also a philosopher, which tells you something about football's capacity for mythology. He knew these names the way people know the names of gods: not from seeing them, but from hearing about them so often that they became true.
 
@@ -51,11 +53,13 @@ Nobody sat down and decided. Brazil chose us the way great things choose people 
 
 *Jogo bonito.* The beautiful game. Brazil has always played football as if the point was not to win but to make winning look like art. The yellow shirt is the most recognizable piece of clothing in the sport. Pelé, Ronaldo, Ronaldinho — the names alone carry a kind of music. In a country where football is feeling before it is sport, Brazil made sense. Their way of playing looked the way devotion feels.
 
-Argentina fans will say the same about their side. And they are not wrong. This is the thing about Bangladesh — it did not pick one team and leave it at that. It split itself in half. Brazil one half, Argentina the other. And the two halves have been in a cold war ever since.
+Argentina fans will say the same about their side. And they are not wrong. This is the thing about Bangladesh — it did not pick one team and leave it at that. It split itself in half. Brazil one half, Argentina the other. And the two halves have been in a cold war ever since — one profitable enough that Bangladesh's sports accessories trade body puts the country's World Cup-season sporting goods market at an estimated Tk 1,500–2,000 crore, most of it fought over between Brazil yellow and Argentina blue, according to [The Daily Star](https://www.thedailystar.net/sports/sports-special/fifa-world-cup-2026/news/fifa-world-cup-fever-fuels-bangladeshs-economy-4202756).
 
 ---
 
-## Why the World Cup Matters So Much in Bangladesh
+## Why Does the World Cup Matter So Much in Bangladesh?
+
+The World Cup matters so much in Bangladesh because it offers full-scale national belonging without any of the risk — since Bangladesh has never qualified, fans can pour total devotion into Brazil or Argentina without ever having to survive the heartbreak of their own team losing. That devotion is visible in hard numbers: flag prices in Dhaka's markets climb from around Tk 100 to Tk 450 in the weeks before each tournament as street vendors race to keep up with demand, according to [The Daily Star](https://www.thedailystar.net/life-living/news/selling-chicken-selling-flags-dhakas-world-cup-flag-vendors-4201966).
 
 People literally fight here over Brazil and Argentina. I do not mean argue — I mean the occasional fistfight, the neighbourly falling-out, the family dinner that turns tense when someone brings up who was better, Messi or Ronaldo, 1986 or 2002, which World Cup mattered more.
 
@@ -65,11 +69,11 @@ Sometimes we feel more Brazilian than Brazil itself. I do not say this lightly. 
 
 ---
 
-## What 2022 Changed for Bangladesh Football Fans
+## What Happened Between Argentina and Bangladesh After the 2022 World Cup?
 
-In 2022, Argentina won the World Cup. And Bangladesh lost its mind.
+After Argentina won the 2022 World Cup, the Argentine Football Association publicly thanked Bangladesh, released a documentary devoted entirely to Bangladeshi fans, and watched a Bangladeshi company become the national team's first Bangladeshi sponsor — a rare instance of a country formally noticing and reciprocating a fandom it never asked for. In 2022, Argentina won the World Cup. And Bangladesh lost its mind.
 
-The celebrations in Dhaka were not the celebrations of a foreign country's victory. They were the celebrations of our own. Firecrackers, processions, all-night dancing in the streets. Images went around the world — a sea of light blue and white over a Bangladeshi city, a crowd that would have made Buenos Aires jealous. FIFA themselves tweeted a clip of Bangladeshis celebrating Argentina's goal against Mexico; Gary Lineker expressed public surprise at the scale of the fandom.
+The celebrations in Dhaka were not the celebrations of a foreign country's victory. They were the celebrations of our own. Firecrackers, processions, all-night dancing in the streets. Images went around the world — a sea of light blue and white over a Bangladeshi city, a crowd that would have made Buenos Aires jealous. FIFA themselves tweeted a clip of Bangladeshis celebrating Argentina's goal against Mexico, and Gary Lineker quote-tweeted the same clip with a single word — "Fantastic" — surprised, like much of the world, that this fandom existed at this scale, according to [Press Xpress](https://pressxpress.org/2022/12/22/how-bangladeshi-fans-made-mark-in-the-fifa-world-cup-2022-diplomacy-and-international-media/).
 
 Argentina did not just notice. They responded. The official Argentina account thanked Bangladesh directly: *"Thank you Bangladesh. Your support was wonderful."* AFA President Claudio Tapia acknowledged that [the national team had felt Bangladesh's passionate support throughout the tournament](https://www.dhakatribune.com/sport/football/300975/argentina-thanks-bangladesh-fans-your-support-was-wonderful). Then the Argentine Football Association went further — they released a [15-minute documentary](https://www.dhakatribune.com/sport/football/307796/argentina-fa-pays-heartfelt-tribute-to-bangladesh) dedicated entirely to Bangladeshi fans, which gathered over 913,000 views and 80,000 likes. The relationship became so concrete that [bKash, a Bangladeshi mobile payments company, became the first Bangladeshi brand to sponsor the Argentine national team](https://www.tbsnews.net/sports/bkash-becomes-first-bangladeshi-sponsor-argentinas-national-football-team-628470).
 
@@ -81,7 +85,9 @@ There is something here that connects to a deeper human pattern — the same ins
 
 ---
 
-## What It's Actually About
+## What Does Bangladesh's Obsession With Brazil and Argentina Really Mean?
+
+At its core, Bangladesh's devotion to Brazil and Argentina proves that belonging does not require ownership, geography, or a shared passport — only a story told early enough to take root before anyone thinks to question it. It is devotion without utility, and that may be the most honest kind there is.
 
 Here is what I think is really happening, underneath all the flags and the late nights and the fights about Messi versus Ronaldo.
 
@@ -98,4 +104,3 @@ And we will all be, for those weeks, exactly where we are supposed to be.
 ---
 
 *The 2026 FIFA World Cup begins June 11 in the United States, Canada, and Mexico — the first edition with 48 teams.*
-
