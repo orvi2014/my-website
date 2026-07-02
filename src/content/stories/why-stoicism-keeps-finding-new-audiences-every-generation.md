@@ -1,5 +1,5 @@
 ---
-title: "Why Stoicism Keeps Finding New Audiences Every Generation"
+title: "Why Is Stoicism So Popular Right Now?"
 description: "Stoicism's modern relevance isn't nostalgia. It's a response to a measurable crisis—and the safe, comfortable alternative costs more than you think."
 pubDate: 2026-06-14
 category: "philosophy"
@@ -21,7 +21,7 @@ No. That's the objection that lets you off the hook, and the evidence doesn't su
 
 This is the counterargument worth defeating, because it's the one most people use to avoid the work. "Stoicism is emotional suppression for people who are scared of their feelings." If that were true, the philosophy would have produced anxious, bottled-up wrecks. Instead it produced the single most influential framework in modern clinical psychology.
 
-Cognitive behavioral therapy—the most rigorously validated psychotherapy in existence—is Stoicism with a lab coat. Albert Ellis, who built rational emotive behavior therapy in the 1950s, lifted his central principle almost verbatim from Epictetus: people are disturbed not by events, but by their judgments about events. Both Ellis and Aaron Beck, the two founders of cognitive therapy, [explicitly named Stoicism as their philosophical precursor](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5836900/). A 2017 systematic review and meta-analysis covering 50 years of REBT confirmed what the Stoics asserted by intuition: change the belief, and the emotion that depends on it changes too.
+Cognitive behavioral therapy—the most rigorously validated psychotherapy in existence—is Stoicism with a lab coat. Albert Ellis, who built rational emotive behavior therapy in the 1950s, lifted his central principle almost verbatim from Epictetus: people are disturbed not by events, but by their judgments about events. Both Ellis and Aaron Beck, the two founders of cognitive therapy, [explicitly named Stoicism as their philosophical precursor](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5836900/). A [2017 systematic review and meta-analysis covering 50 years of REBT](https://pubmed.ncbi.nlm.nih.gov/28898411/) confirmed what the Stoics asserted by intuition: change the belief, and the emotion that depends on it changes too.
 
 That is the opposite of suppression. Suppression is feeling the thing and shoving it down. Stoicism is examining the thought that produced the feeling and asking whether it's actually true. One leaves the pressure intact. The other releases it.
 
