@@ -1,5 +1,5 @@
 ---
-title: "Agent Rule Conflicts: Why Multi-Agent Systems Fail at Production Scale"
+title: "Why Do Multi-Agent AI Systems Fail at Production Scale?"
 description: "When different AI agents have conflicting rules, pipelines fail silently at scale. Here's how cascading deferrals break automation — and what to audit."
 pubDate: 2026-05-27
 category: "ai-automation"
@@ -21,7 +21,7 @@ Every deployed AI agent operates inside a set of constraints. Some come from the
 
 Multi-agent systems break that. When an orchestrating agent hands a task to a subagent, it is not just passing data. It is handing off into an environment with its own rules it did not write. The subagent applies its operator's instructions, its own safety filters, its own sense of what is allowed. If those definitions conflict with what the orchestrator assumed, the system degrades in ways that are genuinely hard to see.
 
-Gartner projected in late 2024 that 33% of enterprise software applications will include agentic AI by 2028, up from less than 1% that same year. Most of those deployments will involve multiple agents sharing pipelines neither was designed for. The number of cross-agent rule collisions in production is growing faster than the frameworks to manage them.
+Gartner projects that [33% of enterprise software applications will include agentic AI by 2028](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027), up from less than 1% in 2024. The same research also predicts that over 40% of agentic AI projects will be canceled by the end of 2027, citing escalating costs, unclear business value, and inadequate risk controls. Most of the deployments that do reach production will involve multiple agents sharing pipelines neither was designed for. The number of cross-agent rule collisions in production is growing faster than the frameworks to manage them.
 
 The customer support agent that went quiet was following a rule it had been given: defer to sensitivity flags. That flag had been written by a compliance team trying to keep agents off active legal topics. The question had nothing to do with legal cases. The flag's author had not imagined a world where other agents would generate flags programmatically, at volume, without the context a human would have brought.
 
@@ -34,6 +34,8 @@ Software systems have always had interface mismatches. APIs return unexpected fo
 With agents, the mismatch is about meaning: what a request entails, when a refusal applies, what silence signals. They work it out in natural language, which was not designed for that kind of precision.
 
 When a traditional API call fails, it fails loudly. An exception. A non-200. A timeout. When an agent misinterprets another agent's context, nothing fails. The pipeline completes, a response goes out, and the error is a wrong answer that looked right.
+
+A multi-agent pipeline can be correct at every individual step and still be wrong in aggregate.
 
 A logistics company I spoke to last year ran into exactly this. Their pricing agent and inventory agent were both calling a fulfilment agent. The pricing agent's system prompt told the fulfilment agent to assume all requests were pre-approved by finance. The inventory agent's prompt said nothing about approval status. When the inventory agent made a request, the fulfilment agent saw no approval flag and silently queued it for human review instead of processing it. Orders sat for four days before anyone noticed. The system had worked exactly as specified.
 
@@ -61,7 +63,7 @@ No buffer overflow, no authentication bypass. The attack exploits the same mecha
 
 In a multi-agent system, the injected instructions do not need to come from outside. They can come from another agent, one that has been compromised, designed by a different party, or simply running rules that happen to conflict.
 
-This is not theoretical. Kai Greshake and colleagues published a paper in 2023 documenting exactly this class of attack in real deployed systems, calling them [indirect prompt injection attacks](https://arxiv.org/abs/2302.12173). They demonstrated that instructions embedded in external content, a web page an agent retrieves, an email it reads, could reliably hijack agent behaviour across multiple production systems without any direct access to the underlying infrastructure.
+This is not theoretical. Kai Greshake and colleagues published a paper in 2023 documenting exactly this class of attack in real deployed systems, calling them [indirect prompt injection attacks](https://arxiv.org/abs/2302.12173). They demonstrated working exploits against Bing Chat and GPT-4-powered code-completion tools, proving that instructions embedded in external content, a web page an agent retrieves, an email it reads, could reliably hijack agent behaviour across production systems without any direct access to the underlying infrastructure.
 
 OWASP's LLM Top 10 v1.1, updated in 2025, [still ranks prompt injection first among risks for LLM applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/).
 
@@ -69,7 +71,7 @@ In a multi-agent pipeline, the attack compounds. A compromised subagent passes m
 
 The line between "an agent following its instructions in a way that disrupts your pipeline" and "an agent being weaponised against it" is genuinely blurry. The Greshake paper is worth reading if you are building anything that retrieves external content into an agent context. It is not comfortable reading.
 
-## Who controls rule conflicts, and who takes the blame
+## Who controls rule conflicts in multi-agent systems
 
 Right now, the most conservative ruleset in a system wins by default. Nobody explicitly chose that.
 
@@ -103,11 +105,11 @@ Instrument your pipelines to log refusals and deferrals explicitly, not just tas
 
 The companies doing multi-agent coordination well are doing it through discipline, monitoring, and deliberate negotiation about rules across teams. The infrastructure did not make it easy. Their habits did.
 
-## The failures that look like success
+## Why do multi-agent AI failures look like success
+
+The pipeline completes normally, so nothing flags it: an answer goes out, a task gets queued, no exception is thrown. The failure surfaces days later, if it surfaces at all, by which point decisions have already been made on outputs that were quietly wrong the whole time.
 
 The rule wars are already happening. They happen every time two agents interact under different instructions and nobody checked whether those instructions were compatible. That is happening at scale, right now, mostly quietly.
-
-The failures look like success because the pipeline completed. An answer went out. A task got queued. No exception was thrown. The problem surfaces four days later, or it never surfaces, and you are making decisions on outputs that were quietly wrong the whole time.
 
 The breakage is invisible by default. Visibility requires work you have to do on purpose.
 
