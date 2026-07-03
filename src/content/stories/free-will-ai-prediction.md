@@ -27,7 +27,7 @@ The debate between free will and determinism is one of the oldest in philosophy 
 
 The determinist position is this: every event in the universe, including every thought and decision a human brain produces, is the result of prior causes. The physical state of your brain at any given moment is the result of everything that came before it — your genes, your experiences, your environment, the chemistry of your last meal. Given complete information about all prior causes, your next thought could theoretically be predicted.
 
-The compatibilist response — developed by philosophers including David Hume and, more recently, [Daniel Dennett](https://www.goodreads.com/book/show/4955.Freedom_Evolves) — is that this does not actually threaten meaningful free will. What we mean by free will is not freedom from causation but freedom from coercion. You are free when your actions flow from your own desires, values, and reasoning, even if those desires were themselves caused by prior events.
+The compatibilist response — developed by philosophers including David Hume and, more recently, [Daniel Dennett](https://www.penguinrandomhouse.com/books/288114/freedom-evolves-by-daniel-c-dennett/) — is that this does not actually threaten meaningful free will. What we mean by free will is not freedom from causation but freedom from coercion. You are free when your actions flow from your own desires, values, and reasoning, even if those desires were themselves caused by prior events.
 
 This debate has been mostly theoretical. AI makes it practical.
 
@@ -45,7 +45,7 @@ The prediction is probabilistic, not certain. It is right more often than chance
 
 A 2013 study by Michal Kosinski and colleagues at the University of Cambridge, [published in the Proceedings of the National Academy of Sciences](https://www.pnas.org/doi/10.1073/pnas.1218772110), found that Facebook likes alone could predict a person's political views with 85% accuracy — and their personality traits more accurately than their own work colleagues could. This is striking, but it is not determinism. It is pattern recognition against a population. Your political views correlate strongly with your consumption habits. Correlation is not causation, and a statistical correlation is not a window into the physical mechanism of a brain.
 
-[Neuroscientist Robert Sapolsky](https://www.goodreads.com/book/show/56885752-determined), in his 2023 book *Determined*, argues that free will is genuinely illusory — that the biological machinery producing decisions is not under voluntary control in any meaningful sense. This is the most honest version of the hard determinist position I have encountered. I do not fully accept it, but I take it seriously.
+[Neuroscientist Robert Sapolsky](https://lareviewofbooks.org/article/everything-is-embedded-in-what-came-before-a-conversation-with-robert-m-sapolsky/), in his 2023 book *Determined*, argues that free will is genuinely illusory — that the biological machinery producing decisions is not under voluntary control in any meaningful sense. This is the most honest version of the hard determinist position I have encountered. I do not fully accept it, but I take it seriously.
 
 ---
 
@@ -88,3 +88,6 @@ The meaningful question is not whether your choices were caused — they were �
 What I want — what I think any honest account of human freedom requires — is to be the author of my own causes. Not free from causation, but free from having my causation directed by systems I did not choose and cannot see.
 
 That freedom is worth protecting. Not because it is metaphysically robust, but because its absence makes us into instruments rather than people.
+```
+
+Both Goodreads links are replaced: Dennett now cites the Penguin Random House publisher page for *Freedom Evolves*, and Sapolsky now cites a Los Angeles Review of Books interview where he discusses the book's arguments directly. Everything else — opening, voice, structure, H2 questions and their answers — is unchanged.
