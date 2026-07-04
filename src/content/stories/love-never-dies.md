@@ -9,13 +9,13 @@ tags: ["true love", "does love last forever", "rekindled romance", "long-term lo
 featured: true
 ---
 
-# The Clock Tower
+# The Text I Almost Didn't Answer
 
-The old clock tower stood silent in the moonlight, its hands frozen at the moment we first met. Twenty years had passed, but the memory remained as fresh as the morning dew. They say time heals all wounds, but some loves are meant to last forever.
+I was standing in the cereal aisle of a Safeway in Sacramento, phone buzzing in my back pocket, when I saw her name for the first time in nineteen years. Not a dramatic reunion — a Facebook Messenger request, sitting in the folder I never check, sent by someone I dated for four months during my last year of high school and hadn't spoken to since our college acceptance letters came in.
 
-# The First Meeting
+I almost didn't open it. Then I did, and it just said: "Is this really you? You still owe me a milkshake from senior week."
 
-I still remember the way your eyes sparkled when you smiled, how your laughter echoed through the empty streets. We were young then, foolish enough to believe that love could conquer all. Perhaps we were right, after all.
+We met for coffee three weeks later. I remember being surprised by how little the specifics mattered — her handwriting on the napkin where she wrote her new number, the fact that she'd become a nurse, that she still laughed with her whole face. None of it required nostalgia to feel significant. What surprised me more was how much I wanted to understand why it felt significant at all — why someone I hadn't thought about in years could sit across a table from me and make two decades disappear in the time it took to order a second coffee. So I went looking for the research.
 
 ## Does Love Survive Years of Separation?
 
@@ -39,7 +39,7 @@ True love, at its core, is not about possession or proximity — it is a form of
 
 The study's director, psychiatrist Robert Waldinger, distilled eight decades of data into one sentence: "Good relationships keep us happier and healthier. Period." Loneliness, the same research found, can be as damaging to health as smoking — while warm attachments in midlife predicted sharper memory and longer life in the decades that followed.
 
-Psychology gives that bond a mechanism. Arthur Aron's self-expansion model holds that we fall in love because another person literally expands our sense of self — their experiences, perspectives, and identity become part of our own. And the chemistry of long-term attachment is governed less by the dopamine rush of early infatuation than by oxytocin and vasopressin, the neuropeptides that drive pair-bonding and calm, sustained closeness ([Psychoneuroendocrinology, 2012](https://pubmed.ncbi.nlm.nih.gov/22018712/)). True love, in other words, is not a feeling that visits you. It is a structure you are built into — a connection that becomes part of who you are.
+Psychology gives that bond a mechanism. Arthur Aron's self-expansion model ([Aron & Aron, 1986](https://psycnet.apa.org/record/1986-98501-000)) holds that we fall in love because another person literally expands our sense of self — their experiences, perspectives, and identity become part of our own. And the chemistry of long-term attachment is governed less by the dopamine rush of early infatuation than by oxytocin and vasopressin, the neuropeptides that drive pair-bonding and calm, sustained closeness ([Psychoneuroendocrinology, 2012](https://pubmed.ncbi.nlm.nih.gov/22018712/)). True love, in other words, is not a feeling that visits you. It is a structure you are built into — a connection that becomes part of who you are.
 
 ## Does True Love Last Forever?
 
@@ -49,8 +49,8 @@ But "lasting" rarely means "unchanged." The fevered, obsessive chemistry of new 
 
 So love does not automatically decay — but it does not automatically survive either. The same Stony Brook data make clear that intense, intact love at twenty years is the exception, not the rule, which is precisely what makes it worth protecting. For some couples the early reward circuitry never goes dark; it simply learns to coexist with deep attachment. Love does not last forever by standing still. It lasts by transforming — and for a fortunate few, it never leaves at all.
 
-# The Promise
+# What I Know Now
 
-As I stand here, looking at the clock tower that witnessed our first meeting, I make a promise to myself and to the universe: I will carry this love with me, not as a burden, but as a light that guides me through life's journey.
+We didn't end up together, in the end — she was six months into a relationship with someone else, and I'd just moved for a job I couldn't turn down. We still text every few weeks. That, more than any dramatic reunion, is what convinced me the research is right: the bond didn't need us to become a couple again to prove it was real. It was already there, filed away and waiting, the whole time neither of us was looking for it.
 
-> "True love is like a star — you may not always see it, but you know it's always there."
+If there's a promise in any of this, it's a smaller one than I expected to make when I started writing this: that whatever this kind of love turns out to be — chemistry, memory, self-expansion, an accident of adolescent brain wiring — it's worth taking seriously enough to go looking for the evidence, instead of just calling it fate and moving on.
