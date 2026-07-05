@@ -76,4 +76,3 @@ That reframing predicts a few things with some confidence. Teams that import "ge
 The teams that understand gegenpressing as geometry will keep winning. The teams that understand it as running will keep getting countered — and keep calling it bad luck.
 
 *Further reading on the metrics: [Coaches' Voice on PPDA](https://learning.coachesvoice.com/cv/ppda-explained-passes-per-defensive-action/).*
-```

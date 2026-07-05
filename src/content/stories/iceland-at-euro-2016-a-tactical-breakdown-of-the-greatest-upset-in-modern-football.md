@@ -70,4 +70,3 @@ For 2026, the relevance is direct. An expanded 48-team field means more mismatch
 The greatest upset in modern football was not an accident of one night. It was a plan, executed by a player nobody was watching, and the rest of football has spent a decade catching up to it.
 
 *Sources: [ESPN match stats](https://www.espn.co.uk/football/matchstats/_/gameId/438161); [UEFA match report](https://uefa.com/uefaeuro/season=2016/matches/round=2000744/match=2018003/postmatch/report/index.html); [The FA report](https://www.thefa.com/news/2016/jun/27/england-iceland-report-270616); [NBC Sports on Iceland's qualifying wins over the Netherlands](https://soccer.nbcsports.com/2015/09/03/euro-2016-qualifying-roundup-iceland-beat-netherlands-again-are-all-but-qualified/); [SciSports tactical analysis](https://www.scisports.com/euro-2016-highlighted-iceland/).*
-```

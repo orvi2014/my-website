@@ -1,7 +1,4 @@
 ---
-
-```markdown
----
 title: "Tool Use in LLMs: What It Actually Means for Production Systems"
 description: "Honeycomb shipped LLM function calling to production before the API existed. What they found changes how you should think about tool use."
 pubDate: 2026-06-14
@@ -63,4 +60,3 @@ It means the function call is the easy part, and your job is everything around i
 Return, now, to that six-week sprint in 2023. The team shipped Query Assistant on time, and then did the rarest thing in this field: they published what happened next. The retrospective was not a victory lap. Free-tier adoption came in around 39%, below what they'd hoped, hurt by discoverability. Usage of the assistant dropped sharply after a user's first week — people tried it, learned the query language it had taught them, and graduated to writing queries by hand. The feature's deepest success was, quietly, to make itself less necessary. Honeycomb reported all of this openly, including where it underperformed, and kept the feature in production at an API cost of roughly $100k a year — trivial against the value, but only because the system around the model absorbed the model's failures.
 
 The engineer who sat down in March 2023 thought the hard problem was getting the model to emit the right function call. That was never the hard problem. The hard problem — the one that separates a demo from a system people trust with real money and real telemetry — is designing for a component that will be confidently, validly, schema-perfectly wrong a meaningful fraction of the time, and making sure that when it is, nothing breaks that you can't undo. The function call is where the work appears to be. It is not where the work is.
-```
