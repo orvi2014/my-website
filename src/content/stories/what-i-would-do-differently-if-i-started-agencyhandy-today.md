@@ -15,15 +15,15 @@ That was the afternoon most of my SaaS founder lessons learned stopped being the
 
 ## Why do SaaS founders keep building features nobody uses?
 
-Because building feels like progress and saying no feels like neglect. In 2019, Pendo analyzed 615 SaaS products and found that 80% of features are rarely or never used — 56% never touched at all, with only 12% used frequently.
+Because building feels like progress and saying no feels like neglect. [The 2019 Pendo Feature Adoption Report](https://www.pendo.io/resources/the-2019-feature-adoption-report/), analyzing 615 SaaS products, found that 80% of features are rarely or never used — 56% never touched at all, with only 12% used frequently.
 
-That number sounds like someone else's problem until you map it onto your own changelog. For a bootstrapped team, every unused feature is not a rounding error — it is a salaried engineer-month, a support surface that now needs documentation, and a settings page that scares off the next trial user. Pendo put the global tab at $29.5 billion in annual cloud R&D spent on features that go unused. I contributed my share. The white-label invoicing module, the bulk CSV importer three customers requested and zero adopted, the "advanced permissions" matrix that generated more confused tickets than it ever prevented.
+That number sounds like someone else's problem until you map it onto your own changelog. For a bootstrapped team, every unused feature is not a rounding error — it is a salaried engineer-month, a support surface that now needs documentation, and a settings page that scares off the next trial user. Pendo quantified the global cost at $29.5 billion in annual cloud R&D spent on features that go unused. I contributed my share. The white-label invoicing module, the bulk CSV importer three customers requested and zero adopted, the "advanced permissions" matrix that generated more confused tickets than it ever prevented.
 
 The comfortable lie is that more features reduce churn. The boring truth is that the safe-looking roadmap — the one stuffed with "customers asked for it" line items — is the single most expensive thing in the building, and it never shows up as a cost. It shows up as velocity, which is how you fail to notice it.
 
 ## Is it safer to launch a SaaS with more features or fewer?
 
-Fewer, by a wide margin — the loaded launch is the riskier one, it just doesn't feel that way. The Startup Genome report, after studying more than 3,200 high-growth startups, found that 74% failed from premature scaling: building product, team, and commitments faster than they validated demand.
+Fewer, by a wide margin — the loaded launch is the riskier one, it just doesn't feel that way. [The Startup Genome report, after studying more than 3,200 high-growth startups](https://s3.amazonaws.com/startupcompass-public/StartupGenomeReport2_Why_Startups_Fail_v2.pdf), found that 74% failed from premature scaling: building product, team, and commitments faster than they validated demand.
 
 The same report found that companies which scaled at the right pace grew roughly 20x faster than those that scaled prematurely. Read that again — the cautious-looking founders who shipped the "complete" platform weren't de-risking. They were quietly choosing the slower-growth, higher-mortality path while telling investors they were being thorough.
 
@@ -43,7 +43,7 @@ The hidden cost of the safe price is not the margin you leave on the table. It's
 
 No — early hiring is the premature-scaling trap with a friendly face, and it's almost always sold to you as the responsible move. Every founder who hires ahead of validated demand is told they're "building the team to execute." What they're actually doing is converting flexible cash into fixed obligation before they know what the obligation is for.
 
-CB Insights' analysis of startup post-mortems found that 42% of failed companies cited "no market need," and a 2024 update of 431 failed venture-backed companies put poor product-market fit at the top at 43%. Notice what's missing from the top of that list: "didn't hire fast enough." Nobody dies from a small team. They die from building the wrong thing efficiently with a big one.
+[CB Insights' analysis of startup post-mortems](https://www.cbinsights.com/research/report/startup-failure-reasons-top/) found that 42% of failed companies cited "no market need," and a 2024 update of 431 failed venture-backed companies put poor product-market fit at the top at 43%. Notice what's missing from the top of that list: "didn't hire fast enough." Nobody dies from a small team. They die from building the wrong thing efficiently with a big one.
 
 I hired a second engineer and a part-time support person before I could prove our retention curve flattened. It felt like de-risking. It was the opposite — it raised my monthly burn by a number that turned every slow month into a crisis, which in turn pushed me toward shipping more features to justify the headcount, which is how the safe choice quietly finances the other safe choice. The comfortable decisions don't just cost money individually. They subsidize each other.
 

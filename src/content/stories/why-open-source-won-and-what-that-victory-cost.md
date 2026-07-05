@@ -1,6 +1,6 @@
 ---
-title: "Why Open Source Won and What That Victory Cost"
-description: "Open source conquered global software development. But the victory came with a cost nobody budgeted for: the people keeping the lights on are often unpaid volunteers."
+title: "Why Is Open Source Maintenance Unpaid?"
+description: "Open source won the technical argument. The people keeping critical infrastructure running are often unpaid volunteers, a cost nobody budgeted for."
 pubDate: 2026-06-10
 category: "technology"
 author: "Orvi"
@@ -47,7 +47,7 @@ Winning looks like this: the infrastructure that runs the modern internet is mai
 
 In April 2014, a vulnerability called Heartbleed was disclosed in OpenSSL, the cryptographic library used by roughly two-thirds of HTTPS websites at the time. The bug had existed for two years. It allowed attackers to read memory from servers, potentially exposing passwords, private keys, and session tokens. The scope was staggering. And when journalists started reporting on it, they discovered that OpenSSL was maintained by a tiny team, operating on a budget of roughly $2,000 per year in donations, while protecting an estimated $200 billion worth of internet commerce annually. [The reporting at the time](https://www.wired.com/2014/04/heartbleed/) made the economics look almost comical, except it wasn't funny.
 
-Log4Shell in 2021 exposed a critical vulnerability in Log4j, a Java logging library used in enormous portions of enterprise software worldwide. The maintainers were again unpaid volunteers who suddenly had to deal with an avalanche of abuse and demands from companies whose infrastructure was on fire. None of those companies had ever paid anything for Log4j. Most of them probably didn't even know it was in their stack.
+Log4Shell in 2021 exposed a critical vulnerability in Log4j, a Java logging library used in enormous portions of enterprise software worldwide. Within 72 hours of disclosure, [Check Point Research recorded over 800,000 exploitation attempts globally](https://blog.checkpoint.com/security/the-numbers-behind-a-cyber-pandemic-detailed-dive/), with attackers targeting an estimated 44% of corporate networks worldwide. The maintainers were again unpaid volunteers who suddenly had to deal with an avalanche of abuse and demands from companies whose infrastructure was on fire. None of those companies had ever paid anything for Log4j. Most of them probably didn't even know it was in their stack.
 
 Then in early 2024, a sophisticated attacker spent nearly two years cultivating trust in the xz-utils project under a fake identity before inserting a backdoor into the codebase. A supply chain attack, patient and precise. It was caught almost accidentally: a Microsoft engineer named Andres Freund noticed SSH logins were taking 500ms longer than expected and decided to investigate why. [That investigation](https://www.openwall.com/lists/oss-security/2024/03/29/4) is now a minor legend in security circles. If Freund hadn't been curious on a Friday afternoon, that backdoor might have shipped in mainstream Linux distributions across the world.
 
@@ -57,7 +57,7 @@ These aren't arguments against open source. They're arguments about what sustain
 
 The business model isn't broken exactly. It was never designed. It emerged, and emergence doesn't produce clean economics.
 
-There have been genuine attempts to fix this. GitHub Sponsors, Open Collective, and Tidelift let developers accept money for their work. Some projects found sustainable models: Red Hat built a billion-dollar company selling support for open source software and got acquired by IBM for $34 billion. Elastic, HashiCorp, and MongoDB built commercial open source businesses that kept the core code available while restricting what cloud providers could do with it commercially.
+There have been genuine attempts to fix this. GitHub Sponsors, Open Collective, and Tidelift let developers accept money for their work, but the money mostly hasn't followed the need. [Tidelift's 2021 survey](https://tidelift.com/about/press-releases/survey-finds-many-open-source-maintainers-are-stressed-out-and-underpaid-but-persist-so-they-can-make-a-positive-impact) of nearly 400 open source maintainers found that 46% were not paid anything at all for their maintenance work. Some projects found sustainable models: Red Hat built a billion-dollar company selling support for open source software and got acquired by IBM for $34 billion. Elastic, HashiCorp, and MongoDB built commercial open source businesses that kept the core code available while restricting what cloud providers could do with it commercially.
 
 That last strategy has caused real friction. When HashiCorp relicensed Terraform in 2023, moving it from the Mozilla Public License to the Business Source License, it felt to many contributors like a rug pull. You build something together under one set of terms, and then the company changes the terms once the software becomes valuable enough to protect. [The resulting fork, OpenTofu](https://opentofu.org/), became the Linux Foundation's fastest-growing project within months of launch. The open source community, when it feels betrayed, turns out to be very good at forking.
 
@@ -71,7 +71,7 @@ The economic structure that emerged is essentially a massive transfer of value: 
 
 Some money is flowing back. The question is whether it's going to the right places.
 
-The Linux Foundation, Apache Software Foundation, and similar organizations pool corporate contributions and distribute them across projects. The OpenSSF (Open Source Security Foundation), launched in 2020, specifically targets security work on critical open source projects. After Heartbleed, there was a genuine attempt to address the "critical infrastructure maintained by volunteers" problem, and the Alpha-Omega Project now funds security improvements at scale.
+The Linux Foundation, Apache Software Foundation, and similar organizations pool corporate contributions and distribute them across projects. The OpenSSF (Open Source Security Foundation), launched in 2020, specifically targets security work on critical open source projects. After Heartbleed, there was a genuine attempt to address the "critical infrastructure maintained by volunteers" problem, and the Alpha-Omega Project now funds security improvements at scale. [Alpha-Omega launched in February 2022](https://openssf.org/press-release/2022/02/01/openssf-announces-the-alpha-omega-project-to-improve-software-supply-chain-security-for-10000-oss-projects/) with $5 million from Microsoft and Google, later growing to $8.5 million after Amazon joined. It's real money. It's also a rounding error against the value the commons generates every year.
 
 But the distribution is uneven. High-profile projects get attention. The libraries sitting three layers below the thing you actually use, the ones that nobody thinks about until they fail, tend not to make it onto anyone's priority list until something explodes.
 
