@@ -45,13 +45,22 @@
     { "source": "/stories", "destination": "/chapters", "permanent": true },
     { "source": "/stories/race", "destination": "/chapters/technology/race", "permanent": true },
     { "source": "/stories/love-never-dies", "destination": "/chapters/human/love-never-dies", "permanent": true },
-    { "source": "/stories/classcatch", "destination": "/chapters/extensions/classcatch", "permanent": true },
+    { "source": "/stories/classcatch", "destination": "/chapters", "permanent": true },
     { "source": "/stories/why-does-universe-have-laws", "destination": "/chapters/philosophy/why-does-universe-have-laws", "permanent": true },
     { "source": "/chapters/stories/race", "destination": "/chapters/technology/race", "permanent": true },
     { "source": "/chapters/stories/love-never-dies", "destination": "/chapters/human/love-never-dies", "permanent": true },
-    { "source": "/chapters/stories/classcatch", "destination": "/chapters/extensions/classcatch", "permanent": true },
+    { "source": "/chapters/stories/classcatch", "destination": "/chapters", "permanent": true },
     { "source": "/chapters/stories/why-does-universe-have-laws", "destination": "/chapters/philosophy/why-does-universe-have-laws", "permanent": true },
     { "source": "/chapters/stories", "destination": "/chapters", "permanent": true },
-    { "source": "/chapters/first-chapter", "destination": "/chapters", "permanent": true }
+    { "source": "/chapters/first-chapter", "destination": "/chapters", "permanent": true },
+
+    { "source": "/chapters/extensions/classcatch", "destination": "/chapters", "permanent": true },
+    { "source": "/chapters/philosophy/what-does-it-mean-to-live-a-good-life-my-incomplete-answer", "destination": "/chapters/philosophy", "permanent": true },
+    { "source": "/chapters/ai-agents/how-semantic-routing-cut-my-llm-costs-by-70-without-touching-model-quality", "destination": "/chapters/ai-agents", "permanent": true },
+    { "source": "/chapters/technology/bangladesh-developers-world-doesnt-know", "destination": "/chapters/technology", "permanent": true },
+    { "source": "/chapters/football/2026-world-cup-predictions", "destination": "/chapters/football", "permanent": true },
+    { "source": "/chapters/ai-automation/how-i-shipped-agencyhandy-in-45-days", "destination": "/chapters/ai-automation", "permanent": true },
+    { "source": "/chapters/technology/tools-i-actually-use-2026", "destination": "/chapters/technology", "permanent": true },
+    { "source": "/chapters/technology/sample-post", "destination": "/chapters/technology", "permanent": true }
   ]
 } 
