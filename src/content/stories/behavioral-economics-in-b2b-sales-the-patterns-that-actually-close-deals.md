@@ -1,5 +1,5 @@
 ---
-title: "Behavioral Economics in B2B Sales: The Patterns That Actually Close Deals"
+title: "Why Do B2B Deals Stall? Behavioral Economics in B2B Sales"
 description: "Behavioral economics in B2B sales explains why 56% of stalled deals are buyers who already chose you — and are too scared to say it."
 pubDate: 2026-07-03
 category: "psychology"
