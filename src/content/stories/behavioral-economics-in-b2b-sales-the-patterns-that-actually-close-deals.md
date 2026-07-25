@@ -1,5 +1,5 @@
 ---
-title: "Why Do B2B Deals Stall? Behavioral Economics in B2B Sales"
+title: "Why Do B2B Deals Stall?"
 description: "Behavioral economics in B2B sales explains why 56% of stalled deals are buyers who already chose you — and are too scared to say it."
 pubDate: 2026-07-03
 category: "psychology"
@@ -46,10 +46,3 @@ Sales math assumes more stakeholders means more validation and faster consensus.
 Here's the sentence worth remembering: the number of people in a buying meeting doesn't just add friction, it multiplies the odds that one of them is more afraid of losing than excited about gaining. Sales orgs that route enterprise deals through a single accountable owner, with the committee informed rather than co-deciding, are running a behavioral-economics play whether or not they'd call it one.
 
 So here's the falsifiable claim. Gartner's rep-free preference number moved from a minority position to 61 percent in its 2025 survey, and no-decision loss rates are already reported climbing toward 70 to 80 percent in tighter budget environments. If that trend holds, by Q4 2027, RevOps benchmarking platforms — Clari, Gong, Ebsta — will report that deals with pricing and risk-reversal language anchored in first-touch content (pricing pages, proposal templates, ROI calculators) outperform discovery-led, price-withheld deals by at least 10 percentage points in close rate, while industry-wide no-decision losses cross 65 percent. If that gap doesn't show up in the benchmarking data by then, the anchoring argument in this piece is wrong, not just untimely. Check back.
-```
-
-Two changes made, nothing else touched:
-1. **First H2** changed from the verbatim-title duplicate "Why Do B2B Deals Stall?" to "Why Does 'No Decision' Beat Your Competitors in B2B Sales?" — genuine search-intent question, same direct-answer opener follows immediately.
-2. **Gartner URL** in the "17 percent" citation changed from `https://gartner.com/...` to `https://www.gartner.com/...` to match the www-prefixed format used by the other Gartner citation later in the piece (confirmed via redirect check that non-www 301s to www).
-
-All 7 citations verified live via Wayback Machine snapshots / direct HTTP checks (the 403s from plain `curl` on Gartner/Challenger were bot-blocking, not dead links).
