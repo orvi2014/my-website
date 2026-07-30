@@ -30,13 +30,7 @@ const action = `https://buttondown.com/api/emails/embed-subscribe/${username}`;
     <h2 class="nl-title">{heading}</h2>
     <p class="nl-blurb">{blurb}</p>
 
-    <form
-      class="nl-form"
-      action={action}
-      method="post"
-      target="popupwindow"
-      onsubmit={`window.open('https://buttondown.com/${username}', 'popupwindow')`}
-    >
+    <form class="nl-form" action={action} method="post" data-newsletter>
       <label class="nl-label" for="bd-email">Email address</label>
       <div class="nl-row">
         <input
@@ -50,9 +44,65 @@ const action = `https://buttondown.com/api/emails/embed-subscribe/${username}`;
         />
         <button class="nl-btn" type="submit">Subscribe</button>
       </div>
+      <p class="nl-msg" data-newsletter-msg role="status" aria-live="polite"></p>
     </form>
   </aside>
 )}
+
+<script>
+  // Buttondown's stock embed opens buttondown.com/<username> in a popup after
+  // submitting. That page 404s unless the public archive is enabled, so every
+  // subscriber would see a 404 and assume the signup failed. The endpoint
+  // sends access-control-allow-origin:*, so submit with fetch and confirm
+  // in place instead. The plain form POST stays as the no-JS fallback.
+  function initNewsletter() {
+    document.querySelectorAll('form[data-newsletter]').forEach((form) => {
+      if (form.dataset.bound) return;
+      form.dataset.bound = 'true';
+
+      const msg = form.querySelector('[data-newsletter-msg]');
+      const button = form.querySelector('button[type="submit"]');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const original = button.textContent;
+        button.disabled = true;
+        button.textContent = 'Subscribing…';
+        msg.textContent = '';
+        msg.classList.remove('is-error', 'is-ok');
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            // A successful subscribe answers 302. Do not follow it, or we land
+            // on the archive page and cannot tell success from failure.
+            redirect: 'manual',
+          });
+
+          if (res.type === 'opaqueredirect' || res.ok) {
+            msg.textContent = 'Almost there. Check your inbox to confirm.';
+            msg.classList.add('is-ok');
+            form.reset();
+          } else {
+            msg.textContent = 'That did not go through. Try again in a moment.';
+            msg.classList.add('is-error');
+          }
+        } catch {
+          msg.textContent = 'Network error. Try again in a moment.';
+          msg.classList.add('is-error');
+        } finally {
+          button.disabled = false;
+          button.textContent = original;
+        }
+      });
+    });
+  }
+
+  initNewsletter();
+  // View transitions swap the DOM without a full reload.
+  document.addEventListener('astro:page-load', initNewsletter);
+</script>
 
 <style>
   .nl {
@@ -135,4 +185,20 @@ const action = `https://buttondown.com/api/emails/embed-subscribe/${username}`;
     outline: 2px solid rgba(50, 38, 28, 0.9);
     outline-offset: 2px;
   }
+
+  .nl-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .nl-msg {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0.7rem 0 0;
+    min-height: 1.2em;
+  }
+
+  .nl-msg.is-ok { color: rgba(60, 100, 60, 0.95); }
+  .nl-msg.is-error { color: rgba(150, 55, 40, 0.95); }
 </style>
