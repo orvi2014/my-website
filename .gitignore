@@ -43,3 +43,6 @@ scripts/content-bot/bot.error.log
 .seo-reports/monitor.log
 .seo-reports/monitor.error.log
 .seo-reports/latest-summary.txt
+
+# Python bytecode
+__pycache__/
