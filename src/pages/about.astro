@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "About – The Book of Life";
-const description = "Robat Das Orvi — writer, systems thinker, and co-founder of AgencyHandy and OneThread. On the essays, the questions underneath them, and the person writing.";
+const description = "Robat Das Orvi writes about football tactics, AI systems, and the psychology of building things. On why those belong on the same site, and what connects the essays to the products.";
 const currentPath = "/about";
 ---
 
@@ -13,10 +13,18 @@ const currentPath = "/about";
 
     <div class="pg-bio">
       <p>These essays were written across three years, in airports, cafés, hotel rooms, and one football stadium. They were not written to be a book. They became one in retrospect, when I noticed the same questions surfacing in different clothes.</p>
+
       <p>The question underneath all of them: how do we pay attention to the right things? Technology automates it. Travel disrupts it. Startups consume it. Philosophy interrogates it. Football demands it for ninety minutes.</p>
-      <p>I do not have a better answer. But I find the question worth asking every time.</p>
-      <p>I co-created <a href="https://onethread.app" target="_blank" rel="noopener">OneThread</a> — a calm, focused workspace. And later, <a href="https://agencyhandy.com" target="_blank" rel="noopener">AgencyHandy</a> — a thoughtful system for client workflows. These are experiments in peace through product.</p>
-      <div class="pg-sig">— Orvi, 2025</div>
+
+      <p>The building runs alongside the writing. I co-created <a href="https://www.onethreadapp.com" target="_blank" rel="noopener">OneThread</a>, project management software for teams, and later <a href="https://agencyhandy.com" target="_blank" rel="noopener">AgencyHandy</a>, a system for client workflows built to reduce friction without removing judgment.</p>
+
+      <p>More recently the work has moved toward guardrails for AI systems. <a href="https://noburn.dev" target="_blank" rel="noopener">NoBurn</a> and <a href="https://baar.robatdasorvi.com" target="_blank" rel="noopener">baar-core</a> block expensive LLM agent calls before they execute, and <a href="https://apidiffguard.com" target="_blank" rel="noopener">ApiDiffGuard</a> catches breaking API changes before they reach production.</p>
+
+      <p>I do not have a better answer to the attention question. But I find it worth asking every time.</p>
+
+      <p class="pg-contact">Written by Robat Das Orvi. You can find me on <a href="https://twitter.com/orvi_onethread" target="_blank" rel="noopener">X</a> and <a href="https://github.com/orvi2014" target="_blank" rel="noopener">GitHub</a>, or read <a href="/chapters">the chapters</a>.</p>
+
+      <div class="pg-sig">— Orvi</div>
     </div>
   </div>
 </BaseLayout>
@@ -60,6 +68,15 @@ const currentPath = "/about";
     text-decoration: underline;
     text-decoration-color: rgba(139,94,60,0.35);
     text-underline-offset: 2px;
+  }
+
+  .pg-contact {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+    padding-top: 1.2em;
+    border-top: 1px solid var(--border);
   }
 
   .pg-sig {
