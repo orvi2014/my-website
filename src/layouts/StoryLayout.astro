@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import RelatedStories from '../components/RelatedStories.astro';
+import Newsletter from '../components/Newsletter.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -90,6 +91,8 @@ const meta = [
         ))}
       </div>
     )}
+
+    <Newsletter />
 
     <RelatedStories story={story} />
   </div>
