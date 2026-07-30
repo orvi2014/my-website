@@ -15,7 +15,9 @@ import os, re, sys, json, ssl, urllib.request, urllib.error, urllib.parse
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
-DIST = "dist"
+# The Vercel adapter emits static pages to dist/client instead of dist, so
+# detect which layout this build produced rather than assuming.
+DIST = "dist/client" if os.path.isdir("dist/client") else "dist"
 SITE = "https://www.robatdasorvi.com"
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
