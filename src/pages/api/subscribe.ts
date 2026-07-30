@@ -25,7 +25,10 @@ function reply(request: Request, status: number, ok: boolean, message: string, r
 }
 
 export const POST: APIRoute = async ({ request }) => {
-  const key = import.meta.env.BUTTONDOWN_API_KEY;
+  // import.meta.env can be inlined at build time, so a secret that was absent
+  // during the build would bake in as undefined. process.env is read at
+  // request time on Vercel, which survives setting the var after a build.
+  const key = import.meta.env.BUTTONDOWN_API_KEY || process.env.BUTTONDOWN_API_KEY;
   if (!key) {
     return reply(request, 503, false, 'Newsletter is not configured yet.');
   }
