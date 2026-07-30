@@ -64,3 +64,8 @@ The obvious rebuttal is that even if the high line concedes fewer chances on ave
 Sitting deep does not eliminate risk; it relocates it. A low block invites 25 shots, concedes a stream of crosses and cutbacks, and surrenders territory and the ball — which is why the sides that defend deepest are rarely the sides that concede least. Leverkusen conceded 24 goals by refusing to let opponents reach their box at all. The high line's "variance" is a feature of *bad* high lines, the ones without the press in front and the organiser within. A well-run high line is not high-variance; it is the lowest-variance defensive system in the modern game, because it kills attacks before they become chances. The variance lives in the gap between the idea and the execution — and that gap is closed by coaching, by a *press trigger* everyone obeys, and by a Saliba or a Tah who never steps alone.
 
 This is why every elite manager keeps taking the "riskiest bet" in football. They have read the same data I have. They know the gamble was never the line. The gamble is whether your front six will press on cue and your last man will hold his nerve — and when they do, the high line is not the riskiest bet on the table. It is the closest thing to a sure one.
+
+
+## Where this sits in the bigger argument
+
+The high line is the bet that makes pressing possible, and the specific flaw that pushed Spain down [the ranking of football's greatest teams](/chapters/football/greatest-football-teams-of-all-time).

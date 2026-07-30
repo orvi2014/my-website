@@ -1,12 +1,23 @@
 ---
-title: "Hungary 1954: 42 Games Unbeaten But Lost the World Cup Final"
-description: "Hungary went unbeaten for 42 straight matches but lost the 1954 World Cup final. Why the Mighty Magyars remain the greatest team to never win it."
+title: "Hungary 1954: 49 Games Unbeaten But Lost the World Cup Final"
+description: "Hungary went four years without defeat, then lost the 1954 World Cup final. Why the Mighty Magyars remain the greatest team never to win it."
 pubDate: 2026-06-13
 category: "football"
 author: "Orvi"
 readingTime: 10
 tags: ["Mighty Magyars", "Ferenc Puskás", "Nándor Hidegkuti", "1954 World Cup", "deep-lying forward", "Gusztáv Sebes", "Aranycsapat", "positional play", "Sándor Kocsis", "tactical history"]
 featured: false
+faq:
+  - q: "How good was the Hungary football team of the 1950s?"
+    a: "Between June 1950 and July 1954 Hungary recorded 42 wins, seven draws and one defeat. That is 49 matches without losing before the single loss, which came in the 1954 World Cup final. They were Olympic champions in 1952 and were widely ranked the best side in the world across that period."
+  - q: "How long were Hungary unbeaten before the 1954 World Cup final?"
+    a: "49 matches, spanning June 1950 to July 1954. The run ended in the final itself, when West Germany beat them 3-2 at the Wankdorf Stadium in Bern despite Hungary leading 2-0 inside eight minutes."
+  - q: "Did Hungary beat England 6-3 and 7-1?"
+    a: "Yes. Hungary won 6-3 at Wembley on 25 November 1953, the first time England had lost at home to a side from outside the British Isles, then won the Budapest rematch 7-1 on 23 May 1954. The 7-1 remains England's heaviest ever defeat."
+  - q: "Why did Hungary lose the 1954 World Cup final?"
+    a: "They led 2-0 after eight minutes through Puskás and Czibor and lost 3-2. Contributing factors included a rain-soaked pitch that suited West Germany's screw-in Adidas studs, Puskás playing through an ankle injury from the earlier group-stage meeting, and a late Puskás equaliser ruled out for offside that is still disputed. Hungary had beaten the same West Germany side 8-3 in the group stage."
+  - q: "Who were the key players in the Mighty Magyars?"
+    a: "Ferenc Puskás captained the side, Nándor Hidegkuti played the deep-lying centre-forward role that broke England's marking system, Sándor Kocsis finished the 1954 World Cup as top scorer with 11 goals in five matches, József Bozsik operated as a deep-lying playmaker, Zoltán Czibor provided width, and Gyula Grosics played as an early sweeper-keeper. Gusztáv Sebes was the coach."
 ---
 
 Watch the grainy footage of the first minute at Wembley, 25 November 1953, and the goal is not the thing to watch. Watch what happens before it. Nándor Hidegkuti, wearing the number 9 that every English defender on the pitch had been coached to treat as the centre-forward to be marked, simply isn't where the number 9 is supposed to be. He has drifted thirty yards back into midfield, into the grass between England's half-backs and their inside-forwards — and for a beat, nobody goes with him. Harry Johnston, England's centre-half, the man whose entire job was to stand on the opposition number 9, is left guarding a patch of empty turf. That hesitation — one defender not knowing whether to follow or hold — is the whole story of Hungary 1950s football history compressed into a single second. Then Hidegkuti turns and drives it in. Sixty seconds gone, and the most important tactical lesson of the decade has already been delivered.
@@ -39,7 +50,7 @@ This is not a quaint problem confined to 1954. It is the same gap that StatsBomb
 
 They were genuinely that good, and the evidence is that they did it to everyone, not just England. At the 1954 World Cup, Hungary scored 27 goals in five matches. They beat West Germany 8–3 in the group stage on 20 June. In the semi-final on 30 June they beat Uruguay — the reigning world champions, a side that had never lost a World Cup match in its history — 4–2 after extra time, Kocsis heading the two decisive goals in the 111th and 116th minutes ([ESPN](https://www.espn.com/soccer/match/_/gameId/197602)).
 
-The lazy counterargument writes itself: a team that loses the final wasn't the best, and 1950s England was a creaking relic anyway, so beating them proves little. Both halves collapse on contact with the schedule. Uruguay were not a relic; they were the holders. West Germany were not minnows; they would win the thing. Hungary put eight past the eventual champions. And the final itself — the "[Miracle of Bern](https://www.fifa.com/en/tournaments/mens/worldcup/articles/west-germany-hungary-1954-final)," West Germany 3–2 Hungary at the Wankdorf Stadium on 4 July 1954 — was lost by a team that was 2–0 up inside eight minutes through Puskás and Czibor, on a rain-soaked pitch that suited West Germany's new screw-in Adidas studs, with Puskás himself playing through an ankle injury inflicted by Werner Liebrich's tackle in that very group-stage meeting. Puskás had a late equaliser ruled out for offside that replays have argued about for seventy years. As [the Irish Times](https://www.irishtimes.com/sport/soccer/international/world-cup-moments-the-miracle-of-bern-in-1954-1.3486836) and others have documented, this was a great team beaten once, narrowly, by circumstance — not a flattered one finally found out. **Hungary scored 27 goals in five matches at the 1954 World Cup and still went home without the trophy, the only defeat in a six-year run that read 42 wins, seven draws, one loss.**
+The lazy counterargument writes itself: a team that loses the final wasn't the best, and 1950s England was a creaking relic anyway, so beating them proves little. Both halves collapse on contact with the schedule. Uruguay were not a relic; they were the holders. West Germany were not minnows; they would win the thing. Hungary put eight past the eventual champions. And the final itself — the "[Miracle of Bern](https://www.fifa.com/en/tournaments/mens/worldcup/articles/west-germany-hungary-1954-final)," West Germany 3–2 Hungary at the Wankdorf Stadium on 4 July 1954 — was lost by a team that was 2–0 up inside eight minutes through Puskás and Czibor, on a rain-soaked pitch that suited West Germany's new screw-in Adidas studs, with Puskás himself playing through an ankle injury inflicted by Werner Liebrich's tackle in that very group-stage meeting. Puskás had a late equaliser ruled out for offside that replays have argued about for seventy years. As [the Irish Times](https://www.irishtimes.com/sport/soccer/international/world-cup-moments-the-miracle-of-bern-in-1954-1.3486836) and others have documented, this was a great team beaten once, narrowly, by circumstance — not a flattered one finally found out. **Hungary scored 27 goals in five matches at the 1954 World Cup and still went home without the trophy, the only defeat in a four-year run that read 42 wins, seven draws, one loss.**
 
 ## What does the Aranycsapat mean for the 2026 World Cup?
 
@@ -51,6 +62,11 @@ So here is the practical takeaway for anyone watching next year and tempted to t
 
 ---
 
+
+## Where this sits in the bigger argument
+
+Hungary rank second in [the full ranking of the greatest football teams of all time](/chapters/football/greatest-football-teams-of-all-time), which is the clearest evidence that trophies are a poor instrument for measuring how good a side actually was.
+
 ## Related reading
 
-If you're curious about how great teams manufacture dominance through positioning, read about [Brazil's 1970 side: 19 goals in 6 matches](/chapters/football/was-the-1970-brazil-side-actually-the-greatest-team-ever-assembled-the-data-says-yes-but) — another tactical masterpiece. Or explore [why the USA's World Cup 2026 success depends on Tyler Adams, not Pulisic](/chapters/football/world-cup-2026-why-tyler-adams-matters-more-than-pulisic-for-the-usa) — the same principle Hidegkuti pioneered, applied to modern tactics.
+If you're curious about how great teams manufacture dominance through positioning, read about [Brazil's 1970 side: 19 goals in 6 matches](/chapters/football/was-the-1970-brazil-side-actually-the-greatest-team-ever-assembled-the-data-says-yes-but) — another tactical masterpiece. Or explore [why the USA's World Cup 2026 success depends on Tyler Adams, not Pulisic](/chapters/football/can-the-usa-actually-use-home-advantage-at-world-cup-2026-their-tactical-profile-says-maybe) — the same principle Hidegkuti pioneered, applied to modern tactics.

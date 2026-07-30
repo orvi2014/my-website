@@ -23,6 +23,8 @@ interface Props {
   readingTime?: number;
   /** Article tags */
   tags?: string[];
+  /** Question/answer pairs, also rendered visibly by the caller */
+  faq?: { q: string; a: string }[];
 }
 
 const {
@@ -37,6 +39,7 @@ const {
   category,
   readingTime,
   tags = [],
+  faq = [],
 } = Astro.props;
 
 const ogImageAlt = imageAlt || title;
@@ -119,6 +122,18 @@ const articleSchema = type === 'article' ? {
     "@type": "SpeakableSpecification",
     "cssSelector": [".art-kicker", ".art-title", ".art-pull", ".art-body p:first-of-type"]
   }
+} : null;
+
+// ── FAQPage (only when the caller also renders the Q&A visibly) ──────────────
+const faqSchema = faq.length ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${canonicalURL}#faq`,
+  "mainEntity": faq.map(({ q, a }: { q: string; a: string }) => ({
+    "@type": "Question",
+    "name": q,
+    "acceptedAnswer": { "@type": "Answer", "text": a }
+  }))
 } : null;
 
 // ── BreadcrumbList (article pages only) ──────────────────────────────────────
@@ -243,6 +258,7 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
     {breadcrumbs && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />}
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
     <!-- Critical CSS to prevent FOUC -->
     <style is:inline>

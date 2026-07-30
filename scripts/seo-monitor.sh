@@ -26,11 +26,19 @@ REPORT_DIR="$(dirname "$0")/../.seo-reports"
 TODAY="$(date +%Y-%m-%d)"
 REPORT_FILE="$REPORT_DIR/$TODAY.json"
 SUMMARY_FILE="$REPORT_DIR/latest-summary.txt"
+GOAL_FILE="$(dirname "$0")/../.seo-goal.json"
+ENV_FILE="$(dirname "$0")/content-bot/.env"
+GOAL_STATUS=""   # filled in by the goal check; drives the Telegram alert
 DATE_28D_AGO="$(date -v-28d +%Y-%m-%d 2>/dev/null || date -d '28 days ago' +%Y-%m-%d)"
 DATE_7D_AGO="$(date -v-7d +%Y-%m-%d 2>/dev/null || date -d '7 days ago' +%Y-%m-%d)"
 DATE_YESTERDAY="$(date -v-1d +%Y-%m-%d 2>/dev/null || date -d 'yesterday' +%Y-%m-%d)"
 
 mkdir -p "$REPORT_DIR"
+
+# Capture the whole report to the summary file, then print it at the end.
+# Deterministic (no tee race), and gives the Telegram alert something to quote.
+exec 3>&1
+exec 1>"$SUMMARY_FILE"
 
 # ── Check dependencies ────────────────────────────────────────────────────────
 if ! command -v jq &>/dev/null; then
@@ -144,6 +152,57 @@ print(json.loads(urllib.request.urlopen(req, context=ctx).read())['access_token'
     echo ""
     echo "► Top 5 search queries (last 7 days)"
     echo "$QUERIES" | jq -r '.rows[]? | "  \(.clicks) clicks — \(.keys[0])"'
+
+    # ── Goal check ──────────────────────────────────────────────────────────
+    if [ -f "$GOAL_FILE" ]; then
+      GOAL_EVAL=$(CLICKS="$CLICKS" IMPRESSIONS="$IMPRESSIONS" POSITION="$POSITION" \
+                  GOAL_FILE="$GOAL_FILE" TODAY="$TODAY" python3 - <<'PY'
+import json, os
+from datetime import date
+
+def d(s): return date(*map(int, s.split("-")))
+
+goal        = json.load(open(os.environ["GOAL_FILE"]))
+today       = d(os.environ["TODAY"])
+clicks      = float(os.environ["CLICKS"])
+impressions = float(os.environ["IMPRESSIONS"])
+position    = float(os.environ["POSITION"])
+
+start  = d(goal["baseline"]["date"])
+points = [(start, float(goal["baseline"]["clicks"]))] + \
+         [(d(m["date"]), float(m["clicks"])) for m in goal["milestones"]]
+final_date, final_clicks = points[-1]
+
+# Expected clicks today: linear interpolation between the surrounding milestones
+if today <= start:
+    expected = points[0][1]
+elif today >= final_date:
+    expected = final_clicks
+else:
+    for (d0, c0), (d1, c1) in zip(points, points[1:]):
+        if d0 <= today <= d1:
+            span = (d1 - d0).days or 1
+            expected = c0 + (c1 - c0) * ((today - d0).days / span)
+            break
+
+status = "ON TRACK" if clicks >= expected else "BEHIND"
+print(f"STATUS={status}")
+print(f"  Target:   {final_clicks:.0f} clicks/week by {final_date} ({(final_date - today).days} days left)")
+print(f"  Expected: {expected:.1f} by now   Actual: {clicks:.0f}   → {status}")
+
+sup = goal.get("supporting", {})
+if position > sup.get("position_max", 1e9):
+    print(f"  ! Avg position {position} worse than {sup['position_max']} — ranking too low to earn clicks")
+if impressions < sup.get("impressions_min", 0):
+    print(f"  ! Impressions {impressions:.0f} below {sup['impressions_min']} — not enough visibility to convert")
+PY
+) || GOAL_EVAL="STATUS=ERROR"
+
+      GOAL_STATUS=$(echo "$GOAL_EVAL" | sed -n 's/^STATUS=//p')
+      echo ""
+      echo "► Goal"
+      echo "$GOAL_EVAL" | grep -v '^STATUS=' || true
+    fi
   else
     echo "  ⚠ Could not obtain token — run: gcloud auth application-default login"
   fi
@@ -155,5 +214,31 @@ fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  Report saved: $SUMMARY_FILE"
 echo ""
+
+# ── Restore stdout and print the report ──────────────────────────────────────
+exec 1>&3
+cat "$SUMMARY_FILE"
+
+# ── Telegram alert ───────────────────────────────────────────────────────────
+# Reuses the content-bot credentials rather than duplicating the token elsewhere.
+if [ -z "${TELEGRAM_BOT_TOKEN:-}" ] && [ -f "$ENV_FILE" ]; then
+  TELEGRAM_BOT_TOKEN=$(sed -n 's/^TELEGRAM_BOT_TOKEN=//p' "$ENV_FILE" | tr -d '"' | tr -d "\r")
+  TELEGRAM_CHAT_ID=$(sed -n 's/^TELEGRAM_CHAT_ID=//p' "$ENV_FILE" | tr -d '"' | tr -d "\r")
+fi
+
+if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
+  case "$GOAL_STATUS" in
+    "ON TRACK") ICON="✅" ;;
+    "BEHIND")   ICON="🔴" ;;
+    *)          ICON="⚠️" ;;
+  esac
+  ALERT="$ICON SEO weekly — ${GOAL_STATUS:-no goal data}
+
+$(sed -n '/► Google Search Console/,$p' "$SUMMARY_FILE")"
+
+  curl -s -o /dev/null -X POST \
+    "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+    --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+    --data-urlencode "text=${ALERT}" || echo "  ⚠ Telegram alert failed"
+fi

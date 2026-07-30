@@ -64,3 +64,8 @@ That is the deep reason every grave dug for the 4-3-3 stays empty. A formation i
 The honest counterargument is that the pure 4-3-3 really did decline — the Opta numbers are real, the 4-2-3-1 really did overtake it, Guardiola really did stop drawing his team as a 4-3-3. But that argument mistakes the diagram for the idea. When City build in a 3-2-4-1 and defend in a 4-1-4-1 that is one inverted full-back away from a 4-3-3; when a side lines up 4-2-3-1 and the second striker drops while a full-back bombs on, you are watching the 4-3-3's positional logic reassert itself under a different name. The notation changes. The principle — width held, half-spaces occupied, a balanced spine, a structure that can swap its engine without losing its chassis — does not.
 
 That is what Guardiola really discovered at the Bernabéu in 2009. Not the false 9. He discovered that the 4-3-3 would let him cheat, mid-game, mid-pattern, without paying for it at the back. Seventeen years and a dozen funerals later, every coach who matters is still cheating the same way.
+
+
+## Where this sits in the bigger argument
+
+Brazil 1970 moved through the 4-3-3 as one shape among several, which is part of why they lead [the ranking of the greatest teams in football history](/chapters/football/greatest-football-teams-of-all-time).

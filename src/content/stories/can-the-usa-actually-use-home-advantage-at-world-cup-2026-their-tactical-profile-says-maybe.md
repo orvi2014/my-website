@@ -92,6 +92,11 @@ The logic is simple and it runs through one man. With a fit Adams anchoring the 
 
 ---
 
+
+## Where this sits in the bigger argument
+
+An expanded 48-team tournament makes it harder for any 2026 side to generate the margin required to enter [the ranking of the greatest football teams of all time](/chapters/football/greatest-football-teams-of-all-time).
+
 ## Related reading
 
-Interested in how single players define tournament outcomes? Read about [Hungary's 1954 side: 42 games unbeaten but lost the World Cup final](/chapters/football/hungary-1954-42-games-unbeaten-but-lost-the-world-cup-final) — the same principle of structural dependence on one position. Or explore [Brazil 1970's 19 goals in 6 matches](/chapters/football/was-the-1970-brazil-side-actually-the-greatest-team-ever-assembled-the-data-says-yes-but) — what happens when every position supports the system instead of breaking it.
+Interested in how single players define tournament outcomes? Read about [Hungary's 1954 side: 42 games unbeaten but lost the World Cup final](/chapters/football/the-hungary-side-of-the-1950s-the-greatest-team-to-never-win-a-world-cup) — the same principle of structural dependence on one position. Or explore [Brazil 1970's 19 goals in 6 matches](/chapters/football/was-the-1970-brazil-side-actually-the-greatest-team-ever-assembled-the-data-says-yes-but) — what happens when every position supports the system instead of breaking it.

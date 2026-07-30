@@ -64,3 +64,8 @@ And the very next seasons told the truth. The static model, when faced with disc
 Expect the arrivers to beat the occupiers. International football is the worst possible environment for drilling positional-play occupation — there's no time on the training ground to build a true five-channel grid — and the best possible environment for the dynamic half-space runs that depend on individual timing rather than collective rehearsal.
 
 The national teams built to thrive at a World Cup are not the ones that will try to out-occupy anyone. They're the ones with a Bellingham or a Vinicius who treats the half-space as a lane to attack at pace, sitting in a compact mid-block and springing into the channels a beat after the opponent has committed bodies forward. The orthodoxy will tell you to control the half-spaces. The match data — Madrid in 2022, Bellingham's 18-from-inside-the-box, Rodrygo's 120 seconds — tells you something more useful. Owning those ten metres of grass is no longer enough. The modern game is won by whoever arrives in them last.
+
+
+## Where this sits in the bigger argument
+
+Nearly every side in [the ranking of the greatest football teams of all time](/chapters/football/greatest-football-teams-of-all-time) won by solving a spatial problem before its opponents knew the problem existed. The half-space is where most of those solutions were applied.

@@ -72,3 +72,8 @@ The case for: the deepest midfield in international football, a settled system t
 The case against is the thing this twenty-year evolution still hasn't solved. Twice now — Russia 2018 and the 2025 Nations League final — Spain have met opponents content to concede the ball entirely, drop into a low block, mark the pivot out of the build-up and drag the game to penalties. Munich 2025 was the warning dressed as a near-miss: Spain led twice, controlled the ball, and still lost a shootout 5–3. The single pivot solves progression against teams that press; it has no inherent answer to teams that refuse to. Seven knockout rounds in this format — a round of 32, a round of 16, and then the traditional gauntlet — mean Spain will almost certainly meet at least two such opponents, in heat, on tired legs, possibly at altitude.
 
 So the blueprint is set, and so is its unsolved problem. Spain will dominate Group H, and the pivot — whichever man plays there — will dictate every match they control. But somewhere around the quarter-finals, a team will park ten men behind the ball, put a shadow on the No 6, and ask the question Spanish football has been failing to answer since Kazan. Whether Zubimendi and Rodri can answer it together is what this World Cup will actually be about. Everyone will be watching Lamine Yamal. Watch the base of midfield instead.
+
+
+## Where this sits in the bigger argument
+
+Whether this Spain side can approach the 2008-2012 team's standing in [the ranking of football's greatest teams](/chapters/football/greatest-football-teams-of-all-time) is the real question behind the blueprint.

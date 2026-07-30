@@ -66,3 +66,8 @@ When Spain won Euro 2024, they did not field a Fàbregas-style strikerless front
 Toward the hybrid striker who can be a false 9 and a real 9 within the same match — but the original problem remains unsolved. The cutting edge is positional flexibility: a forward who drops to build, then sprints onto the last line to finish, reading whether the opponent presses or sits and adjusting in real time. That is the synthesis of Hidegkuti and Haaland.
 
 But notice what neither the false 9 nor its replacement ever cracked: the deepest low block. Even Haaland's City have spent long, frustrated evenings against a packed 5-4-1 with zero space in behind and zero space between the lines — the false 9 starves because nobody steps out, and the orthodox 9 starves because there is no gap to run into. The role has simply relocated the same question. How do you break eleven men who refuse to leave their own box? Hungary could not fully answer it in 1953 before catenaccio answered them. Guardiola has not answered it in 2026. The false 9 was one beautiful attempt at the oldest problem in football, and like every attempt before it, the game adapted, absorbed it, and asked the question again.
+
+
+## Where this sits in the bigger argument
+
+The role was invented by Nándor Hidegkuti for a Hungary side that ranks second among [the greatest football teams of all time](/chapters/football/greatest-football-teams-of-all-time).

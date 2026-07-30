@@ -58,3 +58,8 @@ The second is to refuse the bait entirely. Sit in a low block, deny the half-spa
 It means the international sides who copied the *possession* and ignored the *pressing structure* are about to be found out. Watching the build-up to this summer's tournament, you can see managers drilling the pretty part — the build-up shapes, the inverted full-backs, the ball circulation — without the rest defence and counterpress that make it survivable. That is positional play as cosplay: all the bait, none of the trap.
 
 The teams that will actually hurt people are the ones who understood what Stones was for. Occupy the lanes, yes — but occupy them so that the instant you lose the ball, you're already standing where you need to be to win it back. The five lanes were never about making the game beautiful. They were about making sure you're never out of position when it turns ugly. Watch the player without the ball this summer. The pattern was always there. You just had to stop following the ball to see it.
+
+
+## Where this sits in the bigger argument
+
+Positional play is the modern descendant of what Zagallo's Brazil did by instinct, which is why that side still tops [the ranking of football's greatest teams](/chapters/football/greatest-football-teams-of-all-time).

@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  story: CollectionEntry<'stories'>;
+  limit?: number;
+}
+
+const { story, limit = 4 } = Astro.props;
+
+const all = await getCollection('stories');
+const tags = (story.data.tags || []).map((t: string) => t.toLowerCase());
+
+// Same category is the strongest signal, shared tags refine the ordering within it.
+// Cross-category matches still surface when tag overlap is high enough.
+const related = all
+  .filter((s: CollectionEntry<'stories'>) => s.slug !== story.slug)
+  .map((s: CollectionEntry<'stories'>) => {
+    const sameCategory = s.data.category === story.data.category;
+    const shared = (s.data.tags || []).filter(
+      (t: string) => tags.includes(t.toLowerCase())
+    ).length;
+    return { story: s, score: (sameCategory ? 10 : 0) + shared * 3 };
+  })
+  .filter((r: { score: number }) => r.score > 0)
+  .sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    // Deterministic tiebreak so the build output is stable between runs
+    return +new Date(b.story.data.pubDate) - +new Date(a.story.data.pubDate);
+  })
+  .slice(0, limit);
+---
+
+{related.length > 0 && (
+  <nav class="art-related" aria-labelledby="related-heading">
+    <h2 id="related-heading" class="art-related-title">Continue reading</h2>
+    <ul class="art-related-list">
+      {related.map(({ story: s }) => (
+        <li class="art-related-item">
+          <a href={`/chapters/${s.data.category}/${s.slug}`}>{s.data.title}</a>
+          <p>{s.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<style>
+  .art-related {
+    max-width: 42rem;
+    margin: 3rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .art-related-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.62;
+    margin: 0 0 1.25rem;
+  }
+
+  .art-related-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  .art-related-item a {
+    font-weight: 600;
+    line-height: 1.35;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .art-related-item a:hover {
+    opacity: 0.7;
+  }
+
+  .art-related-item p {
+    margin: 0.4rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.72;
+  }
+</style>

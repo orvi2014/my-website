@@ -24,6 +24,12 @@ const storiesCollection = defineCollection({
     tags: z.array(z.string()).optional(),
     featured: z.boolean().optional(),
     image: z.string().optional(),
+    // Rendered on the page and emitted as FAQPage JSON-LD. Keep answers
+    // self-contained: they target direct-answer and AI-citation surfaces.
+    faq: z.array(z.object({
+      q: z.string(),
+      a: z.string(),
+    })).optional(),
   })
 });
 

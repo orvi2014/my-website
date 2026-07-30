@@ -38,3 +38,8 @@ scripts/content-bot/state.json
 scripts/content-bot/drafts/
 scripts/content-bot/bot.log
 scripts/content-bot/bot.error.log
+
+# SEO monitor runtime output
+.seo-reports/monitor.log
+.seo-reports/monitor.error.log
+.seo-reports/latest-summary.txt

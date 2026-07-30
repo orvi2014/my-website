@@ -56,3 +56,8 @@ The correct view, stated plainly: this was never a team whose attacking talent w
 That thesis makes a testable prediction, and the successor nations have already half-confirmed it. Croatia inherited the flair lineage and then succeeded precisely where unified Yugoslavia failed — by building obsessively from midfield control. Šuker's six goals in seven games won the 1998 Golden Boot as Croatia took third in France ([FIFA](https://www.fifa.com/en/tournaments/mens/worldcup/articles/davor-suker-croatia-france-1998-adidas-golden-boot)), but the deeper runs of 2018 and 2022 were authored by Luka Modrić, Marcelo Brozović and Ivan Rakitić running the game's tempo — the exact spine the senior Yugoslav side lacked when Šabanadžović walked in Florence ([UEFA](https://www.uefa.com/uefaeuro/history/news/0254-0d7b26956d25-20d8ae09049f-1000--new-generation-boost-croatia/)).
 
 So here is the prediction for World Cup 2026. Serbia will again arrive loaded with attacking names and again under-deliver, because it remains a flair-forward, control-light team in the old Yugoslav image. Croatia — older, slower, but still organised around midfield possession and a defensive spine — will again travel further than its raw talent suggests it should. Bet on the team that controls the middle and trusts its keeper, not the one with the prettier front three. It is the lesson the golden generation taught us, if only we'd stop mourning the trophies it never won and look at how it won the one it did.
+
+
+## Where this sits in the bigger argument
+
+Yugoslavia are ranked on evidence rather than on what the squad list implies in [the wider assessment of football's greatest teams](/chapters/football/greatest-football-teams-of-all-time).

@@ -1,0 +1,22 @@
+{
+  "metric": "clicks",
+  "window": "rolling 7 days",
+  "source": "Google Search Console (sc-domain:robatdasorvi.com)",
+  "baseline": {
+    "date": "2026-07-30",
+    "clicks": 0,
+    "impressions": 295,
+    "position": 10.2,
+    "stories_published": 62
+  },
+  "milestones": [
+    { "date": "2026-08-29", "clicks": 5 },
+    { "date": "2026-09-28", "clicks": 20 },
+    { "date": "2026-10-28", "clicks": 50 }
+  ],
+  "supporting": {
+    "note": "Not the goal. Diagnostics that explain a miss on clicks.",
+    "position_max": 6.0,
+    "impressions_min": 500
+  }
+}

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import RelatedStories from '../components/RelatedStories.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -9,7 +10,7 @@ interface Props {
 
 const { story } = Astro.props;
 const { Content } = await story.render();
-const { title, description, pubDate, author, readingTime, tags, category, image } = story.data;
+const { title, description, pubDate, author, readingTime, tags, category, image, faq } = story.data;
 
 const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   year: 'numeric', month: 'short', day: 'numeric'
@@ -36,6 +37,7 @@ const meta = [
   category={kicker}
   readingTime={readingTime}
   tags={tags || []}
+  faq={faq || []}
 >
   <div class="art-scene">
     <div class="art-nav">
@@ -59,6 +61,20 @@ const meta = [
 
       <div class="art-body">
         <Content />
+
+        {faq && faq.length > 0 && (
+          <section class="art-faq">
+            <h2>Quick answers</h2>
+            <dl>
+              {faq.map(({ q, a }: { q: string; a: string }) => (
+                <>
+                  <dt>{q}</dt>
+                  <dd>{a}</dd>
+                </>
+              ))}
+            </dl>
+          </section>
+        )}
       </div>
 
       <div class="art-page-foot">
@@ -74,6 +90,8 @@ const meta = [
         ))}
       </div>
     )}
+
+    <RelatedStories story={story} />
   </div>
 </BaseLayout>
 
@@ -82,6 +100,37 @@ const meta = [
     background: #e6e0d6;
     min-height: calc(100vh - 54px);
     padding: 32px 20px 64px;
+  }
+
+  .art-faq {
+    margin-top: 2.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid rgba(90, 70, 50, 0.18);
+  }
+
+  .art-faq h2 {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(90, 70, 50, 0.65);
+    margin: 0 0 1.1rem;
+  }
+
+  .art-faq dl {
+    margin: 0;
+  }
+
+  .art-faq dt {
+    font-weight: 600;
+    margin-top: 1.25rem;
+  }
+
+  .art-faq dt:first-of-type {
+    margin-top: 0;
+  }
+
+  .art-faq dd {
+    margin: 0.35rem 0 0;
   }
 
   .art-nav {

@@ -104,3 +104,8 @@ And we will all be, for those weeks, exactly where we are supposed to be.
 ---
 
 *The 2026 FIFA World Cup begins June 11 in the United States, Canada, and Mexico — the first edition with 48 teams.*
+
+
+## Where this sits in the bigger argument
+
+That allegiance usually attaches to the sides in [the ranking of football's greatest teams](/chapters/football/greatest-football-teams-of-all-time) rather than to anywhere the supporter has lived.

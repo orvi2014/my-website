@@ -68,3 +68,8 @@ I was watching a Champions League quarterfinal recently, a match with no obvious
 That's the game right now. Harder to summarize. More interesting to watch.
 
 I didn't know I wanted that trade. But here I am.
+
+
+## Where this sits in the bigger argument
+
+Individual gravity was never what put the sides in [the ranking of football's greatest teams](/chapters/football/greatest-football-teams-of-all-time) at the top. Collective structure was.

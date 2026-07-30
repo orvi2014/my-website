@@ -68,3 +68,8 @@ Every pressing era has died the same death. Sacchi's Milan was outrun by its own
 The smartest teams have already conceded the point. They no longer ask "how do we press more?" They ask "when is it worth the cost?" — pressing the throw-in, the back-pass under a bad first touch, the centre-back with a weak left foot, and sitting off the rest. That is where Sacchi was always heading, where Klopp ended up, where Pep arrived with a treble. The press did not win football. Knowing when not to press did.
 
 The next coach to be hailed as a revolutionary will almost certainly press like a lunatic, post a PPDA nobody has seen in years, and play the most thrilling football of the season. Watch the data, not the drama. We have ten years of it now, and it keeps telling the same story: the team with the lowest number is the one to bet against in May.
+
+
+## Where this sits in the bigger argument
+
+Pressing intensity is also the one modern benchmark that exposes the side at the top of [the ranking of the greatest teams in football history](/chapters/football/greatest-football-teams-of-all-time).

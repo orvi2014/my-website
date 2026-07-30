@@ -7,6 +7,17 @@ author: "Orvi"
 readingTime: 10
 tags: ["Brazil 1970", "World Cup history", "Pelé", "Jairzinho", "Mário Zagallo", "jogo bonito", "greatest team ever", "tactical analysis", "WC2026", "Estadio Azteca"]
 featured: false
+faq:
+  - q: "How many games did Brazil play in the 1970 World Cup?"
+    a: "Six, and they won all six. Brazil beat Czechoslovakia 4-1, England 1-0 and Romania 3-2 in the group stage, Peru 4-2 in the quarter-final, Uruguay 3-1 in the semi-final, and Italy 4-1 in the final at the Estadio Azteca on 21 June 1970."
+  - q: "How many goals did Brazil score and concede at the 1970 World Cup?"
+    a: "Brazil scored 19 goals and conceded seven across six matches, a goal difference of +12 and an average of 3.17 goals per game. No World Cup winner since has averaged above 2.8 goals per match."
+  - q: "Was Brazil 1970 the best team ever?"
+    a: "On margin over the field they played, yes. They beat England, Uruguay and Italy in the same tournament, three of the four most decorated World Cup nations at the time, and Jairzinho scored in all six matches, which had never been done before and has not been done since. The strongest counterargument is that the 16-team format meant only six matches, none going to extra time, so their physical reserves were never fully tested."
+  - q: "What formation did Brazil play in 1970?"
+    a: "Nominally a 4-2-4, but it shifted between 4-2-4, 4-3-3 and 3-4-3 depending on the phase of possession. Clodoaldo and Gérson held the midfield axis with Gérson pushing high, Rivelino drifted in from the left, Tostão dropped deep in front of the holders, and Carlos Alberto and Everaldo attacked the space that created from full-back."
+  - q: "Who were Brazil's best players in 1970?"
+    a: "Pelé ran the team as its decision-making hub rather than its main goalscorer, finishing with four goals. Jairzinho was the tournament's defining forward with seven goals in six games. Gérson controlled the tempo, Tostão played as a deep-lying striker, Rivelino supplied the left side, and captain Carlos Alberto scored the final goal of the final."
 ---
 
 Watch the build-up to Brazil's fourth goal against Italy in the 1970 World Cup Final again. Clodoaldo, deep in his own half, dummies past four Italian players with one shimmy. The ball goes to Rivelino, then Jairzinho, then Pelé, who lays it across the Azteca turf without looking — he already knows Carlos Alberto is arriving at full sprint from right back. The finish is a thunderbolt into the corner. But by then, you've already watched the argument play out.
@@ -65,9 +76,14 @@ Azteca, June 21, 1970. Four goals, one of them a piece of collective precision t
 
 ## Related reading
 
-For more on how great teams manufacture tactical dominance, read about [Hungary's 1954 team: 42 games unbeaten but lost the World Cup final](/chapters/football/hungary-1954-42-games-unbeaten-but-lost-the-world-cup-final). Or explore [why tactical positioning, not star power, decides World Cup 2026](/chapters/football/world-cup-2026-why-tyler-adams-matters-more-than-pulisic-for-the-usa) — the same systemic thinking that made Brazil and Hungary era-defining.
+For more on how great teams manufacture tactical dominance, read about [Hungary's 1954 team: 42 games unbeaten but lost the World Cup final](/chapters/football/the-hungary-side-of-the-1950s-the-greatest-team-to-never-win-a-world-cup). Or explore [why tactical positioning, not star power, decides World Cup 2026](/chapters/football/can-the-usa-actually-use-home-advantage-at-world-cup-2026-their-tactical-profile-says-maybe) — the same systemic thinking that made Brazil and Hungary era-defining.
 
 ---
+
+
+## Where this sits in the bigger argument
+
+Brazil 1970 sit first in [the ranking of football's greatest teams by margin over their field](/chapters/football/greatest-football-teams-of-all-time), ahead of a Hungary side that never won the trophy at all.
 
 ## Sources & Citations
 
