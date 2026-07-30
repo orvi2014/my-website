@@ -84,12 +84,16 @@ Every side above won by solving a spatial problem before their opponents underst
 - [The false nine](/chapters/football/the-false-9-is-dead-here-is-what-killed-it-and-what-replaced-it), Hidegkuti's invention, has been declared dead, and what replaced it is more interesting than the obituary.
 - [The 4-3-3](/chapters/football/the-4-3-3-keeps-dying-and-coming-back-here-is-why-no-formation-can-kill-it) keeps being buried and keeps returning, for a reason that says something about all formations.
 - [How Real Madrid win Champions League ties on the counter-attack](/chapters/football/how-real-madrid-win-the-champions-league-with-counter-attack-when-they-are-supposed-to-possess), while being built as a possession side, is the clearest modern example of a team winning by abandoning its own identity at the right moment.
+- [The back three, and why the wing-backs matter more than the defenders](/chapters/football/the-back-three-revolution-how-wing-backs-became-the-most-important-position-in-modern-football) is the shape most modern sides now default to, and the consensus gets the important position wrong.
+- [Breaking down a low block](/chapters/football/how-do-you-break-down-a-low-block-the-data-behind-football-s-hardest-problem) is the hardest problem in the sport, and the answer has less to do with crossing than with who moves before the ball arrives.
 
 ## What the crowd contributes, measured rather than assumed
 
 Home advantage is usually treated as atmosphere and left unquantified, which is lazy given that two of football's most famous crowds have been studied properly.
 
 [Galatasaray's use of stadium noise as a deliberate tactical weapon](/chapters/football/how-galatasaray-turned-stadium-noise-into-a-tactical-weapon-and-the-science-behind-it) has measurable effects on visiting players' decision-making. [Dortmund's Südtribüne, the Yellow Wall](/chapters/football/the-yellow-wall-why-dortmund-s-s-dtrib-ne-is-the-most-studied-crowd-in-football), is the most studied crowd in the sport, and what researchers found is more specific than louder equals better.
+
+The same effect scales up to whole continents. [South American ultras and barra bravas measurably change how referees officiate](/chapters/football/south-american-ultras-the-culture-behind-the-most-intimidating-atmospheres-in-world-football), and [African support turned a Qatar quarter-final into a de facto home game for Morocco](/chapters/football/african-football-culture-at-world-cup-2026-why-the-continent-s-support-changes-the-tournament), which is the closest thing to a controlled experiment on what a crowd is worth.
 
 There is also the question of why any of it produces such intense allegiance in people with no geographic connection to the club or country at all. [Bangladesh's obsession with Brazil and Argentina](/chapters/football/why-we-support-countries-we-never-lived-in) is the sharpest available case study.
 
@@ -101,7 +105,9 @@ The candidates worth watching are narrower than the pre-tournament noise will su
 
 Two things will decide more than tactics. [Why world-class players disappear at World Cups](/chapters/football/why-world-class-players-disappear-in-world-cups-the-psychology-behind-tournament-pressure) is a psychological pattern reliable enough to predict against, and 2026 is [the first World Cup of the era after Messi and Ronaldo](/chapters/football/what-football-looks-like-after-messi-and-ronaldo-are-gone), which removes the individual gravity that has shaped every tournament since 2006.
 
-A knockout format also rewards the specific ability to recover from a losing position, which turns out to be less about character than the phrase suggests. [Which teams come back from two goals down, and why](/chapters/football/the-psychology-of-a-comeback-which-teams-come-back-from-two-goals-down-and-why) is the closest thing to a measurable answer.
+A knockout format also rewards the specific ability to recover from a losing position, which turns out to be less about character than the phrase suggests. [Which teams come back from two goals down, and why](/chapters/football/the-psychology-of-a-comeback-which-teams-come-back-from-two-goals-down-and-why) is the closest thing to a measurable answer. And when recovery fails, the tournament is decided by [penalty shootouts, which are not random](/chapters/football/penalty-shootouts-are-not-random-the-psychology-data-from-500-shootouts-proves-it): kick order, player status and preparation predict them well enough that treating shootouts as a lottery is a coaching error.
+
+Germany are the clearest test of whether any of this is fixable by design. [Their rebuild was sold as the answer to 2018](/chapters/football/germany-s-tactical-rebuild-can-they-win-the-world-cup-eight-years-after-the-crash), and the exit suggests the original diagnosis was wrong.
 
 ## The ranking
 

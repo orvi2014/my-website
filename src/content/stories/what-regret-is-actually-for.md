@@ -1,0 +1,46 @@
+---
+title: "What Regret Is Actually For"
+description: "I spent years treating regret as damage to manage. The research on the purpose of regret says I had the whole mechanism backwards."
+pubDate: 2026-07-16
+category: "philosophy"
+author: "Orvi"
+readingTime: 9
+tags: ["regret", "philosophy of emotion", "decision-making", "counterfactual thinking", "psychology of regret", "behavioral science", "stoicism", "no regrets philosophy"]
+featured: false
+---
+
+Regret is not a malfunction. I spent most of my adult life treating it like one (something to medicate, reframe, or outrun with a tattoo that said the opposite), and I was wrong about the purpose of regret in a way that took me over a decade to notice, let alone admit.
+
+Here is the confession, stated plainly: I used to believe that a well-lived life produced less regret over time, that emotional maturity looked like an increasingly clean rearview mirror. I have interviewed dozens of people about the decisions that still keep them up at night, founders who sold too early, people who didn't call their father back, a friend who turned down a scholarship in 2009 to stay near a boyfriend she doesn't remember the last name of. I used to hear those stories and think: this is what unresolved looks like. Get resolved. I was diagnosing a working system as broken.
+
+**What Is the Actual Purpose of Regret?**
+
+Regret exists to correct behavior while correction is still possible. It is not a verdict on the past, it is a lever pointed at the future. Neal Roese, who has spent much of his career at Northwestern studying counterfactual thinking, found something that reframed the entire question for me: regret intensifies almost exactly in proportion to how much opportunity still exists to act on it. He and Amy Summerville ran a meta-analysis of eleven separate ranking studies, pooling data from 3,041 participants, and found the six domains people regret most, in order, are education, career, romance, parenting, the self, and leisure. Every one of them a domain where a next move is usually still available ([Roese & Summerville, 2005, *Personality and Social Psychology Bulletin*](https://journals.sagepub.com/doi/10.1177/0146167205274693)). That's the opportunity principle: regret isn't loudest where the damage is worst, it's loudest where the door is still open.
+
+I had it backwards. I thought regret was supposed to fade as a sign of healing. It turns out regret is supposed to fade only once the option genuinely closes, and it's supposed to stay loud, uncomfortably loud, for as long as you could still do something about it.
+
+**Why Do People Insist They Have No Regrets?**
+
+Because "no regrets" is usually a description of a story someone has decided to stop revising, not an accurate account of their internal state. I used to admire that phrase. I've since watched enough people say it right before describing, in detail and with real pain, the exact thing they claim not to regret. Regret is not the emotion of a bad decision; it is the emotion of an open door. It gets louder exactly when something can still be done, and goes quiet once the door shuts. People who claim zero regrets aren't unusually well-adjusted. They're usually people who've stopped believing anything is still actionable, which is its own kind of quiet.
+
+The cultural version of "no regrets", Édith Piaf's *non, je ne regrette rien*, the YOLO tattoo era, the Stoic-flavored internet advice to simply not look backward. Treats regret as pure waste, a tax on happiness with no offsetting return. This is the counterargument worth taking seriously, because it's not stupid: rumination is real, it does correlate with depression, and plenty of people do get stuck replaying decisions in a loop that produces no behavior change at all. But "regret can curdle into rumination" is not the same claim as "regret has no function," and the data don't support the stronger claim. In a 2021 review published in *Frontiers in Psychology*, researchers examining the antecedents and appraisals of regret describe its central behavioral function as modifying either the outcome of a decision, when that's still possible, or the type of choice made next time, when it isn't ([Frontiers in Psychology, 2021](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.783248/full)). That's not decoration. That's a mechanism with a job.
+
+**Why Does Regret Feel Different a Week Later Than It Does a Decade Later?**
+
+Because the thing you regret changes shape. Actions sting fast and fade, inactions do the opposite. Thomas Gilovich and Victoria Medvec ran the study that established this back in 1994: in the short term, people regret things they did more than things they didn't do, but stretch the timeline out and the pattern flips completely. Inaction becomes the dominant, longer-lasting regret ([Gilovich & Medvec, 1994](https://pubmed.ncbi.nlm.nih.gov/7965599/)). That finding held up long enough to matter, and it also held up to scrutiny: a 2023 replication published in *Collabra: Psychology* reran the study nearly thirty years later and found the same reversal, plus new evidence about how much responsibility people assign themselves depending on which path they took ([Collabra: Psychology, 2023](https://online.ucpress.edu/collabra/article/8/1/37122/190272/Revisiting-the-Temporal-Pattern-of-Regret-in)). I didn't understand, for years, why the choices I acted on and lived with badly stopped hurting faster than the choices I never made. I thought I was just getting used to my mistakes. What was actually happening is that the mistakes I could point to and explain got processed and closed, while the paths I never walked kept generating new, unfalsifiable versions of how good they might have been.
+
+Daniel Pink's World Regret Survey makes the same point at a scale I didn't expect. He and his team collected more than sixteen thousand regrets from over a hundred countries, and one pattern showed up again and again: regrets of omission, the things people didn't do, outnumbered regrets of commission by roughly three to one ([World Regret Survey](https://worldregretsurvey.com/)). That ratio is the whole confession in one number. I built years of decision-making advice around minimizing bad actions, when the actual liability sitting in most people's chests was the actions never taken.
+
+**Is Regret Just Another Word for Guilt?**
+
+No. Guilt is about who you harmed, regret is about what you could have chosen differently, and collapsing the two is what made me distrust the emotion in the first place. Guilt keeps its eyes on another person. Regret keeps its eyes on the branch point, the fork, the version of you that picked B instead of A. I used to lump them together because they feel adjacent, and I treated both as things to manage down. But you manage guilt by making amends to someone else. Regret doesn't have anyone else in the room. It has only you, the option you took, and the option that's still sitting there, theoretically available, generating noise until you either take it or the window closes for good. Confusing them meant I was applying guilt's solution (apologize, move on, minimize), to a signal that was actually asking for a decision, not an apology.
+
+**What Finally Changed My Mind?**
+
+Watching the same regret get reported by people twenty years apart, worded almost identically, about the exact same category of decision. That's what did it. Not a single study. It was pattern recognition over enough individual conversations that the pattern stopped looking like coincidence and started looking like a design feature. Someone in their thirties telling me they wish they'd majored in something else, someone in their sixties telling me the same thing about a decision forty years old, both using the phrase "I still think about it" like it was new. That repetition is what the opportunity principle predicts and what "no regrets" can't explain. If regret were just leftover pain with no function, it would fade evenly, like a bruise. It doesn't. It fades unevenly, in exact correspondence with whether the thing is still fixable, which is a strange property for an emotion to have unless the emotion is doing something on purpose.
+
+I stopped trying to feel less regret and started asking, every time it showed up, whether the door it was pointing at was actually still open. Most of the time it was, which was the uncomfortable part, not that regret was irrational, but that it had been right the entire time and I'd spent years arguing with a smoke detector instead of checking for the fire.
+
+**What I'd Predict From Here**
+
+The next decade of regret research is going to move away from "how do we reduce regret" and toward "how do we route it correctly", distinguishing, faster and more precisely, which regrets are still live wires pointed at an available choice and which have gone dead because the option is actually gone. Practitioners who work with decision-making, whether in therapy rooms or executive coaching or product design, will stop treating regret as an outcome to minimize and start treating it as a diagnostic to read. The people who get good at that distinction early, is this door open or closed, are going to make noticeably fewer of the omission regrets that make up most of what the rest of us are carrying.
