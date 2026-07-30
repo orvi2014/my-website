@@ -21,7 +21,7 @@ There is a difference, and it matters more than almost anything else I have lear
 
 ## What is vibe coding?
 
-Vibe coding is prompting an AI without understanding the output, accepting generated code without reading it, and shipping without testing. It is a specific workflow, not a synonym for AI-assisted development. The term was [coined by Andrej Karpathy in February 2025](https://x.com/karpathy/status/1886192184808149163).
+Vibe coding is prompting an AI without understanding the output, accepting generated code without reading it, and shipping without testing. It is a specific workflow, not a synonym for AI-assisted development. The term was [coined by Andrej Karpathy in February 2025](https://x.com/karpathy/status/1886192184808149383).
 
 This distinction matters because people collapse the two categories to either defend or attack AI in development. Using AI to help write code is just programming now. That is what the tools are for. According to the [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/), 76% of developers are already using or plan to use AI coding tools in their workflow.
 

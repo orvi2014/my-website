@@ -55,7 +55,7 @@ What I found more interesting is what the AI inadvertently fixed about my bad ha
 
 Some bad habits were sustained entirely by the effort they'd take to correct. Remove the effort, the habits go with them. That's an underrated benefit and it took me several months to notice it was happening.
 
-Being less exhausted by the boring parts also means more attention left for the parts that actually need it. The [Uplevel 2024 developer productivity report](https://uplevelteam.com/resources/developer-productivity-report) noted that developer fatigue reduction was cited more frequently than raw speed as a benefit by engineers using AI tools daily. That matches what I noticed: the gain wasn't always "I finished faster," it was "I still had energy to think properly at the end."
+Being less exhausted by the boring parts also means more attention left for the parts that actually need it. The [Uplevel 2024 developer productivity report](https://uplevelteam.com/blog/ai-for-developer-productivity) noted that developer fatigue reduction was cited more frequently than raw speed as a benefit by engineers using AI tools daily. That matches what I noticed: the gain wasn't always "I finished faster," it was "I still had energy to think properly at the end."
 
 ## What stayed exactly the same?
 
@@ -81,4 +81,4 @@ I'm faster now. I'm also less certain of some things I used to feel sure about. 
 
 ---
 
-**Further reading:** [GitHub's research on Copilot and developer productivity (2022)](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/) on the 55% speed finding. [Google's 2024 DORA report](https://dora.dev/research/2024/dora-report/) on the productivity-versus-stability tradeoff. [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/ai) on AI tool adoption among developers. [Uplevel's 2024 Developer Productivity Report](https://uplevelteam.com/resources/developer-productivity-report) on fatigue reduction vs. speed gains.
+**Further reading:** [GitHub's research on Copilot and developer productivity (2022)](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/) on the 55% speed finding. [Google's 2024 DORA report](https://dora.dev/research/2024/dora-report/) on the productivity-versus-stability tradeoff. [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/ai) on AI tool adoption among developers. [Uplevel's 2024 Developer Productivity Report](https://uplevelteam.com/blog/ai-for-developer-productivity) on fatigue reduction vs. speed gains.

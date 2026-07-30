@@ -49,7 +49,7 @@ There is a hierarchy in theory. The model maker sets hard limits that cannot be 
 
 In a multi-agent system, the hierarchy multiplies. When Agent A calls Agent B, is Agent A acting as an operator, a user, or something else entirely? If Agent B treats automated callers as untrusted users and Agent A's pipeline depends on operator-level trust, the system does not break cleanly. It just becomes slower, more cautious, harder to attribute.
 
-Anthropic's guidance on multi-agent orchestration acknowledges this directly: [subagents should behave safely regardless of the instruction source](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/multi-agent-orchestration), and should refuse requests from orchestrators that would violate their principles. That is the right instinct. The problem is that "safe" means something different depending on who wrote the rules. One operator's safe default is another operator's pipeline blocker.
+Anthropic's guidance on multi-agent orchestration acknowledges this directly: [subagents should behave safely regardless of the instruction source](https://docs.claude.com/en/docs/claude-code/sub-agents), and should refuse requests from orchestrators that would violate their principles. That is the right instinct. The problem is that "safe" means something different depending on who wrote the rules. One operator's safe default is another operator's pipeline blocker.
 
 The solutions being proposed, cryptographic attestation of agent identity, explicit trust levels for automated callers, audit trails that span pipeline boundaries, are technically possible. But they require organisations to agree on conventions that do not exist as standards yet. Until they do, agents run on assumed consent. Agent A calls Agent B expecting to be understood. Agent B responds having applied rules Agent A never saw. Both log success.
 
@@ -83,7 +83,7 @@ Accountability disappears into that gap. When something goes wrong in a multi-ag
 
 I do not think this has a clean resolution. It is a governance problem, not a technical one. Governance problems do not get solved by better code. They get solved by organisations agreeing on standards, which takes time and conflict and the kind of undramatic institutional work that does not make for good conference talks.
 
-The EU AI Act (2024) and the NIST AI Risk Management Framework both push toward documentation of AI system behaviour across organisational boundaries, but neither specifies how multi-agent rule conflicts should be resolved between operators. The [NIST AI RMF](https://airc.nist.gov/Docs/1) is genuinely useful for structuring how you think about this, even if it does not hand you a solution.
+The EU AI Act (2024) and the NIST AI Risk Management Framework both push toward documentation of AI system behaviour across organisational boundaries, but neither specifies how multi-agent rule conflicts should be resolved between operators. The [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) is genuinely useful for structuring how you think about this, even if it does not hand you a solution.
 
 ## How to prevent multi-agent failures in production
 

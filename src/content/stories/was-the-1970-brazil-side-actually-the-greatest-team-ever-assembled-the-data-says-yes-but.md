@@ -44,7 +44,7 @@ Zagallo also inherited a political problem. He took over from João Saldanha in 
 
 Better than you'd expect on most of them. Worse on one.
 
-Goal difference: +12 across six games. Spain's 2010 side, widely treated as the modern benchmark, finished +8 across seven. Germany 2014 finished +13 but played an extra match. Brazil achieved their margin in six, with no group-stage walkover. Their toughest group opponent, England on June 7 at Jalisco, were beaten 1-0 by a Jairzinho goal that prompted Alf Ramsey — not a man given to extravagance — to [call it "the most complete team I've seen."](https://www.theguardian.com/football/1970/jun/08/england-brazil-world-cup-report)[^4] Gordon Banks' save from Pelé's point-blank downward header in that match is the most discussed moment in goalkeeping history precisely because the entire football world had already accepted it as a goal.[^5]
+Goal difference: +12 across six games. Spain's 2010 side, widely treated as the modern benchmark, finished +8 across seven. Germany 2014 finished +13 but played an extra match. Brazil achieved their margin in six, with no group-stage walkover. Their toughest group opponent, England on June 7 at Jalisco, were beaten 1-0 by a Jairzinho goal that prompted Alf Ramsey — not a man given to extravagance — to [call it "the most complete team I've seen."](https://www.fifa.com/en/tournaments/mens/worldcup/articles/brazil-england-mexico-1970)[^4] Gordon Banks' save from Pelé's point-blank downward header in that match is the most discussed moment in goalkeeping history precisely because the entire football world had already accepted it as a goal.[^5]
 
 By June 10, Brazil were 3-2 against Romania. By June 14, 4-2 against Peru in the quarterfinal, with Tostão running the line as an auxiliary striker. The semifinal against Uruguay on June 17 produced Pelé's ghost goal: the ball arrived early, he sold the dummy to the goalkeeper without touching it, ran around him, and by the time he controlled and turned, the angle was gone. He missed. It remains the most discussed miss in football history, which tells you something about what the standards of imagination had already become.
 
@@ -93,7 +93,7 @@ Brazil 1970 sit first in [the ranking of football's greatest teams by margin ove
 
 [^3]: Spain 2010 (8 goals, 7 matches) averaged 1.14 per game; Germany 2014 (18 goals, 7 matches) averaged 2.57 per game. Brazil's 3.17 remains the highest for any World Cup winner in the tournament era.
 
-[^4]: Alf Ramsey's post-match commentary following England's 1-0 loss to Brazil, June 7, 1970. The Guardian's match report coverage: [theguardian.com/football/1970-world-cup-brazil-reports](https://www.theguardian.com/football/1970-world-cup-brazil-reports)
+[^4]: Alf Ramsey's post-match commentary following England's 1-0 loss to Brazil, 7 June 1970 at the Estadio Jalisco. FIFA's match record with quotes: [fifa.com/en/tournaments/mens/worldcup/articles/brazil-england-mexico-1970](https://www.fifa.com/en/tournaments/mens/worldcup/articles/brazil-england-mexico-1970). Match summary and lineups: [englandfootballonline.com](http://www.englandfootballonline.com/Seas1960-70/1969-70/M0446Bra1970.html)
 
 [^5]: Gordon Banks' save on June 7, 1970, is frequently cited by goalkeeping historians as one of the greatest of all time. Pelé himself has acknowledged the save's legitimacy in multiple interviews across decades.
 

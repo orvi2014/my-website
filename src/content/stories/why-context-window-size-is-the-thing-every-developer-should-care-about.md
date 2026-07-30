@@ -83,4 +83,4 @@ The developers I've seen build the most reliable AI-powered systems are rarely t
 
 [^2]: Kamradt, G. (2023). *LLM Test: Needle In A Haystack - Pressure Testing Long Context Windows*. GitHub. https://github.com/gkamradt/LLMTest_NeedleInAHaystack
 
-[^3]: Anthropic. (2024). *Long context prompting for Claude*. Anthropic Documentation. https://docs.anthropic.com/en/docs/build-with-claude/long-context-tips
+[^3]: Anthropic. (2024). *Long context prompting for Claude*. Anthropic Documentation. https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/long-context-tips

@@ -59,7 +59,7 @@ I keep wondering this. The internet's original architecture was deliberately res
 
 What's happened is that the blockages have gotten smarter. They're not technical failures the network routes around. They're human-enforced rules with economic teeth. If you want to do business in China, you comply with Chinese internet rules. If you want to serve European users, you comply with GDPR. The technical architecture of the internet can't route around a law the way it routes around a broken router.
 
-The Council on Foreign Relations [published analysis on this](https://www.cfr.org/report/confronting-reality-cyberspace) that makes a point I find genuinely uncomfortable: the open, borderless internet was always partly a fiction maintained by the dominance of a small number of countries — primarily the US — that preferred it that way for their own interests. The "open web" was never neutral. It just had a hegemon whose interests happened to align with openness for a few decades.
+The Council on Foreign Relations [published analysis on this](https://www.cfr.org/report/confronting-reality-in-cyberspace) that makes a point I find genuinely uncomfortable: the open, borderless internet was always partly a fiction maintained by the dominance of a small number of countries — primarily the US — that preferred it that way for their own interests. The "open web" was never neutral. It just had a hegemon whose interests happened to align with openness for a few decades.
 
 As that alignment weakens, we're not watching the internet break. We're watching it reveal its actual political nature.
 

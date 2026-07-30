@@ -74,12 +74,16 @@ const itemListSchema = {
         <div class="toc-rule"></div>
 
         {catData.map((cat, i) => (
-          <div class:list={['toc-entry', { active: i === 0 }]} data-idx={i}>
+          <a
+            class:list={['toc-entry', { active: i === 0 }]}
+            data-idx={i}
+            href={`/chapters/${cat.slug}`}
+          >
             <span class="toc-roman">{cat.roman}</span>
             <span class="toc-name">{cat.title}</span>
             <span class="toc-leader"></span>
             <span class="toc-pg">{cat.pg}</span>
-          </div>
+          </a>
         ))}
 
         <div class="page-foot">
@@ -98,6 +102,31 @@ const itemListSchema = {
 
     </div>
   </div>
+
+  {/* The book above is built client-side, so without this every story link on
+      the site's main directory page would be invisible to crawlers that do not
+      run JS, which includes most AI answer-engine fetchers. */}
+  <section class="ch-index">
+    <h2 class="ch-index-title">Every chapter</h2>
+    {catData.map((cat) => (
+      <div class="ch-index-group">
+        <h3 class="ch-index-cat">
+          <a href={`/chapters/${cat.slug}`}>{cat.title}</a>
+          <span class="ch-index-count">{cat.stories.length}</span>
+        </h3>
+        {cat.description && <p class="ch-index-desc">{cat.description}</p>}
+        {cat.stories.length > 0 && (
+          <ul class="ch-index-list">
+            {cat.stories.map((s) => (
+              <li>
+                <a href={`/chapters/${s.category}/${s.slug}`}>{s.title}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    ))}
+  </section>
 
   <script define:vars={{ catData }}>
     const STORY_NUMS = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15'];
@@ -170,10 +199,13 @@ const itemListSchema = {
     function init() {
       if (catData.length > 0) renderRightPage(catData[0], 0);
 
+      // Entries are real anchors so crawlers and no-JS visitors get a working
+      // link. With JS the click flips the book instead of navigating.
       const entries = document.querySelectorAll('.toc-entry');
       entries.forEach((entry, i) => {
-        entry.addEventListener('click', () => {
-          entries.forEach(e => e.classList.remove('active'));
+        entry.addEventListener('click', (e) => {
+          e.preventDefault();
+          entries.forEach(el => el.classList.remove('active'));
           entry.classList.add('active');
           renderRightPage(catData[i], 0);
         });
@@ -184,6 +216,76 @@ const itemListSchema = {
   </script>
 
   <style is:global>
+    .ch-index {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 8px 20px 72px;
+    }
+
+    .ch-index-title {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(90, 70, 50, 0.55);
+      margin: 0 0 28px;
+    }
+
+    .ch-index-group { margin-bottom: 34px; }
+
+    .ch-index-cat {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      margin: 0 0 4px;
+    }
+
+    .ch-index-cat a {
+      color: var(--sienna, #8a4b2a);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(138, 75, 42, 0.35);
+    }
+
+    .ch-index-cat a:hover { border-bottom-color: currentColor; }
+
+    .ch-index-count {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      color: rgba(90, 70, 50, 0.45);
+    }
+
+    .ch-index-desc {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(90, 70, 50, 0.62);
+      margin: 0 0 12px;
+    }
+
+    .ch-index-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 7px;
+    }
+
+    .ch-index-list a {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      line-height: 1.45;
+      color: rgba(60, 45, 32, 0.9);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .ch-index-list a:hover {
+      color: var(--sienna, #8a4b2a);
+      border-bottom-color: currentColor;
+    }
+
     .ch-scene {
       min-height: calc(100vh - 54px);
       display: flex;

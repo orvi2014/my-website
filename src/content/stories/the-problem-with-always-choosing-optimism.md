@@ -103,7 +103,7 @@ The cheerful face in the mirror is not the same thing as wisdom. Sometimes the b
 
 [^1]: Sharot, T. (2011). The optimism bias. *Current Biology, 21*(23), R941-R945. https://doi.org/10.1016/j.cub.2011.10.030
 
-[^2]: Oettingen, G. (2012). Future thought and behaviour change. *European Review of Social Psychology, 23*(1), 1-63. https://doi.org/10.1080/10463283.2011.643207
+[^2]: Oettingen, G. (2012). Future thought and behaviour change. *European Review of Social Psychology, 23*(1), 1-63. https://doi.org/10.1080/10463283.2011.643698
 
 [^3]: Edmondson, A. C. (1999). Psychological safety and learning behavior in work teams. *Administrative Science Quarterly, 44*(2), 350-383. https://doi.org/10.2307/2666999
 

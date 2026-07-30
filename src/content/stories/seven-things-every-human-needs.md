@@ -39,7 +39,7 @@ Psychological power — what researchers call self-efficacy — is the felt sens
 
 Not power over others. That is a different thing and mostly a trap.
 
-Power in the sense that psychologists call [self-efficacy](https://www.apa.org/topics/self-efficacy) — the felt experience that your choices connect to your outcomes. That what you do matters. That you are not simply being moved by forces you cannot touch.
+Power in the sense that psychologists call [self-efficacy](https://www.apa.org/pi/aids/resources/education/self-efficacy) — the felt experience that your choices connect to your outcomes. That what you do matters. That you are not simply being moved by forces you cannot touch.
 
 The opposite of this is helplessness. [Learned helplessness](https://www.simplypsychology.org/learned-helplessness.html), which Martin Seligman identified in his landmark 1967 experiments, is what happens when repeated experience teaches a person that their actions make no difference. The terrible thing about learned helplessness is that it generalises — once you have learned it in one context, it leaks into others. You stop trying in places where trying would have worked. Albert Bandura, whose self-efficacy research across the 1970s and 80s became one of the most replicated bodies of work in psychology, found that the belief in one's capacity to act is not a personality trait — it is a learned orientation that environments either build or dismantle.
 
@@ -113,7 +113,7 @@ Rest is the biological and psychological need for active restoration of capacity
 
 The last one is the one most resisted by people who value productivity, which means it is the one most commonly missing from the lives of driven people.
 
-Rest is not the absence of work. It is the active restoration of capacity — physical, cognitive, emotional. [Research on sleep and cognitive performance](https://www.sleepfoundation.org/sleep-deprivation/sleep-deprivation-and-cognitive-impairment) is unambiguous: sleep-deprived brains perform worse at exactly the tasks that require judgment, creativity, and complex decision-making. Which are, exactly, the tasks that matter most. Matthew Walker's research at UC Berkeley, summarized in *Why We Sleep* (2017), documents that just 17 to 19 hours of sustained wakefulness produces cognitive impairment equivalent to a blood alcohol level of 0.05 percent — impaired, by legal standards, and often unaware of it.
+Rest is not the absence of work. It is the active restoration of capacity — physical, cognitive, emotional. [Research on sleep and cognitive performance](https://www.sleepfoundation.org/sleep-deprivation) is unambiguous: sleep-deprived brains perform worse at exactly the tasks that require judgment, creativity, and complex decision-making. Which are, exactly, the tasks that matter most. Matthew Walker's research at UC Berkeley, summarized in *Why We Sleep* (2017), documents that just 17 to 19 hours of sustained wakefulness produces cognitive impairment equivalent to a blood alcohol level of 0.05 percent — impaired, by legal standards, and often unaware of it.
 
 But rest is more than sleep. It is the permission to stop being productive for long enough to remember who you are when you are not performing. The identity underneath the output. The person before the role.
 
