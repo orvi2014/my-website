@@ -30,7 +30,7 @@ const SITE = 'https://www.robatdasorvi.com'
 
 // Mirrors the whitelist in parasites.js. Dev.to is a developer community, so
 // off-topic categories are excluded on purpose rather than by oversight.
-const DEVTO_CATEGORIES = new Set(['technology', 'ai-automation', 'future'])
+const DEVTO_CATEGORIES = new Set(['technology', 'ai-automation', 'future', 'ai-agents'])
 
 const args = process.argv.slice(2)
 const DRY = args.includes('--dry-run')

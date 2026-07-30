@@ -119,7 +119,9 @@ export async function publishToDevTo(content, slug, category) {
   if (!token) return { platform: 'Dev.to', skipped: true, reason: 'DEVTO_TOKEN not set' }
 
   // Dev.to only makes sense for tech/ai categories
-  const techCategories = ['technology', 'ai-automation', 'future']
+  // ai-agents is a developer topic like the rest; football and philosophy
+  // stay out because Dev.to is a developer community, not a general blog.
+  const techCategories = ['technology', 'ai-automation', 'future', 'ai-agents']
   if (!techCategories.includes(category)) {
     return { platform: 'Dev.to', skipped: true, reason: `category '${category}' not suited for Dev.to` }
   }
