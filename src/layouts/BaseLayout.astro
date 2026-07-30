@@ -55,6 +55,7 @@ const dateModified  = new Date().toISOString();
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID || '';
 const GSC_VERIFICATION = import.meta.env.PUBLIC_GSC_VERIFICATION || '';
+const BING_VERIFICATION = import.meta.env.PUBLIC_BING_VERIFICATION || '';
 const GA4_ID = import.meta.env.PUBLIC_GA4_ID || 'G-8MDK069LNK';
 
 // ── Person / author entity (used across all pages) ──────────────────────────
@@ -160,6 +161,10 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
 
     <!-- Google Search Console verification (set PUBLIC_GSC_VERIFICATION in .env) -->
     {GSC_VERIFICATION && <meta name="google-site-verification" content={GSC_VERIFICATION} />}
+
+    <!-- Bing Webmaster Tools verification (set PUBLIC_BING_VERIFICATION in .env).
+         Only needed if you verify by meta tag; importing from GSC needs no tag. -->
+    {BING_VERIFICATION && <meta name="msvalidate.01" content={BING_VERIFICATION} />}
 
     <!-- Primary Meta -->
     <title>{title}</title>

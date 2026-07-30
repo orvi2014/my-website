@@ -53,6 +53,40 @@ def collect_urls():
             urls.append(f"{SITE}/chapters/{category}/{slug}")
     return urls
 
+# Each participating engine runs its own endpoint. api.indexnow.org is meant to
+# fan out to all of them, but it inherits Bing's authorisation check, so a Bing
+# rejection there would otherwise hide a successful Yandex submission.
+ENDPOINTS = [
+    ("IndexNow (shared)", "https://api.indexnow.org/indexnow"),
+    ("Bing",              "https://www.bing.com/indexnow"),
+    ("Yandex",            "https://yandex.com/indexnow"),
+]
+
+FORBIDDEN_HINT = """
+    Bing rejects IndexNow for hosts it has no record of. Fix, once:
+      1. https://www.bing.com/webmasters  ->  Import from Google Search Console
+         (fastest: the domain is already verified there, so no site change)
+      2. Submit https://www.robatdasorvi.com/sitemap-index.xml in Bing
+      3. Re-run this script
+    Verifying by meta tag instead: set PUBLIC_BING_VERIFICATION in .env and redeploy."""
+
+
+def check_key_file():
+    """A bad key file causes the same 403 as an unverified host. Rule it out first."""
+    opener = urllib.request.build_opener(urllib.request.HTTPSHandler(context=_ssl_ctx))
+    try:
+        resp = opener.open(KEY_LOCATION, timeout=15)
+        body = resp.read().decode().strip()
+    except Exception as e:
+        print(f"  key file UNREACHABLE at {KEY_LOCATION}: {e}")
+        return False
+    if body != KEY:
+        print(f"  key file at {KEY_LOCATION} contains {body!r}, expected {KEY!r}")
+        return False
+    print(f"  key file OK ({KEY_LOCATION})")
+    return True
+
+
 def submit(urls):
     payload = json.dumps({
         "host": "www.robatdasorvi.com",
@@ -61,27 +95,56 @@ def submit(urls):
         "urlList": urls,
     }).encode()
 
-    req = urllib.request.Request(
-        "https://api.indexnow.org/indexnow",
-        data=payload,
-        headers={"Content-Type": "application/json; charset=utf-8"},
-        method="POST",
-    )
     opener = urllib.request.build_opener(urllib.request.HTTPSHandler(context=_ssl_ctx))
-    try:
-        resp = opener.open(req, timeout=30)
-        print(f"IndexNow: {resp.status} — submitted {len(urls)} URLs to Bing/Yandex")
-    except urllib.error.HTTPError as e:
-        print(f"IndexNow error: HTTP {e.code} — {e.read().decode()}")
+    accepted, forbidden = [], []
+
+    for name, endpoint in ENDPOINTS:
+        req = urllib.request.Request(
+            endpoint, data=payload,
+            headers={"Content-Type": "application/json; charset=utf-8"},
+            method="POST",
+        )
+        try:
+            resp = opener.open(req, timeout=30)
+            print(f"  {name}: HTTP {resp.status} — accepted {len(urls)} URLs")
+            accepted.append(name)
+        except urllib.error.HTTPError as e:
+            body = e.read().decode()[:200]
+            print(f"  {name}: HTTP {e.code} — {body}")
+            if e.code == 403:
+                forbidden.append(name)
+        except Exception as e:
+            print(f"  {name}: failed — {e}")
+
+    print()
+    if accepted:
+        print(f"Accepted by: {', '.join(accepted)}")
+    else:
+        print("No endpoint accepted the submission.")
+    if forbidden:
+        print(f"Rejected as unauthorised by: {', '.join(forbidden)}")
+        print(FORBIDDEN_HINT)
+    # Partial success is still a failure to report: a silent 403 is how this
+    # went unnoticed in the first place.
+    return bool(accepted) and not forbidden
 
 if __name__ == "__main__":
+    import sys
+
     urls = collect_urls()
-    print(f"Submitting {len(urls)} URLs:")
-    for u in urls:
-        print(f"  {u}")
-    print()
-    submit(urls)
+    print(f"Collected {len(urls)} URLs")
+    if "-v" in sys.argv or "--verbose" in sys.argv:
+        for u in urls:
+            print(f"  {u}")
+
+    print("\nPreflight:")
+    key_ok = check_key_file()
+
+    print("\nSubmitting:")
+    ok = submit(urls)
+
     print()
     print("Google does not support IndexNow. Request indexing manually:")
     print("  https://search.google.com/search-console/inspect")
-    print("Paste each article URL and click 'Request Indexing'.")
+
+    sys.exit(0 if (ok and key_ok) else 1)
