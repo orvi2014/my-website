@@ -17,7 +17,7 @@ _ssl_ctx.check_hostname = False
 _ssl_ctx.verify_mode = ssl.CERT_NONE
 
 SITE = "https://www.robatdasorvi.com"
-KEY  = "f344b0119d8ce5bc6fb725bdd18bae3a"
+KEY  = "e8e6b4bb8019e55f97502ea95b9bbc04"
 KEY_LOCATION = f"{SITE}/{KEY}.txt"
 
 STATIC_URLS = [
