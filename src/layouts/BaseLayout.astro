@@ -171,6 +171,10 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    <!-- Feed autodiscovery. Aggregators (daily.dev, Feedly, Substack/Medium
+         importers) look for this tag to find the feed from any page — without
+         it the feed only works if someone already knows the exact URL. -->
+    <link rel="alternate" type="application/rss+xml" title="Robat Das Orvi" href={new URL('/rss.xml', SITE).toString()} />
     <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"} />
     <meta name="author" content={AUTHOR} />
     <meta name="language" content="en" />
