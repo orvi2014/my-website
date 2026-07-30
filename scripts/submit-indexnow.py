@@ -63,12 +63,19 @@ ENDPOINTS = [
 ]
 
 FORBIDDEN_HINT = """
-    Bing rejects IndexNow for hosts it has no record of. Fix, once:
-      1. https://www.bing.com/webmasters  ->  Import from Google Search Console
-         (fastest: the domain is already verified there, so no site change)
-      2. Submit https://www.robatdasorvi.com/sitemap-index.xml in Bing
-      3. Re-run this script
-    Verifying by meta tag instead: set PUBLIC_BING_VERIFICATION in .env and redeploy."""
+    A 403 here means Bing will not accept this key, not that the key file is
+    broken (the preflight above already proves the file is served correctly).
+
+    This happened once before: a key first used while the site was unverified
+    in Bing Webmaster Tools kept being rejected even after verification. The
+    fix was to rotate it. To do that again:
+      1. Confirm the property is verified at https://www.bing.com/webmasters
+      2. python3 -c "import secrets; print(secrets.token_hex(16))"
+      3. Write that value into public/<key>.txt containing only the key
+      4. Update KEY above, redeploy, then re-run this script
+
+    scripts/bing-submit.py is the more reliable path regardless: it uses the
+    Webmaster API key and reports quota and real errors instead of a bare 403."""
 
 
 def check_key_file():
