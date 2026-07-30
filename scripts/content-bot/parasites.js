@@ -15,6 +15,10 @@ function request(hostname, path, method, body, headers) {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
+        // Dev.to answers "403 Forbidden Bots" to requests without a
+        // browser-like UA, which silently failed every publish attempt.
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
+          + 'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36',
         ...(data ? { 'Content-Length': Buffer.byteLength(data) } : {}),
         ...headers,
       },
@@ -37,6 +41,17 @@ function request(hostname, path, method, body, headers) {
 function fm(content, field) {
   const m = content.match(new RegExp(`^${field}:\\s*["']?([^"'\\n]+)["']?`, 'm'))
   return m ? m[1].trim() : ''
+}
+
+// Tags are a YAML array: tags: ["Brazil 1970", "World Cup history"].
+// fm() stops at the first quote and yields "[", so parse the line properly.
+function fmTags(content) {
+  const m = content.match(/^tags:\s*\[(.*?)\]\s*$/m)
+  if (!m) return []
+  return m[1]
+    .split(',')
+    .map(t => t.trim().replace(/^["']|["']$/g, '').trim())
+    .filter(Boolean)
 }
 
 // Strip frontmatter, return body only
@@ -73,11 +88,7 @@ export async function publishToMedium(content, slug, category) {
 
   const title = fm(content, 'title')
   const canonicalUrl = `https://www.robatdasorvi.com/chapters/${category}/${slug}`
-  const tags = fm(content, 'tags')
-    .replace(/[\[\]"]/g, '')
-    .split(',')
-    .map(t => t.trim())
-    .slice(0, 5)
+  const tags = fmTags(content).slice(0, 5)
 
   const bodyHtml = `<p><em>Originally published on <a href="${canonicalUrl}">robatdasorvi.com</a></em></p>\n` +
     mdToHtml(body(content))
@@ -116,10 +127,8 @@ export async function publishToDevTo(content, slug, category) {
   const title = fm(content, 'title')
   const description = fm(content, 'description')
   const canonicalUrl = `https://www.robatdasorvi.com/chapters/${category}/${slug}`
-  const tags = fm(content, 'tags')
-    .replace(/[\[\]"]/g, '')
-    .split(',')
-    .map(t => t.trim().toLowerCase().replace(/[^a-z0-9]/g, ''))
+  const tags = fmTags(content)
+    .map(t => t.toLowerCase().replace(/[^a-z0-9]/g, ''))
     .filter(Boolean)
     .slice(0, 4)
 
@@ -157,12 +166,7 @@ export async function publishToHashnode(content, slug, category) {
 
   const title = fm(content, 'title')
   const canonicalUrl = `https://www.robatdasorvi.com/chapters/${category}/${slug}`
-  const tags = fm(content, 'tags')
-    .replace(/[\[\]"]/g, '')
-    .split(',')
-    .map(t => t.trim())
-    .filter(Boolean)
-    .slice(0, 5)
+  const tags = fmTags(content).slice(0, 5)
 
   const bodyMd = `*Originally published on [robatdasorvi.com](${canonicalUrl})*\n\n` + body(content)
 

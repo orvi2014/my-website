@@ -46,3 +46,7 @@ scripts/content-bot/bot.error.log
 
 # Python bytecode
 __pycache__/
+
+# Syndication runtime output
+.seo-reports/syndicate.log
+.seo-reports/syndicate.error.log
