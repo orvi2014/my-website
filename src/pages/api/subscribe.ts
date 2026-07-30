@@ -54,6 +54,12 @@ export const POST: APIRoute = async ({ request }) => {
     return reply(request, 400, false, 'That email address does not look right.', referrer);
   }
 
+  // Tags are a paid Buttondown feature: sending them on a free plan fails the
+  // whole request with 403 feature_disabled. Opt in once the plan supports it
+  // by setting BUTTONDOWN_TAGS to a comma-separated list.
+  const tags = (process.env.BUTTONDOWN_TAGS || import.meta.env.BUTTONDOWN_TAGS || '')
+    .split(',').map((t: string) => t.trim()).filter(Boolean);
+
   let res: Response;
   try {
     res = await fetch(API, {
@@ -62,7 +68,10 @@ export const POST: APIRoute = async ({ request }) => {
         Authorization: `Token ${key}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email_address: email, tags: ['website'] }),
+      body: JSON.stringify({
+        email_address: email,
+        ...(tags.length ? { tags } : {}),
+      }),
     });
   } catch {
     return reply(request, 502, false, 'Could not reach the newsletter service.', referrer);
@@ -72,11 +81,18 @@ export const POST: APIRoute = async ({ request }) => {
     return reply(request, 200, true, 'Almost there. Check your inbox to confirm.', referrer);
   }
 
-  // Buttondown returns 400 with a code for an address it already knows about.
-  // Treating that as an error would tell a existing subscriber they failed.
   const detail = await res.text();
+
+  // An address Buttondown already knows is a success from the reader's side.
+  // Reporting it as a failure would tell an existing subscriber they failed.
   if (res.status === 400 && /already|exists|subscribed/i.test(detail)) {
     return reply(request, 200, true, 'You are already subscribed.', referrer);
+  }
+
+  // Buttondown's spam firewall rejects some addresses outright. Say so plainly
+  // rather than inviting a retry that will fail identically.
+  if (/subscriber_blocked/i.test(detail)) {
+    return reply(request, 400, false, 'That address was rejected. Try another one.', referrer);
   }
 
   console.error('Buttondown subscribe failed:', res.status, detail.slice(0, 300));
