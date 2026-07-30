@@ -85,6 +85,11 @@ But the 2.6% of teams that lose a 2-0 lead don't do so because they ran out of b
 
 ---
 
+
+## Where this sits in the bigger argument
+
+Recovering from a losing position is one of the traits that separates the sides in [the ranking of football's greatest teams](/chapters/football/greatest-football-teams-of-all-time) from the ones that merely had the players.
+
 ## Sources
 
 - [Psychological Momentum and Performance Inferences: Journal of Sport and Exercise Psychology](https://journals.humankinetics.com/view/journals/jsep/10/1/article-p92.xml)

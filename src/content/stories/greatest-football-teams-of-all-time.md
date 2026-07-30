@@ -101,6 +101,8 @@ The candidates worth watching are narrower than the pre-tournament noise will su
 
 Two things will decide more than tactics. [Why world-class players disappear at World Cups](/chapters/football/why-world-class-players-disappear-in-world-cups-the-psychology-behind-tournament-pressure) is a psychological pattern reliable enough to predict against, and 2026 is [the first World Cup of the era after Messi and Ronaldo](/chapters/football/what-football-looks-like-after-messi-and-ronaldo-are-gone), which removes the individual gravity that has shaped every tournament since 2006.
 
+A knockout format also rewards the specific ability to recover from a losing position, which turns out to be less about character than the phrase suggests. [Which teams come back from two goals down, and why](/chapters/football/the-psychology-of-a-comeback-which-teams-come-back-from-two-goals-down-and-why) is the closest thing to a measurable answer.
+
 ## The ranking
 
 1. Brazil 1970. The widest margin ever produced at a World Cup, against the strongest available knockout field, with tactics a decade ahead of the language for them.
