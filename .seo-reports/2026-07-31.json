@@ -1,25 +1,11 @@
 {
-  "error": {
-    "code": 403,
-    "message": "Request had insufficient authentication scopes.",
-    "errors": [
-      {
-        "message": "Insufficient Permission",
-        "domain": "global",
-        "reason": "insufficientPermissions"
-      }
-    ],
-    "status": "PERMISSION_DENIED",
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-        "reason": "ACCESS_TOKEN_SCOPE_INSUFFICIENT",
-        "domain": "googleapis.com",
-        "metadata": {
-          "service": "searchconsole.googleapis.com",
-          "method": "google.searchconsole.v1.searchanalytics.SearchAnalyticsService.Query"
-        }
-      }
-    ]
-  }
+  "rows": [
+    {
+      "clicks": 0,
+      "impressions": 237,
+      "ctr": 0,
+      "position": 10.101265822784811
+    }
+  ],
+  "responseAggregationType": "byProperty"
 }

@@ -6,7 +6,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SearchModal from '../components/SearchModal.astro';
 import GoogleTagManager from '../components/GoogleTagManager.astro';
-import Skeleton from '../components/Skeleton.astro';
 
 interface Props {
   title: string;
@@ -236,21 +235,19 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
     <!-- Fonts come from Google Fonts below, not from /public/fonts. Preload tags
          for local woff2 files used to sit here and 404ed on every page. -->
 
-    <!-- Google Fonts (deferred) -->
+    <!-- Google Fonts.
+         Loaded render-blocking on purpose. The previous media="print"
+         onload="this.media='all'" trick made this non-blocking, which meant
+         the page always painted in fallback serif first and then visibly
+         re-rendered in EB Garamond once the stylesheet arrived. On a
+         typography-led layout that swap is the flicker readers notice. The
+         preconnects above keep the blocking cost small. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
 
     <!-- Google Analytics 4 -->
     {GA4_ID && (
@@ -272,50 +269,16 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
     {breadcrumbs && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />}
     {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
-    <!-- Critical CSS to prevent FOUC -->
+    <!-- The search modal is inert until its own script opens it, so keep it
+         out of the first paint. Everything else renders immediately: gating
+         the page on JavaScript is what caused the flicker this replaced. -->
     <style is:inline>
-      .page-content { opacity: 0; transition: opacity 0.25s ease; }
-      html.js-ready .page-content { opacity: 1; }
-      .skeleton-wrapper {
-        position: fixed; inset: 0;
-        background: #f5f1eb;
-        z-index: 9999;
-        opacity: 0; visibility: hidden;
-        transition: opacity 0.25s, visibility 0.25s;
-      }
-      html.js-transitioning .skeleton-wrapper { opacity: 1; visibility: visible; }
-      .search-modal, .search-results { display: none !important; }
+      .search-modal, .search-results { display: none; }
     </style>
-
-    <script is:inline>
-      (function() {
-        document.documentElement.classList.add('js-ready');
-        document.addEventListener('astro:before-preparation', function() {
-          document.documentElement.classList.remove('js-ready');
-          document.documentElement.classList.add('js-transitioning');
-        });
-        document.addEventListener('astro:after-swap', function() {
-          document.documentElement.classList.remove('js-transitioning');
-          setTimeout(function() {
-            document.documentElement.classList.add('js-ready');
-          }, 80);
-        });
-      })();
-    </script>
 
     <ViewTransitions />
   </head>
   <body>
-    <div class="skeleton-wrapper">
-      <div class="skeleton-content">
-        <Skeleton type="title" width="60%" />
-        <Skeleton type="paragraph" />
-        <Skeleton type="paragraph" />
-        <Skeleton type="image" />
-        <Skeleton type="paragraph" />
-      </div>
-    </div>
-
     <div class="page-content">
       <Header currentPath={currentPath} />
       <main>

@@ -11,7 +11,13 @@
 set -euo pipefail
 
 G="https://www.googleapis.com/auth"
-SCOPES="openid,${G}/cloud-platform,${G}/webmasters.readonly,${G}/analytics.readonly"
+
+# analytics.readonly is deliberately absent. Google blocks it for gcloud's
+# shared client ID ("This app is blocked"), and because consent is all or
+# nothing, including it fails the whole request and takes webmasters down
+# with it. GA4 automation needs its own service account instead, granted
+# Viewer on the property, the way gsc-key.json works for Search Console.
+SCOPES="openid,${G}/cloud-platform,${G}/webmasters.readonly"
 
 echo "Requesting scopes:"
 echo "$SCOPES" | tr ',' '\n' | sed 's/^/  /'
@@ -34,13 +40,13 @@ tok = json.loads(urllib.request.urlopen(
 scopes = json.loads(urllib.request.urlopen(
     f"https://oauth2.googleapis.com/tokeninfo?access_token={tok}", context=ctx).read()).get("scope", "").split()
 
-need = {"webmasters": "Search Console (seo-monitor.sh)", "analytics": "GA4 (AI referral tracking)"}
+need = {"webmasters": "Search Console (seo-monitor.sh)"}
 ok = True
 for frag, what in need.items():
     got = any(frag in s for s in scopes)
     print(f"  {'OK  ' if got else 'MISS'} {frag:12} {what}")
     ok = ok and got
 print()
-print("All required scopes granted." if ok
-      else "Some scopes missing. The browser consent screen must approve every one.")
+print("Search Console access restored." if ok
+      else "webmasters scope missing. Approve every scope on the consent screen.")
 PY

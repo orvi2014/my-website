@@ -1,86 +1,25 @@
-/* Prevent flash of unstyled content */
+/* Page transitions.
+ *
+ * This file used to hide the entire document with
+ *   html:not(.js-ready) { opacity: 0 }
+ * and reveal it only once JavaScript added a class. That is a standard fix
+ * for flash-of-unstyled-content, but here it produced a worse flicker than
+ * the problem it solved: every navigation faded the page to zero, showed a
+ * full-screen skeleton overlay, waited 80ms, then faded back in, roughly
+ * 600ms of visible flashing per click. Astro's ViewTransitions already swaps
+ * documents without a flash, so the whole mechanism was redundant.
+ *
+ * It also carried `* { transition: opacity 0.3s }`, which attached a
+ * transition to every element on the page and animated any opacity change
+ * anywhere, including the font swap on first paint.
+ */
+
 :root {
   view-transition-name: none;
 }
 
-/* Hide content until styles are loaded */
-html:not(.js-ready) {
-  opacity: 0;
-}
-
-/* Show content when styles are ready */
-html.js-ready {
-  opacity: 1;
-  transition: opacity 0.2s ease-in-out;
-}
-
-/* Smooth page transitions */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
-
-/* Add smooth transitions for all elements */
-* {
-  transition: opacity 0.3s ease-in-out;
-}
-
-/* Ensure content is hidden until JavaScript is ready */
-.js-loading * {
-  opacity: 0;
-}
-
-/* Ensure content is hidden during transitions */
-.js-transitioning * {
-  opacity: 0;
-}
-
-/* Show content when ready */
-.js-ready * {
-  opacity: 1;
-}
-
-/* Ensure content is hidden during transitions */
-.js-transitioning .page-content {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Show content when ready */
-.js-ready .page-content {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Ensure search components are properly hidden during transitions */
-.js-transitioning .search-modal,
-.js-transitioning .search-results {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-/* Skeleton animation */
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-.skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--skeleton-start) 0%,
-    var(--skeleton-end) 50%,
-    var(--skeleton-start) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: 4px;
-  overflow: hidden;
-} 
