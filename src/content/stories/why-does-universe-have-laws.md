@@ -7,7 +7,7 @@ author: "Orvi"
 readingTime: 15
 tags: ["philosophy", "physics", "determinism", "mathematics", "cosmology", "symmetry"]
 featured: true
-image: "/images/universe-laws.png"
+image: "/images/universe-laws.jpg"
 ---
 
 The universe behaves with a reliability that is easy to overlook.  
