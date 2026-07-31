@@ -1,5 +1,5 @@
 ---
-title: "Toxic Positivity vs. Optimism: What the Research Actually Says"
+title: "Toxic Positivity vs. Optimism: What the Research Says"
 description: "Forced optimism isn't wisdom, it's avoidance dressed up as virtue. A developer's honest look at what philosophy and research actually say about hope."
 pubDate: 2026-05-24
 category: "philosophy"

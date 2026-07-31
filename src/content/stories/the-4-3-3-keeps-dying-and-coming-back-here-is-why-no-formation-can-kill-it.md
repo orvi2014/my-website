@@ -1,5 +1,5 @@
 ---
-title: "The 4-3-3 Keeps Dying and Coming Back. Here Is Why No Formation Can Kill It"
+title: "The 4-3-3 Keeps Dying and Coming Back. Here Is Why"
 description: "The 4-3-3 formation gets buried every few years — by the false 9, the back three, the 4-2-3-1. Here is why football's most adaptable shape always returns."
 pubDate: 2026-06-17
 category: "football"

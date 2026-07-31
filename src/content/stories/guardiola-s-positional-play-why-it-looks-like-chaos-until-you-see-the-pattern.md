@@ -1,5 +1,5 @@
 ---
-title: "Guardiola's Positional Play: Why It Looks Like Chaos Until You See the Pattern"
+title: "Guardiola's Positional Play: The Pattern Behind the Chaos"
 description: "Guardiola positional play looks like chaos, but it's a pressing trap disguised as possession — the pattern most analysts still get backwards."
 pubDate: 2026-06-04
 category: "football"

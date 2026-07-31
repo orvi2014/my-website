@@ -1,5 +1,5 @@
 ---
-title: "Internet Fragmentation: What the Splinternet Means for Developers"
+title: "Splinternet: What Internet Fragmentation Means for Devs"
 description: "The global internet is fracturing into regional segments — and what that means for builders and users who never had much power over it to begin with."
 pubDate: 2026-05-16
 category: "future"

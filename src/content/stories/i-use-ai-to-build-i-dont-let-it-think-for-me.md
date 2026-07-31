@@ -1,5 +1,5 @@
 ---
-title: "Vibe coding vs AI-assisted development: where to draw the line"
+title: "Vibe Coding vs AI-Assisted Development: Drawing the Line"
 description: "76% of developers now use AI coding tools. Here's the line between AI-assisted development and vibe coding, and why it's the only one worth drawing."
 pubDate: 2026-05-17
 category: "ai-automation"
