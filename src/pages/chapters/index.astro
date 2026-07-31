@@ -212,7 +212,11 @@ const itemListSchema = {
       });
     }
 
-    document.addEventListener('astro:page-load', init);
+    // Astro <script> is a deferred module, so the DOM is parsed by now.
+    // This used to rely solely on astro:page-load, which only fires with
+    // ClientRouter — removing ViewTransitions would have left the book
+    // uninitialised and the right-hand page permanently blank.
+    init();
   </script>
 
   <style is:global>

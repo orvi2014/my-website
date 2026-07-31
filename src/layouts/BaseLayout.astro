@@ -1,7 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
-import '../styles/transitions.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SearchModal from '../components/SearchModal.astro';
@@ -275,8 +273,6 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
     <style is:inline>
       .search-modal, .search-results { display: none; }
     </style>
-
-    <ViewTransitions />
   </head>
   <body>
     <div class="page-content">
