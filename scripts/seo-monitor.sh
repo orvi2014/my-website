@@ -127,6 +127,17 @@ print(json.loads(urllib.request.urlopen(req, context=ctx).read())['access_token'
       -H "Content-Type: application/json" \
       -d "$PAYLOAD")
 
+    # An auth or permission failure returns an .error object, and the // 0
+    # fallbacks below would render that as a clean "0 clicks, 0 impressions".
+    # That reads as a traffic collapse rather than a broken credential, so
+    # bail out loudly instead.
+    if echo "$RESPONSE" | jq -e '.error' >/dev/null 2>&1; then
+      echo "  ✗ GSC API error, NOT zero traffic:"
+      echo "$RESPONSE" | jq -r '"    \(.error.code): \(.error.message)"' | head -3
+      echo "    Fix with: bash scripts/gcloud-reauth.sh"
+      GOAL_STATUS="ERROR"
+    else
+
     CLICKS=$(echo "$RESPONSE" | jq -r '.rows[0].clicks // 0')
     IMPRESSIONS=$(echo "$RESPONSE" | jq -r '.rows[0].impressions // 0')
     CTR=$(echo "$RESPONSE" | jq -r '.rows[0].ctr // 0 | . * 100 | floor | tostring + "%"')
@@ -203,6 +214,7 @@ PY
       echo "► Goal"
       echo "$GOAL_EVAL" | grep -v '^STATUS=' || true
     fi
+    fi  # end of the API-error guard
   else
     echo "  ⚠ Could not obtain token — run: gcloud auth application-default login"
   fi
