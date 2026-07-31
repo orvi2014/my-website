@@ -1,7 +1,10 @@
 :root {
   --bg:      #f5f1eb;
   --ink:     #1a1208;
-  --muted:   #7a6e65;
+  /* #7a6e65 measured 4.40:1 against --bg, just under the 4.5:1 WCAG AA
+     threshold for normal text. Darkened two notches along the same warm
+     grey: 4.86:1 on --bg, 5.12:1 on --paper. Visually near-identical. */
+  --muted:   #736760;
   --border:  #e4ddd5;
   --accent:  #c0392b;
   --sienna:  #8B5E3C;
@@ -49,6 +52,20 @@ a {
 
 :focus:not(:focus-visible) {
   outline: none;
+}
+
+/* Readers who ask the OS to reduce motion get no animation. Nothing here is
+   load-bearing: the transitions are hover colour changes and page fades, so
+   removing them costs nothing and prevents motion sickness. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @media print {

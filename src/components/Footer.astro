@@ -21,9 +21,13 @@ const romanYear = toRoman(year);
     text-align: center;
     padding: 28px 24px;
     font-family: var(--font-serif);
-    font-size: 11px;
+    /* Was rgba(122,110,101,0.5), which composites to #b7afa8 on --bg and
+       measures 1.91:1, far below the 4.5:1 needed for readable text. The
+       half-opacity was doing the work of a lighter colour; using the token
+       at full strength gives 4.86:1 and looks near-identical. */
+    font-size: 12px;
     letter-spacing: 0.12em;
-    color: rgba(122,110,101,0.5);
+    color: var(--muted);
     border-top: 1px solid var(--border);
     background: var(--bg);
   }
