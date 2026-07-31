@@ -1,5 +1,5 @@
 ---
-title: "Does True Love Last Forever? What Science and One Reunion Taught Me"
+title: "Does True Love Last Forever? Science and One Reunion"
 description: "What happens when first love returns after 20 years apart — and what neuroscience and psychology say about whether true love can really last forever."
 pubDate: 2024-03-21
 category: "human"

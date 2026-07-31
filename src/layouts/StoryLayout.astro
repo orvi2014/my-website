@@ -28,7 +28,13 @@ const meta = [
 ---
 
 <BaseLayout
-  title={`${title} – The Book of Life`}
+  {/* No brand suffix. Google truncates title links near 60 characters, and
+      " – The Book of Life" costs 19 of them on every page — enough to push 76
+      of 81 stories past the cut, including titles that would otherwise fit.
+      The brand is already carried by og:site_name and by the site name Google
+      renders above the title link, so the suffix only duplicated a signal at
+      the cost of the payoff clause readers actually decide on. */}
+  title={title}
   description={description}
   currentPath={`/chapters/${story.data.category}/${story.slug}`}
   image={image}

@@ -1,5 +1,5 @@
 ---
-title: "What the AI Agent Still Cannot Replace About a Senior Developer"
+title: "What AI Agents Still Cannot Replace About Senior Developers"
 description: "AI agents write code fast, but they can't replace the judgment, systems thinking, and context that senior developers bring to real problems."
 pubDate: 2026-05-16
 category: "ai-automation"

@@ -1,5 +1,5 @@
 ---
-title: "Gegenpressing Explained: Why Every Team Copies It and Most Get It Wrong"
+title: "Gegenpressing Explained: Why Most Teams Get It Wrong"
 description: "Gegenpressing explained properly: the frantic running isn't the point. The hidden in-possession structure is why teams copy Klopp and get countered."
 pubDate: 2026-06-15
 category: "football"

@@ -1,5 +1,5 @@
 ---
-title: "Silent AI Code Bugs: Why Generated Code Passes Reviews But Fails in Production"
+title: "Silent AI Code Bugs: Passing Reviews, Failing in Production"
 description: "AI-generated code looks perfect but contains subtle bugs that code review misses. Here's why automation bias makes you ship wrong code — and how to audit it."
 pubDate: 2026-05-16
 category: "ai-automation"

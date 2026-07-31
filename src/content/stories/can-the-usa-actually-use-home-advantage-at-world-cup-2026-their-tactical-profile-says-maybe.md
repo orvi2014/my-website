@@ -1,5 +1,5 @@
 ---
-title: "World Cup 2026: Why Tyler Adams Matters More Than Pulisic for the USA"
+title: "World Cup 2026: Why Tyler Adams Matters More Than Pulisic"
 description: "The USA's success at home depends on a defensive midfielder, not their star attacker. Here's the tactical case for why Tyler Adams is critical."
 pubDate: 2026-06-13
 category: "football"

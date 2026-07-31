@@ -1,5 +1,5 @@
 ---
-title: "Does Free Will Still Exist If an AI Can Predict Your Next Decision?"
+title: "Does Free Will Exist If AI Can Predict Your Next Decision?"
 description: "If AI can predict your next choice before you make it, does free will mean anything? A rigorous look at determinism, agency, and algorithmic manipulation."
 pubDate: 2026-05-16
 category: "philosophy"

@@ -1,5 +1,5 @@
 ---
-title: "Context Windows in AI: Why Feeding Your Model Too Much Text Breaks Production"
+title: "Context Windows: Why Too Much Text Breaks AI in Production"
 description: "Models perform worse with long context. Lost in the Middle research shows 20-30% accuracy drops. Here's how to architect AI systems around this constraint."
 pubDate: 2026-06-08
 category: "ai-automation"

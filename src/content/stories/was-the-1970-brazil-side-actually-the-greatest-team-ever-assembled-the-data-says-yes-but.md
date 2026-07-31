@@ -1,5 +1,5 @@
 ---
-title: "Brazil 1970: 19 Goals in 6 Matches and the Case for Greatest Team Ever"
+title: "Brazil 1970: 19 Goals, 6 Wins, the Greatest Team Ever?"
 description: "Brazil won all 6 matches at the 1970 World Cup and scored 19 goals. The data makes them history's greatest team — here's the tactical proof."
 pubDate: 2026-05-18
 category: "football"

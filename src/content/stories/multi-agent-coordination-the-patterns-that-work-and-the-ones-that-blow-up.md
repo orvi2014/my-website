@@ -1,5 +1,5 @@
 ---
-title: "Context Window Poisoning in Multi-Agent Pipelines: Why Agents Hallucinate Together"
+title: "Context Window Poisoning: Why AI Agents Hallucinate Together"
 description: "When one agent's hallucination spreads through a pipeline, no agent catches it. Here's why cascading trust causes silent failures — and how to stop it."
 pubDate: 2026-05-27
 category: "ai-agents"

@@ -1,5 +1,5 @@
 ---
-title: "Does High Pressing Actually Win Trophies? Ten Years of PPDA Data Have an Answer"
+title: "Does High Pressing Win Trophies? Ten Years of PPDA Data"
 description: "PPDA pressing stats expose a football paradox: across ten years, the hardest-pressing teams rarely win trophies. The data names who actually does."
 pubDate: 2026-06-02
 category: "football"
