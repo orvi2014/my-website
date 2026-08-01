@@ -1,6 +1,6 @@
 ---
-title: "Context Window Poisoning: Why AI Agents Hallucinate Together"
-description: "When one agent's hallucination spreads through a pipeline, no agent catches it. Here's why cascading trust causes silent failures — and how to stop it."
+title: "Multi-Agent Coordination: The Patterns That Hold Under Load"
+description: "Most multi-agent patterns were built for demos, not production. Which coordination architectures hold under load, and why systems fail at the seams."
 pubDate: 2026-05-27
 category: "ai-agents"
 author: "Orvi"
