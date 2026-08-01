@@ -1,5 +1,5 @@
 ---
-title: "Why Do Multi-Agent AI Systems Fail at Production Scale?"
+title: "Agent Rule Conflicts: Why AI Pipelines Fail Silently"
 description: "When different AI agents have conflicting rules, pipelines fail silently at scale. Here's how cascading deferrals break automation — and what to audit."
 pubDate: 2026-05-27
 category: "ai-automation"

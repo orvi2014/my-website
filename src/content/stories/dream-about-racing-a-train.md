@@ -2,10 +2,10 @@
 title: "What Does It Mean to Dream About Racing a Train?"
 description: "Racing a train in your dreams and losing reveals the exact tension between ambition and distraction that defines your waking life."
 pubDate: 2024-03-20
-category: "technology"
+category: "human"
 author: "Orvi"
 readingTime: 7
-tags: ["dream meaning", "racing a train dream", "dreams about losing", "human potential", "resilience", "technology"]
+tags: ["dream meaning", "racing a train dream", "dreams about losing", "human potential", "resilience", "psychology"]
 featured: true
 ---
 
