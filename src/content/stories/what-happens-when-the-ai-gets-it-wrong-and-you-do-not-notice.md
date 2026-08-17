@@ -1,12 +1,19 @@
 ---
 title: "Silent AI Code Bugs: Passing Reviews, Failing in Production"
-description: "AI-generated code looks perfect but contains subtle bugs that code review misses. Here's why automation bias makes you ship wrong code — and how to audit it."
+description: "AI-generated code looks right and still ships bugs review misses. Automation bias is why. How to audit it before three weeks of silence becomes an incident."
 pubDate: 2026-05-16
 category: "ai-automation"
 author: "Orvi"
 readingTime: 8
-tags: ["ai-coding", "code-review", "claude", "copilot", "software-quality", "automation-bias", "debugging", "ai-tools"]
+tags: ["ai-coding", "code-review", "silent ai bugs", "claude", "copilot", "software-quality", "automation-bias", "debugging", "ai-tools"]
 featured: false
+faq:
+  - q: "Why does AI-generated code feel convincing even when it is wrong?"
+    a: "The model writes the code and the comment that describes the code. Review then checks the output against the model's own description of the output. That is circular. Fluency is not accuracy, and the tests often come from the same frame as the implementation, so they pass until production diverges."
+  - q: "How do silent AI code bugs get through review?"
+    a: "They look locally correct. The function does what the comment says. The unit tests pass because they were generated from the same prompt. The failure is in the surrounding system: an assumption about environment, an edge the prompt never named, a type that is right in the test harness and wrong in production."
+  - q: "How should you review AI-generated code?"
+    a: "Hold a separate mental model of what the code should do before you read what it does. Keep a human who did not generate the code in the review chain. Do not let the model review itself in isolation. Tools like Semgrep and CodeQL catch patterns. They do not replace asking whether the frame itself was correct."
 ---
 
 The bug was there for three weeks. Every time someone ran the test suite, it passed. Every time someone reviewed the PR, the logic looked right. The function did exactly what the comment said it did — and the comment had been written by the same model that wrote the code. It was only when the production environment diverged slightly from the test setup that anything surfaced at all, and by then the damage was already downstream.
@@ -78,3 +85,7 @@ Do not let the model review itself in isolation. Its explanations are fluent. Fl
 The tool is genuinely powerful. I use it every day. But there is a version of this that ends badly, and it ends badly quietly — three weeks of silence before the production divergence, the bug that passed every test because the tests were written from the same frame as the code. The answer is not to distrust the model. The answer is to distrust the feeling that you have already checked.
 
 That feeling is fast. Checking is slower. One of those is worth keeping.
+
+## Related reading
+
+The workflow that produces these bugs is [vibe coding versus AI-assisted development](/chapters/ai-automation/i-use-ai-to-build-i-dont-let-it-think-for-me). The same silence, at pipeline scale, is [agent rule conflicts](/chapters/ai-automation/agent-rule-wars).

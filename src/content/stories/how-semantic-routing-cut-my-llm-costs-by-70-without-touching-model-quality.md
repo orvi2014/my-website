@@ -1,12 +1,21 @@
 ---
-title: "How Semantic Routing Cut My LLM Costs by 70% Without Touching Model Quality"
-description: "Semantic routing cut my LLM costs 70% in production. Here's the unglamorous truth about why it works and why most teams still won't ship it."
+title: "Semantic Routing: How I Cut LLM Costs 70% in Production"
+description: "Semantic routing cut my LLM costs 70% without hurting quality. Most teams still send every request to the expensive model. Here is what actually breaks."
 pubDate: 2026-07-14
 category: "ai-agents"
 author: "Orvi"
 readingTime: 9
-tags: ["semantic routing", "llm cost optimization", "ai agents", "model routing", "prompt caching", "production ai", "llm engineering", "cost reduction", "frugalgpt"]
+tags: ["semantic routing", "llm cost optimization", "cut llm costs", "ai agents", "model routing", "prompt caching", "production ai", "llm engineering", "cost reduction", "frugalgpt"]
 featured: false
+faq:
+  - q: "What is semantic routing for LLMs?"
+    a: "A classifier in front of the model call that sends different requests to different models based on what the request needs, not a load balancer that spreads identical traffic. Easy classification goes to a cheap model. Hard reasoning goes to an expensive one. Quality is the risk you take in exchange for the cost savings, which is why it needs a confidence threshold, not an unsupervised classifier."
+  - q: "How much money does semantic routing actually save?"
+    a: "In production I cut LLM costs about 70% without a measurable quality drop on the tasks we routed. The saving only holds if you monitor misclassification. Treat the router like a fraud model, not a routing table."
+  - q: "Does semantic routing hurt output quality?"
+    a: "It can, if the classifier is wrong. That is the new failure mode you did not have when every request hit the same model. A confidence threshold that falls back to the expensive model is the safety net. Most teams ship the classifier and skip the net."
+  - q: "Is semantic routing just load balancing?"
+    a: "No. Load balancing distributes identical requests across identical capacity. Semantic routing sends different requests to genuinely different models. Conflating them is how teams ship a router with load-balancer-level monitoring and only notice quality drift when a customer does."
 ---
 
 I spent the better part of a year defending a decision I now think was wrong: routing every single request to the biggest model available because I was scared of the alternative looking cheap. Semantic routing for LLM cost reduction isn't a research curiosity anymore. It's the difference between an agent stack that survives its own success and one that gets killed in a budget review the first time usage 10x's. I found that out by almost getting killed in a budget review.
@@ -62,3 +71,7 @@ The two get conflated because both sit in the same place in your stack, in front
 Every team I've talked to that adopted semantic routing treated it as a cost project. Almost none of them treated it as a reliability project, and that's backward. The moment you have a classifier deciding which model handles a request, you have introduced a new failure mode that didn't exist before, misclassification, and most teams ship it with less monitoring than they'd put on a database migration. The savings are real and the papers back it up, but the actual engineering discipline required to run this safely in production is closer to what you'd apply to a fraud-detection model than a routing table. Almost nobody is building it that way yet, which means the first wave of embarrassing "the AI said something dumb" incidents that get publicly traced back to a root cause is going to be traced back to a stale, unmonitored router, not a bad base model.
 
 My prediction, and it's a narrow one: within the next two years, the routing layer itself becomes the thing vendors charge for and audit, the same way API gateways became a paid, monitored layer instead of a bit of glue code teams wrote themselves. The teams still running an unmonitored classifier they built in an afternoon are the ones who'll be explaining an incident report to someone who asks "wait, what actually decided to use the cheap model here?", and won't have a good answer.
+
+## Related reading
+
+The reason dumping everything into one giant model is a bad substitute for routing is [Lost in the Middle: why your context window still feels too small](/chapters/ai-automation/why-context-window-size-is-the-thing-every-developer-should-care-about). Retrieval has the same cost-versus-trust problem: [RAG hallucination rate, 17–33%](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026).

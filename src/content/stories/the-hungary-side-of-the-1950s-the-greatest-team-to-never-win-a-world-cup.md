@@ -1,6 +1,6 @@
 ---
 title: "Hungary 1954: 49 Games Unbeaten But Lost the World Cup Final"
-description: "Hungary went four years without defeat, then lost the 1954 World Cup final. Why the Mighty Magyars remain the greatest team never to win it."
+description: "Hungary beat England 6-3 at Wembley and 7-1 in Budapest, then lost the 1954 final 3-2. Why the Mighty Magyars remain the greatest team never to win it."
 pubDate: 2026-06-13
 category: "football"
 author: "Orvi"
@@ -23,6 +23,13 @@ faq:
 Watch the grainy footage of the first minute at Wembley, 25 November 1953, and the goal is not the thing to watch. Watch what happens before it. Nándor Hidegkuti, wearing the number 9 that every English defender on the pitch had been coached to treat as the centre-forward to be marked, simply isn't where the number 9 is supposed to be. He has drifted thirty yards back into midfield, into the grass between England's half-backs and their inside-forwards — and for a beat, nobody goes with him. Harry Johnston, England's centre-half, the man whose entire job was to stand on the opposition number 9, is left guarding a patch of empty turf. That hesitation — one defender not knowing whether to follow or hold — is the whole story of Hungary 1950s football history compressed into a single second. Then Hidegkuti turns and drives it in. Sixty seconds gone, and the most important tactical lesson of the decade has already been delivered.
 
 England lost that match 6–3. It was the first time a team from outside the British Isles had ever beaten them at home, and it was not close in any sense that mattered. According to the [National Football Museum](https://nationalfootballmuseum.com/stories/when-hungary-stunned-wembley-and-the-world/), Hungary registered 35 shots to England's 5. Six months later, on 23 May 1954, England travelled to the Népstadion in Budapest for the rematch and lost 7–1 — to this day [their heaviest ever defeat](https://en.wikipedia.org/wiki/1954_Hungary_v_England_football_match). Mihály Lantos opened the scoring after eight minutes; Puskás and Kocsis had it at 3–0 inside the half hour. The team that did this never won a World Cup. That contradiction is what I want to sit with.
+
+| Date | Opponent | Result |
+| --- | --- | --- |
+| 25 Nov 1953 | England, Wembley | 6–3 |
+| 23 May 1954 | England, Budapest | 7–1 |
+| 20 Jun 1954 | West Germany, group | 8–3 |
+| 4 Jul 1954 | West Germany, World Cup final | 2–3 |
 
 ## Why is the Hungary team of the 1950s called the greatest to never win a World Cup?
 

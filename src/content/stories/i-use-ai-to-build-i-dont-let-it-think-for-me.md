@@ -1,12 +1,21 @@
 ---
 title: "Vibe Coding vs AI-Assisted Development: Drawing the Line"
-description: "76% of developers now use AI coding tools. Here's the line between AI-assisted development and vibe coding, and why it's the only one worth drawing."
+description: "Vibe coding vs AI-assisted development: Karpathy coined the term in 2025. METR found experienced developers 19% slower with AI. The line is tests, not tools."
 pubDate: 2026-05-17
 category: "ai-automation"
 author: "Orvi"
 readingTime: 9
-tags: ["ai", "software development", "vibe coding", "testing", "developer mindset", "claude code", "engineering", "ai-assisted development", "test-driven development"]
+tags: ["ai", "software development", "vibe coding", "ai assisted coding vs vibe coding", "testing", "developer mindset", "claude code", "engineering", "ai-assisted development", "test-driven development"]
 featured: false
+faq:
+  - q: "What is the difference between vibe coding and AI-assisted development?"
+    a: "AI-assisted development means you understand the problem, write a bounded prompt, read the output, and test before you ship. Vibe coding, a term Andrej Karpathy coined in February 2025, means prompting without understanding, accepting generated code without reading it, and shipping without testing. Same tools. Opposite workflow."
+  - q: "Does AI coding make developers faster?"
+    a: "On well-specified, bounded tasks, yes: GitHub's 2022 Copilot research found developers completed those tasks 55% faster. On large codebases they already knew, a METR randomized trial in July 2025 found experienced open-source developers were 19% slower with AI tools, even though they believed they had been 20% faster."
+  - q: "Will AI replace senior developers?"
+    a: "No. Senior value is knowing which code should not exist and which requirements are wrong before you build them. That judgment comes from having been wrong enough times to develop taste. AI has pattern completion, not taste. It will write a correct solution to the wrong problem with the same confidence it writes a correct solution to the right one."
+  - q: "How do you use AI coding tools without vibe coding?"
+    a: "Write the unit test first so the contract exists before the model types. Hand the model a specific schema, not 'write me a payments function.' Read all of the output. Run integration tests against real systems, not mocks. If you cannot write a precise prompt, you do not understand the problem yet."
 ---
 
 The first time I watched someone vibe code, I felt the same thing I feel watching someone drive with their knees. Technically possible. Impressive for about thirty seconds. And then just a matter of time.
@@ -26,6 +35,13 @@ Vibe coding is prompting an AI without understanding the output, accepting gener
 This distinction matters because people collapse the two categories to either defend or attack AI in development. Using AI to help write code is just programming now. That is what the tools are for. According to the [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/), 76% of developers are already using or plan to use AI coding tools in their workflow.
 
 Vibe coding is something more specific: prompting without understanding, accepting without reading, shipping without testing. The developer's job becomes describing what they want and clicking approve.
+
+| | AI-assisted development | Vibe coding |
+| --- | --- | --- |
+| You understand the problem first | Yes | No |
+| You read the generated code | Yes | No |
+| Tests exist before you ship | Yes | No |
+| The model decides what "done" means | No | Yes |
 
 The output looks like software. It passes the smell test. It runs. And then, three weeks later, something quietly breaks in production and you spend an afternoon staring at code you do not actually understand, written by a model that does not remember writing it.
 
@@ -158,3 +174,7 @@ The tools will keep improving. The discipline has to improve with them.
 I am not nostalgic for writing more code by hand. I do not want to go back to the era before these tools. But I am very aware that the floor of what is possible with AI and no judgment is getting lower as the ceiling of what is possible with AI and good judgment gets higher.
 
 The developers I see getting the most out of AI right now are the ones with the most judgment, not the least. That probably tells you something.
+
+## Related reading
+
+The failure mode this essay is about, code that looks right and is wrong, is [silent AI bugs that pass review and fail in production](/chapters/ai-automation/what-happens-when-the-ai-gets-it-wrong-and-you-do-not-notice). If the model is forgetting the file you just pasted, that is [context windows, not vibe coding](/chapters/ai-automation/why-context-window-size-is-the-thing-every-developer-should-care-about).

@@ -1,12 +1,21 @@
 ---
 title: "Agent Rule Conflicts: Why AI Pipelines Fail Silently"
-description: "When different AI agents have conflicting rules, pipelines fail silently at scale. Here's how cascading deferrals break automation — and what to audit."
+description: "When AI agents have conflicting rules, pipelines fail silently. No exception, no stack trace. How cascading deferrals break automation, and what to audit."
 pubDate: 2026-05-27
 category: "ai-automation"
 author: "Orvi"
 readingTime: 8
-tags: ["ai", "agents", "multi-agent", "ai-safety", "automation", "prompt-injection", "ai-governance", "llm"]
+tags: ["ai", "agents", "multi-agent", "agent rule conflicts", "ai-safety", "automation", "prompt-injection", "ai-governance", "llm"]
 featured: false
+faq:
+  - q: "Why do AI agent rules conflict in multi-agent pipelines?"
+    a: "Each agent carries constraints from a different source: model defaults, the operator's system prompt, and the live user. Those constraints were written without knowledge of each other. When an orchestrator hands a task to a subagent, it hands off into rules it did not write. Neither agent is wrong by its own rules. Together they produce an outcome nobody intended."
+  - q: "How do multi-agent AI failures differ from ordinary software bugs?"
+    a: "Traditional mismatches fail loudly: an exception, a non-200, a timeout. Agent mismatches fail silently. The pipeline completes, a response goes out, and the error is a wrong answer that looked right. A logistics pricing agent and inventory agent can both be correct at every step and still queue orders for four days."
+  - q: "How does prompt injection exploit multi-agent pipelines?"
+    a: "Indirect prompt injection embeds instructions in content an agent will read: a webpage, an email, a document. In a multi-agent pipeline the injected instructions can also come from another agent. Kai Greshake et al. (2023) demonstrated working exploits against Bing Chat and GPT-4 tools. OWASP's LLM Top 10 still ranks prompt injection first."
+  - q: "How do you prevent multi-agent failures in production?"
+    a: "Map every agent and write down what each one is told to refuse. Compare those lists across boundaries before you deploy. Log refusals and deferrals explicitly, not just task completion. Build for the case where a downstream agent refuses. Treat retrieved external content as untrusted."
 ---
 
 Last month I watched a customer support agent refuse to answer a question it had already answered three messages earlier. A second agent in the same pipeline had flagged the topic as sensitive. The first read the flag, deferred to it, and apologised. Neither agent was wrong by its own rules. Together they produced an outcome nobody intended.
@@ -114,3 +123,7 @@ The rule wars are already happening. They happen every time two agents interact 
 The breakage is invisible by default. Visibility requires work you have to do on purpose.
 
 The tooling will catch up. Standards will get written. Someone will build the cross-agent audit trail that everyone currently has to build by hand. Until then, the teams not getting surprised by this are the ones that wrote down their assumptions before they deployed, and kept checking them after.
+
+## Related reading
+
+The retrieval layer these pipelines sit on still hallucinates at 17–33%: [why RAG is not enough](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026). For the coordination patterns that blow up in production, see [multi-agent coordination](/chapters/ai-agents/multi-agent-coordination-the-patterns-that-work-and-the-ones-that-blow-up).

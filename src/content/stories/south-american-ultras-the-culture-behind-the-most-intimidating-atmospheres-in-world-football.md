@@ -1,6 +1,6 @@
 ---
-title: "South American Ultras: The Culture Behind the Most Intimidating Atmospheres in World Football"
-description: "South American ultras and barra bravas don't just make noise. They change how referees officiate. The data on why away teams collapse in Buenos Aires."
+title: "South American Ultras: Why Away Teams Fold in Buenos Aires"
+description: "South American ultras change how referees officiate. Why away teams collapse at La Bombonera, and why that noise will not travel to World Cup 2026."
 pubDate: 2026-07-30
 category: "football"
 author: "Orvi"
@@ -86,4 +86,4 @@ So here's the thing I'll be watching for, and it's the same detail as the openin
 
 ## Where this sits in the bigger argument
 
-The same question runs through [the ranking of the greatest football teams of all time](/chapters/football/greatest-football-teams-of-all-time): how much of a great side's record belongs to the crowd behind it?
+The same question runs through [the ranking of the greatest football teams of all time](/chapters/football/greatest-football-teams-of-all-time): how much of a great side's record belongs to the crowd behind it? For the European version of the same variable, see [Dortmund's Yellow Wall: Südtribüne capacity 24,454](/chapters/football/the-yellow-wall-why-dortmund-s-s-dtrib-ne-is-the-most-studied-crowd-in-football).

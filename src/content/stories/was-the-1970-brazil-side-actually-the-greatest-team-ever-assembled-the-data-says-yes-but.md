@@ -1,6 +1,6 @@
 ---
-title: "Brazil 1970: 19 Goals, 6 Wins, the Greatest Team Ever?"
-description: "Brazil won all 6 matches at the 1970 World Cup and scored 19 goals. The data makes them history's greatest team — here's the tactical proof."
+title: "Brazil 1970: 19 Goals, Jairzinho Scored in All 6 Games"
+description: "Brazil 1970 scored 19 goals and won all six World Cup games. Jairzinho scored in every match. No winner since has averaged 3.17 goals a game."
 pubDate: 2026-05-18
 category: "football"
 author: "Orvi"
@@ -22,11 +22,24 @@ faq:
 
 Watch the build-up to Brazil's fourth goal against Italy in the 1970 World Cup Final again. Clodoaldo, deep in his own half, dummies past four Italian players with one shimmy. The ball goes to Rivelino, then Jairzinho, then Pelé, who lays it across the Azteca turf without looking — he already knows Carlos Alberto is arriving at full sprint from right back. The finish is a thunderbolt into the corner. But by then, you've already watched the argument play out.
 
-Brazil's 1970 World Cup side won all six matches, scored 19 goals, conceded seven, and did it against England, Uruguay, and an Italy side that hadn't conceded once on the way to the final. The case for greatest team in history starts there, and it's stronger than the nostalgia merchants usually make it.
+Brazil's 1970 World Cup side won all six matches, scored 19 goals, conceded seven, and did it against England, Uruguay, and an Italy side that hadn't conceded once on the way to the final. The record is the argument. The myth is just what people remember of it.
 
-## Was Brazil 1970 Actually the Greatest Team in History?
+## Brazil 1970 World Cup results
 
-More convincingly than any other candidate, yes.
+| Round | Opponent | Score |
+| --- | --- | --- |
+| Group | Czechoslovakia | 4–1 |
+| Group | England | 1–0 |
+| Group | Romania | 3–2 |
+| Quarter-final | Peru | 4–2 |
+| Semi-final | Uruguay | 3–1 |
+| Final | Italy | 4–1 |
+
+Six games, six wins, 19 goals scored, seven conceded. Jairzinho scored in every one of them. Whether that makes them the greatest team in history is a noisier question, and Wikipedia already owns that fight.
+
+## Brazil 1970 World Cup record: 19 goals, six wins, Jairzinho in every match
+
+On margin over the field they played, no World Cup winner has a cleaner sheet.
 
 The headline number is Jairzinho: [seven goals in six games](https://www.rsssf.org/tables/70f.html), at least one in every match from the group stage through the final.[^1] That had never been done before in World Cup history. It has not been done since. Brazil averaged 3.17 goals per game across six competitive matches.[^2] No World Cup winner since has averaged above 2.8.[^3]
 
@@ -76,7 +89,7 @@ Azteca, June 21, 1970. Four goals, one of them a piece of collective precision t
 
 ## Related reading
 
-For more on how great teams manufacture tactical dominance, read about [Hungary's 1954 team: 42 games unbeaten but lost the World Cup final](/chapters/football/the-hungary-side-of-the-1950s-the-greatest-team-to-never-win-a-world-cup). Or explore [why tactical positioning, not star power, decides World Cup 2026](/chapters/football/can-the-usa-actually-use-home-advantage-at-world-cup-2026-their-tactical-profile-says-maybe) — the same systemic thinking that made Brazil and Hungary era-defining.
+For more on how great teams manufacture tactical dominance, read about [Hungary's 1954 team: 49 games unbeaten, then lost the World Cup final](/chapters/football/the-hungary-side-of-the-1950s-the-greatest-team-to-never-win-a-world-cup). For the possession system that later tried to replace this kind of margin, see [what killed tiki-taka](/chapters/football/what-killed-tiki-taka-and-whether-spain-s-new-game-is-actually-better).
 
 ---
 

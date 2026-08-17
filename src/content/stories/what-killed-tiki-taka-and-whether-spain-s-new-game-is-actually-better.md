@@ -1,17 +1,28 @@
 ---
-title: "What Killed Tiki-Taka — And Whether Spain's New Game Is Actually Better"
-description: "What killed tiki-taka wasn't a fad fading — it was one flaw, exposed twice. And Spain's new game may already be better. The tactical forensics."
+title: "What Killed Tiki-Taka (UEFA Never Banned It)"
+description: "UEFA never banned tiki-taka. Spain's 5-1 loss to the Netherlands in 2014 exposed one flaw: possession is not a defence. Why Spain's 2024 game is already better."
 pubDate: 2026-06-15
 category: "football"
 author: "Orvi"
 readingTime: 9
-tags: ["tiki-taka", "gegenpressing", "Spain", "tactics", "Pep Guardiola", "Lamine Yamal", "positional play", "high line", "Euro 2024", "Barcelona"]
+tags: ["tiki-taka", "did uefa ban tiki taka", "gegenpressing", "Spain", "tactics", "Pep Guardiola", "Lamine Yamal", "positional play", "high line", "Euro 2024", "Barcelona"]
 featured: false
+faq:
+  - q: "Did UEFA ban tiki-taka?"
+    a: "No. UEFA never banned tiki-taka, and neither did FIFA. There was no rule change. The system collapsed after 2012 because vertical attacks punished Spain's high line and a counter-press won the ball back before the midfield could reset. Spain still had 58% of the ball at Euro 2024. They stopped treating possession as a defence."
+  - q: "What killed tiki-taka?"
+    a: "The four seconds after Spain lost the ball. Direct vertical attacking into the space behind a high line, and gegenpressing that strangled possession before it could restart. The 5-1 loss to the Netherlands at the 2014 World Cup is the cleanest data sheet. Possession percentages stayed high. The scoreline did not."
+  - q: "Is Spain's Euro 2024 game still tiki-taka?"
+    a: "No. Keeping the ball is not tiki-taka. Tiki-taka treated possession as the point. Spain 2024 averaged 58.2% possession, third in the tournament, and won the final 2-1 through two vertical actions, not by running the clock. Same possession column. Opposite religion."
 ---
 
 The cleanest way to understand what killed tiki-taka is to read the data sheet from one match. Arena Fonte Nova, Salvador, 13 June 2014. Spain — reigning world champions, reigning European champions, the most decorated possession side football had ever produced — had just lost 5-1 to the Netherlands. The pass-completion column still looked like a coronation. The scoreline looked like a crime scene. Both were true at once, and that contradiction is the whole story.
 
 I want to treat this forensically, because tiki-taka didn't die of old age. It was a plan that looked right and broke anyway — and it broke in a specific, repeatable way that a sharp opponent could have diagrammed in advance. Spain kept the ball that night. They lost by four goals. Somewhere between those two facts is every assumption the system was built on, and every one of them turned out to be load-bearing in a way nobody checked.
+
+## Did UEFA ban tiki-taka?
+
+No. UEFA never banned tiki-taka, and neither did FIFA. There was no rule change, no directive, no quiet instruction to referees. The rumour exists because the system collapsed so fast after Euro 2012 that a ban is easier to believe than a tactical flaw. What killed it was the four seconds after Spain lost the ball: a vertical ball into the space behind a high line, and a counter-press that won it back before the midfield could reset. Spain still had 58% of the ball at Euro 2024. They just stopped treating possession as a defence.
 
 ## What actually killed tiki-taka?
 
@@ -70,4 +81,4 @@ That was always the flaw, and it was visible at Sarrià in 1982 if anyone in Spa
 
 ## Where this sits in the bigger argument
 
-Spain's 2008-2012 run still places them third in [the ranking of football's all-time great teams](/chapters/football/greatest-football-teams-of-all-time), where durability counts for more than the margin their 1-0 wins suggest.
+Spain's 2008-2012 run still places them third in [the ranking of football's all-time great teams](/chapters/football/greatest-football-teams-of-all-time), where durability counts for more than the margin their 1-0 wins suggest. For the World Cup winner that actually scored at 3.17 goals a game, see [Brazil 1970: 19 goals, Jairzinho in all six](/chapters/football/was-the-1970-brazil-side-actually-the-greatest-team-ever-assembled-the-data-says-yes-but).

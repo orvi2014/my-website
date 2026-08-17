@@ -1,12 +1,17 @@
 ---
-title: "The Yellow Wall: Why Dortmund's Südtribüne Is the Most Studied Crowd in Football"
-description: "Borussia Dortmund Yellow Wall: how a 24,454-strong terrace became football's most measured crowd, and what its noise still does that no stat can show."
+title: "Dortmund Yellow Wall Capacity: 24,454 on the Südtribüne"
+description: "Dortmund's Südtribüne holds 24,454. That Yellow Wall capacity is why the stand shows up in referee-bias studies, and what the noise actually does."
 pubDate: 2026-07-02
 category: "football"
 author: "Orvi"
 readingTime: 10
-tags: ["Borussia Dortmund", "Yellow Wall", "Südtribüne", "Signal Iduna Park", "gegenpressing", "Jürgen Klopp", "home advantage", "crowd noise", "Bundesliga", "referee bias"]
+tags: ["Borussia Dortmund", "Yellow Wall", "Südtribüne", "sudtribune", "dortmund yellow wall capacity", "Signal Iduna Park", "gegenpressing", "Jürgen Klopp", "home advantage", "crowd noise", "Bundesliga", "referee bias"]
 featured: false
+faq:
+  - q: "What is Dortmund Yellow Wall capacity?"
+    a: "The Südtribüne holds 24,454 standing spectators, the largest free-standing single-tier grandstand in European football. Signal Iduna Park holds 81,365 overall, so roughly three in ten people in the ground are on this one terrace. For Champions League nights under UEFA rules the stand converts to seats and drops to about 13,000."
+  - q: "How big is Borussia Dortmund's Südtribüne?"
+    a: "24,454 standing. It is the south end of Signal Iduna Park (Westfalenstadion), opened in 1974 for the World Cup and rebuilt after the 1997 Champions League win. About 80% of the stand is covered, which traps sound and throws it back onto the pitch."
 ---
 
 On May 21, 2005, Borussia Dortmund hosted Hansa Rostock in a match that meant almost nothing in the table and almost everything to the club's survival. Dortmund were roughly €118 million in debt, weeks from insolvency, and a fan named Lorcher — a leader of the ultras group The Unity — had spent the previous year buying more than three miles of yellow cloth from a Danish retail chain to make 4,000 flags. That afternoon the south terrace turned into an unbroken sheet of yellow and black, and the phrase "Gelbe Wand" — the Yellow Wall — attached itself to the stand for good. Twenty years later, the Borussia Dortmund Yellow Wall is the subject of peer-reviewed referee-bias studies, acoustic teardown, and a natural experiment nobody planned: a pandemic that switched it off and let researchers measure, for the first time, exactly what it had been doing all along.
@@ -58,4 +63,4 @@ The club's fanbase has pushed back hard on where that commercial pressure leads.
 
 ## Where this sits in the bigger argument
 
-The Südtribüne is the most studied crowd in the sport, and the research is covered alongside [the ranking of the greatest football teams of all time](/chapters/football/greatest-football-teams-of-all-time).
+The Südtribüne is the most studied crowd in the sport, and the research is covered alongside [the ranking of the greatest football teams of all time](/chapters/football/greatest-football-teams-of-all-time). For the South American version of the same crowd effect, see [barra bravas and why away teams fold in Buenos Aires](/chapters/football/south-american-ultras-the-culture-behind-the-most-intimidating-atmospheres-in-world-football).

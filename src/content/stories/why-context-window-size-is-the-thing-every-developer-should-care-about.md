@@ -1,12 +1,21 @@
 ---
-title: "Context Windows: Why Too Much Text Breaks AI in Production"
-description: "Models perform worse with long context. Lost in the Middle research shows 20-30% accuracy drops. Here's how to architect AI systems around this constraint."
+title: "AI Context Window Too Small: Lost in the Middle Explains Why"
+description: "Your AI context window feels too small even at 200K. Lost in the Middle found 20-30% accuracy drops when the answer sits in the middle of a long prompt."
 pubDate: 2026-06-08
 category: "ai-automation"
 author: "Orvi"
 readingTime: 9
-tags: ["context window", "ai development", "llm", "claude", "gpt-4", "developer tools", "ai automation", "prompt engineering", "rag", "long context"]
+tags: ["context window", "ai context window too small", "lost in the middle", "ai development", "llm", "claude", "gpt-4", "prompt engineering", "rag", "long context"]
 featured: false
+faq:
+  - q: "What is an AI context window?"
+    a: "The total text a model can process in one request: system prompt, conversation history, injected documents, and the response being generated, counted together. Exceed the limit and you get a hard error, or the model silently drops older content. The silent version is worse because you only notice when the output starts behaving strangely."
+  - q: "Why does my AI context window feel too small even on a 200K model?"
+    a: "Window size is capacity, not quality. Stanford and UC Berkeley's 2023 Lost in the Middle study found 20-30% accuracy drops when the relevant fact sits in the middle of a long context rather than the start or end. A bigger window gives you more room for important content to drift into that dead zone and get ignored."
+  - q: "Should I paste my whole codebase into the prompt?"
+    a: "No. Retrieval and reasoning are different. Needle-in-a-haystack tests show models can often find a buried fact. They degrade when asked to synthesise relationships across facts scattered through the same long context. Send the function, the class, and the relevant imports. The model reasons better about less."
+  - q: "How should you structure a long-context prompt?"
+    a: "Fill to about 60-70% of the limit with task-relevant information: constraints and definitions near the beginning, supporting context in the middle, the specific question at the end. For RAG, put the most relevant chunk first. For agents, re-inject important instructions each turn instead of trusting a long task history."
 ---
 
 About six months into building seriously with language models, I hit a wall I didn't see coming. I was trying to feed a 3,000-line codebase into a prompt so the model could help me refactor a gnarly module. The model kept forgetting things. It would answer questions about a function at the top of the file as if it had never seen the class definition four hundred lines later. It wasn't hallucinating exactly. It was just working with what it could hold.
@@ -15,7 +24,7 @@ That's when context windows stopped being a benchmark number to me and became an
 
 I've talked to a lot of developers since then, mostly through building and shipping things in public, and the same pattern comes up. People know what a context window is in the abstract. They see the number in the marketing copy. They don't really think about it until something breaks.
 
-## What a context window actually is
+## What is an AI context window, and why does it feel too small?
 
 A context window is the total amount of text a model can process at once: your system prompt, the conversation history, any documents you've injected, and the response being generated, all counted together. When you exceed the limit, one of two things happens. You get a hard error, or the model silently drops older content. Neither is graceful, and the silent version is worse because you don't notice until the output starts behaving strangely.
 
@@ -78,6 +87,10 @@ None of this is counterintuitive once you actually internalize the constraint. T
 What probably happens over the next few years is that models get better at reasoning over long contexts, not just retrieving from them. That would actually change the calculus significantly. Until then, treating the context window as a constraint worth designing around, rather than a number to maximize in benchmarks, is still the right approach.
 
 The developers I've seen build the most reliable AI-powered systems are rarely the ones using the largest models or the biggest windows by default. They're the ones who have a clear idea of what goes in the context and why.
+
+## Related reading
+
+If you skipped retrieval and dumped the corpus into the window, that failure is the same one in [why RAG still hallucinates 17–33% of the time](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026). For the cost of sending every request to the biggest model, see [semantic routing cut my LLM costs 70%](/chapters/ai-agents/how-semantic-routing-cut-my-llm-costs-by-70-without-touching-model-quality).
 
 [^1]: Liu, N. F., et al. (2023). *Lost in the Middle: How Language Models Use Long Contexts*. arXiv. https://arxiv.org/abs/2307.03172
 
