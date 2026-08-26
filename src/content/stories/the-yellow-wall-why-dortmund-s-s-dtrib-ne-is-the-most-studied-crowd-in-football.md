@@ -5,7 +5,7 @@ pubDate: 2026-07-02
 category: "football"
 author: "Orvi"
 readingTime: 10
-tags: ["Borussia Dortmund", "Yellow Wall", "Südtribüne", "sudtribune", "dortmund yellow wall capacity", "Signal Iduna Park", "gegenpressing", "Jürgen Klopp", "home advantage", "crowd noise", "Bundesliga", "referee bias"]
+tags: ["Borussia Dortmund", "Yellow Wall", "Signal Iduna Park", "Bundesliga", "home advantage", "referee bias"]
 featured: false
 faq:
   - q: "What is Dortmund Yellow Wall capacity?"
@@ -61,6 +61,8 @@ It's being copied faster than it's being protected. English clubs have started i
 The club's fanbase has pushed back hard on where that commercial pressure leads. In August 2024, Südtribüne ultras organized a season-opening protest against Dortmund's sponsorship deal with arms manufacturer Rheinmetall, turning the same stand that generates the noise into the stand that generates the resistance. That's not incidental — it's the same self-organizing capacity that built 4,000 flags out of a bankrupt club's spare time in 2004 now aimed at the club's own board. The Wall was never just an acoustic phenomenon that Dortmund happened to own. It's a fan institution that occasionally produces noise as a side effect, and the open question for the next decade isn't whether other clubs can build something loud — plenty will. It's whether Dortmund can keep growing commercially without turning the one stand that makes it famous into the one stand it has to apologize for.
 
 
-## Where this sits in the bigger argument
+## Which stadium has the best atmosphere in world football?
+
+There is no objective winner, but the Südtribüne has the most evidence behind it: it is the largest terrace in Europe, and it is the only crowd whose effect on match officials has been isolated in peer-reviewed research and then confirmed by the 2020 empty-stadium natural experiment. Anfield's Kop, Napoli's Curva and Galatasaray's Türk Telekom Stadium — which holds the actual decibel record at 131.76 dB — are the usual counter-nominations, and all of them are argued on feel rather than on measured effect.
 
 The Südtribüne is the most studied crowd in the sport, and the research is covered alongside [the ranking of the greatest football teams of all time](/chapters/football/greatest-football-teams-of-all-time). For the South American version of the same crowd effect, see [barra bravas and why away teams fold in Buenos Aires](/chapters/football/south-american-ultras-the-culture-behind-the-most-intimidating-atmospheres-in-world-football).
