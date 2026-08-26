@@ -1,6 +1,6 @@
 ---
-title: "Hungary 1954: 49 Games Unbeaten But Lost the World Cup Final"
-description: "Hungary beat England 6-3 at Wembley and 7-1 in Budapest, then lost the 1954 final 3-2. Why the Mighty Magyars remain the greatest team never to win it."
+title: "Hungary 1954: The World Cup Final They Should Have Won"
+description: "Hungary went 49 matches unbeaten, beat England 6-3 at Wembley and 7-1 in Budapest, then met West Germany in Bern. What happened there still divides people."
 pubDate: 2026-06-13
 category: "football"
 author: "Orvi"

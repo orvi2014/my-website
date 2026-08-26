@@ -1,6 +1,6 @@
 ---
-title: "What Killed Tiki-Taka (UEFA Never Banned It)"
-description: "UEFA never banned tiki-taka. Spain's 5-1 loss to the Netherlands in 2014 exposed one flaw: possession is not a defence. Why Spain's 2024 game is already better."
+title: "Did UEFA Ban Tiki-Taka? What Actually Killed It"
+description: "Spain had 58% of the ball and still lost 5-1 to the Netherlands in 2014. That match explains what really ended tiki-taka, and why Spain 2024 is better."
 pubDate: 2026-06-15
 category: "football"
 author: "Orvi"

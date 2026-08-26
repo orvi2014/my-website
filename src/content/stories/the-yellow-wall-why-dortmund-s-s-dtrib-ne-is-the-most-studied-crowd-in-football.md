@@ -1,6 +1,6 @@
 ---
-title: "Dortmund Yellow Wall Capacity: 24,454 on the Südtribüne"
-description: "Dortmund's Südtribüne holds 24,454. That Yellow Wall capacity is why the stand shows up in referee-bias studies, and what the noise actually does."
+title: "Dortmund Yellow Wall Capacity: Why Referees Study This Stand"
+description: "Dortmund's Südtribüne is the largest standing terrace in European football. Here is what its capacity actually does to referees, players and the noise."
 pubDate: 2026-07-02
 category: "football"
 author: "Orvi"
