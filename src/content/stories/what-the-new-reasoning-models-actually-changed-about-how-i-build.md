@@ -1,11 +1,11 @@
 ---
-title: "What the New Reasoning Models Actually Changed About How I Build"
-description: "The data says reasoning models make developers 19% slower. Here's what actually changed in my software development workflow once I stopped ignoring that."
+title: "Do Reasoning Models Actually Make Developers Faster? What the METR Study Found"
+description: "METR's 2025 randomized trial found experienced developers were 19% slower with AI while believing they were 20% faster. Here's what that means for reasoning models, code review, and how I build."
 pubDate: 2026-07-15
 category: "ai-agents"
 author: "Orvi"
-readingTime: 9
-tags: ["reasoning models", "software development", "AI coding", "developer productivity", "OpenAI o1", "code review", "AI agents", "SWE-bench"]
+readingTime: 12
+tags: ["reasoning models", "METR study", "software development", "AI coding", "developer productivity", "OpenAI o1", "code review", "AI agents", "SWE-bench"]
 featured: false
 ---
 
@@ -13,15 +13,19 @@ In 2025, METR ran a randomized controlled trial on 16 experienced open-source de
 
 I read that number six months after I'd already lived it. I'd spent the back half of 2025 wiring reasoning models (o1, then o3, then Claude's extended-thinking variants), into every part of my software development workflow, on the assumption that a model which "thinks longer" before answering must produce work that needs less fixing. That assumption is the standard advice on reasoning models: they reduce errors, so they reduce your total time. It's repeated in every vendor blog post and most engineering newsletters. It is wrong for the reason METR's data shows and for a second reason nobody measures: reasoning models don't just get things wrong less often, they get things wrong more *convincingly*. That's a different problem, and it costs different time.
 
-## What Did the METR Number Actually Measure?
+## What did the METR AI productivity study actually measure?
 
 It measured real task completion time on real repositories, not benchmark accuracy. That distinction is the whole story.
 
-METR's developers had an average of five years on the codebases they were working in ([arxiv.org/abs/2507.09089](https://arxiv.org/abs/2507.09089)). They weren't novices misusing the tools. They used Cursor and Claude 3.5/3.7 Sonnet, wrote prompts, reviewed diffs, and iterated, the exact loop every AI coding tutorial recommends. The 19 percent slowdown happened inside that loop, not despite it. Before the study, participants forecast a 24 percent speedup. After finishing the tasks and living the slowdown firsthand, they still reported believing AI had helped by 20 percent. The gap between forecast, lived experience, and self-report is nearly 40 points, in the same direction, twice.
+METR's developers had an average of five years on the codebases they were working in ([arxiv.org/abs/2507.09089](https://arxiv.org/abs/2507.09089)). They weren't novices misusing the tools. They used Cursor and Claude 3.5/3.7 Sonnet, wrote prompts, reviewed diffs, and iterated, the exact loop every AI coding tutorial recommends. The 19 percent slowdown happened inside that loop, not despite it. The repositories were large and mature, averaging over a million lines of code and more than 22,000 GitHub stars, and the 246 tasks were the ordinary work those maintainers had already queued up ([METR study writeup](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)). Before the study, participants forecast a 24 percent speedup. After finishing the tasks and living the slowdown firsthand, they still reported believing AI had helped by 20 percent. The gap between forecast, lived experience, and self-report is nearly 40 points, in the same direction, twice.
 
 That's the sentence worth sitting with: **experienced developers cannot reliably feel the difference between AI making them faster and AI making them slower.** The instrument they're using to judge, their own sense of flow while typing prompts and accepting suggestions, measures something other than elapsed time. It measures effort per keystroke, and reasoning models reduce keystrokes while increasing total minutes spent reviewing what the keystrokes produced.
 
-## What Was I Doing With Reasoning Models That Made This Worse?
+The screen-recording data makes the mechanism concrete. Developers in the AI-allowed condition spent less time actively writing code and searching for information, and more time prompting, waiting on generation, and reading diffs. The work didn't disappear. It moved to a place where it doesn't feel like work, because reading feels cheaper than typing right up until you tally the clock.
+
+## Do AI reasoning models make developers slower?
+
+For experienced developers working in code they already know, the only randomized evidence we have says yes: 19 percent slower, while feeling 20 percent faster. The slowdown lives in verification, not generation, which is why it stays invisible.
 
 I was using them as a faster author, when the actual bottleneck in my work was never authoring.
 
@@ -29,7 +33,31 @@ For most of my career, writing the first draft of a function was never what ate 
 
 What I got back looked more correct than what earlier models produced, and that was the trap. A GPT-4o patch that was obviously wrong got rejected in five seconds. An o1 patch that was subtly wrong, right approach, one incorrect assumption about how a config value propagated three files away. Took twenty minutes to catch, because it read like something I would have written myself. Stack Overflow's 2025 Developer Survey found that 66 percent of developers report spending more time fixing "almost-right" AI-generated code than before, and that "AI solutions that are almost right, but not quite" is the single most-cited frustration with these tools, named by 45 percent of respondents ([Stack Overflow 2025 Developer Survey](https://survey.stackoverflow.co/2025/ai/)). Trust in AI output accuracy fell from 40 percent to 29 percent over the same period the models got better at benchmarks. Those two lines on the same chart, correctness up and trust down, is the whole argument against the standard advice in one graph.
 
-## What Changed When I Stopped Asking for Code First?
+The organizational data points the same way. DORA's 2024 State of DevOps report found that a 25 percent increase in AI adoption was associated with a 1.5 percent *decrease* in delivery throughput and a 7.2 percent decrease in delivery stability ([DORA 2024 report](https://dora.dev/research/2024/dora-report/)). By the 2025 edition, roughly 90 percent of surveyed developers were using AI tools daily, and about 30 percent still said they trusted the output little or not at all ([DORA 2025 report](https://dora.dev/research/2025/dora-report/)). Near-universal adoption paired with persistent distrust is not what a genuine productivity win looks like. It's what a tool looks like when the cost has moved somewhere nobody is measuring.
+
+## Why do some studies say AI makes developers 55 percent faster?
+
+Because they measured a different kind of work. The large speedup studies used greenfield tasks or unfamiliar code, where there is nothing to verify against; METR measured maintenance work in codebases developers already understood, where verification is the entire job.
+
+The 55.8 percent figure comes from a 2023 randomized trial by Peng et al. at GitHub, in which 95 developers implemented an HTTP server in JavaScript with and without Copilot ([arxiv.org/abs/2302.06590](https://arxiv.org/abs/2302.06590)). That's a self-contained task with a well-known shape and no surrounding system to break. Google ran its own enterprise randomized trial and found roughly a 21 percent reduction in completion time on an internal task, again on a bounded, pre-specified piece of work ([arxiv.org/abs/2410.12944](https://arxiv.org/abs/2410.12944)).
+
+These results aren't in conflict with METR's. They're measurements of different regimes. When you don't know the codebase, the model's output is the cheapest available source of orientation, and any plausible draft beats a blank file. When you *do* know the codebase, you already hold the model's main value in your head, and what the model adds is a stack of confident-looking text you now have to check against knowledge you already had. The better you know the system, the more of AI's contribution converts from information into liability.
+
+That's the practical filter I use now. Am I in code where my own judgment is the scarce resource, or code where any reasonable structure would do? The first case is where reasoning models cost me time. The second is where they save it, and the savings are real.
+
+## Why does AI-generated code take longer to review than code a human wrote?
+
+Because human errors carry signals of the confusion that produced them, and model errors don't. A wrong patch that reads like a right patch defeats every shortcut reviewers normally use to allocate attention.
+
+When a colleague writes something wrong, the wrongness usually leaves fingerprints: a variable named for what they thought the value was, a comment that half-admits uncertainty, an inconsistent style in the spot where they got stuck. Reviewers navigate by those fingerprints without knowing they're doing it. Reasoning models produce output with uniform confidence across correct and incorrect regions. There is no stylistic tell, no hesitation, no thinner comment over the shaky part. The model's uncertainty exists in its logits and dies before it reaches your screen.
+
+So review cost stops scaling with how wrong the code is and starts scaling with how much of it there is. And there is more of it. GitClear's analysis of roughly 211 million changed lines found copy-pasted lines exceeding moved lines for the first time in 2024, alongside a sharp rise in duplicated code blocks, a pattern consistent with generated code being added rather than existing code being refactored ([GitClear AI code quality research, 2025](https://www.gitclear.com/ai_assistant_code_quality_2025_research)). Duplication is exactly the failure mode that survives review, because each individual copy looks fine.
+
+There's a second-order cost I underestimated for months. Reviewing a diff you didn't write leaves you with less durable understanding of the system than writing it yourself would have. That deficit is invisible on the day. It shows up six weeks later when you're debugging that module at eleven at night and discover you never actually learned how it works, you only once approved it. METR's timer caught the first-order cost. The second one doesn't appear in any study I've seen, and in my own experience it's the larger of the two.
+
+## Should you use reasoning models to write code or review it?
+
+Use them to review. On anything with real edge-case density, write the draft yourself and hand it to the model as an adversary, because a model attacking code you understand is worth far more than a model producing code you don't.
 
 I stopped treating the reasoning model as the author and started treating it as the prosecutor of my own drafts.
 
@@ -37,16 +65,26 @@ The switch happened on a specific afternoon working on a billing reconciliation 
 
 That's the actual shift new reasoning models produced in my process. Not faster code generation, faster, harsher review of code I still write myself for anything with real edge-case density. **The reasoning that makes these models good at catching my mistakes is the same reasoning that makes their own mistakes hard to catch**, because a model working from a wrong premise reasons its way to a coherent, well-argued wrong answer instead of an obviously broken one. Using it as author hides that failure mode. Using it as reviewer exposes it, because now the coherent argument is aimed at something I already know the shape of.
 
-## Doesn't the SWE-Bench Jump From 41 to 49 Percent Prove Reasoning Models Are Getting Faster?
+The asymmetry is structural, not a quirk of one model generation. As reviewer, the model works from a fixed artifact I can check its claims against, so a hallucinated objection costs me thirty seconds to dismiss. As author, the model works from premises I can't see, so a wrong premise costs me the full price of reconstructing its reasoning from the outside. Same capability, opposite error economics, depending on which side of the artifact the model sits on.
 
-No. It proves they're getting better at a specific, narrow kind of task, and that's not the same claim.
+## Does a higher SWE-bench score mean reasoning models make you faster?
+
+No. A higher SWE-bench score means the model is better at converging on a known-correct patch inside a bounded diff, which is not the same as reducing the time it takes you to confirm a patch is correct.
 
 SWE-bench Verified is built from GitHub issues with a human-confirmed correct patch and a test suite that already exists ([OpenAI, "Introducing SWE-bench Verified,"](https://openai.com/index/introducing-swe-bench-verified/) August 2024). It rewards a model for converging on one known-good answer inside a well-bounded diff. That is close to the best-case scenario for how these models fail: bounded scope, existing tests, a single right answer. METR's study measured the opposite scenario, open-ended tasks in codebases with tacit knowledge no benchmark captures, judged by whether the change actually shipped correctly, not whether it matched a reference patch. A model can improve substantially on the first kind of task while making the second kind of task slower, because the second kind of task's cost isn't "can a correct patch be generated". It's "can I tell, without redoing the work myself, whether this particular patch is the correct one." Benchmark accuracy answers the first question. It says nothing about the second, and the second is what determined the 19 percent number.
 
+The gap has only widened since. Anthropic reported Claude 3.7 Sonnet at 62.3 percent on SWE-bench Verified in February 2025, rising to 70.3 percent with scaffolding ([Anthropic, Claude 3.7 Sonnet](https://www.anthropic.com/news/claude-3-7-sonnet)). METR's own work on task horizons found the length of task a model can complete at 50 percent reliability has been doubling roughly every seven months ([arxiv.org/abs/2503.14499](https://arxiv.org/abs/2503.14499)). Both are genuine capability curves. Neither is a verification curve. A model that reliably handles a four-hour task at 50 percent success has not made the coin flip cheaper to adjudicate, it has made each flip cover more ground, which raises the stakes of getting the adjudication wrong.
+
 If reasoning-model gains were closing that verification gap, you'd expect trust in AI accuracy to be flat or rising as benchmark scores climbed through 2025. It fell 11 points instead. The counterargument that better benchmarks imply better real-world throughput requires that verification cost scale down with generation quality. The data says it scales up, because better-looking wrong answers cost more to catch than worse-looking ones.
 
-## What Do I Actually Do Differently Now?
+## When should you let a reasoning model write the code, and when should you write it yourself?
+
+Let the model write anything where a mistake fails loudly and immediately. Write it yourself where a mistake is quiet, expensive, or only surfaces in production, then use the model to attack what you wrote.
 
 I draft the parts of the system where a wrong answer would be expensive and hard to notice, and I let the reasoning model draft the parts where a wrong answer is cheap and obvious. Boilerplate, migrations with an existing pattern to follow, test scaffolding, the model writes those, because a mistake there fails loudly. Anything touching money, state that's hard to replay, or logic where "close" is functionally identical to "wrong," I write first and hand to the model as an adversary, explicitly asked to argue against my own assumptions rather than extend them.
+
+The dividing line isn't difficulty, which is what I assumed for most of a year. It's blast radius times detection latency. A gnarly regex the model gets wrong blows up in the first test run, so difficulty doesn't matter there, and I hand it over without hesitation. A one-line change to how a currency amount rounds is trivial, and it can run wrong for a quarter before anyone notices. Difficulty is a property of writing the code. Detection latency is a property of getting it wrong, and only the second one should decide who holds the pen.
+
+Two practical habits fell out of this. First, I prompt for objections rather than improvements, because "make this better" invites the model to extend my framing while "list every input that produces incorrect output" forces it to test the framing. Second, I keep the diffs small enough that I can hold the whole change in my head, since the review economics above only work while I can still tell whether the model's confident paragraph is describing my code or a plausible neighbor of it.
 
 That's the inversion the METR number was actually describing, before anyone had named it: the models got better at producing answers that feel finished, and feeling finished is precisely the property that defeats a developer's instinct for how much checking a piece of code still needs. The 19 percent slowdown wasn't a temporary calibration problem that better models would fix. It was the honest cost of verification finally showing up in the timer, after years of the same cost hiding inside "reading the code," which nobody times. I'm not faster than I was before reasoning models. I ship fewer of the bugs that used to cost me a Saturday, because I stopped asking the model to convince me and started asking it to try to prove me wrong.
