@@ -1,10 +1,10 @@
 ---
-title: "Seven Core Human Needs: A Framework for When Life Feels Off"
+title: "7 Core Human Needs: How to Tell Which One Is Missing"
 description: "The seven core human needs — dignity, power, freedom, love, meaning, celebration, and rest — and how to diagnose which one is going hungry when life feels wrong but looks fine. A framework I return to whenever I lose the thread."
 pubDate: 2026-05-16
 category: "human"
 author: "Orvi"
-readingTime: 8
+readingTime: 9
 tags: ["human needs", "psychology", "dignity", "meaning", "freedom", "love", "mental health", "philosophy", "self-understanding", "founder psychology"]
 featured: false
 ---
@@ -59,6 +59,10 @@ I grew up in a country where [freedom is not always assumed](https://freedomhous
 
 In the daily texture of a life, freedom shows up in smaller ways: the freedom to change your mind, to disagree out loud, to choose work that reflects what you value, to leave situations that damage you, to become someone different than who you were. These are freedoms people surrender quietly, often without noticing, often because something — money, fear, obligation — seems to make the surrender necessary.
 
+Take the most ordinary version of it. You take a contract because the money closes a gap, and the contract asks you to stop writing publicly. Fine — it is eighteen months. Then the eighteen months become a promotion, the promotion comes with a manager who approves what you say in meetings, the visa is tied to the job, and the lease is tied to the salary. None of that was coercion. Each step was a trade you agreed to. But by year three, changing your mind about the work costs you an apartment and a country, so you stop letting yourself have opinions about the work at all. That is what a freedom deficit looks like from the inside: not a wall, but a series of reasonable-sounding gates, each one closing behind you.
+
+Psychology treats this as a need rather than a preference. In [self-determination theory](https://selfdeterminationtheory.org/theory/), Edward Deci and Richard Ryan's framework, autonomy — the experience of being the origin of your own actions — is one of three basic psychological needs, and when an environment thwarts it, wellbeing degrades regardless of what else that environment provides. The physical evidence is unnervingly literal: the [Whitehall II study of over 10,000 British civil servants](https://pubmed.ncbi.nlm.nih.gov/9055714/) found that people with low job control carried 1.5 to 1.8 times the risk of new coronary heart disease across roughly five years of follow-up, with the effect concentrated in the lower grades who had the least say. Not being allowed to choose shows up in the arteries.
+
 The surrenders compound. At some point you look at the life you have and you cannot find yourself in it. This is not a crisis of meaning. It is a crisis of freedom. The solution is not therapy. It is to start choosing again.
 
 ---
@@ -98,6 +102,8 @@ Celebration is the need to mark that something mattered — to let an experience
 This one is underrated and I include it deliberately.
 
 Celebration is not parties. Celebration is the act of marking that something happened, that something mattered, that someone or something is worth acknowledging with more than a nod and a move-on. It is the practice of letting good things land before turning to the next thing. [Research on savoring](https://pmc.ncbi.nlm.nih.gov/articles/PMC8712667/) — the deliberate positive attention to good experiences, a field Fred Bryant has led since the 1980s — identifies it as one of the most reliable predictors of sustained wellbeing, independent of how objectively good the experiences themselves are. The bottleneck is rarely the absence of good things. It is the failure to register them.
+
+The cheapest version of the practice is telling someone. [Shelly Gable's 2004 research on capitalization](https://pubmed.ncbi.nlm.nih.gov/15301629/) found that sharing a good event with another person raised daily positive affect and wellbeing beyond the effect of the event itself — and that the benefit grew when the other person responded actively rather than with a polite nod. The event is not the whole of the event. What you do with it afterward is.
 
 Founders are terrible at this. I am terrible at this. The ship-date passes, the milestone hits, the thing that was hard becomes done — and immediately the attention moves to what is next. The next problem, the next target, the next thing to fix.
 
