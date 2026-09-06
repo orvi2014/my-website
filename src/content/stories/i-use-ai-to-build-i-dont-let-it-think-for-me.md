@@ -177,4 +177,4 @@ The developers I see getting the most out of AI right now are the ones with the 
 
 ## Related reading
 
-The failure mode this essay is about, code that looks right and is wrong, is [silent AI bugs that pass review and fail in production](/chapters/ai-automation/what-happens-when-the-ai-gets-it-wrong-and-you-do-not-notice). If the model is forgetting the file you just pasted, that is [context windows, not vibe coding](/chapters/ai-automation/why-context-window-size-is-the-thing-every-developer-should-care-about).
+For the definitions side of this rather than the practice side, with the research on what skipping review actually costs, see [AI-assisted coding vs vibe coding](/chapters/ai-automation/ai-assisted-coding-vs-vibe-coding). The failure mode this essay is about, code that looks right and is wrong, is [silent AI bugs that pass review and fail in production](/chapters/ai-automation/what-happens-when-the-ai-gets-it-wrong-and-you-do-not-notice). If the model is forgetting the file you just pasted, that is [context windows, not vibe coding](/chapters/ai-automation/why-context-window-size-is-the-thing-every-developer-should-care-about).
