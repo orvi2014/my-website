@@ -1,6 +1,6 @@
 ---
-title: "Brazil 1970: 19 Goals, Jairzinho Scored in All 6 Games"
-description: "Brazil 1970 scored 19 goals and won all six World Cup games. Jairzinho scored in every match. No winner since has averaged 3.17 goals a game."
+title: "Was Brazil 1970 Really the Greatest Team Ever? The Case Against"
+description: "Brazil 1970 won all six games and became the default answer to the greatest-team question. The strongest argument against them is not the one people make."
 pubDate: 2026-05-18
 category: "football"
 author: "Orvi"

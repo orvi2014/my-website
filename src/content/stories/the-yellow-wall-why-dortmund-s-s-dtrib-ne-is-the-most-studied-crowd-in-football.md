@@ -1,6 +1,6 @@
 ---
-title: "Dortmund Yellow Wall Capacity: Why Referees Study This Stand"
-description: "Dortmund's Südtribüne is the largest standing terrace in European football. Here is what its capacity actually does to referees, players and the noise."
+title: "Dortmund Yellow Wall Capacity: Does It Actually Change Results?"
+description: "Dortmund's Südtribüne is the largest standing terrace in European football. Whether that noise actually moves referees and results is the harder question."
 pubDate: 2026-07-02
 category: "football"
 author: "Orvi"
