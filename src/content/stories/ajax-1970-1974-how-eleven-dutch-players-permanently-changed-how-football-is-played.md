@@ -29,7 +29,9 @@ That single action is Total Football more completely than any of Cruyff's turns.
 
 ## What was Horst Blankenburg's role in Ajax's Total Football?
 
-Blankenburg was the man the offside trap was built around. Rinus Michels and then Ștefan Kovács designed Ajax's defensive line around him and the Yugoslav Velibor Vasović, and when Vasović retired midway through 1971-72, Blankenburg simply inherited the whole thing.
+Blankenburg was the libero the offside trap was built around: the man who set the height of Ajax's defensive line and decided when it stepped forward. He ran that line for five seasons and three European Cups without ever being the player anyone came to watch.
+
+Rinus Michels and then Ștefan Kovács designed the line around him and the Yugoslav Velibor Vasović, and when Vasović retired midway through 1971-72, Blankenburg simply inherited the whole thing.
 
 He arrived in 1970 from 1860 Munich, who had just been relegated. He played 188 league games for Ajax across five seasons and won three European Cups, two Intercontinental and Super Cups, two Eredivisie titles and two Dutch Cups. Franz Beckenbauer occupied the libero shirt for West Germany, so Blankenburg was never called up. Cruyff, who understood exactly what he was watching every week, asked him to take Dutch nationality and play for the Netherlands at the 1974 World Cup. Blankenburg said no. He was still waiting for Germany to phone.
 
@@ -57,9 +59,9 @@ No, and the proof is what happened when he left. Cruyff went to Barcelona in Aug
 
 This is the counterargument worth taking seriously, because it's the one every retrospective quietly assumes: eleven good players, one genius, and the genius did the work. Run the 1973-74 season against it. Kovács had gone to France. Cruyff had gone to Catalonia. Blankenburg, Krol, Suurbier, Neeskens, Haan, Rep and Mühren all stayed.
 
-Ajax scored 88 league goals that season instead of 102, a drop of 14 per cent, roughly what you'd expect from losing one forward however good. They conceded 30 instead of 18, a rise of 67 per cent. They finished third, eight points and two places behind Feyenoord. In the European Cup they took a first-round bye and then went out in the second round to CSKA Sofia, winning 1-0 in Amsterdam and losing 2-0 in Bulgaria.
+Ajax scored 88 league goals that season instead of 102, a drop of 14 per cent, roughly what you'd expect from losing one forward however good. They conceded 30 instead of 18, a rise of 67 per cent. They finished third on 51 points, [five points and two places behind Feyenoord](https://www.rsssf.org/tablesn/ned74.html). In the European Cup they took a first-round bye and then went out in the second round to CSKA Sofia, [winning 1-0 in Amsterdam](https://www.uefa.com/uefachampionsleague/match/63197--ajax-vs-cska-sofia/) and [losing 2-0 in Bulgaria](https://www.uefa.com/uefachampionsleague/match/63198--cska-sofia-vs-ajax/) after extra time.
 
-The team that had conceded three goals in a nine-match European campaign two years earlier was eliminated in October, having conceded twice in one away leg. Nothing had changed about the sweeper. What changed was the pressure in front of him.
+The team that had conceded three goals in a nine-match European campaign two years earlier was eliminated on 7 November, having conceded twice in one away leg. Nothing had changed about the sweeper. What changed was the pressure in front of him.
 
 That's the whole principle, and it's the thing the Cruyff-centred version of this story gets backwards. A high defensive line is not a defensive tactic. It is a pressing tactic that happens to be measured at the back. Blankenburg could stand on the halfway line for 90 minutes only because Cruyff, Rep, Keizer and Neeskens made it physically impossible for opponents to look up and hit the ball over him. Remove the pressers and the same line, held by the same man, becomes a forty-yard invitation. Ajax found that out in one season.
 
@@ -73,8 +75,13 @@ The Opta numbers on that side are genuinely absurd. By late October 2024, Barcel
 
 That is Inter at De Kuip in 1972, rendered in tracking data.
 
-There's one difference, and it matters. Ajax's trap was adjudicated by a linesman squinting across forty yards, which is why the 1970s Dutch were accused of gaming officials. Offside calls across the top five leagues have fallen from 5.9 per match in 2006-07 to 3.6 in 2023-24, a 39 per cent reduction driven largely by VAR. Barcelona push a line that high knowing a semi-automated system will vindicate a five-centimetre call. The technology that was supposed to punish the high line has ended up insuring it. At this summer's 48-team World Cup across the United States, Canada and Mexico, every offside in the tournament was drawn by camera rather than guessed by a human running backwards.
+There's one difference, and it matters. Ajax's trap was adjudicated by a linesman squinting across forty yards, which is why the 1970s Dutch were accused of gaming officials. [Offside calls across the top five leagues have fallen from 5.9 per match in 2006-07 to 3.6 in 2023-24](https://theanalyst.com/articles/barcelona-high-line-el-clasico-stats-offside), a 39 per cent reduction driven largely by VAR — and a peer-reviewed ten-season study of the same five leagues, published in [Frontiers in Psychology in 2021](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.719270/full), found the same downtrend across 18,259 match observations, with offside offences dropping further once VAR arrived. Barcelona push a line that high knowing a semi-automated system will vindicate a five-centimetre call. The technology that was supposed to punish the high line has ended up insuring it. At this summer's 48-team World Cup across the United States, Canada and Mexico, every offside in the tournament was drawn by camera rather than guessed by a human running backwards.
 
 Which means the risk profile Michels accepted in 1971 has quietly become the safest structure in the game. The tactic survived because it was correct, and it took fifty years and a bank of cameras for the rest of football to stop arguing about it.
 
 Cruyff got the statue outside the Arena, and he earned it. But if you want the moment Total Football actually announced itself, it isn't a turn against Sweden in 1974. It's a German sweeper standing unmarked on the left wing in Belgrade in the fourth minute of a European Cup final, crossing for a header that won a trophy outright, then jogging seventy yards back to hold a line that nobody scored past for the rest of the night.
+```
+
+Two factual corrections were forced by the sources I linked: the 1973-74 table has Ajax third on 51 points, five behind Feyenoord's 56 (not eight), and the CSKA Sofia tie was decided by the second leg in Sofia on 7 November 1973 (not October), which went to extra time.
+
+Sources used: [RSSSF Netherlands 1973/74](https://www.rsssf.org/tablesn/ned74.html), [UEFA Ajax 1-0 CSKA Sofia](https://www.uefa.com/uefachampionsleague/match/63197--ajax-vs-cska-sofia/), [UEFA CSKA Sofia 2-0 Ajax](https://www.uefa.com/uefachampionsleague/match/63198--cska-sofia-vs-ajax/), [Opta Analyst on Barcelona's high line](https://theanalyst.com/articles/barcelona-high-line-el-clasico-stats-offside), [Frontiers in Psychology offside study](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.719270/full).
