@@ -1,6 +1,6 @@
 ---
-title: "AC Milan 1988-1994: The Last True Footballing Dynasty and Why None Have Come Close Since"
-description: "The 1990s Milan dynasty is usually credited to Sacchi's tactical revolution. He won one Scudetto in four years. Here's what actually built it, and why nobody can copy it."
+title: "Why AC Milan 1988–1994 Was the Last Real Football Dynasty"
+description: "The AC Milan dynasty is usually credited to Sacchi's pressing. He won one Scudetto in four years. Here's what actually built it, and why nobody can copy it."
 pubDate: 2026-09-08
 category: "football"
 author: "Orvi"
