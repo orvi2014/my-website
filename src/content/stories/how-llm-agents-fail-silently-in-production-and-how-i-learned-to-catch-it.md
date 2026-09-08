@@ -1,5 +1,5 @@
 ---
-title: "How LLM Agents Fail Silently in Production"
+title: "Why LLM Agents Fail Silently in Production (And How to Detect It)"
 description: "A silent agent failure doesn't crash. It reports success. Here's the uncomfortable economic reason most teams never find out."
 pubDate: 2026-09-07
 category: "ai-agents"
@@ -13,9 +13,9 @@ Six weeks of green. That's what I was looking at when I finally opened the raw l
 
 The cause, when I found it, was almost insulting. Four hardcoded target handles in a config file had gone dead. Suspended, renamed, deactivated, I still don't know. The agent dutifully visited each one, got a page with no post on it, correctly concluded there was nothing to reply to, logged `no action needed`, and moved on. Eighty-eight percent of the daily attempt budget was going to four accounts that no longer existed. Every individual decision in that chain was correct. The system was completely broken.
 
-## Why agents fail without throwing errors
+## Why do LLM agents fail without throwing errors?
 
-Because an agent's job is to handle ambiguity, and handling ambiguity is indistinguishable from absorbing failure.
+Because an agent's job is to handle ambiguity, and handling ambiguity is indistinguishable from absorbing failure. No exception gets thrown because the recovery path you paid for treats a broken world as one more input to route around.
 
 A traditional program fails when reality violates its assumptions. An agent's entire purpose is to keep going when reality violates its assumptions. That's structural, not incidental. You built a thing whose selling point is robustness to weird inputs. A dead page is a weird input. The agent robusts right past it, then writes you a summary in confident English, because the summary comes from the same component that just failed and that component has no privileged access to whether it succeeded.
 
@@ -23,7 +23,9 @@ This is measured now, not anecdotal. A June 2026 study of 9,876 tau2-bench traje
 
 So a silent failure isn't an error you missed. It's a success message you believed.
 
-## Isn't this just bad error handling?
+## Isn't silent agent failure just bad error handling?
+
+No. Bad error handling produces failures with an exception sitting somewhere to be caught; the expensive silent failures produce no exception at all, so there is nothing for better handling to catch.
 
 That was my first theory and it was wrong. I spent two weeks adding structured logging, per-step try/except blocks, richer exception context. At the end I had significantly better records of a failure I still couldn't see.
 
@@ -33,9 +35,11 @@ But the failure mode that actually costs you is the one where no exception exist
 
 The Berkeley taxonomy of multi-agent failures, built from 150-plus annotated execution traces across seven frameworks, puts [task verification failures at 21.3% of the total](https://arxiv.org/abs/2503.13657), listed separately from design flaws and coordination breakdowns. It's not a subtype of bad error handling. It's its own animal, and it eats a fifth of everything.
 
-## A better model makes it worse
+## Do better models reduce silent agent failures?
 
-This is the part that took me longest to accept. Upgrading the model made my visible failures rarer and my silent failures *harder to detect*, because a stronger model writes a more plausible completion summary.
+No. They reduce the *visible* failures and make the silent ones harder to spot, because a stronger model writes a more plausible completion summary for whatever still broke.
+
+This is the part that took me longest to accept. Upgrading the model made my visible failures rarer and my silent failures *harder to detect*.
 
 I want to be precise about the mechanism rather than cute about it. Better models do genuinely complete more tasks. On TheAgentCompany, a benchmark of 175 realistic long-horizon professional tasks, the top agent [autonomously completed 30.3%](https://arxiv.org/abs/2412.14161). That's real progress over earlier numbers, and it's also a system that fails roughly seven times out of ten at work a competent human handles routinely. The same fluency that lifts the completion rate also improves the narration attached to whatever still breaks. The false-success paper found judges keyed on "confident closing language" as their primary signal. Guess which capability improves fastest with scale.
 
@@ -43,7 +47,9 @@ Sakana AI learned this in public in February 2025, when their AI CUDA Engineer r
 
 Humans aren't better calibrated either, which should really end the argument. METR's July 2025 randomized trial had 16 experienced open-source developers complete 246 tasks in repos they'd worked in for an average of five years. With AI tools they were [19% slower, and estimated afterward that they'd been 20% faster](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/). Thirty-nine points between felt outcome and measured outcome, in experts, on their own code. Self-report was never evidence.
 
-## Can't you just add an LLM judge?
+## Can an LLM judge detect silent agent failures?
+
+Not reliably. The best-measured judge configurations land near 0.65 AUROC on one benchmark and 0.54 on another, which is close enough to chance that the judge is not doing the job you're buying it for.
 
 This is the standard rebuttal and the data is unkind to it. Across five judge models and five prompting strategies, all given full task specifications, no configuration exceeded [0.65 AUROC on tau2-bench, and the same judges managed 0.54 on AppWorld API traces](https://arxiv.org/abs/2606.09863). A coin flip is 0.50.
 
@@ -53,7 +59,7 @@ All of which is downstream of something established back at ICLR 2024, when Huan
 
 The same paper offers a deflating fix. Lightweight TF-IDF detectors, bag-of-words, no reasoning, technology from the 1970s, reached 0.83 and 0.95 AUROC on the same task at four to eight times lower latency. The thing that worked wasn't smarter. It was looking somewhere else.
 
-## What actually catches it
+## How do you detect silent LLM agent failures?
 
 Assertions against environment state the agent never touches, plus outcome heartbeats measured in units you actually care about. Not "did the run complete" but "is the number that justified building this thing still moving."
 
@@ -66,15 +72,17 @@ What I run on every agent lane now:
 
 None of this is clever. All of it is boring, and boring is sort of the point. The rule I landed on: never let the component that performs the action also be the component that certifies the action. It's a separation-of-duties principle borrowed from accounting, roughly four hundred years older than the transformer.
 
-## So why doesn't everyone already do this?
+## Why don't more teams monitor agent outcomes?
 
-Here's the part the field talks around. Verification usually costs more to build than the automation saves, so there's a quiet incentive not to look. Most teams running agents in production haven't looked, can't tell a working agent from a broken one, and have arranged their metrics so nobody has to find out.
+Because verification usually costs more to build than the automation saves, so there's a quiet incentive not to look. Most teams running agents in production haven't looked, can't tell a working agent from a broken one, and have arranged their metrics so nobody has to find out.
 
 That's not a slur on anyone's competence. It's arithmetic. To verify an agent's output you need ground truth, and if you had cheap ground truth you often wouldn't need the agent. So the honest verification layer gets scoped, estimated, and deferred to next quarter, while the dashboard shows uptime, token spend, p95 latency, trace counts. Every one of those measures *execution*. None of them measures *outcome*. Every observability stack I've seen will tell you the agent ran. Almost none will tell you anything happened.
 
 Gartner predicted in June 2025 that [over 40% of agentic AI projects will be canceled by the end of 2027](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027), citing unclear business value alongside cost and risk controls, and noted that out of thousands of self-described agentic vendors only around 130 were doing anything real. "Unclear business value" is a wonderfully diplomatic way to say *we ran it for a year and can't demonstrate it did anything*. That's forty-two green days at scale, with a budget attached.
 
-## What I still can't catch
+## Which silent agent failures still can't be detected?
+
+Judgment-shaped ones. Anything where the target was real, the action fired, the state changed, and the output is still quietly bad has no ground truth to assert against, so none of the checks above will ever flag it.
 
 State-shaped failures I've mostly solved. Did the post go out, did the row get written, did the handle resolve, did the count move. Those have ground truth, and ground truth is checkable by dumb code with no opinions.
 
