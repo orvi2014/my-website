@@ -1,6 +1,6 @@
 ---
-title: "Context Window Management in Long-Running Agents: The Patterns Nobody Writes About"
-description: "Context window management isn't compression. What years of long agent runs, one embarrassing mistake of mine, and the long-context benchmarks actually say."
+title: "Context Window Management for Long-Running AI Agents: 4 Patterns That Work"
+description: "Context window management for long-running AI agents isn't compression. Four patterns from years of long agent runs, one embarrassing mistake of mine, and what the long-context benchmarks actually say."
 pubDate: 2026-09-11
 category: "ai-agents"
 author: "Orvi"
@@ -71,7 +71,11 @@ I've watched three separate teams, mine included, respond to hour-three degradat
 
 There's a second reason, which is that context assembly is the one part of an agent stack nobody has a test suite for. We test prompts. We test tools. We test outputs. I have never seen a fixture asserting what the assembled window looks like at turn 60, and turn 60 is exactly where the bug lives, inside a string that gets built at runtime and thrown away.
 
-## What happens next
+## How do you debug an agent's context window?
+
+Log the fully assembled window on every turn, then diff the turn where behavior broke against the last turn where it was fine. You aren't looking for a bad output; you're looking for the exact compaction boundary where a constraint stopped appearing in the prompt.
+
+That's the whole technique, and it's embarrassing how long it took me to write the twenty lines that made it possible. Dump every call to disk, keyed by turn. When a run goes wrong, find the repetition, walk backwards to the summarizer, and read what it threw away. In my migration-file run the answer was visible in about ninety seconds once I could actually see turn 89 and turn 91 side by side. Eleven words, gone between two files.
 
 Give it eighteen months and I'd expect "context diff" to be an ordinary debugging artifact. You pull up two runs, see which turn dropped which constraint, and the whole thing feels about as exotic as reading a stack trace.
 
