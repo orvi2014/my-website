@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'ScreenGuard | Stay composed while you present';
+const description = 'A local browser shield that pauses risky links and hides sensitive values before they appear on a shared screen.';
+const currentPath = '/screenguard';
+---
+
+<BaseLayout title={title} description={description} currentPath={currentPath}>
+  <main class="sg-page">
+    <nav class="sg-nav" aria-label="ScreenGuard navigation">
+      <a class="sg-brand" href="/screenguard" aria-label="ScreenGuard home">
+        <span class="sg-mark" aria-hidden="true"><span></span></span>
+        <span>ScreenGuard</span>
+      </a>
+      <div class="sg-links">
+        <a href="#how">How it works</a>
+        <a href="#privacy">Privacy</a>
+        <a class="sg-nav-cta" href="#get">Get ScreenGuard <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+
+    <section class="sg-hero">
+      <div class="sg-hero-copy">
+        <p class="sg-kicker"><span class="sg-live-dot"></span> Ready before the call starts</p>
+        <h1>Present the work.<br /><em>Keep the rest private.</em></h1>
+        <p class="sg-lead">ScreenGuard quietly checks links, pauses risky pages, and covers sensitive values while you share your screen.</p>
+        <div class="sg-actions">
+          <a class="sg-button sg-button-primary" href="#get">Protect my next call <span aria-hidden="true">↗</span></a>
+          <a class="sg-text-link" href="#how">See how it works <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="sg-micro"><span>Local-first</span> · No account required · No tracking</p>
+      </div>
+      <div class="sg-hero-visual" aria-label="ScreenGuard showing a presentation-ready browser">
+        <div class="sg-orbit sg-orbit-one"></div>
+        <div class="sg-orbit sg-orbit-two"></div>
+        <div class="sg-browser">
+          <div class="sg-browser-top"><span></span><span></span><span></span><div class="sg-address"><i></i> client-portal.com / overview</div><b>•••</b></div>
+          <div class="sg-browser-body">
+            <div class="sg-side"><strong>ACME / Q3</strong><span class="active"></span><span></span><span></span><span></span><small>SHARE VIEW</small></div>
+            <div class="sg-dashboard"><div class="sg-dash-head"><span>Project overview</span><small>Live workspace</small></div><div class="sg-metric-row"><div><small>Revenue</small><strong>$248,400</strong><span>+18.4%</span></div><div><small>Active users</small><strong>12,840</strong><span>+6.2%</span></div></div><div class="sg-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="sg-redaction"><div class="sg-redaction-icon">◌</div><div><strong>ScreenGuard is covering 3 sensitive values</strong><small>Private details stay hidden while sharing</small></div><button>Reveal</button></div></div>
+          </div>
+        </div>
+        <div class="sg-shield-badge"><span class="sg-badge-shield">✓</span><div><strong>Presentation ready</strong><small>Protection is on</small></div></div>
+      </div>
+    </section>
+
+    <section class="sg-proof" aria-label="Protection summary"><span>BUILT FOR THE MOMENT BEFORE “CAN YOU SHARE YOUR SCREEN?”</span><strong>One switch. A calmer browser.</strong><span class="sg-proof-rule"></span><strong>100% local checks</strong></section>
+
+    <section class="sg-story" id="how">
+      <div class="sg-section-intro"><p class="sg-kicker">The awkward second</p><h2>You should learn what a link opens <em>before</em> the room does.</h2><p>ScreenGuard adds a small pause between intent and exposure. It stays invisible on ordinary pages, then steps in with a clear decision when a destination looks risky.</p></div>
+      <div class="sg-steps"><article><span>01</span><h3>Check before click</h3><p>Hover a link for context. Click a risky one and the page waits for your call.</p></article><article><span>02</span><h3>Share with cover</h3><p>Turn on presentation mode. Emails, cards, phone numbers, and keys are covered locally.</p></article><article><span>03</span><h3>Stay in control</h3><p>Open once, always allow a site, or go back. Your browser remains yours.</p></article></div>
+    </section>
+
+    <section class="sg-privacy" id="privacy"><div><p class="sg-kicker">Private by construction</p><h2>Nothing to upload.<br /><em>Nothing to explain.</em></h2></div><div class="sg-privacy-copy"><p>Risk classification happens in the extension. Sensitive detection happens on the page you are viewing. There is no server collecting your URLs, page text, or browsing history.</p><div class="sg-privacy-list"><span><b>01</b> No remote reputation calls</span><span><b>02</b> No analytics or telemetry</span><span><b>03</b> No sign-in needed to be protected</span></div></div></section>
+
+    <section class="sg-cta" id="get"><div class="sg-cta-mark"><span></span></div><p class="sg-kicker">Make the next call easier</p><h2>Good work deserves<br /><em>a clean frame.</em></h2><p>Install ScreenGuard and prepare your browser before the next share.</p><a class="sg-button sg-button-light" href="https://chrome.google.com/webstore" rel="noreferrer">Add to Chrome <span aria-hidden="true">↗</span></a><small>Free to start · Runs locally · Built for Chrome</small></section>
+
+    <footer class="sg-footer"><a class="sg-brand" href="/screenguard"><span class="sg-mark" aria-hidden="true"><span></span></span><span>ScreenGuard</span></a><span>Made by Robat Das Orvi</span><a href="/">Back to The Book of Life</a></footer>
+  </main>
+</BaseLayout>
+
+<style>
+  :global(body) { background: #f5f6f3; color: #17221f; }
+  :global(.topnav), :global(.book-navigation), :global(.site-footer) { display: none; }
+  .sg-page { --ink:#17221f; --muted:#64716d; --line:#d5ded9; --mint:#b8f1d6; --green:#23614d; --night:#17221f; font-family: 'DM Sans', 'Helvetica Neue', sans-serif; background: #f5f6f3; overflow: hidden; }
+  .sg-nav { width: min(1180px, calc(100% - 64px)); height: 78px; margin: auto; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+  .sg-brand { display:flex; align-items:center; gap:10px; color:var(--ink); text-decoration:none; font-size:15px; font-weight:700; letter-spacing:-.02em; }
+  .sg-mark { width:26px; height:30px; display:grid; place-items:center; background:var(--green); clip-path: polygon(50% 0, 91% 14%, 85% 69%, 50% 100%, 15% 69%, 9% 14%); }
+  .sg-mark span { width:11px; height:15px; border:2px solid var(--mint); border-top:0; border-radius:0 0 7px 7px; transform:translateY(-1px); }
+  .sg-links { display:flex; align-items:center; gap:28px; font-size:13px; }.sg-links a { color:var(--muted); text-decoration:none; }.sg-links a:hover { color:var(--ink); }.sg-nav-cta { color:var(--ink)!important; border:1px solid #bdc9c3; border-radius:999px; padding:10px 15px; }
+  .sg-hero { width:min(1180px, calc(100% - 64px)); min-height:680px; margin:auto; display:grid; grid-template-columns: .88fr 1.12fr; align-items:center; gap:40px; padding:58px 0 82px; }
+  .sg-kicker { margin:0 0 25px; color:var(--green); font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }.sg-live-dot { display:inline-block; width:7px; height:7px; margin-right:8px; background:#5ac793; border-radius:50%; box-shadow:0 0 0 5px #d9f6e7; }
+  h1,h2,h3,p { margin-top:0; }.sg-hero h1 { max-width:620px; margin-bottom:24px; color:var(--ink); font-size:clamp(46px, 6vw, 82px); line-height:.98; letter-spacing:-.075em; font-weight:500; }.sg-hero h1 em, h2 em { color:var(--green); font-family:Georgia, serif; font-weight:400; letter-spacing:-.06em; }.sg-lead { max-width:450px; color:var(--muted); font-size:17px; line-height:1.55; }.sg-actions { display:flex; align-items:center; gap:22px; margin:34px 0 22px; }.sg-button { display:inline-flex; align-items:center; gap:16px; padding:15px 19px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; transition:transform .2s ease, background .2s ease; }.sg-button:hover { transform:translateY(-2px); }.sg-button-primary { background:var(--green); color:white; }.sg-button-light { background:var(--mint); color:var(--ink); }.sg-text-link { color:var(--ink); font-size:13px; font-weight:700; text-decoration:none; }.sg-text-link span { color:var(--green); margin-left:7px; }.sg-micro { color:#82908b; font-size:11px; }.sg-micro span { color:var(--green); font-weight:700; }
+  .sg-hero-visual { position:relative; min-height:480px; display:grid; place-items:center; }.sg-browser { position:relative; z-index:1; width:min(590px, 100%); border:1px solid #c7d2cc; border-radius:14px; background:white; box-shadow:0 28px 70px #2a493b1f; transform:rotate(2.5deg); overflow:hidden; }.sg-browser-top { height:40px; display:flex; align-items:center; gap:6px; padding:0 15px; background:#edf2ef; border-bottom:1px solid #dce5e0; }.sg-browser-top > span { width:7px; height:7px; border-radius:50%; background:#bac7c0; }.sg-address { height:22px; flex:1; display:flex; align-items:center; gap:7px; margin-left:12px; padding:0 12px; color:#81908a; background:#e4ebe7; border-radius:4px; font-size:9px; }.sg-address i { width:6px; height:7px; border:1px solid #6e887d; border-radius:3px; }.sg-browser-top b { color:#8b9a94; font-size:10px; }.sg-browser-body { display:grid; grid-template-columns:105px 1fr; min-height:340px; }.sg-side { padding:27px 15px; background:#1d302a; color:#b9c9c2; font-size:8px; }.sg-side strong { display:block; margin-bottom:32px; color:white; font-size:10px; }.sg-side span { display:block; height:24px; margin:4px 0; border-radius:4px; background:#2c443b; }.sg-side span.active { background:#356250; border-left:2px solid var(--mint); }.sg-side small { display:block; margin-top:52px; color:#789287; font-size:7px; letter-spacing:.12em; }.sg-dashboard { padding:28px 27px 22px; }.sg-dash-head { display:flex; justify-content:space-between; margin-bottom:26px; color:var(--ink); font-size:16px; font-weight:700; }.sg-dash-head small { color:#9aa9a2; font-size:8px; font-weight:400; }.sg-metric-row { display:grid; grid-template-columns:1fr 1fr; gap:15px; }.sg-metric-row > div { padding:12px; background:#f3f7f5; border-radius:7px; }.sg-metric-row small { display:block; color:#8a9992; font-size:8px; }.sg-metric-row strong { display:block; margin:6px 0; color:var(--ink); font-size:20px; letter-spacing:-.05em; }.sg-metric-row span { color:#3d9c71; font-size:8px; font-weight:700; }.sg-chart { height:70px; display:flex; align-items:end; gap:10px; margin:28px 0 20px; padding:0 4px; border-bottom:1px solid #dce8e1; }.sg-chart span { flex:1; background:#a8dfc4; border-radius:4px 4px 0 0; }.sg-chart span:nth-child(1){height:30%}.sg-chart span:nth-child(2){height:45%}.sg-chart span:nth-child(3){height:38%}.sg-chart span:nth-child(4){height:66%}.sg-chart span:nth-child(5){height:54%}.sg-chart span:nth-child(6){height:80%}.sg-chart span:nth-child(7){height:95%;background:#377b61}.sg-redaction { display:flex; align-items:center; gap:10px; padding:10px; background:#edf8f1; border:1px solid #cae9d8; border-radius:7px; }.sg-redaction-icon { width:24px; height:24px; display:grid; place-items:center; color:var(--green); background:#d2f1df; border-radius:50%; }.sg-redaction strong { display:block; color:var(--green); font-size:9px; }.sg-redaction small { display:block; margin-top:4px; color:#7b9588; font-size:8px; }.sg-redaction button { margin-left:auto; border:0; color:var(--green); background:none; font-size:9px; font-weight:700; }.sg-orbit { position:absolute; border:1px solid #d4e2db; border-radius:50%; }.sg-orbit-one { width:510px; height:510px; }.sg-orbit-two { width:390px; height:390px; border-color:#bfe8d0; }.sg-shield-badge { position:absolute; z-index:2; right:-8px; bottom:56px; display:flex; align-items:center; gap:10px; padding:12px 15px; background:#172b24; border:1px solid #416b58; border-radius:9px; color:white; box-shadow:0 14px 30px #172b2430; transform:rotate(-3deg); }.sg-badge-shield { width:23px; height:26px; display:grid; place-items:center; color:#17382b; background:var(--mint); clip-path:polygon(50% 0, 92% 15%, 85% 70%, 50% 100%, 15% 70%, 8% 15%); font-size:13px; font-weight:900; }.sg-shield-badge strong { display:block; font-size:11px; }.sg-shield-badge small { display:block; margin-top:3px; color:#9db5a9; font-size:9px; }
+  .sg-proof { width:min(1180px, calc(100% - 64px)); margin:auto; padding:20px 0; display:grid; grid-template-columns:1.1fr 1fr 1fr 1fr; gap:20px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); color:#7d8c85; font-size:9px; letter-spacing:.12em; }.sg-proof strong { color:var(--ink); font-size:12px; letter-spacing:-.02em; }.sg-proof-rule { border-left:1px solid var(--line); }
+  .sg-story { width:min(1180px, calc(100% - 64px)); margin: auto; padding:150px 0 155px; display:grid; grid-template-columns:.8fr 1.2fr; gap:110px; }.sg-section-intro h2, .sg-privacy h2, .sg-cta h2 { max-width:510px; margin-bottom:24px; font-size:clamp(35px, 4.2vw, 58px); line-height:1.02; letter-spacing:-.07em; font-weight:500; }.sg-section-intro > p:last-child, .sg-privacy-copy > p { max-width:430px; color:var(--muted); font-size:15px; line-height:1.6; }.sg-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; padding-top:38px; }.sg-steps article { border-top:1px solid var(--line); padding-top:16px; }.sg-steps article > span { color:var(--green); font:12px Georgia,serif; }.sg-steps h3 { margin:55px 0 12px; font-size:16px; letter-spacing:-.03em; }.sg-steps p { color:var(--muted); font-size:13px; line-height:1.55; }
+  .sg-privacy { display:grid; grid-template-columns:1fr 1fr; gap:90px; padding:110px max(32px, calc((100% - 1180px) / 2)); background:#1c2b26; color:white; }.sg-privacy .sg-kicker { color:var(--mint); }.sg-privacy h2 { color:white; }.sg-privacy h2 em { color:var(--mint); }.sg-privacy-copy { padding-top:47px; }.sg-privacy-copy > p { color:#b1c3ba; }.sg-privacy-list { display:grid; gap:17px; margin-top:45px; border-top:1px solid #3b5148; padding-top:22px; color:#e6f0eb; font-size:12px; }.sg-privacy-list span { display:flex; gap:20px; }.sg-privacy-list b { color:var(--mint); font:11px Georgia,serif; }
+  .sg-cta { padding:150px 24px 145px; text-align:center; background:#d6f5e2; }.sg-cta .sg-kicker { color:var(--green); }.sg-cta h2 { margin-left:auto; margin-right:auto; }.sg-cta > p:not(.sg-kicker) { color:#547066; font-size:15px; }.sg-cta small { display:block; margin-top:20px; color:#739188; font-size:10px; }.sg-cta-mark { width:40px; height:46px; margin:0 auto 30px; display:grid; place-items:center; background:var(--green); clip-path:polygon(50% 0, 91% 14%, 85% 69%, 50% 100%, 15% 69%, 9% 14%); }.sg-cta-mark span { width:17px; height:23px; border:3px solid var(--mint); border-top:0; border-radius:0 0 11px 11px; }.sg-footer { width:min(1180px, calc(100% - 64px)); min-height:82px; margin:auto; display:flex; align-items:center; justify-content:space-between; color:#82908b; font-size:11px; }.sg-footer a:last-child { color:var(--ink); text-decoration:none; }
+  @media (max-width: 800px) { .sg-nav,.sg-hero,.sg-proof,.sg-story,.sg-footer { width:calc(100% - 40px); }.sg-links a:not(.sg-nav-cta) { display:none; }.sg-hero { display:block; padding-top:75px; }.sg-hero-copy { max-width:600px; }.sg-hero-visual { min-height:410px; margin-top:50px; }.sg-browser { transform:rotate(1deg); }.sg-orbit-one { width:380px; height:380px; }.sg-orbit-two { width:290px; height:290px; }.sg-shield-badge { right:0; bottom:15px; }.sg-proof { grid-template-columns:1fr 1fr; }.sg-proof-rule { display:none; }.sg-story { display:block; padding:100px 0; }.sg-steps { margin-top:70px; }.sg-privacy { display:block; padding:90px 20px; }.sg-privacy-copy { padding-top:30px; }.sg-footer { gap:15px; flex-wrap:wrap; padding:25px 0; }.sg-footer > span { order:3; width:100%; } }
+  @media (prefers-reduced-motion: reduce) { .sg-button { transition:none; }.sg-button:hover { transform:none; } }
+</style>
