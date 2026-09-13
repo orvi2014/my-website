@@ -1,5 +1,5 @@
 ---
-title: "France at World Cup 2026: The Numbers That Show How Dangerous Their Mbappé Dependency Is"
+title: "France's Mbappé Dependency at World Cup 2026: The Numbers"
 description: "France's Mbappé dependency in 2026 wasn't about goals. It was a left-back alone against Lamine Yamal, and 0.31 xG in a World Cup semi-final."
 pubDate: 2026-09-09
 category: "football"
@@ -41,9 +41,9 @@ Look at who France asked to stand in that corridor. Théo Hernández, 28, has sp
 
 Deschamps picked Digne for the biggest game of the cycle and gave him no protection at all. Spain attacked that channel from the first whistle. The penalty wasn't a random error. It was the fourth or fifth time Digne had been asked to deal with Yamal without a covering body, and eventually the coin landed the other way.
 
-## Was France's attack too deep to depend on Mbappé?
+## Is France a one-man team?
 
-No. It was deep as a supply line and empty as an alternative: Michael Olise set the all-time World Cup record with seven assists, but the record exists because Mbappé finished the chances.
+On the team sheet, no. In attack, effectively yes: Michael Olise set the all-time World Cup record with seven assists, but the record exists because Mbappé finished the chances, and once Mbappé was neutralised France had no other route to goal.
 
 This is the strongest case against the argument, so take it properly. France's front line was the most talented at the tournament. Olise, 24, was [named Bundesliga Player of the Season for 2025/26](https://fcbayern.com/en/news/2026/05/michael-olise-named-bundesliga-2025-26-player-of-the-season) after 15 goals and 19 assists for the champions, the most assists in the division for a second straight year. Dembélé, 29, and Doué, 21, arrived from a PSG side that has been the best team in Europe. Bradley Barcola, 23, came off the bench and scored in the bronze final. On paper, not a one-man team.
 
@@ -51,9 +51,9 @@ But look at how Olise reached seven. [He broke Pelé's 56-year-old record by tee
 
 The defensive counterargument fails harder still. Deschamps' France were meant to be structurally sound. That was the 2018 and 2022 identity. In 2026 they kept four clean sheets in eight matches and conceded ten, 1.25 a game. Then [they lost the bronze final to England 4-6 in Miami](https://www.espn.com/soccer/match/_/gameId/760516/england-france), the highest-scoring World Cup match since 1982 and the highest-scoring third-place game ever. Bukayo Saka scored a hat-trick. A France team conceding six is not a France team let down by its attackers.
 
-## Did the 48-team World Cup format hide France's Mbappé problem?
+## Was France's path to the 2026 World Cup semi-final easy?
 
-Almost completely. The expanded bracket meant France played six matches before meeting a side capable of pressing them, and won all six without being properly tested.
+Yes, and the 48-team format made it easier. France played six matches before meeting a side capable of pressing them, and won all six without their Mbappé problem being properly tested.
 
 The 48-team tournament added a round of 32, so the champions now need eight matches rather than seven. For a flawed favourite that isn't extra jeopardy, it's extra padding. France's route to the semi-final ran Senegal, Iraq, Norway, Sweden, Paraguay, Morocco, then Spain. Six opponents who never pressed France in a way that punished a two-man midfield, then one who did. Qualifying told the same story: France came through UEFA Group D unbeaten in six matches, five wins and a draw, with [2-0 at Ukraine, 2-1 and 4-0 at home to Iceland and Ukraine, 3-0 and 1-3 against Azerbaijan and a 2-2 draw in Reykjavík](https://www.uefa.com/european-qualifiers/news/029f-1f3220dd4374-db6a602d6b3d-1000--european-qualifiers-for-the-2026-world-cup-highlights-franc/), Mbappé scoring twice in the win over Ukraine that sealed it in November 2025. That's fourteen competitive matches across qualification and the finals, six qualifiers and eight at the World Cup, and before the semi-final the structural flaw hadn't been punished in any of them.
 
