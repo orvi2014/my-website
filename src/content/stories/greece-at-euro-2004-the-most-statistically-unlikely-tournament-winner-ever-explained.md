@@ -1,5 +1,5 @@
 ---
-title: "Greece at Euro 2004: The Most Statistically Unlikely Tournament Winner Ever, Explained"
+title: "How Did Greece Win Euro 2004? The Libero Nobody Marked"
 description: "The Greece Euro 2004 upset usually gets filed under luck. The better explanation is an unmarked defender playing a role elite football had already abandoned."
 pubDate: 2026-09-13
 category: "football"
@@ -25,7 +25,9 @@ The record says more than the odds do. At USA 94 they lost all three group games
 
 His players couldn't defend zonally against elite movement, but they could win one-on-one duels. A spare man behind them covered every duel they lost.
 
-The history shows how out of step that was. For decades the libero sat at the centre of defensive thinking. Helenio Herrera's Inter won two European Cups in the 1960s with a sweeper behind man-markers, and Franz Beckenbauer made the position a playmaking role for Bayern Munich and West Germany in the 1970s. Then came Arrigo Sacchi's AC Milan, European champions in 1989 and 1990. Their flat back four moved as one zonal unit, squeezed the pitch and played offside better than any marker-and-sweeper system could. By 2004 nearly every serious side at the Euros defended zonally with four across the back. The libero had become shorthand for football that had fallen behind.
+That's the reading in [Holding Midfield's tactical analysis of the tournament](https://www.holdingmidfield.com/how-did-otto-rehhagel-greece-win-euro-2004-tactics-tactical-analysis/). Rehhagel didn't expect his defenders to win every one-on-one against some of the best forwards of their generation, so he made Dellas a sweeper to cover the ones they lost.
+
+The history shows how out of step that was. For decades the libero sat at the centre of defensive thinking. Helenio Herrera's Inter won two European Cups in the 1960s with a sweeper behind man-markers, and Franz Beckenbauer made the position a playmaking role for Bayern Munich and West Germany in the 1970s. Then came Arrigo Sacchi's AC Milan, European champions in 1989 and 1990. Their flat back four moved as one zonal unit, squeezed the pitch and played offside better than any marker-and-sweeper system could. By 2004 nearly every serious side at the Euros defended zonally with four across the back. [FourFourTwo's breakdown of Greece's run](https://www.fourfourtwo.com/features/how-greece-broke-the-euros-in-2004) points out that man-marking like Greece's had all but vanished from top-level football years earlier, because attackers who rotated positions had exposed its limits. The libero had become shorthand for football that had fallen behind.
 
 Rehhagel had come up through the Bundesliga of the 1970s and 1980s, and fashion didn't interest him much. In 1998 he won the league with newly promoted Kaiserslautern. [Sky Sports](https://www.skysports.com/football/news/11712/10260273/the-german-leicester) notes that no other promoted side has ever done it. He had already built one champion out of players nobody expected anything from. With Greece, the method was easy to describe and miserable to play against. Every defender got a specific opponent. One defender got nobody.
 
@@ -33,15 +35,19 @@ Rehhagel had come up through the Bundesliga of the 1970s and 1980s, and fashion 
 
 Dellas was the free centre-back. He had no marking assignment, so he read where the danger was coming from and covered whichever marker had been beaten. When Greece had the ball, he could step up into midfield. Every other defender's mistake landed on him, and for six matches he cleaned them up.
 
+[FourFourTwo](https://www.fourfourtwo.com/features/how-greece-broke-the-euros-in-2004) describes the role the same way: a centre-back with no man-marking job, free to spot danger when Greece were out of possession and to join the midfield when they had the ball. Its verdict is that this freedom to sweep behind, step forward and cover across is what left opponents confused.
+
 Man-marking breaks down the same way almost every time. A clever forward drags his marker out of position and a teammate runs into the space. A zonal defence handles that by passing runners from one defender to the next, and Greece couldn't do that reliably. So they needed one player whose only job was to stand where the gap was about to open. Kapsis could follow a striker into the channel and Seitaridis could chase a winger inside, because Dellas was behind both of them.
 
 The role suited him perfectly. Dellas was 6ft 5in and had spent the season at Roma. He read the game well and won nearly everything in the air, but he was slow on the turn. In a zonal back four, quick forwards would have found that out within minutes. As the spare man, he never had to turn and race anyone.
 
 The system also gave Greece's best players jobs that suited them. Theodoros Zagorakis, the captain and UEFA's player of the tournament, could press and carry the ball out of midfield instead of guarding space. Zagorakis took the award, Charisteas took the goals and Rehhagel took the credit. None of it happens without Dellas free behind them.
 
-## Which matches forced Greece to adapt?
+## What were Greece's results at Euro 2004?
 
-Every round asked a different attacking question. Rehhagel changed the marking assignments each time, and he never moved the spare man.
+Greece won four matches, drew one and lost one, scoring seven goals and conceding four. Every round asked a different attacking question. Rehhagel changed the marking assignments each time, and he never moved the spare man.
+
+Michael Cox of Zonal Marking called it "the tactical achievement of the decade." [These Football Times](https://thesefootballtimes.co/2019/05/17/the-tactical-achievement-of-the-decade-how-greece-conquered-a-continent-to-win-euro-2004/) explains that Rehhagel let the opponent's attack decide Greece's defensive shape. The only thing that never changed was a spare man behind the markers.
 
 ### Portugal 1-2 Greece: 12 June, Estádio do Dragão, Porto
 
