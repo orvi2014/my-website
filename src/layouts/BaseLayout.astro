@@ -16,6 +16,8 @@ interface Props {
   type?: 'website' | 'article';
   pubDate?: Date;
   noindex?: boolean;
+  /** Product pages may render their own navigation and footer. */
+  bare?: boolean;
   /** Article category label, e.g. "Technology" */
   category?: string;
   /** Reading time in minutes */
@@ -39,6 +41,7 @@ const {
   type = "website",
   pubDate,
   noindex = false,
+  bare = false,
   category,
   readingTime,
   tags = [],
@@ -284,14 +287,14 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
   </head>
   <body>
     <div class="page-content">
-      <Header currentPath={currentPath} />
+      {!bare && <Header currentPath={currentPath} />}
       <main>
         <slot />
       </main>
-      <Footer />
+      {!bare && <Footer />}
     </div>
 
-    <SearchModal />
+    {!bare && <SearchModal />}
     <div id="modal-root"></div>
   </body>
 </html>
