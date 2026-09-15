@@ -90,7 +90,7 @@ The developers I've seen build the most reliable AI-powered systems are rarely t
 
 ## Related reading
 
-If you skipped retrieval and dumped the corpus into the window, that failure is the same one in [why RAG still hallucinates 17–33% of the time](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026). For the cost of sending every request to the biggest model, see [semantic routing cut my LLM costs 70%](/chapters/ai-agents/how-semantic-routing-cut-my-llm-costs-by-70-without-touching-model-quality).
+If you skipped retrieval and dumped the corpus into the window, that failure is the same one in [why RAG still hallucinates 17–33% of the time](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026). For the cost of sending every request to the biggest model, see [semantic routing cut my LLM costs 70%](/chapters/ai-agents/how-semantic-routing-cut-my-llm-costs-by-70-without-touching-model-quality). If the real problem is that you never read what the model handed back rather than that it forgot, that is [AI-assisted coding versus vibe coding](/chapters/ai-automation/ai-assisted-coding-vs-vibe-coding).
 
 [^1]: Liu, N. F., et al. (2023). *Lost in the Middle: How Language Models Use Long Contexts*. arXiv. https://arxiv.org/abs/2307.03172
 

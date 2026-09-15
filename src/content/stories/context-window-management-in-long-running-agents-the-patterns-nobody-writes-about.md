@@ -67,6 +67,8 @@ Give the window a floor, not just a ceiling. The StreamingLLM paper (Xiao et al.
 
 Because the failure is silent, delayed, and looks exactly like a model problem. Nothing throws. The agent doesn't error out at turn 90, it just gets subtly and expensively stupid, and the obvious conclusion is that you need a better model.
 
+It is the same shape of mistake people make with generated code they never read. Accepting output you cannot account for is [the line between AI-assisted coding and vibe coding](/chapters/ai-automation/ai-assisted-coding-vs-vibe-coding), and a context window you never inspect is the agent version of it.
+
 I've watched three separate teams, mine included, respond to hour-three degradation by upgrading models. It works, briefly, which is the worst available outcome, because it confirms the wrong diagnosis and buys four months before the same wall shows up at hour five. The tell is always the same. The agent repeats work it already did. Not *fails* at the work. Repeats it. When you see repetition you have a context problem, not a capability problem. A model that has forgotten something behaves identically to a model that never knew it, and only one of those gets fixed by spending more per token.
 
 There's a second reason, which is that context assembly is the one part of an agent stack nobody has a test suite for. We test prompts. We test tools. We test outputs. I have never seen a fixture asserting what the assembled window looks like at turn 60, and turn 60 is exactly where the bug lives, inside a string that gets built at runtime and thrown away.

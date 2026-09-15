@@ -23,6 +23,8 @@ This is measured now, not anecdotal. A June 2026 study of 9,876 tau2-bench traje
 
 So a silent failure isn't an error you missed. It's a success message you believed.
 
+Generated code has the same property. It compiles, it reads cleanly, and nobody checked whether it does what its summary claims, which is [the whole difference between AI-assisted coding and vibe coding](/chapters/ai-automation/ai-assisted-coding-vs-vibe-coding).
+
 ## Isn't silent agent failure just bad error handling?
 
 No. Bad error handling produces failures with an exception sitting somewhere to be caught; the expensive silent failures produce no exception at all, so there is nothing for better handling to catch.

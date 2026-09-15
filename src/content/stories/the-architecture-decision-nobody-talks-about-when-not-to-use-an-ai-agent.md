@@ -25,6 +25,8 @@ That is a vendor telling you to buy less of the product. It is worth reading twi
 
 Here is the honest test. Sit down and try to write the flowchart. If you can draw it — even a big, ugly one with fourteen branches — you do not have an agent-shaped problem. You have a normal program that calls a language model at four or five specific points where natural language needs to become structured data. That program will be debuggable, testable, and cheap. Your agent will be none of those things, and it will do the same work by asking a model to rediscover your flowchart at runtime, from scratch, at three cents a rediscovery.
 
+The same test works one level down, on the code itself. If you can read what the model wrote and say why each line is there, you are doing [AI-assisted coding rather than vibe coding](/chapters/ai-automation/ai-assisted-coding-vs-vibe-coding), and which of the two you are actually doing decides how much of this architecture you can safely hand over.
+
 ## When should you avoid AI agents entirely?
 
 Avoid AI agents when the task has more than roughly ten sequential steps, when a wrong step is expensive to undo, or when you cannot afford to be wrong the same way twice. The reason is arithmetic, not ideology.
