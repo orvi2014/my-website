@@ -1,5 +1,5 @@
 ---
-title: "How Algeria Beat West Germany in 1982: The Upset That Changed African Football"
+title: "How Algeria Beat West Germany at the 1982 World Cup"
 description: "Algeria West Germany 1982 upset: the Germans won 16 corners to 4 and still lost 2-1 in Gijón. What the numbers missed about Algeria's plan."
 pubDate: 2026-09-15
 category: "football"
@@ -35,9 +35,9 @@ The corner count comes from [These Football Times' account of the match](https:/
 
 None of those figures would be inaccurate. Read together, they'd still tell you the wrong team was in control.
 
-## What can xG and possession not measure about Algeria's 1982 team?
+## Why did West Germany lose to Algeria in 1982 despite 16 corners?
 
-**Intent. Event data can't separate a team being pinned back from a team that has picked where the game gets played, and Algeria in 1982 were doing the picking.**
+**Because Germany took Algeria's deep block for weakness. Possession, corners and xG can't tell a team being pinned back from a team that has chosen where the game gets played, and in 1982 Algeria were the ones choosing.**
 
 I keep coming back to this, so I'll give it a name: consented territory. In the event stream, a deep block and a team that's falling apart look the same. Both concede corners. Both let the other side have the ball. Both post a high PPDA because neither presses high. The difference is whether the space in front of their box was handed over as part of a plan, with a trigger for going the other way, or taken off them.
 
