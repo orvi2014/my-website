@@ -10,9 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.2",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/vercel": "^8.1.5",
-    "astro": "^5.9.0"
+    "astro": "^5.9.0",
+    "framer-motion": "^12.43.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.4",
