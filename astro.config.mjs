@@ -1,13 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
-import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://www.robatdasorvi.com',
-  // ScreenGuard uses one small Framer Motion React island for its product-state
-  // sequence. The rest of the site remains static Astro.
-  integrations: [react()],
+  integrations: [],
   // Static by default. Individual routes opt into on-demand rendering with
   // `export const prerender = false` — currently only /api/subscribe, which
   // needs a server so the Buttondown API key never reaches the browser.

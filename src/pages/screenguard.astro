@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ScreenGuardHeroMotion from '../components/ScreenGuardHeroMotion';
 
 const storeUrl = 'https://chromewebstore.google.com/detail/screenguard/dggihakhjjleajeimnfipcgbadkbjdcn';
 const title = 'ScreenGuard | Block risky websites before they open';
@@ -35,7 +34,10 @@ const softwareSchema = {
         <div class="sg-actions"><a class="sg-button sg-button-primary" href={storeUrl} rel="noreferrer">Add to Chrome <span aria-hidden="true">→</span></a><a class="sg-button sg-button-quiet" href="#protection">See how it works</a></div>
         <ul class="sg-facts" aria-label="ScreenGuard facts"><li><i class="is-safe" aria-hidden="true"></i>Runs locally</li><li><i class="is-safe" aria-hidden="true"></i>No account</li><li><i class="is-safe" aria-hidden="true"></i>No tracking</li></ul>
       </div>
-      <ScreenGuardHeroMotion client:load src="/images/screenguard/1-popup.png" alt="ScreenGuard browser extension popup" />
+      <div class="sg-hero-visual">
+        <div class="sg-window"><div class="sg-window-bar"><span></span><span></span><span></span><b>ScreenGuard for Chrome</b></div><img src="/images/screenguard/1-popup.png" alt="ScreenGuard browser extension popup" width="1280" height="800" loading="eager" /></div>
+        <div class="sg-status-card"><i class="is-safe" aria-hidden="true"></i><div><strong>Protection active</strong><small>Risk checks stay on your device</small></div></div>
+      </div>
     </section>
 
     <section class="sg-signal" aria-label="Risk categories ScreenGuard checks"><span>Adult sites</span><span>Gambling</span><span>Phishing</span><span>Malware</span><span>Suspicious links</span></section>
