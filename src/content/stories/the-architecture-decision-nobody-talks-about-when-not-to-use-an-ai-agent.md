@@ -1,11 +1,11 @@
 ---
-title: "The Architecture Decision Nobody Talks About: When Not to Use an AI Agent"
-description: "Gartner says 40% of agentic AI projects die by 2027. When to avoid AI agents entirely, and why 'just add an agent' is usually backwards."
+title: "When Not to Use an AI Agent: The Architecture Decision Nobody Talks About"
+description: "Gartner says 40% of agentic AI projects die by 2027. When not to use an AI agent, how an AI agent differs from a workflow, and why 'just add an agent' is usually backwards."
 pubDate: 2026-09-10
 category: "ai-agents"
 author: "Orvi"
-readingTime: 9
-tags: ["ai-agents", "software-architecture", "llm-engineering", "agentic-ai", "system-design", "engineering-decisions", "automation", "technical-debt"]
+readingTime: 10
+tags: ["ai-agents", "software-architecture", "llm-engineering", "agentic-ai", "ai-agent-vs-workflow", "system-design", "engineering-decisions", "automation", "technical-debt"]
 featured: false
 ---
 
@@ -19,13 +19,33 @@ Let me tell you the thing I wish someone had told me before I spent a quarter le
 
 Write the code. Use an agent only when you genuinely cannot enumerate the steps in advance — not when enumerating them is tedious, but when it is *impossible*, because the next step depends on what the previous step found.
 
-That distinction is the entire architecture decision, and it collapses about 80% of the agent projects I've seen into ordinary software. Anthropic's own engineering guidance, published in December 2024, draws the line cleanly: workflows are systems where models and tools are orchestrated through *predefined code paths*; agents are systems where the model dynamically directs its own process. Their recommendation, from the company selling you the models, is to find the simplest solution possible and only increase complexity when needed.
+That distinction is the entire architecture decision, and it collapses about 80% of the agent projects I've seen into ordinary software. Anthropic's own engineering guidance, [*Building Effective Agents*](https://www.anthropic.com/engineering/building-effective-agents), published in December 2024, draws the line cleanly: workflows are systems where models and tools are orchestrated through *predefined code paths*; agents are systems where the model dynamically directs its own process. Their recommendation, from the company selling you the models, is to find the simplest solution possible and only increase complexity when needed.
 
 That is a vendor telling you to buy less of the product. It is worth reading twice.
 
 Here is the honest test. Sit down and try to write the flowchart. If you can draw it — even a big, ugly one with fourteen branches — you do not have an agent-shaped problem. You have a normal program that calls a language model at four or five specific points where natural language needs to become structured data. That program will be debuggable, testable, and cheap. Your agent will be none of those things, and it will do the same work by asking a model to rediscover your flowchart at runtime, from scratch, at three cents a rediscovery.
 
 The same test works one level down, on the code itself. If you can read what the model wrote and say why each line is there, you are doing [AI-assisted coding rather than vibe coding](/chapters/ai-automation/ai-assisted-coding-vs-vibe-coding), and which of the two you are actually doing decides how much of this architecture you can safely hand over.
+
+## What is the difference between an AI agent and a workflow?
+
+A workflow's control flow lives in your code and is fixed before the run starts; an agent's control flow lives in the model and is decided during the run. Everything else — cost profile, failure mode, how you debug it at 2am — follows from that one difference.
+
+| | Workflow | Agent |
+|---|---|---|
+| **Who decides the next step** | You, at write time | The model, at run time |
+| **Steps known in advance** | Yes — that's the definition | No — that's the definition |
+| **Cost per run** | Bounded, roughly constant | Unbounded until you cap it |
+| **Failure mode** | Loud, at the line that broke | Quiet, three steps downstream |
+| **Debugging** | Stack trace | Transcript archaeology |
+| **Reproducibility** | Same input, same path | Same input, new path |
+| **Right when** | You can draw the flowchart | The next step depends on what the last step found |
+
+Note what is *not* on that list: intelligence. Both architectures call the same model with the same weights. A workflow is not the dumb option — it is the same intelligence with the routing decisions taken out of the model's hands and put into yours, where they can be read, diffed, and unit-tested.
+
+The practical consequence is that "agent vs workflow" is rarely a whole-system choice. Most real builds are a workflow with one agentic step bolted into the middle of it — a research call, a code-fix attempt, a classification that genuinely branches — wrapped in deterministic code on both sides. That shape is also where the money works out, which I've broken down separately in [the economics of AI agents](/chapters/ai-agents/the-economics-of-ai-agents-when-autonomous-beats-human-in-the-loop): autonomy is worth paying for exactly where the alternative is a human doing the same rediscovery, and it's a tax everywhere else.
+
+If you take one thing from the table, take the failure row. Everything after this section is a consequence of it.
 
 ## When should you avoid AI agents entirely?
 
@@ -46,6 +66,8 @@ They fail because the failure is invisible until the bill arrives. Gartner predi
 The same press release contains my favorite piece of industry accounting: Gartner estimates that of the thousands of vendors selling agentic AI, roughly **130 are real**. The rest are engaged in what the analysts named "agent washing" — rebranding existing chatbots and RPA scripts. So when you benchmark your build against what competitors appear to have shipped, remember that you are, statistically, benchmarking against a rename.
 
 MIT's Project NANDA reached the same place from the buyer's side. Their 2025 report *The GenAI Divide*, built on 300-plus public deployments, 52 executive interviews and 153 survey responses, found that **95% of enterprise generative AI pilots produced no measurable P&L return** despite $30–40 billion in investment. Their diagnosis wasn't model quality or regulation. It was that these systems don't retain feedback or improve, so every run starts from zero — which is, if you look at it directly, a description of an agent loop.
+
+That decay has a timetable, and it's shorter than the budget cycle that funded it. I've written about [why most AI automation dies within six months of going live](/chapters/ai-agents/why-most-ai-automation-dies-within-six-months-of-going-live), and the pattern is always the same: the thing doesn't crash, it drifts, and nobody notices because nobody instrumented the drift.
 
 I have my own small version of this. I run a content system that includes a long-form article lane. For weeks it looked like the lane had simply gone quiet. It hadn't. The generation step was failing to produce parseable JSON roughly 40% of the time, and because each attempt consumed a 48-hour scheduling slot, eight of twenty articles evaporated with no error surfaced anywhere a human would look. The model wasn't wrong. The model was *occasionally malformed*, which in a deterministic pipeline is a caught exception and in an agent loop is a silence.
 
@@ -78,6 +100,8 @@ If you can't name the oracle, you don't have an agent. You have a very expensive
 Build the pipeline. Named steps, structured output at every boundary, hard schema validation, a real error when the schema fails, and a human gate on anything that leaves your system and touches another person.
 
 Then measure the thing everyone skips: not whether it succeeded, but whether it succeeded *the same way* across ten identical runs. That's your pass^k. If it's below 90%, you don't have a product, you have a distribution.
+
+And for the one genuinely agentic step you keep — the research call, the retry loop, the thing that really can't be enumerated — put a hard stop around it. [Every agentic loop needs a circuit breaker](/chapters/ai-agents/why-every-agentic-loop-needs-a-circuit-breaker-and-how-i-built-one): a step ceiling, a spend ceiling, and a rule that trips the whole thing to a human instead of trying once more. Autonomy without a kill condition isn't autonomy, it's an unmonitored while-loop with a credit card.
 
 You can always add the loop later. Adding autonomy to a system with good instrumentation is a Tuesday. Adding instrumentation to an autonomous system that has been in production for six months is a rewrite, and it will be presented in the postmortem as "scaling challenges."
 
