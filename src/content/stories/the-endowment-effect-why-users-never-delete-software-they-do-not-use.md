@@ -1,11 +1,11 @@
 ---
-title: "The Endowment Effect: Why Users Never Delete Software They Do Not Use"
-description: "The endowment effect keeps software users paying for tools they never open. Field notes on what that dormant retention actually costs the people who build it."
+title: "Why People Don't Cancel Unused Subscriptions: The Endowment Effect in Software"
+description: "Why people don't cancel unused subscriptions: the endowment effect keeps users paying for software they never open. Field notes on what that dormant retention costs the people who build it."
 pubDate: 2026-09-07
 category: "psychology"
 author: "Orvi"
 readingTime: 9
-tags: ["endowment effect", "behavioral economics", "product psychology", "user retention", "saas", "loss aversion", "software adoption", "churn"]
+tags: ["endowment effect", "behavioral economics", "product psychology", "user retention", "saas", "loss aversion", "software adoption", "churn", "unused subscriptions"]
 featured: false
 ---
 
@@ -15,15 +15,19 @@ I've been staring at usage tables long enough to stop finding that funny. The en
 
 For years I had this backwards. Everyone treats deletion as the risky act and keeping as the safe one. The user who cancels might regret it. The team that sunsets a feature might get flamed on Twitter. So nobody deletes, and the cost of not deleting never lands on a chart with a name on it.
 
-## Why don't users delete software they never open?
+## Why don't people cancel subscriptions they never use?
 
-Because deleting it means admitting the purchase was a mistake, and keeping it costs nothing that feels like a cost. Ownership inflates value on its own, whether or not you use the thing.
+Because of the endowment effect: canceling means admitting the purchase was a mistake, and keeping it costs nothing that feels like a cost. Owning something makes it seem more valuable, whether or not you use it.
+
+The **endowment effect** is the tendency to value something more just because you own it. People ask for more money to give up an item than they would pay to get the same item in the first place. It's usually explained as a form of loss aversion, where giving something up hurts more than getting it felt good.
 
 The canonical demonstration is [Kahneman, Knetsch and Thaler's 1990 mug experiment](https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Behavioral_Decision_Theory/Kahneman_et_al_1990_Experimental_tests.pdf) in the *Journal of Political Economy*. Students handed a $6 coffee mug demanded more than double what students without one would pay for the same object. The endowment was minutes old. No sentimental history, no data trapped inside the mug. Ownership alone did it.
 
 Software is the mug with a login screen and eleven months of your notes inside it.
 
-The consumer version you can verify on your own phone. The average smartphone carries around 80 installed apps and opens roughly 30 in a given month, and [surveys of uninstall behavior](https://buildfire.com/app-statistics/) find only about 39% of people remove an app when they stop using it. The other 61% aren't making a decision. They're declining to make one, which is a different thing with an identical bank statement.
+The consumer version you can verify on your own phone. According to [BuildFire's roundup of app statistics](https://buildfire.com/app-statistics/), the average smartphone carries 80-plus installed apps and the average person opens about 30 of them in a month, and a quarter of downloaded apps are used once and never again. The other fifty-odd apps are still sitting there. Nobody decided to keep them. People are declining to make a decision, which is a different thing with an identical bank statement.
+
+Subscriptions are the same shelf with a monthly charge attached. In [C+R Research's 2022 survey](https://www.crresearch.com/blog/subscription-service-statistics-and-costs/) of 1,000 US consumers, 42% admitted they had stopped using a subscription and forgotten they were still paying for it. Respondents guessed their monthly subscription spend at $86. The itemized total came to $219.
 
 Enterprise is less charming. [Zylo's SaaS Management Index](https://zylo.com/news/zylos-saas-management-index-reveals-organizations-only-utilize-60-of-saas-licenses-leaving-40-unused/) puts license utilization at roughly 60%, so four in ten paid seats are dark. [Nexthink's 2023 study](https://nexthink.com/press/half-of-software-licenses-goes-unused-by-employees-wasting-businesses-billions) found nearly half of installed software and licensed SaaS went untouched by employees, worth about $44.7 million per month across just 30-odd popular tools.
 
@@ -31,7 +35,7 @@ The part that gets left out of the think-pieces: those seats don't sit still. Th
 
 ## Is the endowment effect real, or a lab artifact?
 
-It's been attacked seriously and it survived. The strongest challenge showed the gap can be suppressed under specific conditions, not that it isn't there.
+It's real. It has been attacked seriously and it survived. The strongest challenge showed the gap can be suppressed under specific conditions, not that it isn't there.
 
 I want to give the counterargument its due, because I believed it for a while. In 2005, [Charles Plott and Kathryn Zeiler published a paper in the *American Economic Review*](https://www.aeaweb.org/articles?id=10.1257%2F0002828054201387) arguing the willingness-to-pay/willingness-to-accept gap was an artifact of subjects misunderstanding the elicitation procedure. Train them properly, run practice rounds, and the gap for mugs disappears. People cited it like the whole edifice had come down.
 
