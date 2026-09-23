@@ -1,6 +1,6 @@
 ---
-title: "The Hidden State Problem in Agentic Systems That Nobody Warns You About"
-description: "My Twitter bot kept drafting replies for 3.5 days after the account was suspended. It had already detected the suspension. Memory was never the problem."
+title: "AI Agent State Management: Why Your Agent Ignores What It Already Knows"
+description: "Agent state management isn't memory. My Twitter bot detected its own suspension and kept drafting replies for 3.5 days. Here's the hidden state behind it."
 pubDate: 2026-09-06
 category: "ai-agents"
 author: "Orvi"
@@ -23,9 +23,11 @@ Because "we are locked out" only ever existed as a log line and a Telegram messa
 
 In spirit the code went: `check_for_lockout()` scraped the profile, matched the suspension banner, called `notify()`, returned `None`. The scheduler that called it moved on to `due("reply")`, which read a timestamp file, decided enough minutes had passed, generated a reply, and pushed it into the approval queue. Every step correct in isolation. Nothing in the chain asked whether the account was alive, because nothing in the chain had anywhere to put that answer if it got one. The detection was flawless and completely inert.
 
-## Isn't This Just a Missing Return Statement?
+## Is Hidden State in an AI Agent Just an Error-Handling Bug?
 
-That was my first fix, and it wasn't wrong so much as absurdly undersized. I made `check_for_lockout()` call `sys.exit(1)`, watched it work, and figured that was that.
+No. Error handling covers what happens when a call fails. Hidden state is what happens when a call succeeds, establishes a true fact, and that fact lands somewhere the loop never reads.
+
+A missing exit was my first fix, and it wasn't wrong so much as absurdly undersized. I made `check_for_lockout()` call `sys.exit(1)`, watched it work, and figured that was that.
 
 It was that, for exactly that one instance. Over the following week the same shape kept turning up in different clothes. A rate-limit response the HTTP layer logged and swallowed. A Telegram callback whose skip branch never wrote its decision anywhere, so the scheduler counted the item as timed out and requeued it. A daily action cap dutifully incrementing a counter in memory while the restart loop killed the process every few hours.
 
@@ -43,7 +45,7 @@ Which explains the direction agentic reliability tends to fail in. Sierra's τ-b
 
 ## Doesn't a Bigger Context Window Solve AI Agent State Management?
 
-No, and the evidence here is unusually clean. The NoLiMa benchmark, presented at ICML 2025, tested retrieval where the question and the target share minimal literal overlap. That's what real agent state looks like, since "the account is suspended" rarely shows up verbatim in the phrasing of the next decision.
+No. Models lose the ability to act on a buried fact well before the window fills, and even perfect recall would still leave a safety guarantee depending on a probabilistic read. The evidence here is unusually clean. The NoLiMa benchmark, presented at ICML 2025, tested retrieval where the question and the target share minimal literal overlap. That's what real agent state looks like, since "the account is suspended" rarely shows up verbatim in the phrasing of the next decision.
 
 Eleven of the twelve models evaluated dropped below 50% of their own short-context baselines at 32K tokens. GPT-4o, one of the strongest performers in the set, fell from 99.3% at short context to 69.7% ([arXiv:2502.05167](https://arxiv.org/abs/2502.05167)). These are models advertising 128K windows and up. The window is real. The reliable attention inside it isn't.
 
@@ -59,9 +61,11 @@ The Berkeley taxonomy paper *Why Do Multi-Agent LLM Systems Fail?* ([arXiv:2503.
 
 Anthropic's own [multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) write-up, also June 2025, reports a 90.2% improvement over single-agent Claude Opus 4 on research tasks at roughly 15× the token cost of chat, with token usage alone explaining about 80% of performance variance. Worth noticing where that works: parallel research, where the subtasks are genuinely independent of each other. Anthropic says outright that the pattern is a poor fit for tightly coupled work like coding, which is the same boundary Yan draws from the other side. Parallelism is affordable precisely when there's no shared state to lose.
 
-## So What Do You Actually Write Down?
+## What State Should an AI Agent Actually Persist?
 
-Not everything. That was my second wrong turn. I started designing a serialization layer to persist the full agent trajectory, which is expensive, slow, and solves a problem I did not have.
+Persist every observation that changes what the agent is permitted to do next, as a typed value the control loop reads before it acts. You don't need the full trajectory.
+
+Not everything, in other words. Persisting everything was my second wrong turn. I started designing a serialization layer to persist the full agent trajectory, which is expensive, slow, and solves a problem I did not have.
 
 The rule I landed on is much narrower, and I didn't expect it going in. Every observation that changes what the agent is permitted to do next has to become a typed value the control loop reads before it acts. Not what the agent knows. What the agent is allowed to do.
 
@@ -69,9 +73,9 @@ My bot's memory was fine, honestly. It could recall its own posts, its target li
 
 I went into this assuming state management meant memory. It doesn't. Memory is the easy half, and it's the half every framework already ships for you. The dangerous state in an agentic system is what the model is still allowed to do, and that lives in your code rather than your prompt. An LLM can't hold a permission on your behalf. It can only be told about one, and being told is not the same as being bound.
 
-## What I Still Don't Know How to Fix
+## Can a Permission Layer Catch Agent Failures You Haven't Seen Yet?
 
-The gates work for the conditions I anticipated. For the ones I haven't, I have no method at all.
+Not by itself. The gates work for the conditions I anticipated. For the ones I haven't, I have no method at all.
 
 Every gate in my system exists because something already went wrong. The suspension, the rate limit, the cap, the quiet hours. Four gates, each paid for in an incident. The whole design is reactive by construction, and I obviously can't tell you what the fifth failure is, because if I could I'd have already written the gate. A real completeness argument for a permission layer would need something like a model of every state the platform can put me in, which is a specification of X's moderation system, which nobody outside X has.
 
