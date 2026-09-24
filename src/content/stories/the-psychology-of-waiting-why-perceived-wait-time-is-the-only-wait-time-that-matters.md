@@ -1,11 +1,11 @@
 ---
 title: "The Psychology of Waiting: Why Perceived Wait Time Is the Only Wait Time That Matters"
-description: "The psychology of waiting UX teams keep quoting is half wrong. Hold music solved this in 1962 better than your skeleton screens do."
+description: "The psychology of waiting that UX teams keep quoting is half wrong. What actually shapes perceived wait time, and why hold music solved it in 1962 better than your skeleton screens do."
 pubDate: 2026-09-07
 category: "psychology"
 author: "Orvi"
-readingTime: 8
-tags: ["psychology", "ux", "perceived performance", "waiting", "product design", "latency", "cognitive science", "design history"]
+readingTime: 9
+tags: ["psychology", "ux", "perceived performance", "perceived wait time", "psychology of waiting", "waiting", "product design", "latency", "loading states", "cognitive science", "design history"]
 featured: false
 ---
 
@@ -23,15 +23,19 @@ Jakob Nielsen fixed the boundaries in 1993 in [Response Times: The 3 Important L
 
 ## Why do elevators have mirrors?
 
-Not for the reason you've read. The story — tenants complain the elevators are slow, a consultant installs mirrors, complaints vanish — is almost certainly folklore. I spent an afternoon confirming that, which was an odd afternoon, because it's the most repeated anecdote in the field. It shows up in design talks, in product decks, in my own notes.
+Elevator mirrors mainly help wheelchair users reverse out safely; the story that they cut wait complaints is unsourced folklore.
 
-The trail runs back to Russell Ackoff's 1963 *A Manager's Guide to Operations Research*, where it is already being told secondhand, and then it stops. No building, no year, no complaint log. Meanwhile Otis was advertising mirrors in lift cars in the 1870s, decades before anyone theorized about elevator boredom, and one durable practical explanation is that wheelchair users need to see behind them to reverse out safely.
+You've probably read the other version. Tenants complain the elevators are slow, a consultant installs mirrors, complaints vanish. I spent an afternoon confirming it's folklore, which was an odd afternoon, because it's the most repeated anecdote in the field. It shows up in design talks, in product decks, in my own notes.
+
+The trail runs back to Russell Ackoff's 1963 *A Manager's Guide to Operations Research*, where it is already being told secondhand, and then it stops. No building, no year, no complaint log. Meanwhile Otis was advertising mirrors in lift cars in the 1870s, decades before anyone theorized about elevator boredom, and the practical explanation that has lasted is the one above: a wheelchair user who can't turn around in the car needs to see behind them to back out.
 
 So I'd been leaning on a parable. Worth finding out, since the field has a real case with a paper trail, and it comes from the telephone.
 
 ## Why was hold music invented?
 
-In 1962, a factory owner in Glen Cove, New York discovered that a loose wire touching a steel girder had turned his building into a radio receiver, and callers placed on hold were hearing the station next door. Alfred Levy filed on it. It issued in 1966 as US Patent 3,246,082, "Telephone Hold Program System." [Smithsonian's history of hold music](https://www.smithsonianmag.com/innovation/a-brief-history-of-hold-music-from-early-patents-to-the-soundtrack-of-customer-service-purgatory-180989185/) tracks the accident and what followed.
+Hold music was patented (filed in 1962, issued in 1966) so callers could tell a held line from a dropped one.
+
+In 1962, a factory owner in Glen Cove, New York discovered that a loose wire touching a steel girder had turned his building into a radio receiver, and callers placed on hold were hearing the station next door. Alfred Levy filed on it. It issued in 1966 as [US Patent 3,246,082, "Telephone Hold Program System."](https://patents.google.com/patent/US3246082A) [Smithsonian's history of hold music](https://www.smithsonianmag.com/innovation/a-brief-history-of-hold-music-from-early-patents-to-the-soundtrack-of-customer-service-purgatory-180989185/) tracks the accident and what followed.
 
 Read the patent's own framing and it isn't about entertainment at all. It's about ending the wait in dead silence. Telephony had a specific failure that predates every loading state you've ever shipped: a silent open line and a dropped call are indistinguishable to the person holding the handset. The caller cannot tell whether the wait is progressing, or whether the wait ended and nobody told them.
 
@@ -77,10 +81,14 @@ Which reframes everything above. Hold music worked because it proved the line wa
 
 ## How do you actually measure perceived wait time?
 
-Mostly you don't, and that's the part I haven't solved.
+You measure it through proxies: abandonment rate during a specific loading state, and post-wait surveys that ask users how long they think they waited, compared against the logged duration for that same session.
 
-I can instrument p95. I have no instrument for legibility. Those four support tickets were the only signal I had that perception had drifted from measurement, and four tickets isn't a metric, it's an accident of who bothered to write in.
+Abandonment is the one you can instrument today. Google's 2016 DoubleClick data, [summarized on web.dev](https://web.dev/articles/why-speed-matters), found 53% of mobile visits were abandoned when a page took longer than three seconds to load. Split that by loading state rather than by page and you get a number that moves when perception moves, even if p95 doesn't. The duration-estimate survey is the one the lab literature actually uses. A [1997 meta-analysis by Block and Zakay](https://doi.org/10.3758/BF03209393) in *Psychonomic Bulletin & Review* found that people who know they're timing a wait judge it longer than people asked afterward, so the question has to come after the wait, unannounced, or it measures the question.
 
-Worse, legibility and theater look identical in a screen recording. Hold music was honest by accident. It couldn't lie about progress, only about the line being open, and about that it was telling the truth. A modern loading state can claim anything it wants. "Analyzing your data" while a queue job sits idle would pass every test I currently have. The 2011 result depends on the labor being real, nothing in my stack enforces that, and it's a failure mode I'd ship without noticing, because it would look exactly like the fix.
+Neither one is legibility, though, and that's the part I haven't solved.
+
+I can instrument p95. I can instrument abandonment. I have no instrument for legibility. Those four support tickets were the only signal I had that perception had drifted from measurement, and four tickets isn't a metric, it's an accident of who bothered to write in.
+
+Worse, legibility and theater look identical in a screen recording, and in an abandonment chart. Hold music was honest by accident. It couldn't lie about progress, only about the line being open, and about that it was telling the truth. A modern loading state can claim anything it wants. "Analyzing your data" while a queue job sits idle would pass every test I currently have. The 2011 result depends on the labor being real, nothing in my stack enforces that, and it's a failure mode I'd ship without noticing, because it would look exactly like the fix.
 
 So I know what to build. What I don't know is how I'd find out, six months from now, that I'd built the lie instead.
