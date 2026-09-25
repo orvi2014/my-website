@@ -1,6 +1,6 @@
 ---
-title: "The Systems I Use to Run Three Products as One Person"
-description: "Three products, one person. The systems that make it work, and why most solo founders with a second product are really just avoiding a verdict."
+title: "How to Run Multiple SaaS Products as a Solo Founder"
+description: "How to run multiple SaaS products as a solo founder: the systems that make three products work for one person, and why most second products are really just a way of avoiding a verdict."
 pubDate: 2026-09-08
 category: "building"
 author: "Orvi"
@@ -25,7 +25,7 @@ Then there's survival. Bureau of Labor Statistics figures put [77.9% of new esta
 
 So the honest framing of your situation isn't "should I focus." It's that you're placing a small number of high-variance bets against a hard ceiling on your own throughput, with no reliable way to know in advance which bet is the good one.
 
-## Why the second product feels so good
+## Why do solo founders start a second product?
 
 Because a new product is the only place where the feedback is guaranteed positive. Every commit works. No design decision has been punished yet. Nothing has failed, because nothing has been shown to anyone who could reject it.
 
@@ -47,9 +47,9 @@ So the resolution is about stage rather than character. You run several small be
 
 Almost nobody makes that switch on time. Same reason they started the second product: switching lets the verdict land.
 
-## How I actually split the time
+## How should a solo founder split time between products?
 
-I don't split it. I rank it. One product per day, never one product per hour, because the unit of allocation has to be at least as long as the cost of switching, and that cost is measured in tens of minutes.
+Don't split it, rank it: give one product the whole day, never one product per hour, because each switch costs tens of minutes. The unit of allocation has to be at least as long as the cost of switching.
 
 This is the one place where the productivity research is load-bearing rather than decorative. Gloria Mark's UC Irvine work on interrupted knowledge work ([CHI 2008](https://ics.uci.edu/~gmark/chi08-mark.pdf)) found that people compensate for interruption by working faster and pay for it in stress, frustration and time pressure. The companion figure everyone quotes from her 2004–2006 studies is 23 minutes and 15 seconds to get back to the original task. The APA's summary of Rubinstein, Meyer and Evans (2001), [Executive Control of Cognitive Processes in Task Switching](https://www.apa.org/topics/research/multitasking), puts the cost of switching as high as 40% of productive time, with the penalty climbing as tasks get more complex and less familiar.
 
@@ -65,17 +65,17 @@ A re-rank date, in writing. Every six weeks I re-rank against the numbers I wrot
 
 Batched approvals for anything automated. My outreach and content stack drafts everything and sends it to me to approve, and I clear the whole queue in one sitting. Otherwise automation doesn't save time. It just relocates the interruption into forty smaller ones.
 
-## What breaks first
+## What breaks first when you run multiple products?
 
-Silent failure. Not the outage that pages you at 2am, which is honestly the easy kind, but the pipeline that keeps running normally while producing nothing, inside the product you weren't looking at that month.
+Silent failure breaks first: a pipeline that keeps running normally while producing nothing, inside the product you weren't looking at that month. Not the outage that pages you at 2am. That's honestly the easy kind.
 
 My clearest example: an automated long-form content lane that appeared healthy for weeks. It was failing JSON parsing on 8 of 20 generations, and because each attempt consumed the full 48-hour slot, 40% of that channel's output simply never existed. Nothing alerted. Nothing crashed. The dashboards were green because nothing on them measured the thing that mattered.
 
 With one product you catch that in a day, since you're looking at it every day anyway. With three, the neglected product's failures get a multi-week detection window, and that window is where the actual cost of a portfolio lives. So the rule I don't bend: every product emits one number into one place I see daily, and the alert fires on absence. Zero output has to be loud on its own. An exception trace is a luxury.
 
-## When to kill one
+## When should you kill a side product?
 
-On the date you wrote down, at the number you wrote down. If you catch yourself renegotiating either one, that *is* the answer. The renegotiation is the data.
+Kill it on the date you wrote down, at the number you wrote down. If you catch yourself renegotiating either one, that *is* the answer. The renegotiation is the data.
 
 Killing is part of the system rather than proof the system failed. A product without a written kill condition isn't a bet, it's an open-ended subscription you pay in attention. Freezing counts too: maintenance mode, no roadmap, lights on for existing customers, zero calendar blocks. Legitimate outcome, and usually the right one.
 
