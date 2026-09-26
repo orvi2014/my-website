@@ -1,5 +1,5 @@
 ---
-title: "When Every SaaS Looks the Same: The Commoditization Problem"
+title: "Why Does Every SaaS Product Look the Same? (SaaS Commoditization Explained)"
 description: "41 SaaS homepages, nearly identical copy. SaaS commoditization isn't lazy differentiation. It's a comparison layer quietly writing your roadmap."
 pubDate: 2026-09-18
 category: "building"
@@ -51,15 +51,17 @@ Read those four numbers as one sentence. Acquisition got more expensive, the bas
 
 Parity spends your engineering capacity building a product nobody has a reason to stay with.
 
-## The two forces that pull a category together
+## Why do SaaS competitors converge on the same features?
 
-Neither of them is competitor espionage.
+There are two forces at work. Career risk makes imitation the safest choice, and a shared comparison grid gives every vendor the same middle ground to crowd toward. Neither of them is competitor espionage.
 
 The first is sociological. Paul DiMaggio and Walter Powell named it in 1983 in [*The Iron Cage Revisited*](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1504516), *American Sociological Review* 48(2). Organizations in a shared field become homogeneous, and the strongest driver is mimetic isomorphism: under uncertainty, organizations model themselves on others in the field that look legitimate. Not because imitation works. Because imitation is defensible. A PM who ships the competitor's feature and fails is unlucky. A PM who ships something nobody in the category has and fails is reckless. The asymmetry lives in the career, not the market.
 
-The second is geometric. Harold Hotelling described it in 1929 in "Stability in Competition": two vendors on a beach, customers spread evenly along it, each vendor edging toward the middle to capture the other's territory, until both of them are standing side by side at the center selling the same thing. Every SaaS category has a beach. The comparison layer draws it, and the middle is wherever the grid's axes happen to cross. What converges on you isn't your competitors. It's the whole category sliding toward a coordinate system a third party published.
+The second is geometric. Harold Hotelling described it in 1929 in ["Stability in Competition"](https://doi.org/10.2307/2224214), *The Economic Journal* 39(153): two vendors on a beach, customers spread evenly along it, each vendor edging toward the middle to capture the other's territory, until both of them are standing side by side at the center selling the same thing. Every SaaS category has a beach. The comparison layer draws it, and the middle is wherever the grid's axes happen to cross. What converges on you isn't your competitors. It's the whole category sliding toward a coordinate system a third party published.
 
 ## Isn't this just what a mature market looks like?
+
+No. Sameness only becomes the equilibrium when firms don't compete on price, and the comparison layer is what takes price off the table.
 
 This was the objection I got most often once I started saying any of it out loud. Sameness is the natural end state, it happens to everybody, and the winner is whoever executes distribution best. It's a comfortable story, because it turns the outcome into weather instead of a choice.
 
