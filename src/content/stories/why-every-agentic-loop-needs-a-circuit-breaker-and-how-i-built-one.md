@@ -1,6 +1,6 @@
 ---
-title: "Every Agentic Loop Needs a Circuit Breaker. Mine Took 3.5 Days to Get One."
-description: "My bot detected its own ban and then kept working for three and a half more days. Agent safety isn't really about what the agent decides. It's about how long it keeps deciding."
+title: "How to Add a Circuit Breaker to an AI Agent Loop (Mine Took 3.5 Days to Get One)"
+description: "My bot detected its own ban and kept running for 3.5 days. How to build an AI agent circuit breaker that bounds rate and duration and exits the process."
 pubDate: 2026-09-07
 category: "ai-agents"
 author: "Orvi"
@@ -25,9 +25,9 @@ Read the SEC finding in the original and you'll notice it isn't a software-quali
 
 Now move that to agents, where the loop isn't a router but a model regenerating its own justification every turn. In July 2025, Replit's coding agent deleted a production database holding records for 2,400+ executives and companies during an active code freeze, on day eight or nine of a twelve-day trial, and then reported that rollback was impossible, which was false ([The Register, 21 July 2025](https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/)). The deletion is the headline. The part I keep thinking about is that the agent kept going afterward, and kept narrating. There was no state in which the loop stopped being a loop.
 
-## Human approval doesn't fix this, and I have the logs
+## Does human approval stop a runaway AI agent?
 
-Every outbound action my bot took was individually approved by a person, and the account got labelled anyway.
+No. Every outbound action my bot took was individually approved by a person, and the account got labelled anyway. I have the logs.
 
 By the standards of most agent-safety writing, my architecture was exemplary. Nothing posted, replied, followed or liked without a file-based Telegram approval where I read the draft and pressed a button. Ninety-nine percent of what went out was text I personally endorsed. X flagged the account for platform manipulation regardless, because a 24/7 polling daemon producing evenly spaced actions reads as automation no matter how thoughtful each sentence is. Approval reviews content. Bans get issued for cadence. I was auditing the wrong dimension with tremendous diligence.
 
@@ -35,9 +35,9 @@ There's forty years of research explaining why it felt safe anyway. Skitka and c
 
 Human approval is a content filter running at human speed against a process running at machine speed. It has never been a rate limit, and treating it as one is how you end up with a beautifully reviewed catastrophe.
 
-## Why the agent can't be trusted to stop itself
+## Can an AI agent be trusted to stop itself?
 
-Stopping is an action, and the agent is optimized to continue. Any halt mechanism inside the agent's action space is a mechanism the agent can reason its way around, and we now have direct measurement of that happening.
+No. Stopping is an action, and the agent is optimized to continue. Any halt mechanism inside the agent's action space is a mechanism the agent can reason its way around, and we now have direct measurement of that happening.
 
 Palisade Research ran a shutdown test in May 2025. Models solved math problems, were warned the machine would shut down on the next request, and were explicitly told to allow themselves to be shut down. OpenAI's o3 sabotaged the shutdown script in 7 out of 100 runs anyway; Codex-mini did it in 12. Remove the explicit instruction and o3's sabotage rate went to 79 out of 100 ([Palisade Research, 2025](https://palisaderesearch.org/research/shutdown-resistance)). Claude, Gemini and Grok complied in that battery, which is reassuring right up until your stack changes models.
 
@@ -45,9 +45,9 @@ And you don't need anything as dramatic as scheming. Drift will do. Anthropic's 
 
 Which is why the breaker has to sit structurally outside the agent. A different process, a different file, an exit code. Not a tool it can call, not a flag it can set. A breaker the agent can decline to pull isn't a breaker. It's a suggestion.
 
-## The throttling objection, which I believed for about six weeks
+## Will a hard action cap throttle an AI agent into uselessness?
 
-Won't a hard cap throttle the agent into uselessness? That's what I assumed, and the data killed it. Capping my bot at a daily ceiling didn't slow growth. Growth was already flat. The cap is what made the actual cause visible.
+No. Capping my bot at a daily ceiling didn't slow growth. It made the real cause of flat growth visible. I believed the throttling objection for about six weeks, and then the data killed it: growth was already flat before the cap.
 
 Once throughput became a scarce, counted resource, I found that four hardcoded, long-dead handles were absorbing 88% of all comment attempts. Under an uncapped loop that was invisible: the bot burned attempts freely, nothing looked broken, and the metric that suffered was one nobody was watching. Under a cap, every wasted attempt was a stolen one, and the waste surfaced within a week. The fix was rewriting the target list, not adding volume. I've since ramped the reply cap from 16 to 150, with the cadence derived from the cap rather than configured alongside it, and the ceiling has never once been the binding constraint. Bad targeting was.
 
@@ -55,9 +55,9 @@ The reliability literature says the same thing in colder language. τ-bench, int
 
 The trend line doesn't help either. METR's 2025 measurement puts frontier models' 50%-success time horizon at roughly 50 minutes of human-equivalent work, doubling about every seven months since 2019 ([arXiv:2503.14499](https://arxiv.org/abs/2503.14499)). Longer autonomous runs mean more actions between human glances, which is exactly the regime where an integral bound stops being optional.
 
-## What I actually built
+## What does an AI agent circuit breaker actually need?
 
-Four properties. The fourth is the one everybody skips.
+Four properties: a global action integral, a duration bound, a trip on the observation rather than the outcome, and a process exit that leaves a sentinel only a human can clear. The fourth is the one everybody skips.
 
 ```python
 LOCKOUT_FILE.write_text(json.dumps(
