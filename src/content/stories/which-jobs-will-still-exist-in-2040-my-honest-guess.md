@@ -1,5 +1,5 @@
 ---
-title: "Which Jobs Will Still Exist in 2040 — My Honest Guess"
+title: "Which Jobs Will Still Exist in 2040? The Careers AI Won't Replace"
 description: "My honest guess at the jobs that will exist in 2040, and the hidden cost of the 'safe' career choice that nobody bothers to put a number on."
 pubDate: 2026-09-15
 category: "future"
@@ -22,6 +22,24 @@ I haven't stopped thinking about that call. My information wasn't wrong. The pro
 ## Which jobs will still exist in 2040?
 
 Most jobs that need a human body in the room, a professional license, or trust between strangers will still exist in 2040. Think nursing, the skilled trades, therapy, early education and energy installation. Plenty of office jobs will survive as well. There will just be far fewer ways into them.
+
+Here's how the U.S. Bureau of Labor Statistics' 2025–35 projections sort some of the roles in this piece:
+
+| Outlook to 2040 | Role | BLS projected change, 2025–35 |
+|---|---|---|
+| Hiring | [Nurse practitioners](https://www.bls.gov/ooh/healthcare/nurse-anesthetists-nurse-midwives-and-nurse-practitioners.htm) | +41% |
+| Hiring | [Solar photovoltaic installers](https://www.bls.gov/ooh/fastest-growing.htm) | +37% |
+| Hiring | [Wind turbine service technicians](https://www.bls.gov/ooh/fastest-growing.htm) | +30% |
+| Hiring | [Electricians](https://www.bls.gov/ooh/construction-and-extraction/electricians.htm) | +9% |
+| Harder to enter | [Data scientists](https://www.bls.gov/ooh/fastest-growing.htm) | +35% |
+| Harder to enter | [Software developers](https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm) | +10% |
+| Harder to enter | [Lawyers](https://www.bls.gov/ooh/legal/lawyers.htm) | +5% |
+| Harder to enter | [Accountants and auditors](https://www.bls.gov/ooh/business-and-financial/accountants-and-auditors.htm) | +5% |
+| Shrinking | [General office clerks](https://www.bls.gov/ooh/office-and-administrative-support/general-office-clerks.htm) | −6% |
+| Shrinking | [Customer service representatives](https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm) | −5% |
+| Shrinking | [Bank tellers](https://www.bls.gov/ooh/office-and-administrative-support/tellers.htm) | −13% |
+
+The "harder to enter" roles are still growing on paper. I've put them there because of who I expect them to hire, which I get into below.
 
 The official projections aren't subtle about this. The U.S. Bureau of Labor Statistics' [2025–35 projections](https://www.bls.gov/ooh/fastest-growing.htm) rank nurse practitioners as the fastest-growing occupation in the country, at 41%. Solar photovoltaic installers come next at 37%, then data scientists at 35%, wind turbine service technicians at 30% and physical therapist assistants at 23%. As of May 2025, BLS put the [median pay for nurse practitioners at $132,300](https://www.bls.gov/ooh/healthcare/nurse-anesthetists-nurse-midwives-and-nurse-practitioners.htm).
 
