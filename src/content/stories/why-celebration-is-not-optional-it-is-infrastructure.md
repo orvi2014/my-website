@@ -1,6 +1,6 @@
 ---
-title: "Why Celebration Is Not Optional: It Is Infrastructure"
-description: "The importance of celebration ritual isn't about rewarding wins. The research says the opposite: schedule it before you've earned it."
+title: "Why Celebrating Small Wins Isn't Enough: The Science of Ritual"
+description: "Celebration rituals aren't a reward for winning. The research on ritual says the opposite: schedule them before you've earned anything."
 pubDate: 2026-09-29
 category: "human"
 author: "Orvi"
