@@ -4,7 +4,7 @@ description: "A Bangladeshi developer reflects on Thomas Nagel's moral luck and 
 pubDate: 2026-05-21
 category: "philosophy"
 author: "Orvi"
-readingTime: 9
+readingTime: 10
 tags: ["moral luck", "philosophy", "ethics", "birthplace privilege", "inequality", "Thomas Nagel", "personal essay", "global inequality"]
 featured: false
 ---
@@ -17,11 +17,17 @@ I keep returning to it because I build things. I've shipped software, started a 
 
 ## What is moral luck?
 
-Moral luck is the idea that factors entirely outside our control shape the moral judgements we make about people, including ourselves, in ways we rarely acknowledge. The term was coined by philosopher Thomas Nagel in his 1979 essay "Moral Luck," and it is not the same thing as ordinary luck.
+Moral luck is what happens when we praise or blame a person for something that depended, in a significant way, on factors they did not control. The philosopher Bernard Williams introduced the term in a 1976 paper for the Aristotelian Society, and Thomas Nagel's reply, published alongside it under the same title, gave the idea the shape most people now learn.
 
-Most people understand luck in the casual sense: winning a raffle, avoiding an accident, meeting someone useful at a useful time. Moral luck is different, and considerably stranger. Nagel identified four varieties, but three are the ones that matter here.
+Nagel's own definition is still the cleanest one available: "Where a significant aspect of what someone does depends on factors beyond his control, yet we continue to treat him in that respect as an object of moral judgment, it can be called moral luck." Both essays were later revised and reprinted, Nagel's in *Mortal Questions* (1979) and Williams's in his collection *Moral Luck* (1981), which is why the idea carries more than one date. The [Internet Encyclopedia of Philosophy](https://iep.utm.edu/moralluc/) and the [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/moral-luck/) both trace that history.
 
-## What are the four types of moral luck? (Thomas Nagel explained)
+Most people understand luck in the casual sense: winning a raffle, avoiding an accident, meeting someone useful at a useful time. Moral luck is different, and considerably stranger. It names a contradiction in how we judge. Ask almost anyone and they will agree that people should only be held responsible for what is within their control. Watch how almost anyone actually hands out praise and blame, and you will see them doing the opposite.
+
+Nagel's sharpest example makes the point. Picture a man who served as an officer in a concentration camp. If the Nazis had never come to power, he might have lived a quiet and harmless life. Now picture a German who emigrated to Argentina for business reasons in 1930 and did live that quiet, harmless life. Had he stayed, he might have become the officer. We condemn the first man and think nothing of the second. The difference between them may not be character at all. It may be a boat ticket.
+
+Nagel identified four varieties, but three are the ones that matter here.
+
+## What are the four types of moral luck?
 
 Nagel named four: resultant luck (how your actions happen to turn out), constitutive luck (the temperament and character you're born with), causal luck (how you're shaped by prior events you didn't cause), and circumstantial luck (the situations you happen to face). Three of them — resultant, constitutive, and circumstantial — do most of the work in shaping the moral judgements we make.
 
@@ -33,7 +39,7 @@ My family was comfortable enough by Bangladeshi standards. But comfortable in Dh
 
 ## Does where you are born determine your success?
 
-Statistically, more than almost any other factor you can name. Research on global economic mobility consistently shows that the single largest predictor of lifetime income is not education level, not personality traits, not effort — it is the country of birth.
+Not entirely, but statistically it matters more than almost any other factor you can name. Research on global economic mobility consistently shows that the single largest predictor of lifetime income is not education level, not personality traits, not effort — it is the country of birth.
 
 [Our World in Data](https://ourworldindata.org/global-economic-inequality) documents this in terms that are hard to look away from: the average person in the richest countries earns on the order of 100 times what the average person in the poorest countries earns, a ratio that has nothing to do with how hard either of them works. The economist Branko Milanovic, in [empirical work on citizenship and global inequality](https://doi.org/10.1162/REST_a_00181), coined the phrase "citizenship premium" to describe the economic windfall from being born into a wealthy nation. His data show that more than half of the variation in people's global incomes is explained by a single factor they never chose — the country they happen to live in (Milanovic, 2015). Put plainly: your passport is, statistically, one of the most valuable assets you will ever hold, and you did nothing to earn it. For most people born into wealthy countries, that windfall exceeds, in real dollar terms, anything they will ever earn through individual effort alone. The gap between Bangladesh and a high-income OECD country is not a skills gap or a motivation gap. It is a luck gap, and it compounds over a lifetime.
 
@@ -45,7 +51,7 @@ I am not immune to the same blindspot in reverse. There are ways I benefited fro
 
 ## Does moral luck mean effort is pointless?
 
-No. This is the misreading that makes most people shut the conversation down too quickly.
+No. Moral luck does not say effort is worthless, only that effort is never the whole story. This is the misreading that makes most people shut the conversation down too quickly.
 
 Moral luck does not erase agency. It complicates the moral weight we assign to outcomes. It does not say stop working. It says stop believing that working is the whole story. The person who grinds for a decade and builds something real is doing something real. But so is the person who grinds for two decades and reaches half the distance, because the system was billing them a surcharge at every turn that other people never saw on their invoice. Moral luck asks you to hold both of those things as true at the same time, which is harder than picking one.
 
