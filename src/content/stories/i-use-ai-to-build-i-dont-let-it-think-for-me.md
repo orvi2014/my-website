@@ -1,10 +1,10 @@
 ---
-title: "Vibe Coding vs AI-Assisted Development: Drawing the Line"
-description: "Vibe coding vs AI-assisted development: Karpathy coined the term in 2025. METR found experienced developers 19% slower with AI. The line is tests, not tools."
+title: "Vibe Coding vs AI-Assisted Development: What Is the Difference?"
+description: "Vibe coding vs AI-assisted development: same tools, opposite workflow. The difference is whether you read, understand, and test the code before you ship."
 pubDate: 2026-05-17
 category: "ai-automation"
 author: "Orvi"
-readingTime: 9
+readingTime: 10
 tags: ["ai", "software development", "vibe coding", "ai assisted coding vs vibe coding", "testing", "developer mindset", "claude code", "engineering", "ai-assisted development", "test-driven development"]
 featured: false
 faq:
@@ -30,9 +30,17 @@ There is a difference, and it matters more than almost anything else I have lear
 
 ## What is vibe coding?
 
-Vibe coding is prompting an AI without understanding the output, accepting generated code without reading it, and shipping without testing. It is a specific workflow, not a synonym for AI-assisted development. The term was [coined by Andrej Karpathy in February 2025](https://x.com/karpathy/status/1886192184808149383).
+Vibe coding is prompting an AI without understanding the output, accepting generated code without reading it, and shipping without testing. It is a specific workflow, not a synonym for AI-assisted development. The term was [coined by Andrej Karpathy in February 2025](https://x.com/karpathy/status/1886192184808149383), who described it as a way of working where you "fully give in to the vibes, embrace exponentials, and forget that the code even exists."
 
-This distinction matters because people collapse the two categories to either defend or attack AI in development. Using AI to help write code is just programming now. That is what the tools are for. According to the [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/), 76% of developers are already using or plan to use AI coding tools in their workflow.
+This distinction matters because people collapse the two categories to either defend or attack AI in development. Using AI to help write code is just programming now. That is what the tools are for. According to the [Stack Overflow Developer Survey 2024](https://survey.stackoverflow.co/2024/), 76% of developers are already using or plan to use AI coding tools in their workflow. In the [2025 survey](https://survey.stackoverflow.co/2025/ai) that number rose to 84%, while trust went the other way: 46% of developers said they distrust the accuracy of AI output, against 33% who trust it.
+
+Almost everyone uses the tools. Far fewer believe what the tools say. That gap is the whole subject of this essay.
+
+---
+
+## What is the difference between vibe coding and AI-assisted development?
+
+The difference between vibe coding and AI-assisted development is verification, not tooling. In AI-assisted development you understand the problem, read the generated code, and test it before you ship. In vibe coding you skip all three and let the model decide when the work is done.
 
 Vibe coding is something more specific: prompting without understanding, accepting without reading, shipping without testing. The developer's job becomes describing what they want and clicking approve.
 
@@ -43,7 +51,13 @@ Vibe coding is something more specific: prompting without understanding, accepti
 | Tests exist before you ship | Yes | No |
 | The model decides what "done" means | No | Yes |
 
+Notice that nothing in that table is about which tool you use or how much of the code the model wrote. Simon Willison made the same point in [March 2025](https://simonwillison.net/2025/Mar/19/vibe-coding/): if a model wrote every line but you reviewed, tested, and understood all of it, that is not vibe coding, that is using the model as a typing assistant. The line is not how much the AI typed. The line is whether a human can explain and verify what shipped.
+
+Most working developers already sit on the assisted side of it. In the [2025 Stack Overflow survey](https://survey.stackoverflow.co/2025/ai), 72% of developers said vibe coding is not part of their professional work.
+
 The output looks like software. It passes the smell test. It runs. And then, three weeks later, something quietly breaks in production and you spend an afternoon staring at code you do not actually understand, written by a model that does not remember writing it.
+
+That afternoon is common enough to show up in the data. In the same 2025 survey, 66% of developers named "AI solutions that are almost right, but not quite" as their biggest frustration, and 45% said debugging AI-generated code takes more time than they expected.
 
 I have seen this happen to smart people. I have started to do it myself on late nights when I was tired and the model was confident. It is seductive because the short loop feels productive. You say a thing, the code appears, it works. The feedback is immediate and positive.
 
@@ -51,7 +65,7 @@ The cost is invisible until it is not. Vibe coding does not save you the work of
 
 ---
 
-## How do you use AI coding tools without losing control of your work?
+## How do you use AI coding tools without vibe coding?
 
 Understand what you want before you prompt. Write the test first, then hand the model a specific, bounded question. The model handles the typing; you stay responsible for the thinking.
 
@@ -67,11 +81,15 @@ This sounds obvious. It is not practiced as often as it sounds.
 
 ---
 
-## What are AI coding tools actually good at in software development?
+## Does AI-assisted development actually make developers faster?
 
-AI coding tools are genuinely valuable for boilerplate generation, surfacing unfamiliar patterns, catching missed edge cases, and writing test cases, provided the developer already understands the shape of what they need. [GitHub's 2022 research on Copilot](https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/) found developers completed tasks 55% faster, but those gains concentrate in well-specified, bounded work.
+Yes on well-specified, bounded tasks, and often no on large codebases you already know well. [GitHub's 2022 research on Copilot](https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/) found developers completed a bounded task 55% faster, while a 2025 METR trial found experienced developers were 19% slower on their own mature projects.
 
-The nuance is in that last clause. A [randomized controlled trial published by METR in July 2025](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) found that experienced open-source developers were actually 19% *slower* when using AI tools on large codebases they already knew well, even though they believed they had been 20% faster. The speedup is real, but it lives in the bounded, unfamiliar work, not in the parts where you already hold the whole system in your head. The tool helps most exactly where you understand least about the typing and most about the goal.
+AI coding tools are genuinely valuable for boilerplate generation, surfacing unfamiliar patterns, catching missed edge cases, and writing test cases, provided the developer already understands the shape of what they need. The GitHub result came from 95 developers building an HTTP server in JavaScript, which is exactly the kind of well-specified, bounded work where those gains concentrate.
+
+The nuance is in that last clause. A [randomized controlled trial published by METR in July 2025](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) followed 16 experienced open-source developers across 246 real tasks and found they were actually 19% *slower* when using AI tools on large codebases they already knew well, even though they believed they had been 20% faster. The speedup is real, but it lives in the bounded, unfamiliar work, not in the parts where you already hold the whole system in your head. The tool helps most exactly where you understand least about the typing and most about the goal.
+
+The same pattern shows up at team level. Google's [2024 DORA report](https://dora.dev/research/2024/dora-report/) estimated that a 25% increase in AI adoption was associated with a 1.5% drop in delivery throughput and a 7.2% drop in delivery stability. More generated code is not the same thing as more shipped software.
 
 The areas where it actually makes me faster:
 
@@ -137,7 +155,7 @@ The people I have watched get the most out of these tools are the ones who get m
 
 I am not arguing for slowing down or using fewer tools. I am arguing for staying in the driver's seat of your own work.
 
-There is a 2024 study from [GitClear](https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality) that tracked 211 million lines of code across repositories before and after AI adoption. They found code churn, code written and then reverted or altered within two weeks, was projected to double in 2024 compared to its 2021 pre-AI baseline, and that copy-pasted code began outpacing refactored code for the first time in the dataset. They attribute part of that to AI-generated code that passed review but failed in practice. I think about that study a lot. The tool that lets you write more code also lets you throw more of it away.
+There is a 2024 study from [GitClear](https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality) that tracked 153 million changed lines of code across repositories before and after AI adoption. They found code churn, code written and then reverted or altered within two weeks, was projected to double in 2024 compared to its 2021 pre-AI baseline. Their [2025 follow-up](https://www.gitclear.com/ai_assistant_code_quality_2025_research), covering 211 million lines, found copy-pasted code outpacing refactored code for the first time in the dataset. They attribute part of that to AI-generated code that passed review but failed in practice. I think about that study a lot. The tool that lets you write more code also lets you throw more of it away.
 
 The AI handles the typing. I stay responsible for the thinking.
 
@@ -159,13 +177,15 @@ That sounds harsh. I mean it as a practical filter, not a moral judgment. The fi
 
 ---
 
-## Why does judgment matter more as AI coding tools get better?
+## Will vibe coding get safer as AI models get better?
 
-Because better models produce more convincing output, which makes their confident mistakes harder to catch. You are the error bar the model cannot provide, and the more fluent the output gets, the more that role matters.
+No. Better models produce more convincing output, which makes their confident mistakes harder to catch. You are the error bar the model cannot provide, and the more fluent the output gets, the more that role matters.
 
 The models are getting better fast. They are already capable of writing entire files of reasonable code from minimal description. By the time you read this, they may be capable of more.
 
 The better they get, the more important the underlying habit becomes. When the output looks more convincing, it is harder to notice the cases where it is confidently wrong. The model does not have error bars. It does not tell you when it is guessing. It produces output with the same tone whether it is 95% sure or 55% sure.
+
+The security data makes this concrete. Veracode's [2025 GenAI Code Security Report](https://www.veracode.com/blog/genai-code-security-report/) tested more than 100 large language models on 80 coding tasks and found that 45% of the generated code samples introduced a known security vulnerability. Newer and larger models wrote more code that compiled and ran. They did not write meaningfully more secure code. Fluency improved. Safety did not follow it.
 
 You are the error bar. Your judgment, your tests, your habit of reading what you commit before you ship it. The model does not provide that. It cannot.
 
