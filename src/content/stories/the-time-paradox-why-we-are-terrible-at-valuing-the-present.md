@@ -4,7 +4,7 @@ description: "Our brains are structurally wired against now. A look at the psych
 pubDate: 2026-05-28
 category: "philosophy"
 author: "Orvi"
-readingTime: 10
+readingTime: 11
 tags: ["present moment", "philosophy", "time perception", "psychology", "temporal discounting", "mindfulness", "decision making", "consciousness"]
 featured: false
 ---
@@ -17,21 +17,23 @@ The question that has been following me around is: why? Not in a self-help sense
 
 ## What is present bias?
 
-Present bias is the well-documented tendency to give disproportionately small weight to value happening right now relative to the same value imagined in the future. We systematically undervalue the present because the human brain is a prediction machine, not an experience machine. Its job is to model what is coming next so the body can prepare, which means full immersion in the current moment is almost an unnatural act for it.
+Present bias is the tendency to make inconsistent choices over time: we plan patiently for the future, then abandon the plan the moment that future becomes "now." It sits on top of a deeper problem, which is that the human brain is a prediction machine, not an experience machine. Its job is to model what is coming next so the body can prepare, which means full immersion in the current moment is almost an unnatural act for it.
 
-Economists have a term for the distortion this creates: present bias. It describes our tendency to give disproportionately small weight to the value of something happening right now, relative to the same thing happening in the future. But the discount runs backward too. We overweight the future when we are imagining it, then radically undervalue the present when we are actually living it.
+The distortion runs in a strange direction. We overweight the future when we are imagining it, then radically undervalue the present when we are actually living it.
 
-O'Donoghue and Rabin documented this in a 1999 paper in the American Economic Review, showing that human time discounting is hyperbolic rather than consistent. Which is a technical way of saying we are structurally bad at valuing the present relative to any other point on the timeline. ([O'Donoghue & Rabin, 1999](https://www.aeaweb.org/articles?id=10.1257/aer.89.1.103))
+O'Donoghue and Rabin formalized this in a 1999 paper in the American Economic Review, modeling human time preferences as hyperbolic rather than consistent: the gap between "today" and "tomorrow" feels enormous, while the gap between day 100 and day 101 feels like nothing. Which is a technical way of saying we are structurally bad at valuing the present relative to any other point on the timeline. ([O'Donoghue & Rabin, 1999](https://www.aeaweb.org/articles?id=10.1257/aer.89.1.103))
 
 We tell ourselves we will be present later. Once the project ships. Once the vacation starts. Once things settle down. But "later" never arrives as we imagined it, because by the time it does, there is always a newer future demanding attention. The present is perpetually being deferred.
 
-I used to think this was a discipline problem. A character flaw. Something I could fix with the right morning routine or the right notebook. I have since stopped believing that. The pull away from now is not a bad habit. It is closer to a default mode. The brain's rest state is not presence; it is planning, reviewing, imagining, rehearsing. Neuroscientists even have a name for this baseline — the default mode network, the circuitry that switches on whenever we stop focusing on the outside world, first mapped by Marcus Raichle in 2001. ([Raichle et al., 2001](https://www.pnas.org/doi/10.1073/pnas.98.2.676)) Being here takes effort in a way that being elsewhere does not.
+I used to think this was a discipline problem. A character flaw. Something I could fix with the right morning routine or the right notebook. I have since stopped believing that. The pull away from now is not a bad habit. It is closer to a default mode. The brain's rest state is not presence; it is planning, reviewing, imagining, rehearsing. Neuroscientists even have a name for this baseline — the default mode network, the circuitry that switches on whenever we stop focusing on the outside world, first described by Marcus Raichle and colleagues in 2001. ([Raichle et al., 2001](https://www.pnas.org/doi/10.1073/pnas.98.2.676)) Being here takes effort in a way that being elsewhere does not.
 
 ## What happens in your brain when your mind wanders?
 
-It tends to make you less happy. A wandering mind is consistently associated with lower reported happiness, regardless of what you are doing. That is not a motivational poster; it is the finding from one of the more carefully designed studies on the topic.
+When your mind wanders, the default mode network takes over and your attention shifts from the world in front of you to memories, plans, and hypotheticals. And it tends to make you less happy: a wandering mind is consistently associated with lower reported happiness, regardless of what you are doing.
 
-Harvard psychologists Matthew Killingsworth and Daniel Gilbert built a smartphone app that pinged people at random moments throughout the day, asking two questions: what are you doing, and are you thinking about what you are doing? They sampled over 2,000 people and collected more than 250,000 data points. The result: minds were wandering roughly 47% of the time, and in every single activity category they measured, mind wandering was associated with unhappiness. ([Killingsworth & Gilbert, 2010](https://www.science.org/doi/10.1126/science.1192439))
+That is not a motivational poster; it is the finding from one of the more carefully designed studies on the topic.
+
+Harvard psychologists Matthew Killingsworth and Daniel Gilbert built a smartphone app that pinged people at random moments throughout the day, asking two questions: what are you doing, and are you thinking about what you are doing? They sampled 2,250 adults and collected roughly 250,000 data points. The result: minds were wandering 46.9% of the time, and in every one of the 22 activities they measured except one, mind wandering occurred in at least 30% of samples. People were less happy when their minds wandered than when they did not, and what people were thinking about predicted their happiness better than what they were doing. ([Killingsworth & Gilbert, 2010](https://www.science.org/doi/10.1126/science.1192439))
 
 The line from their paper has stayed with me: "a human mind is a wandering mind, and a wandering mind is an unhappy mind."
 
@@ -45,13 +47,13 @@ That framing has costs I only notice in retrospect.
 
 ## Why do we focus on the future instead of the present?
 
-We overallocate mental attention to the future because we confuse planning with living, and because the brain's memory system rewards anticipation in ways that distort our sense of where value actually sits.
+We focus on the future because we make decisions based on what we expect to remember, not what we expect to experience. The brain's memory system rewards anticipation and endings in ways that distort our sense of where value actually sits.
 
-Daniel Kahneman spent years studying what he calls the experiencing self and the remembering self. These are two distinct systems with different interests. The experiencing self lives in real time. The remembering self constructs a narrative afterward. The problem is that we make decisions based on what we expect to remember, not what we expect to experience.
+Daniel Kahneman spent years studying what he calls the experiencing self and the remembering self. These are two distinct systems with different interests. The experiencing self lives in real time. The remembering self constructs a narrative afterward. The problem is that the remembering self is the one making the decisions.
 
 He illustrated this with a deceptively simple example. If you listen to twenty minutes of beautiful music, but the recording ends with an awful scratch, you will say the experience was ruined. But the experiencing self heard twenty minutes of beauty. Only the remembering self heard the scratch. ([Kahneman, TED 2010](https://www.ted.com/talks/daniel_kahneman_the_riddle_of_experience_vs_memory))
 
-The remembering self has strange accounting habits. It remembers peaks and endings, and almost completely ignores duration. An hour of mild contentment barely registers; five minutes of genuine joy or pain can shape the memory of an entire week.
+The remembering self has strange accounting habits. It remembers peaks and endings, and almost completely ignores duration. In a 1996 study of 154 colonoscopy patients, Redelmeier and Kahneman found that how painful people remembered the procedure was predicted by its worst moment and its final moments, not by how long it lasted. ([Redelmeier & Kahneman, 1996](https://doi.org/10.1016/0304-3959(96)02994-6)) In an earlier experiment, 69% of participants chose to repeat a longer cold-water trial over a shorter one, simply because the longer one ended slightly less painfully. ([Kahneman et al., 1993](https://doi.org/10.1111/j.1467-9280.1993.tb00589.x)) An hour of mild contentment barely registers; five minutes of genuine joy or pain can shape the memory of an entire week.
 
 Because we make decisions based on anticipated memories rather than anticipated experiences, we optimize for moments we will remember rather than moments we will actually live through. We suffer through bad restaurants to have the photo. We rush vacations to fit in more of them. We sprint through whole stretches of life because we are composing the highlight reel in our heads while we are still in the footage.
 
@@ -61,7 +63,9 @@ That is a strange way to spend a life.
 
 ## How do you become more present without forcing it?
 
-By noticing the pattern instead of fighting it. Nothing dramatic changed for me, but paying attention to the drift — without trying to immediately correct it — turned out to be more useful than any technique I had tried before.
+You become more present by noticing the drift and returning, without fighting it or scolding yourself. Even brief practice helps: in one 2012 experiment, just 8 minutes of mindful breathing measurably reduced mind wandering on a follow-up task compared with relaxing or reading. ([Mrazek, Smallwood & Schooler, 2012](https://doi.org/10.1037/a0026678))
+
+Nothing dramatic changed for me, but paying attention to the drift, without trying to immediately correct it, turned out to be more useful than any technique I had tried before.
 
 The pull toward the past and future is nearly constant. My brain would rather chew on an old conversation or a hypothetical scenario than process what is in front of me. Not because the present is bad. Usually it is fine. But the brain doesn't process experience for the pleasure of it. It processes information for the use of it. The present, in some functional sense, feels like old news the moment it arrives. There is nothing left to predict.
 
@@ -73,13 +77,15 @@ This is part of why travel, even stressful travel, can feel more alive than ordi
 
 ## Why do we keep getting distracted even when we know better?
 
-We keep drifting because our environment is built for it. The brain's tendency to wander is also, in some ways, adaptive. It is how we plan, learn, empathize, imagine things that do not exist yet. Total presence all the time might not even be desirable, if it were achievable.
+We keep getting distracted because the brain's tendency to wander is partly adaptive, and because we now live inside environments engineered to exploit it. Knowing better does not help much when distraction is built into the tools we use every hour.
 
-But there is a difference between using the past and future as tools and living in them as a permanent default. Most of us have drifted toward the latter, not through personal failure but because we have built entire environments designed to accelerate it. Phones. Feeds. Notification stacks. Every one of those systems profits from pulling your attention away from whatever is immediately in front of you. By one 2019 Asurion survey, Americans check their phones an average of 96 times a day — roughly once every ten waking minutes. ([Asurion, 2019](https://www.asurion.com/about/press-releases/americans-check-their-phones-96-times-a-day/)) Distraction has become infrastructure. It doesn't feel like a choice anymore because it was pre-made for you at the product level.
+The wandering itself is useful. It is how we plan, learn, empathize, imagine things that do not exist yet. Total presence all the time might not even be desirable, if it were achievable. We are also remarkably uncomfortable without it. In a 2014 study in Science, 67% of men and 25% of women chose to give themselves an electric shock rather than sit alone with their thoughts for 15 minutes. ([Wilson et al., 2014](https://doi.org/10.1126/science.1250830))
+
+But there is a difference between using the past and future as tools and living in them as a permanent default. Most of us have drifted toward the latter, not through personal failure but because we have built entire environments designed to accelerate it. Phones. Feeds. Notification stacks. Every one of those systems profits from pulling your attention away from whatever is immediately in front of you. By one 2019 Asurion survey, Americans check their phones an average of 96 times a day — roughly once every ten waking minutes. ([Asurion, 2019](https://www.asurion.com/about/press-releases/americans-check-their-phones-96-times-a-day/)) And the pull works even when you resist it: in experiments with roughly 800 participants, simply having a smartphone on the desk, face down and silent, reduced available working memory compared with leaving it in another room. ([Ward et al., 2017](https://doi.org/10.1086/691462)) Distraction has become infrastructure. It doesn't feel like a choice anymore because it was pre-made for you at the product level.
 
 There is also something more subtle going on. Presence feels like a luxury that can wait until circumstances improve. I will be more present when the work is less stressful. When I am less anxious about money. When I have fewer open loops. But the open loops are permanent. There will always be something unresolved. Waiting for clearance to show up is one of the most effective ways to never show up.
 
-A 2021 meta-analysis in Perspectives on Psychological Science reviewed over 200 studies and found that people consistently overestimate how much their circumstances affect their wellbeing over time, and underestimate their capacity to adapt. ([Luhmann et al., 2021](https://journals.sagepub.com/doi/10.1177/1745691620964289)) We keep betting on future conditions to create the experience we want. The data suggests that bet almost never pays off the way we expect.
+The research on that bet is not kind to it. A 2012 meta-analysis in the Journal of Personality and Social Psychology pooled 313 samples covering 65,911 people and found that emotional well-being tends to drift back toward baseline after most major life events, though some, like unemployment, leave lasting marks on life satisfaction. ([Luhmann et al., 2012](https://doi.org/10.1037/a0025948)) And we rarely see that coming: Gilbert and colleagues showed in 1998 that people consistently overestimate how long future events will affect how they feel, a pattern they called the durability bias. ([Gilbert et al., 1998](https://doi.org/10.1037/0022-3514.75.3.617)) We keep betting on future conditions to create the experience we want. The data suggests that bet rarely pays off the way we expect.
 
 What it costs us is not abstract. It is the conversation you half-had. The dinner you cannot remember. The year that passed while you were getting ready for it to begin.
 
