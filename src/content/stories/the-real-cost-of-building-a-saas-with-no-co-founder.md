@@ -1,31 +1,35 @@
 ---
 title: "The Real Cost of Building a SaaS With No Co-Founder"
-description: "Solo founder SaaS challenges aren't about loneliness or labor. After four wasted months, here's the cost nobody warned me about."
+description: "Building a SaaS alone isn't hard because of loneliness or labor. After four wasted months, here's the cost nobody warned me about."
 pubDate: 2026-06-04
 category: "building"
 author: "Orvi"
-readingTime: 9
+readingTime: 10
 tags: ["solo founder", "saas", "startups", "co-founder", "building in public", "founder mistakes", "product decisions", "agencyhandy"]
 featured: false
 ---
 
 I shipped the wrong thing for four months, and the honest reason is that I had built a company specifically so that no one would ever have the authority to stop me.
 
-That sentence took me three years to be able to write. For most of that time I would have told you the opposite: that the discipline of working alone made me sharper, that I moved faster without a committee, that the famous solo founder SaaS challenges were a tax other people paid because they couldn't make decisions. I was building AgencyHandy. I had no co-founder, I was proud of it, and I had a tidy story about why that was an advantage. The story was wrong. This is the forensic report on exactly how, written now that I can stand to look at the wreckage.
+That sentence took me three years to be able to write. For most of that time I would have told you the opposite: that the discipline of working alone made me sharper, that I moved faster without a committee, that the famous struggles of going solo were a tax other people paid because they couldn't make decisions. I was building AgencyHandy. I had no co-founder, I was proud of it, and I had a tidy story about why that was an advantage. The story was wrong. This is the forensic report on exactly how, written now that I can stand to look at the wreckage.
 
 The wreckage, concretely: a billing-and-onboarding module I was certain agencies wanted, built over four months, used by almost no one, eventually ripped back out. Not a dramatic crater. The boring kind of failure, the kind that doesn't even get a post-mortem because nothing technically broke. The code worked. The decision didn't.
 
-## Why Do Solo Founder SaaS Challenges Cause More Failures Than Team Conflict?
+## Do Solo Founders Fail More Often Than Founding Teams?
 
-Solo founders fail more often not because they lack hands, but because no one with real standing ever audits their decisions. The data points at people problems, and a solo founder is the one person who has quietly removed every other person from the room.
+Not necessarily more often, but differently. Solo founders rarely die from conflict; they die from decisions that no one with real standing ever audited, because the solo founder is the one person who has quietly removed every other person from the room.
+
+There are more of us than ever. Carta found that 35% of startups founded in 2024 had a single founder, up from 29% in 2023 and 17% in 2017 ([Carta, 2025](https://carta.com/data/solo-founders-report)). And the survival data is not the slam dunk co-founder evangelists claim: Jason Greenberg and Ethan Mollick's study of Kickstarter-funded ventures found solo-founded companies were 55% less likely to dissolve than teams of three ([NYU Stern, 2018](https://www.stern.nyu.edu/experience-stern/faculty-research/venture-investors-take-note-solo-founders-outperform-teams)). Going solo doesn't doom you. It changes what kills you.
 
 Noam Wasserman spent years tracking founders for *The Founder's Dilemmas* (Princeton University Press, 2012), and the finding everyone quotes is that 65% of high-potential startups fail because of conflict among the founding team. The number people skip past is the other one: only 16% of the roughly 10,000 companies he studied had a single founder ([Entrepreneur, 2021](https://www.entrepreneur.com/leadership/harvard-business-school-professor-says-65-of-startups-fail/370367)). I used to read that 65% and feel smug. No co-founder, no co-founder conflict. I had eliminated the leading cause of death by removing the other person.
 
 What I had actually done was remove the only mechanism that converts a private conviction into a tested one. The conflict isn't the disease. The conflict is the immune system. I had a clean bill of health the way a body with no white blood cells has a clean bill of health.
 
-## Where Did the Decision Actually Go Wrong?
+## How Do Solo Founders Validate Product Decisions?
 
-The decision went wrong at the moment I confused "no one objected" with "I was right." There was no one whose job it was to object, so the silence felt like agreement when it was just an empty room.
+Most don't, not really. They mistake "no one objected" for "I was right," when real validation means getting evidence that customers will pay *and* getting someone with standing to try to kill the idea before a single line of code is written.
+
+That's exactly where my decision went wrong. There was no one whose job it was to object, so the silence felt like agreement when it was just an empty room.
 
 Here is the sequence, because the sequence is the whole point. I noticed agencies asking, occasionally, about invoicing. I extrapolated. I drew a roadmap. I felt the specific, narcotic confidence of a plan that has never had to survive another competent person's questions. Then I built. At no stage did anyone with equity, expertise, and the right to be a pain in my neck ask the obvious thing: *how many agencies actually said this, and did any of them say they'd pay for it?*
 
@@ -49,11 +53,13 @@ I tested this without realising it. I had contractors. I had freelancers who wer
 
 This is the counterargument I leaned on hardest, and it's wrong in a specific, checkable way. Advisors and AI can replace a co-founder's labour and even some of their judgement, but they cannot replace the one feature that matters: shared, inescapable consequences.
 
-It's a seductive objection in 2026. I can prototype faster alone than a two-person team could in 2015. AI will pressure-test a plan, list the risks, play devil's advocate on command. So surely the solo founder SaaS challenges of the co-founder era are obsolete? Here's why they aren't. An AI plays devil's advocate when you ask it to, and stops when you close the tab. I asked it to poke holes in the billing idea exactly once, got a list, decided the holes were manageable, and never went back. The tool had no stake in being right and no way to insist. Wasserman's 65% isn't a statistic about missing labour or missing analysis; it's a statistic about what happens when human decisions go unchecked, and the failures cluster on the solo end as much as the warring-team end. A devil's advocate you can dismiss at will is not a check. It's a confidence-laundering service. I used it as one.
+It's a seductive objection in 2026. I can prototype faster alone than a two-person team could in 2015. AI will pressure-test a plan, list the risks, play devil's advocate on command. So surely the risks of going solo in the co-founder era are obsolete? Here's why they aren't. An AI plays devil's advocate when you ask it to, and stops when you close the tab. I asked it to poke holes in the billing idea exactly once, got a list, decided the holes were manageable, and never went back. The tool had no stake in being right and no way to insist. Wasserman's 65% isn't a statistic about missing labour or missing analysis; it's a statistic about what happens when human decisions go unchecked. The solo version of that failure shows up as course corrections that never happen: the Startup Genome Report, which studied more than 650 early-stage internet startups, found solo founders took 3.6 times longer to reach the scale stage than two-founder teams and were 2.3 times less likely to pivot ([Steve Blank, 2011](https://steveblank.com/2011/05/29/tune-in-turn-on-drop-out-the-startup-genome-project/)). Less likely to pivot is a polite way of saying more likely to keep building the billing module. A devil's advocate you can dismiss at will is not a check. It's a confidence-laundering service. I used it as one.
 
-## What One Thing Would Have Changed the Outcome?
+## Should I Start a SaaS Without a Co-Founder?
 
-If I had been required, before building anything that took more than two weeks, to get one explicit "yes, go" from a single named person with the standing to say no and the spine to mean it, the billing module would have died in a forty-minute conversation instead of four months of commits.
+Yes, you can. The survival data says a solo company can do as well as a team or better. But only if you rebuild the co-founder's veto some other way: before any build longer than two weeks, get one explicit "yes, go" from a single named person who has the standing to say no and the spine to mean it.
+
+If I had worked under that rule, the billing module would have died in a forty-minute conversation instead of four months of commits.
 
 Not a co-founder, necessarily. I'm not going to pretend the fix was to find one, because by then it was too late and the honest reckoning isn't a recruitment ad. The fix was the function, not the title. One person, the same person every time, who I had genuinely authorised to overrule me, and whose only job in our arrangement was to make me defend the decision out loud before I was allowed to start. I could have built that. I had the relationships. I just didn't, because for three years I mistook the absence of objection for the presence of correctness, and a company with one founder is a beautifully efficient machine for producing exactly that mistake.
 
