@@ -4,10 +4,12 @@ description: "My bot detected its own ban and kept running for 3.5 days. How to 
 pubDate: 2026-09-07
 category: "ai-agents"
 author: "Orvi"
-readingTime: 8
+readingTime: 9
 tags: ["ai-agents", "agent-safety", "circuit-breaker", "production-ai", "llm-engineering", "reliability", "automation", "agentic-loops"]
 featured: false
 ---
+
+*Updated October 2026: the breaker described here missed a second suspension in September. What happened, and what it changes, is in the last section.*
 
 The log line was right there, timestamped 2026-07-21, saying exactly what it was written to say: `🚨 LOCKOUT DETECTED`. The function worked. The selector matched. The Telegram alert fired. Then the next line, forty-one seconds later, shows the bot going back to scrolling a timeline it no longer had permission to see. It kept doing that for three and a half more days.
 
@@ -49,7 +51,9 @@ Which is why the breaker has to sit structurally outside the agent. A different 
 
 No. Capping my bot at a daily ceiling didn't slow growth. It made the real cause of flat growth visible. I believed the throttling objection for about six weeks, and then the data killed it: growth was already flat before the cap.
 
-Once throughput became a scarce, counted resource, I found that four hardcoded, long-dead handles were absorbing 88% of all comment attempts. Under an uncapped loop that was invisible: the bot burned attempts freely, nothing looked broken, and the metric that suffered was one nobody was watching. Under a cap, every wasted attempt was a stolen one, and the waste surfaced within a week. The fix was rewriting the target list, not adding volume. I've since ramped the reply cap from 16 to 150, with the cadence derived from the cap rather than configured alongside it, and the ceiling has never once been the binding constraint. Bad targeting was.
+Once throughput became a scarce, counted resource, I found that four hardcoded, long-dead handles were absorbing 88% of all comment attempts. Under an uncapped loop that was invisible: the bot burned attempts freely, nothing looked broken, and the metric that suffered was one nobody was watching. Under a cap, every wasted attempt was a stolen one, and the waste surfaced within a week. The fix was rewriting the target list, not adding volume. Bad targeting was the binding constraint, not the cap.
+
+Then I drew the wrong conclusion from that. If the cap wasn't what limited growth, raising it looked free, so I ramped the reply cap from 16 to 150 and set a target of 90 replies a day. A week later the account was suspended again. The cap hadn't been throttling growth, but it had been doing a second job I hadn't credited it with: keeping total volume at a level the platform tolerated.
 
 The reliability literature says the same thing in colder language. τ-bench, introduced in June 2024, measures pass^k: whether an agent solves the same task consistently across k trials. The best GPT-4o configuration fell from over 60% pass@1 to under 25% at pass^8 ([arXiv:2406.12045](https://arxiv.org/abs/2406.12045)). If your agent's eighth attempt at a known task is a coin flip weighted against you, uncapped repetition isn't throughput. It's a random number generator with side effects.
 
@@ -67,7 +71,7 @@ os._exit(1)
 
 It counts a global integral rather than per-type quotas. `daily_total_cap()` bounds every outbound action combined, deliberately set above the sum of the individual caps so a like-heavy cycle can't starve replies. Per-type limits alone let 8 follows plus 25 likes plus 6 comments plus 3 quote-tweets add up to 42 actions nobody authorized as a group.
 
-It bounds duration, not just volume. Real quiet hours, 18:00 to 01:00 UTC, plus bimodal jittered intervals, because acting around the clock at a fixed period is the loudest automation tell there is. Volume caps by themselves still produce a metronome.
+It bounds duration, not just volume. The loop is off for seven hours every day, 18:00 to 01:00 UTC, so it never runs unattended around the clock. A volume cap on its own still lets a process grind on for as long as nobody is watching.
 
 It trips on the observation, not the outcome. The breaker fires when the selector matches, not when I confirm the ban. Waiting for confirmation is what cost me three and a half days.
 
@@ -75,4 +79,14 @@ And it exits the process, leaving a sentinel a human has to delete. `os._exit(1)
 
 If the argument holds, what has to change is what we ship as a primitive. Every agent framework on the market ships retries, tracing and evals. None of them ship a rate integral, a duration bound, or a kill path the agent can't negotiate with, so every team builds a worse version of one after their first incident. Equity markets went through this exactly once and came out the other side with pre-trade risk controls enforced by regulators, because "the algorithm was reviewed" turned out not to survive contact with 45 minutes.
 
-I think the review unit for agents shifts the same way. Less what did it decide. More how many times, how fast, for how long, and what stops it without asking permission. Mine stops in under a second now. Figuring out that the number mattered took three and a half days I'd rather have back.
+I think the review unit for agents shifts the same way. Less what did it decide. More how many times, how fast, for how long, and what stops it without asking permission.
+
+## What happens when the breaker never trips?
+
+It happened in September. On 22 September the account was suspended a second time, and the breaker never fired. No `LOCKOUT DETECTED` line, no Telegram alert, no sentinel. The bot kept running until I saw the suspension myself and stopped it by hand. The `ACCOUNT_LOCKED.json` on disk today has `"selector": "manual: user reported X suspended the account"` in it, which is the most honest log line the system has ever produced.
+
+The exit path worked fine the first time. This time detection failed. `check_for_lockout` looks for a fixed list of things: a verification input, an "unusual activity" banner, the suspension text on my own profile. Whatever X showed this time, it matched none of them. A breaker that trips on recognizing the failure screen only catches the failures you've already seen once. I still don't know exactly what the page looked like, which tells you how much the bot was observing.
+
+Two things follow. First, the trip condition has to be the absence of expected success, not only the presence of a known failure: if actions stop landing, or my own timeline stops loading, that is a trip, whatever the page says. Second, when detection misses, the volume bound is the only thing still limiting damage, and I had just raised it almost tenfold. The integral isn't a backstop for the breaker. On a bad day it's the whole defence.
+
+Mine stops in under a second when it sees the failure. In September it didn't see it. Figuring out that the number mattered took three and a half days. Figuring out that the detector is part of the breaker took a second account suspension.
