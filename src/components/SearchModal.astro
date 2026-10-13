@@ -23,14 +23,15 @@ import Search from './Search.astro';
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    background: rgba(26, 18, 8, 0.55);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 12vh;
     z-index: 1000; /* Ensure it's on top */
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.2s ease; /* visibility flips instantly so the input can take focus on open */
     pointer-events: none; /* Prevent clicks when hidden */
   }
 
@@ -41,22 +42,22 @@ import Search from './Search.astro';
   }
 
   .modal-content {
-    background: var(--book-color); /* Consistent with book theme */
-    color: #ffffff; /* White text for contrast */
+    background: var(--bg);
+    color: var(--ink);
     padding: 2rem;
     border-radius: 8px;
     width: 90%;
-    max-width: 700px; /* Slightly wider for search */
+    max-width: 640px;
     position: relative;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 40px rgba(26, 18, 8, 0.25);
+    border: 1px solid var(--border);
     z-index: 1001;
     box-sizing: border-box;
     display: flex; /* Use flex for content layout */
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-family: var(--font-body);
+    font-family: var(--font-serif);
   }
 
   .close-button {
@@ -65,7 +66,7 @@ import Search from './Search.astro';
     right: 1rem;
     background: none;
     border: none;
-    color: #ffffff;
+    color: var(--muted);
     cursor: pointer;
     padding: 0.5rem;
     opacity: 0.7;
@@ -78,10 +79,11 @@ import Search from './Search.astro';
   }
 
   .modal-title {
-    color: #ffffff;
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    margin: 0 0 1.5rem 0; /* More space below title */
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
     text-align: center;
   }
 
@@ -124,6 +126,7 @@ import Search from './Search.astro';
   (window as any).openSearchModal = () => {
      if (searchModal) {
         searchModal.classList.add('active');
+        document.getElementById('search-input')?.focus();
      }
   };
 </script> 

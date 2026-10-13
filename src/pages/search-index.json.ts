@@ -11,6 +11,20 @@ interface SearchResult {
   body?: string;
 }
 
+// The index only feeds substring matching, so markdown syntax and link targets
+// are dead weight: strip them before shipping the body to the browser.
+function plainText(markdown: string = ''): string {
+  return markdown
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/^\s*(?:[-+]|\d+\.)\s+/gm, ' ')
+    .replace(/[#>*_`|~]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 export async function GET() {
   const stories = await getCollection('stories');
   const categories = await getCollection('categories');
@@ -19,9 +33,9 @@ export async function GET() {
     ...stories.map((story: CollectionEntry<'stories'>) => ({
       title: story.data.title,
       excerpt: story.data.description || '',
-      url: `/chapters/stories/${story.slug}`,
+      url: `/chapters/${story.data.category}/${story.slug}`,
       category: story.data.category,
-      body: story.body
+      body: plainText(story.body)
     })),
     ...categories.map((category: CollectionEntry<'categories'>) => ({
       title: category.data.title,

@@ -7,181 +7,133 @@ const { placeholder = "Search posts, stories, and more..." } = Astro.props;
 ---
 
 <div class="search-container">
-  <div class="search-wrapper">
-    <input 
-      type="search" 
-      id="search-input" 
-      class="search-input" 
-      placeholder={placeholder}
-      aria-label="Search"
-    />
-    <div id="search-results" class="search-results" hidden>
-      <div class="results-header">
-        <h3>Search Results</h3>
-        <button id="close-search" class="close-button" aria-label="Close search">×</button>
-      </div>
-      <div id="results-list" class="results-list"></div>
+  <input
+    type="search"
+    id="search-input"
+    class="search-input"
+    placeholder={placeholder}
+    aria-label="Search"
+    aria-controls="search-results"
+    autocomplete="off"
+  />
+  <div id="search-results" class="search-results" hidden aria-live="polite">
+    <div class="results-header">
+      <span class="results-count"></span>
+      <button id="close-search" class="clear-button" type="button">Clear</button>
     </div>
+    <div id="results-list" class="results-list"></div>
   </div>
 </div>
 
 <style>
   .search-container {
-    position: relative;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .search-wrapper {
-    position: relative;
+    text-align: left;
   }
 
   .search-input {
     width: 100%;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    border: 2px solid var(--accent-color);
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--text-color);
-    font-family: 'EB Garamond', serif;
-    transition: all var(--transition-speed);
+    padding: 0.75rem 1rem;
+    font-size: 1.05rem;
+    font-family: var(--font-serif);
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .search-input::placeholder {
+    color: var(--muted);
   }
 
   .search-input:focus {
     outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(74, 52, 40, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
   }
 
   .search-results {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    border-radius: 4px;
-    box-shadow: var(--page-shadow);
-    margin-top: 0.5rem;
-    z-index: 1000;
-    max-height: 70vh;
-    overflow-y: auto;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all var(--transition-speed);
-  }
-
-  .search-results:not([hidden]) {
-    opacity: 1;
-    transform: translateY(0);
+    margin-top: 0.75rem;
   }
 
   .results-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    background: var(--accent-color);
-    color: white;
-    border-radius: 4px 4px 0 0;
+    padding: 0 0.25rem 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: var(--muted);
   }
 
-  .results-header h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    font-family: 'Playfair Display', serif;
-  }
-
-  .close-button {
+  .clear-button {
     background: none;
     border: none;
-    font-size: 1.5rem;
-    color: white;
+    color: var(--muted);
+    font: inherit;
     cursor: pointer;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    transition: background var(--transition-speed);
+    text-decoration: underline;
   }
 
-  .close-button:hover {
-    background: rgba(255, 255, 255, 0.1);
+  .clear-button:hover {
+    color: var(--ink);
   }
 
   .results-list {
-    padding: 1rem;
+    max-height: min(60vh, 520px);
+    overflow-y: auto;
+    border-top: 1px solid var(--border);
   }
 
-  .result-item {
-    padding: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all var(--transition-speed);
-    text-decoration: none;
+  .results-list :global(.result-item) {
     display: block;
-    color: var(--text-color);
+    padding: 0.8rem 0.25rem;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--ink);
   }
 
-  .result-item:last-child {
-    border-bottom: none;
+  .results-list :global(.result-item:hover),
+  .results-list :global(.result-item:focus-visible) {
+    background: var(--scene);
+    outline: none;
   }
 
-  .result-item:hover {
-    background: rgba(74, 52, 40, 0.05);
-    transform: translateX(5px);
+  .results-list :global(.result-category) {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
   }
 
-  .result-title {
-    font-size: 1.1rem;
-    color: var(--accent-color);
-    margin-bottom: 0.3rem;
-    font-family: 'Playfair Display', serif;
+  .results-list :global(.result-title) {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.08rem;
+    line-height: 1.3;
   }
 
-  .result-excerpt {
+  .results-list :global(.result-excerpt) {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 0.25rem;
     font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.8;
-    margin-bottom: 0.5rem;
+    color: var(--muted);
   }
 
-  .result-category {
-    font-size: 0.8rem;
-    color: var(--accent-color);
-    opacity: 0.7;
-    display: inline-block;
-    padding: 0.2rem 0.5rem;
-    background: rgba(74, 52, 40, 0.1);
-    border-radius: 3px;
-  }
-
-  @media (max-width: 768px) {
-    .search-container {
-      max-width: 100%;
-    }
-
-    .search-results {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0;
-      border-radius: 0;
-    }
-
-    .results-header {
-      border-radius: 0;
-    }
+  .results-list :global(.result-empty) {
+    padding: 1rem 0.25rem;
+    color: var(--muted);
   }
 </style>
 
 <script>
   import { initSearch } from '../scripts/search';
   
-  // Initialize search functionality when the component is mounted
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('Search.astro script running');
-    initSearch();
-  });
+  initSearch();
 </script>

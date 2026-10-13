@@ -282,7 +282,7 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
          out of the first paint. Everything else renders immediately: gating
          the page on JavaScript is what caused the flicker this replaced. -->
     <style is:inline>
-      .search-modal, .search-results { display: none; }
+      .search-modal:not(.active) { display: none; }
     </style>
   </head>
   <body>
