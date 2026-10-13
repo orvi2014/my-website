@@ -1,5 +1,5 @@
 ---
-title: "AI Context Window Too Small: Lost in the Middle Explains Why"
+title: "AI Context Window Too Small? Why Long Prompts Lose Accuracy"
 description: "Your AI context window feels too small even at 200K. Lost in the Middle found 20-30% accuracy drops when the answer sits in the middle of a long prompt."
 pubDate: 2026-06-08
 category: "ai-automation"

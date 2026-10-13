@@ -1,5 +1,5 @@
 ---
-title: "Why Galatasaray's Stadium Atmosphere Is Football's Loudest Weapon"
+title: "Galatasaray Stadium Atmosphere: The 131.76 dB Record Explained"
 description: "Galatasaray's stadium atmosphere hit a record 131.76 decibels. Decibel records, referee studies and ghost-game data show how noise wins matches."
 pubDate: 2026-06-03
 category: "football"

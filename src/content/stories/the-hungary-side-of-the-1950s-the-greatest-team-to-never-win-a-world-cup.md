@@ -1,6 +1,6 @@
 ---
-title: "Hungary 1954: What If They Had Won the World Cup Final?"
-description: "Hungary went 49 matches unbeaten and led the 1954 final 2-0 inside eight minutes. What Hungarian football lost in Bern took forty years to become clear."
+title: "Hungary 1954 World Cup: What If the Mighty Magyars Had Won?"
+description: "Hungary went 49 games unbeaten and led the 1954 World Cup final 2-0 after eight minutes, then lost 3-2 to West Germany. What a win in Bern would have changed."
 pubDate: 2026-06-13
 category: "football"
 author: "Orvi"

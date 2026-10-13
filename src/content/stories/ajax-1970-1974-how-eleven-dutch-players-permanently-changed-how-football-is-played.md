@@ -1,5 +1,5 @@
 ---
-title: "Ajax 1970-1974: How Eleven Dutch Players Permanently Changed How Football Is Played"
+title: "Ajax 1970–1974: How Total Football Won Three European Cups"
 description: "Ajax total football and Cruyff get the credit for 1970-74. But the man who crossed for the 1973 European Cup winner was a German nobody ever names."
 pubDate: 2026-09-06
 category: "football"

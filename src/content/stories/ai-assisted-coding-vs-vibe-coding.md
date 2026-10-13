@@ -1,5 +1,5 @@
 ---
-title: "AI-Assisted Coding vs Vibe Coding: What the Difference Actually Is"
+title: "AI-Assisted Coding vs Vibe Coding: The Difference Is Review"
 description: "Vibe coding and AI-assisted coding use the same tools and produce very different software. The line is review, and the data on what happens when you skip it."
 pubDate: 2026-09-04
 category: "ai-automation"

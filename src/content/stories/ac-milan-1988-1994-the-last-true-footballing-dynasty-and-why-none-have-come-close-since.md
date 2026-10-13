@@ -9,7 +9,7 @@ tags: ["AC Milan", "Arrigo Sacchi", "Fabio Capello", "Franco Baresi", "pressing"
 featured: false
 ---
 
-The story usually starts in the summer of 1987, when Arrigo Sacchi arrived from Parma. He buried catenaccio, taught eleven men to defend inside a 25-metre block and press the ball as a unit, and Milan became unbeatable. Coaching courses still teach it that way. So does every anniversary piece.
+The story usually starts in the summer of 1987, when Arrigo Sacchi arrived from Parma, taking over from Fabio Capello, who had been caretaker since Nils Liedholm was sacked that April ([1986–87 AC Milan season](https://en.wikipedia.org/wiki/1986%E2%80%9387_AC_Milan_season)). He buried catenaccio, taught eleven men to defend inside a 25-metre block and press the ball as a unit, and Milan became unbeatable. Coaching courses still teach it that way. So does every anniversary piece.
 
 The trouble is the league table. Sacchi spent four seasons at Milan and won one Serie A title, the first one, in 1987-88. After that: third in 1988-89, second in 1989-90, second again in 1990-91, five points behind Sampdoria. The coach we remember for the most dominant club side in living memory finished outside the top two in Italy as often as he finished top of it.
 

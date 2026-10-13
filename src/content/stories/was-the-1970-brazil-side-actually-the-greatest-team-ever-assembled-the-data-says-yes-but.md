@@ -1,6 +1,6 @@
 ---
-title: "Was Brazil 1970 the Greatest World Cup Team Ever? The Case Against, and Why It Fails"
-description: "Brazil 1970 won all six games and became the default answer to the greatest-team question. The strongest argument against them is not the one people make, and it still isn't enough."
+title: "Was Brazil 1970 the Best Team Ever? The Formation and the Case"
+description: "Brazil 1970 won all six games with a fluid 4-2-4. The case for the best team ever, the strongest argument against it, and why that argument fails."
 pubDate: 2026-05-18
 category: "football"
 author: "Orvi"
