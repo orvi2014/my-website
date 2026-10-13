@@ -1,7 +1,7 @@
 ---
 title: "Extensions"
 description: "Browser extensions, tools and interactive demos I build."
-order: 6
+order: 5
 icon: "🧩"
 ---
 

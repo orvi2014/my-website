@@ -1,7 +1,7 @@
 ---
 title: "Human and Psychology"
 description: "Exploring human nature, psychology, experience, and the intersection of technology and humanity."
-order: 3
+order: 8
 icon: "👤"
 ---
 

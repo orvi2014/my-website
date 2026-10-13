@@ -1,7 +1,7 @@
 ---
 title: "Technology"
 description: "Exploring the intersection of code, systems, and human potential through technology."
-order: 1
+order: 4
 icon: "💻"
 ---
 

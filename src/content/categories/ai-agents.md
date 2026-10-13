@@ -1,7 +1,7 @@
 ---
 title: "AI Agents"
 description: "How autonomous AI systems actually behave when deployed, coordinated, and left to run — what works and what breaks silently."
-order: 3
+order: 1
 icon: "🤖"
 ---
 

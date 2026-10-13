@@ -1,7 +1,7 @@
 ---
 title: "Future & Vision"
 description: "Envisioning tomorrow's possibilities and the path to a better future."
-order: 5
+order: 6
 icon: "🔮"
 ---
 

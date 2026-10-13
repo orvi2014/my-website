@@ -1,7 +1,7 @@
 ---
 title: "Building"
 description: "What it actually costs to build software products, run companies, and make decisions without a safety net."
-order: 5
+order: 3
 icon: "🏗️"
 ---
 

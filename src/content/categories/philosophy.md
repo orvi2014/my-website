@@ -1,7 +1,7 @@
 ---
 title: "Philosophy"
 description: "Exploring fundamental questions about existence, reality, knowledge, and meaning through philosophical inquiry."
-order: 4
+order: 7
 icon: "🧠"
 ---
 

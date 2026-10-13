@@ -1,7 +1,7 @@
 ---
 title: "Football"
 description: "The beautiful game through the lens of psychology, identity, and what it means to belong to something bigger than yourself."
-order: 7
+order: 10
 icon: "⚽"
 ---
 

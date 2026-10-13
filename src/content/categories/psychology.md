@@ -1,7 +1,7 @@
 ---
 title: "Psychology"
 description: "How the mind actually makes decisions, processes experience, and constructs the story it tells about itself."
-order: 6
+order: 9
 icon: "🧩"
 ---
 
