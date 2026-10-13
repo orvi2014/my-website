@@ -1,6 +1,6 @@
 ---
-title: "42% of AI Projects Fail Within 6 Months: The Real Reason (It's Not Technical)"
-description: "Your AI automation project goes live and works perfectly for 4 months. Then distribution drift kills it. Here's why 42% get abandoned and how to prevent it."
+title: "Why AI Automation Dies After Go-Live (The Real Reason Isn't Technical)"
+description: "Your AI automation goes live and works for four months. Then drift kills it. Why 42% of companies abandoned most AI initiatives in 2025, and how to prevent it."
 pubDate: 2026-06-19
 category: "ai-agents"
 author: "Orvi"
@@ -84,4 +84,4 @@ Third: the industry needs to stop framing every AI project as "will this work?" 
 
 The organizations that survive in AI won't be the ones that build the best models. They'll be the ones that build the infrastructure to keep mediocre models running. Because a system that works at 70% accuracy today and 65% next month still delivered value. A system that worked at 95% and is now offline delivered nothing.
 
-The system that produces dead AI automation is not broken. It's operating exactly as designed. It prioritizes shipping over sustaining, velocity over stability, and new bets over paying down old ones. Change the system, or accept that most AI automation will die within six months. There is no third option.
+The system that produces dead AI automation is not broken. It's operating exactly as designed. It prioritizes shipping over sustaining, velocity over stability, and new bets over paying down old ones. Change the system, or accept that most AI automation will quietly die after go-live. There is no third option.
