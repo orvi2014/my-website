@@ -1,6 +1,6 @@
 ---
 title: "How to Build Personal Agency: Why It's Not About More Choices"
-description: "Personal agency isn't about having more options. Learn why it's about knowing which choices are actually yours to make—and why most people mistake motion for authorship."
+description: "Personal agency isn't about having more options. Learn why it's about knowing which choices are actually yours to make, and why most people mistake motion for authorship."
 pubDate: 2026-06-07
 category: "human"
 author: "Orvi"
@@ -19,7 +19,7 @@ No. Autonomy is not the same as having a long menu of options. The experience of
 
 The default assumption is that agency equals options. The more choices available, the more free you are. This is the logic behind maximizing optionality: stay flexible, don't commit, keep every door open. It sounds strategic. It mostly produces paralysis and a vague feeling of being permanently in a waiting room.
 
-Psychologists Edward Deci and Richard Ryan spent decades building what became Self-Determination Theory, and one of its core findings is that autonomy—acting from genuine choice rather than external pressure—is a basic psychological need. Not a reward you get for accumulating options, but a fundamental need like competence and connection. Their [2000 paper in American Psychologist](https://doi.org/10.1037/0003-066X.55.1.68) is one of the most cited studies in motivational psychology. The central claim is simple: humans don't just want freedom from constraint. We want to feel like the authors of our own behavior.
+Psychologists Edward Deci and Richard Ryan spent decades building what became Self-Determination Theory, and one of its core findings is that autonomy (acting from genuine choice rather than external pressure) is a basic psychological need. Not a reward you get for accumulating options, but a fundamental need like competence and connection. Their [2000 paper in American Psychologist](https://doi.org/10.1037/0003-066X.55.1.68) is one of the most cited studies in motivational psychology. The central claim is simple: humans don't just want freedom from constraint. We want to feel like the authors of our own behavior.
 
 Those are different things. Freedom from constraint means no one is stopping you. Authorship means this is actually coming from you.
 
@@ -27,7 +27,7 @@ You can have complete freedom of movement and still feel entirely reactive. Ping
 
 ## What Gets Mistaken for Agency?
 
-Reactive busyness gets confused for agency, and motion gets confused for direction. When you're in motion—making hundreds of decisions a day, producing output, responding to urgencies—it looks like control from the outside, but it's often just sophisticated responsiveness.
+Reactive busyness gets confused for agency, and motion gets confused for direction. When you're in motion (making hundreds of decisions a day, producing output, responding to urgencies), it looks like control from the outside, but it's often just sophisticated responsiveness.
 
 I've had stretches where I was making hundreds of small decisions a day: product decisions, hiring decisions, which message to respond to first. Zero sense of authorship over any of it. I was reacting. Inputs kept coming and I kept processing them. That's not power over your life. It's sophisticated responsiveness dressed up as initiative.
 
@@ -39,7 +39,7 @@ The other thing that gets mistaken for agency is being decisive. I've known peop
 
 ## Why Is the Feeling of Agency So Often Absent?
 
-The absence of agency is usually invisible to the person experiencing it—it presents as reasonableness instead of erosion. This happens because we're trained out of it more often than we choose away from it.
+The absence of agency is usually invisible to the person experiencing it; it presents as reasonableness instead of erosion. This happens because we're trained out of it more often than we choose away from it.
 
 There's a concept in psychology called learned helplessness. Martin Seligman's original experiments in the late 1960s involved dogs that received unavoidable electric shocks. When later given the option to escape, most didn't try. They had learned that their actions had no effect on outcomes, and that learning persisted even when the circumstances changed. The [full mechanism](https://psycnet.apa.org/doi/10.1037/h0026737) is more complex than the pop-science version, but the core observation holds: repeated exposure to outcomes that don't respond to your behavior trains you to stop believing your choices matter.
 
@@ -79,7 +79,7 @@ Agency is partly circumstantial. But it's also a capacity you build, or don't. T
 
 ## What Changes When You Take It Seriously?
 
-The practical shift is less dramatic than you'd expect—it doesn't look like a grand declaration of independence, but rather like slightly different questions before every decision.
+The practical shift is less dramatic than you'd expect. It doesn't look like a grand declaration of independence, but rather like slightly different questions before every decision.
 
 It looks like slightly different questions before decisions. Less time building consensus for choices that are fundamentally yours to make. More discomfort in the short term, less regret afterward. A cleaner relationship with the decisions you've made, even when they don't work out, because at least they were yours.
 

@@ -1,6 +1,6 @@
 ---
 title: "Does Social Proof Actually Work? What 8.57 Million Households Show"
-description: "Social proof works, but not the way product teams think. Opower's trials across 8.57M households averaged 1–2%, and for some users the effect ran backwards."
+description: "Social proof works, but not the way product teams think. Opower's trials across 8.57M households averaged 1-2%, and for some users the effect ran backwards."
 pubDate: 2026-10-02
 category: "psychology"
 author: "Orvi"

@@ -44,7 +44,7 @@ function isActive(href: string) {
     display: flex;
     align-items: center;
     padding: 0 40px;
-    background: rgba(245,241,235,0.97);
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
@@ -85,7 +85,7 @@ function isActive(href: string) {
 
   .nl:hover {
     color: var(--ink);
-    background: rgba(0,0,0,0.04);
+    background: var(--tint);
   }
 
   .nl.active {
@@ -143,7 +143,7 @@ function isActive(href: string) {
 
     .nl {
       padding: 6px 9px;
-      font-size: 11.5px;
+      font-size: 12px;
       white-space: nowrap;
       flex: 0 0 auto;
     }

@@ -1,140 +1,127 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "Store & Projects – The Book of Life";
-const description = "Books Orvi is reading, projects he's building, and what's on his mind — a living list updated as things change.";
+const title = "Store & Projects: The Book of Life";
+const description = "Products, tools and companies Robat Das Orvi has built, from a Chrome extension and an open-source CLI to guardrails for AI agents.";
 const currentPath = "/store";
+
+const featured = [
+  {
+    name: 'ScreenGuard',
+    href: '/screenguard',
+    img: '/images/screenguard/1-popup.png',
+    alt: 'ScreenGuard extension popup with protection controls',
+    desc: 'A Chrome extension that warns before adult, gambling, phishing and risky websites open, and hides private details while you share your screen.',
+    links: [{ label: 'Learn more', href: '/screenguard' }, { label: 'Add to Chrome', href: 'https://chromewebstore.google.com/detail/screenguard/dggihakhjjleajeimnfipcgbadkbjdcn', ext: true }],
+  },
+  {
+    name: 'hatswap',
+    href: '/hatswap',
+    img: '/images/hatswap/social-card.png',
+    alt: 'hatswap: every client\'s Claude Code account, signed in at once',
+    desc: 'An open-source CLI that keeps every client\'s Claude Code account signed in at once, and moves a running conversation between them.',
+    links: [{ label: 'Learn more', href: '/hatswap' }, { label: 'GitHub', href: 'https://github.com/orvi2014/hatswap', ext: true }],
+  },
+];
+
+const groups = [
+  {
+    title: 'Tools for developers',
+    items: [
+      { name: 'ClassCatch', desc: 'Copy Tailwind classes from any element, or convert computed CSS to Tailwind utilities.', href: 'https://robatdas.gumroad.com/l/classcatch', label: 'Get it' },
+      { name: 'baar-core', desc: 'Pre-flight budget enforcement for LLM agents: it stops API calls before they happen instead of reporting the damage afterwards.', href: 'https://baar.robatdasorvi.com', label: 'Visit' },
+      { name: 'NoBurn', desc: 'Financial guardrails for LLM agents. Define cost policies and block expensive calls before they run.', href: 'https://noburn.dev', label: 'Visit' },
+      { name: 'ApiDiffGuard', desc: 'Catches breaking API changes before production by watching responses for JSON schema drift.', href: 'https://apidiffguard.com', label: 'Visit' },
+    ],
+  },
+  {
+    title: 'Companies',
+    items: [
+      { name: 'AgencyHandy', desc: 'Client workflows for agencies: services, proposals, invoices and onboarding in one place.', href: 'https://agencyhandy.com', label: 'Visit' },
+      { name: 'OneThread', desc: 'Project management software for teams. The first product I co-created, and still the one that taught me most about what to leave out.', href: 'https://www.onethreadapp.com', label: 'Visit' },
+    ],
+  },
+  {
+    title: 'Writing',
+    items: [
+      { name: 'The Book of Life', desc: 'This collection of essays. Always in progress.', href: '/chapters', label: 'Read' },
+      { name: 'Attention Economy Notes', desc: 'Ongoing research. No conclusions yet.' },
+    ],
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} currentPath={currentPath}>
-  <div class="simple-wrap">
-    <div class="pg-title">Store &amp; Projects</div>
-    <div class="pg-rule"></div>
+  <div class="st-wrap">
+    <h1 class="st-title">Store &amp; Projects</h1>
+    <p class="st-lede">Things I have built or am building. The two newest have their own pages.</p>
 
-      <div class="pg-section">
-      <div class="pg-sec-label">Current Projects</div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">ScreenGuard</div>
-        <div class="pg-item-desc">A Chrome extension that warns before adult, gambling, phishing and risky websites open, with optional privacy protection while screen sharing. <a href="/screenguard">Learn more →</a> <a href="https://chromewebstore.google.com/detail/screenguard/dggihakhjjleajeimnfipcgbadkbjdcn" target="_blank" rel="noopener noreferrer">Add to Chrome →</a></div>
-      </div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">hatswap</div>
-        <div class="pg-item-desc">An open-source CLI that keeps every client's Claude Code account signed in at once, and moves a running conversation between them. <a href="/hatswap">Learn more →</a> <a href="https://github.com/orvi2014/hatswap" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
-      </div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">ClassCatch</div>
-        <div class="pg-item-desc">Copy Tailwind classes from any element or convert computed CSS to Tailwind utilities, instantly. <a href="https://robatdas.gumroad.com/l/classcatch" target="_blank" rel="noopener">Get it →</a></div>
-      </div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">baar-core</div>
-        <div class="pg-item-desc">Pre-flight budget enforcement for LLM agents. Stops API calls before they happen rather than reporting the damage afterwards. <a href="https://baar.robatdasorvi.com" target="_blank" rel="noopener">Visit →</a></div>
-      </div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">NoBurn</div>
-        <div class="pg-item-desc">Financial guardrails for LLM agents. Define cost policies and block expensive calls before they execute. <a href="https://noburn.dev" target="_blank" rel="noopener">Visit →</a></div>
-      </div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">ApiDiffGuard</div>
-        <div class="pg-item-desc">Catches breaking API changes before production. Monitors responses and detects JSON schema drift. <a href="https://apidiffguard.com" target="_blank" rel="noopener">Visit →</a></div>
-      </div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">AgencyHandy</div>
-        <div class="pg-item-desc">A thoughtful system for client workflows. Built to reduce friction without removing judgment. <a href="https://agencyhandy.com" target="_blank" rel="noopener">Visit →</a></div>
-      </div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">OneThread</div>
-        <div class="pg-item-desc">Project management software for teams. The first product I co-created, and still the one that taught me most about what to leave out. <a href="https://www.onethreadapp.com" target="_blank" rel="noopener">Visit →</a></div>
-      </div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">The Book of Life</div>
-        <div class="pg-item-desc">This collection. Always in progress.</div>
-      </div>
-
-      <div class="pg-item">
-        <div class="pg-item-title">Attention Economy Notes</div>
-        <div class="pg-item-desc">Ongoing research. No conclusions yet.</div>
-      </div>
+    <div class="st-featured">
+      {featured.map((f) => (
+        <article class="st-card">
+          <a class="st-shot" href={f.href} aria-label={f.name}>
+            <img src={f.img} alt={f.alt} width="1280" height={f.name === 'hatswap' ? 640 : 800} loading="lazy" />
+          </a>
+          <div class="st-card-body">
+            <h2 class="st-card-name"><a href={f.href}>{f.name}</a></h2>
+            <p class="st-desc">{f.desc}</p>
+            <p class="st-links">
+              {f.links.map((l) => (
+                <a href={l.href} {...(l.ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{l.label} →</a>
+              ))}
+            </p>
+          </div>
+        </article>
+      ))}
     </div>
 
+    {groups.map((g) => (
+      <section class="st-group">
+        <h2 class="st-group-title">{g.title}</h2>
+        <ul class="st-list">
+          {g.items.map((it) => (
+            <li>
+              <div class="st-item-name">{it.name}</div>
+              <p class="st-desc">
+                {it.desc}{' '}
+                {it.href && <a href={it.href} {...(it.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{it.label} →</a>}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
   </div>
 </BaseLayout>
 
 <style>
-  .simple-wrap {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 52px 40px 100px;
-  }
+  .st-wrap { max-width: 920px; margin: 0 auto; padding: 52px 32px 100px; }
+  .st-title { font-family: var(--font-serif); font-size: 42px; font-weight: 400; color: var(--ink); margin-bottom: 10px; }
+  .st-lede { font-family: var(--font-serif); font-size: 19px; color: var(--text-2); margin-bottom: 36px; }
 
-  .pg-title {
-    font-family: var(--font-serif);
-    font-size: 42px;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 10px;
-  }
+  .st-featured { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-bottom: 56px; }
+  .st-card { background: var(--paper); border: 1px solid var(--rule); box-shadow: 0 2px 16px var(--shadow); display: flex; flex-direction: column; min-width: 0; }
+  .st-shot { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--scene); border-bottom: 1px solid var(--rule); }
+  .st-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 0.4s ease; }
+  .st-card:hover .st-shot img { transform: scale(1.02); }
+  .st-card-body { padding: 20px 22px 22px; }
+  .st-card-name { font-family: var(--font-serif); font-size: 24px; font-weight: 400; margin-bottom: 6px; }
+  .st-card-name a { color: var(--ink); text-decoration: none; }
+  .st-card-name a:hover { color: var(--sienna); }
 
-  .pg-rule {
-    width: 40px;
-    height: 2px;
-    background: var(--sienna);
-    margin-bottom: 36px;
-  }
+  .st-group { margin-bottom: 40px; }
+  .st-group-title { font-family: var(--font-serif); font-size: 24px; font-weight: 400; color: var(--ink); padding-bottom: 10px; border-bottom: 1px solid var(--rule-strong); }
+  .st-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+  .st-list li { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .st-item-name { font-family: var(--font-serif); font-size: 19px; color: var(--ink); margin-bottom: 4px; }
 
-  .pg-section {
-    margin-bottom: 44px;
-  }
+  .st-desc { font-family: var(--font-sans); font-size: 14px; line-height: 1.65; color: var(--text-2); }
+  .st-desc a, .st-links a { color: var(--sienna); text-decoration: underline; text-decoration-color: var(--link-line); text-underline-offset: 2px; white-space: nowrap; }
+  .st-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; font-family: var(--font-sans); font-size: 14px; }
 
-  .pg-sec-label {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--sienna);
-    margin-bottom: 18px;
-    font-family: var(--font-sans);
-  }
-
-  .pg-item {
-    padding: 16px 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .pg-item:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .pg-item-title {
-    font-family: var(--font-serif);
-    font-size: 19px;
-    color: var(--ink);
-    margin-bottom: 5px;
-  }
-
-  .pg-item-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.65;
-    font-family: var(--font-sans);
-  }
-
-  .pg-item-desc a {
-    color: var(--sienna);
-    text-decoration: underline;
-    text-decoration-color: rgba(139,94,60,0.35);
-    text-underline-offset: 2px;
-  }
-
-  @media (max-width: 640px) {
-    .simple-wrap { padding: 36px 24px 72px; }
-    .pg-title { font-size: 32px; }
+  @media (max-width: 720px) {
+    .st-wrap { padding: 36px 20px 72px; }
+    .st-title { font-size: 32px; }
+    .st-featured, .st-list { grid-template-columns: minmax(0, 1fr); }
   }
 </style>

@@ -90,7 +90,7 @@ That gap is an open problem. An estimate can be lower than what the call really 
 
 ## What will the next survey show?
 
-If the Sapio–DoiT survey runs again in February 2027 with the same method, I expect its AI overrun rate to stay at or above 70%. The prediction rests on one claim: budgets and alerts measure overruns after they occur, and visibility alone doesn't stop them. If the February 2027 figure comes in below 70%, that claim is wrong. The improvement would then have to come from enforcement being adopted at scale, and I'd treat that as the first evidence that hard caps work where alerts didn't. The survey samples enterprise finance leaders, so a result in that range wouldn't settle the question for solo builders, and it would be one data point on the mechanism, not proof of it.
+If the Sapio-DoiT survey runs again in February 2027 with the same method, I expect its AI overrun rate to stay at or above 70%. The prediction rests on one claim: budgets and alerts measure overruns after they occur, and visibility alone doesn't stop them. If the February 2027 figure comes in below 70%, that claim is wrong. The improvement would then have to come from enforcement being adopted at scale, and I'd treat that as the first evidence that hard caps work where alerts didn't. The survey samples enterprise finance leaders, so a result in that range wouldn't settle the question for solo builders, and it would be one data point on the mechanism, not proof of it.
 
 Sources:
 - [DoiT, "AI spending survey" (Sapio Research, February 2026, n=500)](https://www.doit.com/blog/ai-spending-survey)

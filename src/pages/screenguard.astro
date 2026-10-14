@@ -28,7 +28,7 @@ const softwareSchema = {
 
     <section class="sg-hero">
       <div class="sg-hero-copy">
-        <p class="sg-eyebrow"><span aria-hidden="true"></span> Local browser protection</p>
+        <p class="sg-eyebrow">Local browser protection</p>
         <h1>Block risky websites <b>before they open.</b></h1>
         <p class="sg-lead">ScreenGuard warns you before adult, gambling, phishing, malware and suspicious websites load. Keep control of the click, wherever it started.</p>
         <div class="sg-actions"><a class="sg-button sg-button-primary" href={storeUrl} rel="noreferrer">Add to Chrome <span aria-hidden="true">→</span></a><a class="sg-button sg-button-quiet" href="#protection">See how it works</a></div>
@@ -43,11 +43,11 @@ const softwareSchema = {
     <section class="sg-signal" aria-label="Risk categories ScreenGuard checks"><span>Adult sites</span><span>Gambling</span><span>Phishing</span><span>Malware</span><span>Suspicious links</span></section>
 
     <section class="sg-protection" id="protection">
-      <div class="sg-section-head"><p class="sg-eyebrow">Protection at the point of action</p><h2>Get the context you need before a page takes over.</h2><p>ScreenGuard stays quiet until it finds a reason to interrupt. When it does, the decision remains yours.</p></div>
+      <div class="sg-section-head"><h2>Get the context you need before a page takes over.</h2><p>ScreenGuard stays quiet until it finds a reason to interrupt. When it does, the decision remains yours.</p></div>
       <div class="sg-feature-grid">
-        <article class="sg-feature sg-feature-wide"><div class="sg-feature-copy"><span class="sg-number">01</span><h3>Warn before a risky click</h3><p>Hover a link to see a warning. If it is risky, ScreenGuard pauses navigation so you can open it once, allow it, or leave.</p></div><img src="/images/screenguard/2-hover-warning.png" alt="ScreenGuard warning shown beside a risky link" width="1280" height="800" loading="lazy" /></article>
-        <article class="sg-feature sg-feature-row"><div class="sg-feature-copy"><span class="sg-number">02</span><h3>Cover every route in</h3><p>Typed addresses, bookmarks, redirects and embedded pages get the same check, not only links you click.</p></div><div class="sg-shot sg-shot-blocked"><img src="/images/screenguard/3-blocked.png" alt="ScreenGuard blocked-page warning" width="1280" height="800" loading="lazy" /></div></article>
-        <article class="sg-feature sg-feature-row sg-feature-row-reverse"><div class="sg-feature-copy"><span class="sg-number">03</span><h3>Share without exposing details</h3><p>Screen Share Mode hides email addresses, phone numbers, card numbers and API keys while you present.</p></div><div class="sg-shot sg-shot-sensitive"><img src="/images/screenguard/4-sensitive-hidden.png" alt="ScreenGuard hiding sensitive information on a page" width="1280" height="800" loading="lazy" /></div></article>
+        <article class="sg-feature sg-feature-wide"><div class="sg-feature-copy"><h3>Warn before a risky click</h3><p>Hover a link to see a warning. If it is risky, ScreenGuard pauses navigation so you can open it once, allow it, or leave.</p></div><img src="/images/screenguard/2-hover-warning.png" alt="ScreenGuard warning shown beside a risky link" width="1280" height="800" loading="lazy" /></article>
+        <article class="sg-feature sg-feature-row"><div class="sg-feature-copy"><h3>Cover every route in</h3><p>Typed addresses, bookmarks, redirects and embedded pages get the same check, not only links you click.</p></div><div class="sg-shot sg-shot-blocked"><img src="/images/screenguard/3-blocked.png" alt="ScreenGuard blocked-page warning" width="1280" height="800" loading="lazy" /></div></article>
+        <article class="sg-feature sg-feature-row sg-feature-row-reverse"><div class="sg-feature-copy"><h3>Share without exposing details</h3><p>Screen Share Mode hides email addresses, phone numbers, card numbers and API keys while you present.</p></div><div class="sg-shot sg-shot-sensitive"><img src="/images/screenguard/4-sensitive-hidden.png" alt="ScreenGuard hiding sensitive information on a page" width="1280" height="800" loading="lazy" /></div></article>
       </div>
     </section>
 
@@ -56,9 +56,9 @@ const softwareSchema = {
       <div class="sg-privacy-copy"><p>Risk classification uses a local list and rules. Sensitive-content detection reads the page you are viewing, but that text does not leave your browser.</p><ul><li><i class="is-safe" aria-hidden="true"></i>No server or sign-in</li><li><i class="is-safe" aria-hidden="true"></i>No analytics or remote configuration</li><li><i class="is-safe" aria-hidden="true"></i>Settings and protection history stay on this device</li></ul></div>
     </section>
 
-    <section class="sg-faq" id="faq" aria-labelledby="faq-title"><p class="sg-eyebrow">Common questions</p><h2 id="faq-title">What to expect from ScreenGuard.</h2><div class="sg-faq-list">{faqs.map(({ q, a }) => <details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
+    <section class="sg-faq" id="faq" aria-labelledby="faq-title"><h2 id="faq-title">What to expect from ScreenGuard.</h2><div class="sg-faq-list">{faqs.map(({ q, a }) => <details><summary>{q}</summary><p>{a}</p></details>)}</div></section>
 
-    <section class="sg-cta"><span class="sg-mark sg-mark-large" aria-hidden="true">S</span><p class="sg-eyebrow">Ready when you are</p><h2>Keep the next click yours.</h2><p>Install ScreenGuard from the Chrome Web Store.</p><a class="sg-button sg-button-primary" href={storeUrl} rel="noreferrer">Add to Chrome <span aria-hidden="true">→</span></a></section>
+    <section class="sg-cta"><span class="sg-mark sg-mark-large" aria-hidden="true">S</span><h2>Keep the next click yours.</h2><p>Install ScreenGuard from the Chrome Web Store.</p><a class="sg-button sg-button-primary" href={storeUrl} rel="noreferrer">Add to Chrome <span aria-hidden="true">→</span></a></section>
     <footer class="sg-footer"><a class="sg-brand" href="/screenguard"><span class="sg-mark" aria-hidden="true">S</span><span>ScreenGuard</span></a><span>Made by Robat Das Orvi</span><a href="/store">All projects</a></footer>
   </main>
 </BaseLayout>

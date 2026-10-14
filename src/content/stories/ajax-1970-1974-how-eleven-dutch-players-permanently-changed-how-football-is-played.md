@@ -1,5 +1,5 @@
 ---
-title: "Ajax 1970–1974: How Total Football Won Three European Cups"
+title: "Ajax 1970-1974: How Total Football Won Three European Cups"
 description: "Ajax total football and Cruyff get the credit for 1970-74. But the man who crossed for the 1973 European Cup winner was a German nobody ever names."
 pubDate: 2026-09-06
 category: "football"
@@ -75,13 +75,8 @@ The Opta numbers on that side are genuinely absurd. By late October 2024, Barcel
 
 That is Inter at De Kuip in 1972, rendered in tracking data.
 
-There's one difference, and it matters. Ajax's trap was adjudicated by a linesman squinting across forty yards, which is why the 1970s Dutch were accused of gaming officials. [Offside calls across the top five leagues have fallen from 5.9 per match in 2006-07 to 3.6 in 2023-24](https://theanalyst.com/articles/barcelona-high-line-el-clasico-stats-offside), a 39 per cent reduction driven largely by VAR — and a peer-reviewed ten-season study of the same five leagues, published in [Frontiers in Psychology in 2021](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.719270/full), found the same downtrend across 18,259 match observations, with offside offences dropping further once VAR arrived. Barcelona push a line that high knowing a semi-automated system will vindicate a five-centimetre call. The technology that was supposed to punish the high line has ended up insuring it. At this summer's 48-team World Cup across the United States, Canada and Mexico, every offside in the tournament was drawn by camera rather than guessed by a human running backwards.
+There's one difference, and it matters. Ajax's trap was adjudicated by a linesman squinting across forty yards, which is why the 1970s Dutch were accused of gaming officials. [Offside calls across the top five leagues have fallen from 5.9 per match in 2006-07 to 3.6 in 2023-24](https://theanalyst.com/articles/barcelona-high-line-el-clasico-stats-offside), a 39 per cent reduction driven largely by VAR, and a peer-reviewed ten-season study of the same five leagues, published in [Frontiers in Psychology in 2021](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.719270/full), found the same downtrend across 18,259 match observations, with offside offences dropping further once VAR arrived. Barcelona push a line that high knowing a semi-automated system will vindicate a five-centimetre call. The technology that was supposed to punish the high line has ended up insuring it. At this summer's 48-team World Cup across the United States, Canada and Mexico, every offside in the tournament was drawn by camera rather than guessed by a human running backwards.
 
 Which means the risk profile Michels accepted in 1971 has quietly become the safest structure in the game. The tactic survived because it was correct, and it took fifty years and a bank of cameras for the rest of football to stop arguing about it.
 
 Cruyff got the statue outside the Arena, and he earned it. But if you want the moment Total Football actually announced itself, it isn't a turn against Sweden in 1974. It's a German sweeper standing unmarked on the left wing in Belgrade in the fourth minute of a European Cup final, crossing for a header that won a trophy outright, then jogging seventy yards back to hold a line that nobody scored past for the rest of the night.
-```
-
-Two factual corrections were forced by the sources I linked: the 1973-74 table has Ajax third on 51 points, five behind Feyenoord's 56 (not eight), and the CSKA Sofia tie was decided by the second leg in Sofia on 7 November 1973 (not October), which went to extra time.
-
-Sources used: [RSSSF Netherlands 1973/74](https://www.rsssf.org/tablesn/ned74.html), [UEFA Ajax 1-0 CSKA Sofia](https://www.uefa.com/uefachampionsleague/match/63197--ajax-vs-cska-sofia/), [UEFA CSKA Sofia 2-0 Ajax](https://www.uefa.com/uefachampionsleague/match/63198--cska-sofia-vs-ajax/), [Opta Analyst on Barcelona's high line](https://theanalyst.com/articles/barcelona-high-line-el-clasico-stats-offside), [Frontiers in Psychology offside study](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.719270/full).

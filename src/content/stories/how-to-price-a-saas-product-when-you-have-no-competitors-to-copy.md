@@ -29,17 +29,17 @@ You could see the bill come due in August 2021, when Docker [started requiring p
 
 ## How do you price a SaaS product with no competitors to compare against?
 
-Price it against what the customer's current workaround costs them, usually at 10–20% of that monthly cost, and pick the number before you have users, because once you have users your willingness-to-pay research is poisoned by your own price.
+Price it against what the customer's current workaround costs them, usually at 10-20% of that monthly cost, and pick the number before you have users, because once you have users your willingness-to-pay research is poisoned by your own price.
 
 This is value-based pricing with the one input you can still trust. The method, step by step:
 
 1. **Name the workaround.** Nobody's problem is sitting there unsolved; it's solved badly. Three contractors and a spreadsheet, four hours a week of a senior engineer's time, or a $90,000 enterprise tool somebody bought for one feature.
 2. **Put a monthly dollar figure on it.** Hours × loaded hourly cost × 4.33 weeks, plus any tools or contractors the workaround needs.
-3. **Price at 10–20% of that figure.** The customer keeps 80–90% of the saving, which is what makes switching an easy yes rather than a procurement debate.
+3. **Price at 10-20% of that figure.** The customer keeps 80-90% of the saving, which is what makes switching an easy yes rather than a procurement debate.
 4. **Lock the number before launch.** Don't set it by asking early users what they'd pay (the reason why is below).
 5. **Write down when you'll re-derive it.** A customer count or a date, not a feeling. More on this at the end.
 
-**Worked example.** Say your product replaces a workaround that eats 4 engineer-hours a week. The US Bureau of Labor Statistics puts [median software developer pay at $133,080 in 2024](https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm), roughly $64 an hour, and benefits add about another 30% of total compensation according to the [BLS Employer Costs for Employee Compensation](https://www.bls.gov/news.release/ecec.nr0.htm) release. Call the loaded cost $100 an hour to keep the math clean. 4 hours × $100 × 4.33 weeks comes to about $1,700 a month. At 10–20%, you'd price at roughly $170–$350 a month per team. Not $29.
+**Worked example.** Say your product replaces a workaround that eats 4 engineer-hours a week. The US Bureau of Labor Statistics puts [median software developer pay at $133,080 in 2024](https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm), roughly $64 an hour, and benefits add about another 30% of total compensation according to the [BLS Employer Costs for Employee Compensation](https://www.bls.gov/news.release/ecec.nr0.htm) release. Call the loaded cost $100 an hour to keep the math clean. 4 hours × $100 × 4.33 weeks comes to about $1,700 a month. At 10-20%, you'd price at roughly $170-$350 a month per team. Not $29.
 
 Step 4 is where no-competitor pricing gets structurally different from competitive pricing, and it's sneakier than it sounds. Once you ship at $29, every willingness-to-pay conversation you have is with somebody who already self-selected into a $29 product. Ask them what they'd pay and they'll give you a thoughtful, internally consistent answer, calibrated entirely against your anchor. You will feel like you're measuring the market. You're measuring the echo of a decision you made on a Tuesday, and it will look like clean signal on the way in.
 

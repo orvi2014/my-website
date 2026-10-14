@@ -3,8 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
-const title = "Chapters – The Book of Life";
-const description = "Six chapters on travel, technology, startups, philosophy, psychology, and football. Long-form essays by Orvi.";
+const title = "Chapters: The Book of Life";
+const description = "Every chapter of The Book of Life: long-form essays by Orvi on AI agents, building software, philosophy, psychology, football, chess and travel.";
 const currentPath = "/chapters";
 
 const categories = await getCollection('categories');
@@ -14,7 +14,7 @@ const sortedCategories = categories.sort(
   (a: CollectionEntry<'categories'>, b: CollectionEntry<'categories'>) => a.data.order - b.data.order
 );
 
-const ROMANS = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+const ROMANS = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX'];
 
 const catData = sortedCategories.map((cat: CollectionEntry<'categories'>, i: number) => {
   const catStories = stories
@@ -37,15 +37,19 @@ const catData = sortedCategories.map((cat: CollectionEntry<'categories'>, i: num
     title: cat.data.title,
     description: cat.data.description,
     roman: ROMANS[i] || String(i + 1),
-    pg: i * 6 + 1,
+    count: catStories.length,
     stories: catStories,
   };
-});
+})
+  // A chapter with no essays yet would show as "0 essays" in the contents;
+  // leave it out and number the remaining chapters in order.
+  .filter((c) => c.count > 0)
+  .map((c, i) => ({ ...c, roman: ROMANS[i] || String(i + 1) }));
 
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "The Book of Life — Chapters",
+  "name": "The Book of Life: Chapters",
   "description": description,
   "url": "https://www.robatdasorvi.com/chapters",
   "numberOfItems": catData.length,
@@ -82,19 +86,19 @@ const itemListSchema = {
             <span class="toc-roman">{cat.roman}</span>
             <span class="toc-name">{cat.title}</span>
             <span class="toc-leader"></span>
-            <span class="toc-pg">{cat.pg}</span>
+            <span class="toc-pg">{cat.count} {cat.count === 1 ? 'essay' : 'essays'}</span>
           </a>
         ))}
 
         <div class="page-foot">
           <span>The Book of Life</span>
-          <span>i</span>
+          <span>{catData.reduce((n, c) => n + c.count, 0)} essays</span>
         </div>
       </div>
 
       <!-- Spine -->
       <div class="book-spine">
-        <div class="spine-title">The Book of Life · Orvi</div>
+        <div class="spine-title">The Book of Life, by Orvi</div>
       </div>
 
       <!-- Right page: rendered by JS -->
@@ -163,7 +167,7 @@ const itemListSchema = {
       }).join('');
 
       const empty = stories.length === 0
-        ? '<p style="font-size:12px;color:rgba(90,70,50,0.5);padding:12px 0;">No stories in this chapter yet.</p>'
+        ? '<p style="font-size:13px;color:var(--text-2);padding:12px 0;">No essays in this chapter yet.</p>'
         : '';
 
       const pgFoot = totalPages > 1
@@ -172,7 +176,7 @@ const itemListSchema = {
             <span>${page + 1}&thinsp;/&thinsp;${totalPages}</span>
             <button class="rp-pg-btn rp-pg-next" ${page >= totalPages - 1 ? 'disabled' : ''}>›</button>
            </span>`
-        : `<span>${cat.pg}</span>`;
+        : `<span>${cat.count} ${cat.count === 1 ? 'essay' : 'essays'}</span>`;
 
       rp.innerHTML = `
         <div class="page-head">
@@ -214,7 +218,7 @@ const itemListSchema = {
 
     // Astro <script> is a deferred module, so the DOM is parsed by now.
     // This used to rely solely on astro:page-load, which only fires with
-    // ClientRouter — removing ViewTransitions would have left the book
+    // ClientRouter, so removing ViewTransitions would have left the book
     // uninitialised and the right-hand page permanently blank.
     init();
   </script>
@@ -231,7 +235,7 @@ const itemListSchema = {
       font-size: 12px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(90, 70, 50, 0.55);
+      color: var(--text-2);
       margin: 0 0 28px;
     }
 
@@ -247,24 +251,24 @@ const itemListSchema = {
     }
 
     .ch-index-cat a {
-      color: var(--sienna, #8a4b2a);
+      color: var(--sienna);
       text-decoration: none;
-      border-bottom: 1px solid rgba(138, 75, 42, 0.35);
+      border-bottom: 1px solid var(--link-line);
     }
 
     .ch-index-cat a:hover { border-bottom-color: currentColor; }
 
     .ch-index-count {
       font-family: var(--font-sans);
-      font-size: 11px;
-      color: rgba(90, 70, 50, 0.45);
+      font-size: 12px;
+      color: var(--muted);
     }
 
     .ch-index-desc {
       font-family: var(--font-sans);
       font-size: 13px;
       line-height: 1.55;
-      color: rgba(90, 70, 50, 0.62);
+      color: var(--text-2);
       margin: 0 0 12px;
     }
 
@@ -280,13 +284,13 @@ const itemListSchema = {
       font-family: var(--font-serif);
       font-size: 15px;
       line-height: 1.45;
-      color: rgba(60, 45, 32, 0.9);
+      color: var(--ink);
       text-decoration: none;
       border-bottom: 1px solid transparent;
     }
 
     .ch-index-list a:hover {
-      color: var(--sienna, #8a4b2a);
+      color: var(--sienna);
       border-bottom-color: currentColor;
     }
 
@@ -295,7 +299,7 @@ const itemListSchema = {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #e6e0d6;
+      background: var(--scene);
       padding: 32px 16px;
       overflow-x: auto;
     }
@@ -313,12 +317,12 @@ const itemListSchema = {
 
     .bl-page {
       flex: 0 0 calc(50% - 14px);
-      background: linear-gradient(to right, #eee8de 0%, #faf7f2 70%);
+      background: linear-gradient(to right, var(--paper-edge) 0%, var(--paper) 70%);
       padding: 28px 30px 54px;
       position: relative;
       overflow: hidden;
       border-radius: 3px 0 0 3px;
-      border-right: 1px solid rgba(0,0,0,0.07);
+      border-right: 1px solid var(--rule);
     }
 
     .book-spine {
@@ -335,22 +339,22 @@ const itemListSchema = {
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       font-family: var(--font-serif);
-      font-size: 7px;
-      letter-spacing: 0.26em;
+      font-size: 10px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(210,170,90,0.50);
+      color: rgba(225,190,120,0.85);
       white-space: nowrap;
       user-select: none;
     }
 
     .br-page {
       flex: 1;
-      background: linear-gradient(to left, #eee8de 0%, #faf7f2 70%);
+      background: linear-gradient(to left, var(--paper-edge) 0%, var(--paper) 70%);
       padding: 28px 30px 54px;
       position: relative;
       overflow: hidden;
       border-radius: 0 3px 3px 0;
-      border-left: 1px solid rgba(0,0,0,0.07);
+      border-left: 1px solid var(--rule);
       transition: opacity 0.18s ease;
       display: flex;
       flex-direction: column;
@@ -359,13 +363,13 @@ const itemListSchema = {
     .page-head {
       display: flex;
       justify-content: space-between;
-      font-size: 8px;
-      letter-spacing: 0.18em;
+      font-size: 11px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(90,70,50,0.45);
+      color: var(--muted);
       margin-bottom: 22px;
       padding-bottom: 7px;
-      border-bottom: 0.5px solid rgba(0,0,0,0.09);
+      border-bottom: 1px solid var(--rule);
       font-family: var(--font-sans);
     }
 
@@ -376,19 +380,19 @@ const itemListSchema = {
       right: 30px;
       display: flex;
       justify-content: space-between;
-      font-size: 9px;
-      color: rgba(90,70,50,0.42);
+      font-size: 12px;
+      color: var(--muted);
       font-family: var(--font-serif);
-      border-top: 0.5px solid rgba(0,0,0,0.09);
+      border-top: 1px solid var(--rule);
       padding-top: 7px;
     }
 
-    /* TOC — left page */
+    /* TOC: left page */
     .toc-header {
       font-family: var(--font-serif);
       font-size: 19px;
       font-weight: 400;
-      color: #1e1006;
+      color: var(--ink);
       margin-bottom: 6px;
       letter-spacing: 0.005em;
     }
@@ -414,10 +418,10 @@ const itemListSchema = {
 
     .toc-roman {
       font-family: var(--font-serif);
-      font-size: 11px;
+      font-size: 13px;
       font-style: italic;
-      color: rgba(90,70,50,0.48);
-      width: 24px;
+      color: var(--muted);
+      width: 34px;
       flex-shrink: 0;
       transition: color 0.12s;
     }
@@ -425,7 +429,7 @@ const itemListSchema = {
     .toc-name {
       font-family: var(--font-serif);
       font-size: 14.5px;
-      color: #1e1006;
+      color: var(--ink);
       flex: 1;
       min-width: 0;
       line-height: 1.25;
@@ -437,7 +441,7 @@ const itemListSchema = {
 
     .toc-leader {
       flex: 1;
-      border-bottom: 1px dotted rgba(0,0,0,0.18);
+      border-bottom: 1px dotted var(--rule-strong);
       margin: 0 8px;
       align-self: flex-end;
       margin-bottom: 3px;
@@ -445,13 +449,13 @@ const itemListSchema = {
 
     .toc-pg {
       font-family: var(--font-serif);
-      font-size: 11px;
+      font-size: 12px;
       font-style: italic;
-      color: rgba(90,70,50,0.48);
+      color: var(--muted);
       flex-shrink: 0;
     }
 
-    /* Right page — chapter content (JS-injected) */
+    /* Right page: chapter content (JS-injected) */
     .rp-watermark {
       position: absolute;
       bottom: 46px;
@@ -460,7 +464,7 @@ const itemListSchema = {
       font-size: 100px;
       font-weight: 700;
       font-style: italic;
-      color: rgba(0,0,0,0.035);
+      color: color-mix(in srgb, var(--ink) 5%, transparent);
       line-height: 1;
       pointer-events: none;
       user-select: none;
@@ -470,14 +474,14 @@ const itemListSchema = {
       font-family: var(--font-serif);
       font-size: 21px;
       font-weight: 400;
-      color: #1e1006;
+      color: var(--ink);
       margin-bottom: 5px;
       line-height: 1.18;
     }
 
     .rp-ch-desc {
-      font-size: 11.5px;
-      color: rgba(90,70,50,0.62);
+      font-size: 13px;
+      color: var(--text-2);
       line-height: 1.58;
       margin-bottom: 16px;
       font-family: var(--font-sans);
@@ -506,22 +510,22 @@ const itemListSchema = {
       border-radius: 3px;
       cursor: pointer;
       transition: background 0.12s;
-      border-bottom: 0.5px solid rgba(0,0,0,0.07);
+      border-bottom: 1px solid var(--rule);
       text-decoration: none;
       color: inherit;
     }
 
     .rp-story + .rp-story { }
-    .br-page .rp-story:first-of-type { border-top: 0.5px solid rgba(0,0,0,0.07); }
-    .rp-story:hover { background: rgba(139,94,60,0.07); }
+    .br-page .rp-story:first-of-type { border-top: 1px solid var(--rule); }
+    .rp-story:hover { background: var(--tint); }
     .rp-story:hover .rp-s-title { color: var(--sienna); }
 
     .rp-s-num {
       font-family: var(--font-serif);
-      font-size: 10px;
+      font-size: 12px;
       font-style: italic;
-      color: rgba(90,70,50,0.42);
-      width: 20px;
+      color: var(--muted);
+      width: 22px;
       flex-shrink: 0;
       padding-top: 3px;
     }
@@ -531,21 +535,21 @@ const itemListSchema = {
     .rp-s-title {
       font-family: var(--font-serif);
       font-size: 15px;
-      color: #1e1006;
+      color: var(--ink);
       line-height: 1.28;
       margin-bottom: 3px;
       transition: color 0.12s;
     }
 
     .rp-s-meta {
-      font-size: 10.5px;
-      color: rgba(90,70,50,0.52);
+      font-size: 12px;
+      color: var(--muted);
       font-family: var(--font-sans);
     }
 
     .rp-s-arrow {
-      font-size: 12px;
-      color: rgba(90,70,50,0.36);
+      font-size: 13px;
+      color: var(--muted);
       flex-shrink: 0;
       padding-top: 3px;
     }
@@ -562,7 +566,7 @@ const itemListSchema = {
       cursor: pointer;
       font-family: var(--font-serif);
       font-size: 13px;
-      color: rgba(90,70,50,0.6);
+      color: var(--text-2);
       padding: 0 1px;
       line-height: 1;
     }
@@ -591,7 +595,7 @@ const itemListSchema = {
       .spine-title {
         writing-mode: horizontal-tb;
         transform: none;
-        font-size: 7px;
+        font-size: 10px;
       }
       .toc-leader { display: none; }
     }

@@ -20,11 +20,21 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
 const categories = await getCollection('categories');
 const categoryInfo = categories.find((c: CollectionEntry<'categories'>) => c.slug === category);
 const kicker = categoryInfo ? categoryInfo.data.title : category;
+// The running head names the chapter by its number, so it no longer repeats
+// the category label printed right above the title.
+const ROMANS = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX'];
+// Same numbering as the contents page: chapters with no essays are skipped.
+const allStories = await getCollection('stories');
+const chapterIndex = categories
+  .filter((c: CollectionEntry<'categories'>) => allStories.some((st: CollectionEntry<'stories'>) => st.data.category === c.slug))
+  .sort((a: CollectionEntry<'categories'>, b: CollectionEntry<'categories'>) => a.data.order - b.data.order)
+  .findIndex((c: CollectionEntry<'categories'>) => c.slug === category);
+const chapterLabel = chapterIndex >= 0 ? `Chapter ${ROMANS[chapterIndex] ?? chapterIndex + 1}` : 'The Book of Life';
 const meta = [
   readingTime ? `${readingTime} min read` : null,
   formattedDate,
   `By ${author}`,
-].filter(Boolean).join(' · ');
+].filter(Boolean) as string[];
 ---
 
 <BaseLayout
@@ -38,7 +48,7 @@ const meta = [
   description={description}
   currentPath={`/chapters/${story.data.category}/${story.slug}`}
   image={image}
-  imageAlt={`${title} – The Book of Life by Orvi`}
+  imageAlt={`${title}, from The Book of Life by Orvi`}
   type="article"
   pubDate={pubDate}
   category={kicker}
@@ -53,14 +63,14 @@ const meta = [
 
     <div class="art-page">
       <div class="art-page-head">
-        <span>{kicker}</span>
+        <span>{chapterLabel}</span>
         <span>The Book of Life</span>
       </div>
 
-      <div class="art-kicker">{kicker}</div>
+      <a class="art-kicker" href={`/chapters/${category}`}>{kicker}</a>
       <h1 class="art-title">{title}</h1>
       <div class="art-rule"></div>
-      <div class="art-meta">{meta}</div>
+      <div class="art-meta">{meta.map((m) => <span>{m}</span>)}</div>
 
       {description && (
         <blockquote class="art-pull">{description}</blockquote>
@@ -86,7 +96,7 @@ const meta = [
 
       <div class="art-page-foot">
         <span>The Book of Life</span>
-        <span>Orvi · {new Date(pubDate).getFullYear()}</span>
+        <span>Orvi, {new Date(pubDate).getFullYear()}</span>
       </div>
     </div>
 
@@ -106,7 +116,7 @@ const meta = [
 
 <style>
   .art-scene {
-    background: #e6e0d6;
+    background: var(--scene);
     min-height: calc(100vh - 54px);
     padding: 32px 20px 64px;
   }
@@ -114,14 +124,14 @@ const meta = [
   .art-faq {
     margin-top: 2.5rem;
     padding-top: 1.75rem;
-    border-top: 1px solid rgba(90, 70, 50, 0.18);
+    border-top: 1px solid var(--rule-strong);
   }
 
   .art-faq h2 {
     font-size: 13px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(90, 70, 50, 0.65);
+    color: var(--text-2);
     margin: 0 0 1.1rem;
   }
 
@@ -151,8 +161,8 @@ const meta = [
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 12px;
-    color: rgba(90,70,50,0.6);
+    font-size: 13px;
+    color: var(--text-2);
     font-family: var(--font-sans);
     text-decoration: none;
     transition: color 0.14s;
@@ -164,32 +174,32 @@ const meta = [
     max-width: 680px;
     margin: 0 auto;
     background: var(--paper);
-    border: 0.5px solid rgba(0,0,0,0.1);
+    border: 0.5px solid var(--rule);
     padding: 38px 56px 80px;
     position: relative;
     box-shadow:
-      0 4px 28px rgba(0,0,0,0.11),
-      0 1px 5px rgba(0,0,0,0.07),
-      4px 0 18px rgba(0,0,0,0.04),
-      -4px 0 18px rgba(0,0,0,0.04);
+      0 4px 28px var(--shadow),
+      0 1px 5px var(--shadow);
     min-height: 640px;
   }
 
   .art-page-head {
     display: flex;
     justify-content: space-between;
-    font-size: 8px;
-    letter-spacing: 0.18em;
+    font-size: 11px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(90,70,50,0.42);
+    color: var(--muted);
     margin-bottom: 38px;
     padding-bottom: 7px;
-    border-bottom: 0.5px solid rgba(0,0,0,0.09);
+    border-bottom: 1px solid var(--rule);
     font-family: var(--font-sans);
   }
 
   .art-kicker {
-    font-size: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--sienna);
@@ -203,7 +213,7 @@ const meta = [
     line-height: 1.06;
     letter-spacing: -0.018em;
     font-weight: 400;
-    color: #1a0e06;
+    color: var(--ink);
     margin-bottom: 14px;
   }
 
@@ -215,8 +225,11 @@ const meta = [
   }
 
   .art-meta {
-    font-size: 12px;
-    color: rgba(90,70,50,0.60);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    font-size: 13px;
+    color: var(--text-2);
     margin-bottom: 30px;
     font-family: var(--font-sans);
   }
@@ -229,14 +242,14 @@ const meta = [
     font-size: 19px;
     line-height: 1.52;
     font-style: italic;
-    color: #1a0e06;
+    color: var(--ink);
   }
 
   .art-body {
     font-family: var(--font-serif);
     font-size: 17px;
     line-height: 1.88;
-    color: #2a1a0a;
+    color: var(--ink);
   }
 
   .art-page-foot {
@@ -246,10 +259,10 @@ const meta = [
     right: 56px;
     display: flex;
     justify-content: space-between;
-    font-size: 9px;
-    color: rgba(90,70,50,0.38);
+    font-size: 12px;
+    color: var(--muted);
     font-family: var(--font-serif);
-    border-top: 0.5px solid rgba(0,0,0,0.09);
+    border-top: 1px solid var(--rule);
     padding-top: 7px;
   }
 
@@ -262,12 +275,12 @@ const meta = [
   }
 
   .art-tag {
-    font-size: 11px;
-    color: rgba(90,70,50,0.55);
+    font-size: 12px;
+    color: var(--text-2);
     font-family: var(--font-sans);
     letter-spacing: 0.04em;
     padding: 3px 10px;
-    border: 0.5px solid rgba(90,70,50,0.22);
+    border: 1px solid var(--rule-strong);
     border-radius: 2px;
   }
 
@@ -302,7 +315,7 @@ const meta = [
     font-family: var(--font-serif);
     font-size: 22px;
     font-weight: 400;
-    color: #1a0e06;
+    color: var(--ink);
     margin: 2em 0 0.6em;
   }
 
@@ -310,7 +323,7 @@ const meta = [
     font-family: var(--font-serif);
     font-size: 18px;
     font-weight: 400;
-    color: #1a0e06;
+    color: var(--ink);
     margin: 1.5em 0 0.5em;
   }
 
@@ -319,13 +332,13 @@ const meta = [
     padding: 4px 0 4px 18px;
     margin: 1.5em 0;
     font-style: italic;
-    color: rgba(26,14,6,0.75);
+    color: var(--text-2);
   }
 
   .art-body a {
     color: var(--sienna);
     text-decoration: underline;
-    text-decoration-color: rgba(139,94,60,0.35);
+    text-decoration-color: var(--link-line);
     text-underline-offset: 2px;
   }
 
@@ -338,13 +351,13 @@ const meta = [
 
   .art-body code {
     font-size: 0.88em;
-    background: rgba(0,0,0,0.05);
+    background: var(--code-bg);
     padding: 0.1em 0.35em;
     border-radius: 2px;
   }
 
   .art-body pre {
-    background: rgba(0,0,0,0.04);
+    background: var(--code-bg);
     padding: 1em 1.25em;
     border-radius: 3px;
     overflow-x: auto;
@@ -366,7 +379,7 @@ const meta = [
 
   .art-body hr {
     border: none;
-    border-top: 0.5px solid rgba(0,0,0,0.14);
+    border-top: 1px solid var(--rule-strong);
     margin: 2em 0;
   }
 
@@ -381,7 +394,7 @@ const meta = [
   .art-body td {
     text-align: left;
     padding: 0.45em 0.6em 0.45em 0;
-    border-bottom: 0.5px solid rgba(0,0,0,0.12);
+    border-bottom: 1px solid var(--rule);
     vertical-align: top;
   }
 
@@ -390,6 +403,6 @@ const meta = [
     letter-spacing: 0.06em;
     text-transform: uppercase;
     font-weight: 600;
-    color: rgba(90, 70, 50, 0.7);
+    color: var(--text-2);
   }
 </style>

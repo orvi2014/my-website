@@ -1,6 +1,6 @@
 ---
 title: "How Long Does It Take to Form a Habit? What the Science Actually Says"
-description: "The research says 66 days, not 21 — with a range from 18 to 254. Here's where the 21-day rule came from, and why the real number reveals something most habit advice gets backwards."
+description: "The research says 66 days, not 21, with a range from 18 to 254. Here's where the 21-day rule came from, and why the real number reveals something most habit advice gets backwards."
 pubDate: 2026-07-07
 category: "psychology"
 author: "Orvi"
@@ -23,7 +23,7 @@ Fourteen years later, a systematic review and meta-analysis pooling every study 
 
 ## Is the 21-Day Rule Real?
 
-No. The 21-day rule is not a research finding at all — it originates in a 1960 self-help book by a plastic surgeon, and no habit study has ever produced that number.
+No. The 21-day rule is not a research finding at all. It originates in a 1960 self-help book by a plastic surgeon, and no habit study has ever produced that number.
 
 It traces to Maxwell Maltz, who noticed that his patients took about three weeks to stop mentally flinching at their new faces, and to *Psycho-Cybernetics*, the book he wrote about it. No data set, no control group, no measurement of automaticity, just one observant surgeon's impression, repeated so many times across sixty years of seminars and best-sellers that it calcified into something people now cite the way they'd cite a peer-reviewed finding. The habit researchers themselves have been flatly dismissive of it in print: Gardner, Lally and Wardle call the 21-day figure a claim with "no empirical basis" in their clinical guidance for GPs ([*British Journal of General Practice*, 2012](https://bjgp.org/content/62/605/664)). I believed it for years. I suspect most people reading this did too.
 
@@ -45,7 +45,7 @@ What's forming during those 66 days isn't resolve. It's a cue-response link, cof
 
 It doesn't fade slowly. It can simply stop, almost entirely, within a year, even when the underlying behavior was heroin addiction.
 
-This is the finding that changed how I think about the whole subject, and it's the one habit books almost never mention, because it doesn't flatter the "build better systems" narrative. Between 1971 and 1974, sociologist Lee Robins tracked U.S. servicemen returning from Vietnam, where roughly 20% had become addicted to heroin, a staggeringly high rate, built on daily use under extreme stress in a specific physical and social environment. The expectation, based on everything known about addiction relapse at the time, was that most would relapse at home. Instead, addiction rates collapsed to around 1% within a year of return ([Robins, 1974, *American Journal of Public Health*](https://ajph.aphapublications.org/doi/pdf/10.2105/AJPH.64.12_Suppl.38)). Not because these men had more discipline than typical addicts. Domestic heroin users at the time relapsed at rates of 80–90%. Because the cues were gone. The specific base, the specific unit, the specific danger, the specific dealer, the specific boredom, all of it stayed in Vietnam.
+This is the finding that changed how I think about the whole subject, and it's the one habit books almost never mention, because it doesn't flatter the "build better systems" narrative. Between 1971 and 1974, sociologist Lee Robins tracked U.S. servicemen returning from Vietnam, where roughly 20% had become addicted to heroin, a staggeringly high rate, built on daily use under extreme stress in a specific physical and social environment. The expectation, based on everything known about addiction relapse at the time, was that most would relapse at home. Instead, addiction rates collapsed to around 1% within a year of return ([Robins, 1974, *American Journal of Public Health*](https://ajph.aphapublications.org/doi/pdf/10.2105/AJPH.64.12_Suppl.38)). Not because these men had more discipline than typical addicts. Domestic heroin users at the time relapsed at rates of 80-90%. Because the cues were gone. The specific base, the specific unit, the specific danger, the specific dealer, the specific boredom, all of it stayed in Vietnam.
 
 I want to be honest about the wrong turn I took here, because it's the natural one: my first instinct was to read this as proof that habits are fragile, easily dissolved, not worth the effort of building. That's backwards. The habit wasn't fragile. It was completely intact, biologically and behaviorally, for as long as its context existed. What's fragile is the *transfer*. A habit doesn't travel with you. It stays wired to the room.
 

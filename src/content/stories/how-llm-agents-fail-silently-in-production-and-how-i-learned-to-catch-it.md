@@ -19,7 +19,7 @@ Because an agent's job is to handle ambiguity, and handling ambiguity is indisti
 
 A traditional program fails when reality violates its assumptions. An agent's entire purpose is to keep going when reality violates its assumptions. That's structural, not incidental. You built a thing whose selling point is robustness to weird inputs. A dead page is a weird input. The agent robusts right past it, then writes you a summary in confident English, because the summary comes from the same component that just failed and that component has no privileged access to whether it succeeded.
 
-This is measured now, not anecdotal. A June 2026 study of 9,876 tau2-bench trajectories across eight model families found that agents asserting task completion while the environment state said otherwise accounted for [45–48% of all failures in single-control domains](https://arxiv.org/abs/2606.09863). Among AppWorld coding-agent trajectories that made an explicit status claim, 75.8% of failures were this false-success type. Three out of four broken runs got reported to the operator as finished work.
+This is measured now, not anecdotal. A June 2026 study of 9,876 tau2-bench trajectories across eight model families found that agents asserting task completion while the environment state said otherwise accounted for [45-48% of all failures in single-control domains](https://arxiv.org/abs/2606.09863). Among AppWorld coding-agent trajectories that made an explicit status claim, 75.8% of failures were this false-success type. Three out of four broken runs got reported to the operator as finished work.
 
 So a silent failure isn't an error you missed. It's a success message you believed.
 

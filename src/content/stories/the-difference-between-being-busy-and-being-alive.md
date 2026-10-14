@@ -29,13 +29,13 @@ Which explains something I had noticed: people don't just *be* busy, they *perfo
 
 The instinct runs deeper than status, too. In a 2010 paper in *Psychological Science*, Christopher Hsee and his colleagues described what they called "idleness aversion": people dread having nothing to do, and will choose to be busy the moment they are handed even a flimsy justification for it.[^2] We don't need a good reason to stay occupied. We just need a reason.
 
-And the performance has gotten structural. Microsoft's 2025 Work Trend Index found that the average knowledge worker is now interrupted by a meeting, email, or message roughly every two minutes — about 275 interruptions a day, on top of 117 emails and 153 chat messages — and that meetings held after 8 PM are up 16% year over year. The report called it "the infinite workday."[^3] When the day never formally ends, busyness stops being something you do and becomes something you are.
+And the performance has gotten structural. Microsoft's 2025 Work Trend Index found that the average knowledge worker is now interrupted by a meeting, email, or message roughly every two minutes (about 275 interruptions a day, on top of 117 emails and 153 chat messages), and that meetings held after 8 PM are up 16% year over year. The report called it "the infinite workday."[^3] When the day never formally ends, busyness stops being something you do and becomes something you are.
 
 There is also a physiological piece to this. The brain's dopamine system does not grade a task on whether it matters. It responds to progress toward an expected reward. In a 2013 study in *Nature*, researchers in Ann Graybiel's lab at MIT measured dopamine in the striatum of rats running mazes and found the signal ramped up steadily as the animals closed in on a goal, scaling with how near the reward was and how much it was worth.[^4] Teresa Amabile and Steven Kramer found the human, workplace version of the same thing when they analyzed nearly 12,000 daily diary entries from 238 employees at seven companies: progress, even minor progress, showed up on 76% of people's best-mood days.[^5] Checking email, responding to a Slack ping, ticking off a to-do item, all of these register as getting somewhere. Nothing in that loop asks whether the goal was worth reaching. That is the trap. You can spend an entire day in a dopamine loop of small completions and end up further from what you actually care about than when you started.
 
 ## How do you know if you're staying busy to avoid your feelings?
 
-The clearest signs are these: you feel restless or anxious the moment your calendar empties, you can't actually say what most of the activity is *for*, and the things that matter most — relationships, health, the hard questions — are the ones that keep getting rescheduled. Avoidance almost never looks like avoidance. Most of the time it looks like a full calendar and a good reputation.
+The clearest signs are these: you feel restless or anxious the moment your calendar empties, you can't actually say what most of the activity is *for*, and the things that matter most (relationships, health, the hard questions) are the ones that keep getting rescheduled. Avoidance almost never looks like avoidance. Most of the time it looks like a full calendar and a good reputation.
 
 A lot of my busyness was defensive. When the calendar is full, you don't have to sit with the harder questions.
 
@@ -53,7 +53,7 @@ This is, I think, fairly common among builders and founders, though nobody says 
 
 ## What is the difference between being busy and being fulfilled?
 
-Being busy is measured by what you produced; being fulfilled, or alive, is measured by what you noticed and who you were actually present with. The difference rarely arrives as a dramatic realization. It shows up as a quiet flatness — completing work you cared about and feeling nothing, or being physically in the room with someone you love while your attention is somewhere else entirely. If you can't remember what you noticed last week, only what you produced, that is the tell.
+Being busy is measured by what you produced; being fulfilled, or alive, is measured by what you noticed and who you were actually present with. The difference rarely arrives as a dramatic realization. It shows up as a quiet flatness: completing work you cared about and feeling nothing, or being physically in the room with someone you love while your attention is somewhere else entirely. If you can't remember what you noticed last week, only what you produced, that is the tell.
 
 For me, it wasn't a single moment. More like a slow accumulation of small wrongnesses.
 
@@ -71,7 +71,7 @@ I later learned how ordinary both of those blanknesses are. Gallup's *State of t
 
 ## How do you stop using busyness to avoid your feelings?
 
-You stop by making the avoidance visible, not by emptying your calendar. Three small shifts did that for me — a stillness test before saying yes to anything, deliberately protected time that looked empty, and a tolerance for genuine boredom — and together they created enough space to tell busy from alive again. None of it fixed me; it just made the difference visible.
+You stop by making the avoidance visible, not by emptying your calendar. Three small shifts did that for me (a stillness test before saying yes to anything, deliberately protected time that looked empty, and a tolerance for genuine boredom), and together they created enough space to tell busy from alive again. None of it fixed me; it just made the difference visible.
 
 I want to be careful not to write the essay where I fix myself and now everything is better. I haven't fixed anything. I still check my phone too much. I still overfill my calendar. I still occasionally answer an email at 11 PM and feel, somewhere under the guilt, a dim glow of self-importance.
 

@@ -1,9 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
-const title = "The Book of Life — Orvi";
-const description = "The Book of Life — personal essays on travel, AI, football, philosophy, and the human experience. By Robat Das Orvi, builder and writer from Bangladesh.";
+const title = "The Book of Life by Orvi";
+const description = "The Book of Life: personal essays on AI, building software, philosophy, psychology, football and travel. By Robat Das Orvi, a builder and writer from Bangladesh.";
 const currentPath = "/";
+
+const stories = await getCollection('stories');
+const categories = await getCollection('categories');
+const chapterTitle = (slug: string) =>
+  categories.find((c: CollectionEntry<'categories'>) => c.slug === slug)?.data.title ?? slug;
+const byDate = stories
+  .slice()
+  .sort((a: CollectionEntry<'stories'>, b: CollectionEntry<'stories'>) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate));
+const latest = byDate.slice(0, 5).map((s: CollectionEntry<'stories'>) => ({
+  href: `/chapters/${s.data.category}/${s.slug}`,
+  title: s.data.title,
+  chapter: chapterTitle(s.data.category),
+  date: new Date(s.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+}));
+const firstYear = new Date(byDate[byDate.length - 1]?.data.pubDate ?? Date.now()).getFullYear();
 const year = new Date().getFullYear();
 ---
 
@@ -19,7 +36,7 @@ const year = new Date().getFullYear();
       <div class="bc-corner br"></div>
 
       <div class="bc-body">
-        <div class="bc-eyebrow">Est. 1994 &nbsp;·&nbsp; First Edition</div>
+        <div class="bc-eyebrow">Collected essays</div>
         <div class="bc-hr">
           <span class="bc-hr-line"></span>
           <span class="bc-hr-diamond">◆</span>
@@ -35,33 +52,52 @@ const year = new Date().getFullYear();
           A collection of thoughts, experiences,<br>and discoveries
         </div>
         <div class="bc-topics">
-          Travel &nbsp;·&nbsp; Technology &nbsp;·&nbsp; Startups<br>
-          Philosophy &nbsp;·&nbsp; Psychology &nbsp;·&nbsp; Football
+          On AI, building, philosophy, psychology,<br>football, chess and travel
         </div>
       </div>
 
       <div class="bc-footer">
         <div class="bc-author">By Orvi</div>
-        <div class="bc-edition">© 1994 · First Edition</div>
+        <div class="bc-edition">{firstYear} to {year}</div>
       </div>
     </div>
 
     <div class="cover-actions">
-      <a href="/chapters" class="bc-open">Open Book</a>
-      <p class="cover-hint">or click Chapters above</p>
+      <a href="/chapters" class="bc-open">Open the book</a>
     </div>
 
   </div>
+
+  <section class="home-latest" aria-labelledby="latest-title">
+    <div class="hl-intro">
+      <h1 class="hl-name">Robat Das Orvi</h1>
+      <p class="hl-line">I co-created OneThread and AgencyHandy, now build guardrails for AI systems, and write about what building, thinking and football have taught me. {stories.length} essays so far.</p>
+      <a class="hl-more" href="/about">About me</a>
+    </div>
+    <div class="hl-list">
+      <h2 class="hl-title" id="latest-title">Latest essays</h2>
+      <ol>
+        {latest.map((e) => (
+          <li>
+            <a href={e.href}>
+              <span class="hl-essay">{e.title}</span>
+              <span class="hl-meta"><span>{e.chapter}</span><span>{e.date}</span></span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <a class="hl-more" href="/chapters">All chapters</a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
   .cover-wrap {
-    min-height: calc(100vh - 54px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 28px 24px 40px;
+    padding: 56px 24px 64px;
     background: var(--bg);
   }
 
@@ -161,10 +197,10 @@ const year = new Date().getFullYear();
   }
 
   .bc-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.28em;
+    font-size: 11px;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: rgba(196,156,70,0.62);
+    color: rgba(214,176,96,0.85);
     margin-bottom: 18px;
     font-family: var(--font-sans);
   }
@@ -203,16 +239,16 @@ const year = new Date().getFullYear();
   .bc-subtitle {
     font-size: 15px;
     line-height: 1.7;
-    color: rgba(185,150,80,0.70);
+    color: rgba(214,180,110,0.88);
     margin-bottom: 18px;
     font-family: var(--font-serif);
     font-style: italic;
   }
 
   .bc-topics {
-    font-size: 12px;
-    line-height: 1.9;
-    color: rgba(175,140,72,0.52);
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(214,180,110,0.82);
     font-family: var(--font-sans);
     letter-spacing: 0.02em;
   }
@@ -229,8 +265,8 @@ const year = new Date().getFullYear();
     z-index: 2;
   }
 
-  .bc-author  { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(196,152,70,0.65); font-family: var(--font-sans); }
-  .bc-edition { font-size: 10px; color: rgba(160,125,55,0.40); font-family: var(--font-sans); }
+  .bc-author  { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(214,176,96,0.85); font-family: var(--font-sans); }
+  .bc-edition { font-size: 11px; color: rgba(214,176,96,0.75); font-family: var(--font-sans); }
 
   /* ── Actions below card ── */
   .cover-actions {
@@ -262,11 +298,66 @@ const year = new Date().getFullYear();
     box-shadow: 0 4px 18px rgba(0,0,0,0.18);
   }
 
-  .cover-hint {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.05em;
+  /* ── Below the cover: who this is, and what's new ── */
+  .home-latest {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 56px 32px 96px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    gap: 64px;
+  }
+  .hl-name {
+    font-family: var(--font-serif);
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .hl-line {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-2);
+    margin-bottom: 18px;
+    max-width: 34ch;
+  }
+  .hl-title {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .hl-list ol { list-style: none; margin-bottom: 18px; }
+  .hl-list li a {
+    display: grid;
+    gap: 3px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+  }
+  .hl-essay {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 1.35;
+    color: var(--ink);
+    transition: color 0.14s;
+  }
+  .hl-list li a:hover .hl-essay { color: var(--sienna); }
+  .hl-meta { display: flex; gap: 14px; font-size: 13px; color: var(--muted); font-family: var(--font-sans); }
+  .hl-more {
     font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--sienna);
+    text-decoration: underline;
+    text-decoration-color: var(--link-line);
+    text-underline-offset: 3px;
+  }
+  @media (max-width: 760px) {
+    .home-latest { grid-template-columns: minmax(0, 1fr); gap: 40px; padding: 40px 24px 72px; }
   }
 
   @media (max-width: 480px) {

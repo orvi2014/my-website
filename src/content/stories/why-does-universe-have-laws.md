@@ -11,7 +11,7 @@ image: "/images/universe-laws.jpg"
 ---
 
 The universe behaves with a reliability that is easy to overlook.  
-Objects fall. Light travels at a constant speed. Energy does not vanish. Even at the quantum level—where outcomes are probabilistic—events unfold within sharply defined mathematical limits.
+Objects fall. Light travels at a constant speed. Energy does not vanish. Even at the quantum level, where outcomes are probabilistic, events unfold within sharply defined mathematical limits.
 
 This reliability feels ordinary only because we are used to it.
 
@@ -27,9 +27,9 @@ When we ask why the universe has laws, we are not merely asking a scientific que
 
 ## What Do We Mean by "Physical Laws"?
 
-Physical laws are not commands imposed on nature—they are regularities we observe, described mathematically. The universe does not consult equations before acting; equations are our compression of persistence into symbols.
+Physical laws are not commands imposed on nature; they are regularities we observe, described mathematically. The universe does not consult equations before acting; equations are our compression of persistence into symbols.
 
-In everyday language, a law sounds like a command—something enforced, something obeyed.
+In everyday language, a law sounds like a command: something enforced, something obeyed.
 
 In physics, a law is nothing like that.
 
@@ -37,9 +37,9 @@ Physical laws do not instruct the universe how to behave. They **describe how it
 
 This distinction matters, because it removes an easy answer.
 
-> If laws are not imposed from outside, then the mystery is not who wrote them—but why there is anything regular enough to be written about at all.
+> If laws are not imposed from outside, then the mystery is not who wrote them, but why there is anything regular enough to be written about at all.
 
-As the Stanford Encyclopedia of Philosophy notes, the interpretation of natural laws—whether they are discovered features of reality or invented descriptions—remains central to metaphysics and philosophy of science. (See https://plato.stanford.edu/entries/laws-of-nature/)
+As the Stanford Encyclopedia of Philosophy notes, the interpretation of natural laws (whether they are discovered features of reality or invented descriptions) remains central to metaphysics and philosophy of science. (See https://plato.stanford.edu/entries/laws-of-nature/)
 
 ---
 
@@ -56,7 +56,7 @@ But recognition is not explanation.
 Why does the universe allow repetition in the first place?  
 Why does it permit stability, memory, and accumulation?
 
-A universe without regularity would not merely be unpredictable—it would be unintelligible. No concepts could form. No explanations could survive. Even chaos would not be recognizable as chaos.
+A universe without regularity would not merely be unpredictable; it would be unintelligible. No concepts could form. No explanations could survive. Even chaos would not be recognizable as chaos.
 
 The existence of laws presupposes something deeper:
 
@@ -84,7 +84,7 @@ But this explanation feels incomplete. It does not explain why reality so often 
 
 Another response is more radical:
 
-> Mathematics is not a description of reality—it *is* reality.
+> Mathematics is not a description of reality. It *is* reality.
 
 On this view, sometimes called mathematical realism, physical existence is a particular instantiation of abstract structure. Laws are not added to the universe; they are identical with its being.
 
@@ -108,7 +108,7 @@ Could the universe have been otherwise?
 
 ### Laws as Necessary
 
-If the laws of physics are necessary, then reality could not have taken any other form. Structure is unavoidable. Chaos is not merely absent—it is impossible.
+If the laws of physics are necessary, then reality could not have taken any other form. Structure is unavoidable. Chaos is not merely absent; it is impossible.
 
 In this view, the universe has laws because existence itself demands order.
 
@@ -116,7 +116,7 @@ In this view, the universe has laws because existence itself demands order.
 
 If the laws are contingent, then they require explanation. Why these laws and not others? Why this balance between rigidity and freedom? Why a universe that allows complexity at all?
 
-Physics does not resolve this tension. It gestures toward deeper layers—meta-laws, selection principles, or landscapes of possible universes—but none dissolve the mystery entirely.
+Physics does not resolve this tension. It gestures toward deeper layers (meta-laws, selection principles, or landscapes of possible universes), but none dissolve the mystery entirely.
 
 At some point, explanation approaches a boundary.
 
@@ -128,7 +128,7 @@ The unsettling possibility is that the laws of physics may be one such fact. As 
 
 ## Is the Universe Deterministic?
 
-The universe is lawful without being deterministic. Quantum mechanics revealed that reality is constrained by laws without being scripted—possibilities delimited rather than fates predetermined.
+The universe is lawful without being deterministic. Quantum mechanics revealed that reality is constrained by laws without being scripted: possibilities delimited rather than fates predetermined.
 
 For centuries, lawfulness was equated with determinism. If the universe followed precise rules, then the future was fixed by the past.
 
@@ -150,7 +150,7 @@ The universe is lawful without being scripted.
 
 ## Can New Laws Emerge from Simpler Ones?
 
-Yes. As systems grow in complexity, new regularities appear that cannot be predicted from simpler levels alone—thermodynamics emerges from statistics, chemistry from quantum mechanics, and biology from chemistry, each introducing genuinely novel laws.
+Yes. As systems grow in complexity, new regularities appear that cannot be predicted from simpler levels alone: thermodynamics emerges from statistics, chemistry from quantum mechanics, and biology from chemistry, each introducing genuinely novel laws.
 
 As systems grow in complexity, new regularities appear.
 
@@ -173,11 +173,11 @@ Where interactions settle into repeatable behavior, laws appear.
 
 ## How Do Symmetries Create Order?
 
-Symmetry is the foundation of modern physics. Whenever reality behaves identically under a transformation—rotation, translation, or gauge transformation—a conserved quantity emerges. Energy exists because time is symmetric; momentum because space is symmetric. Order crystallizes from perfect balance and the patterns that emerge when that balance breaks.
+Symmetry is the foundation of modern physics. Whenever reality behaves identically under a transformation (rotation, translation, or gauge transformation), a conserved quantity emerges. Energy exists because time is symmetric; momentum because space is symmetric. Order crystallizes from perfect balance and the patterns that emerge when that balance breaks.
 
 At the deepest level known to physics, laws are inseparable from symmetry.
 
-When reality behaves the same under certain transformations, conserved quantities emerge. Energy, momentum, and charge exist because the universe respects specific symmetries. This relationship, formalized in **Noether's Theorem** (1918), shows that every conservation law corresponds to a symmetry of nature—a principle that remains foundational to all modern physics.
+When reality behaves the same under certain transformations, conserved quantities emerge. Energy, momentum, and charge exist because the universe respects specific symmetries. This relationship, formalized in **Noether's Theorem** (1918), shows that every conservation law corresponds to a symmetry of nature, a principle that remains foundational to all modern physics.
 
 But the universe is not perfectly symmetric.
 

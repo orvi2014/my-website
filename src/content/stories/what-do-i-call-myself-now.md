@@ -13,7 +13,7 @@ I am running five agents across five projects from a terminal. Each one knows it
 
 And I feel like a god.
 
-Not the arrogant kind. The kind that finally gets to do the actual work — the thinking, the deciding, the problem-solving — without paying the tax that thirteen years of coding always charged before I could get there.
+Not the arrogant kind. The kind that finally gets to do the actual work (the thinking, the deciding, the problem-solving) without paying the tax that thirteen years of coding always charged before I could get there.
 
 This is the thing nobody says clearly enough: I never wanted to memorise syntax. I never enjoyed picking between libraries or configuring environments or writing boilerplate. I love concepts. I love problems. The implementation was always the tax. The part you paid to reach the part that mattered.
 
@@ -27,11 +27,11 @@ Software development in 2013 required learning through Udemy courses, Stack Over
 
 [Udemy](https://www.udemy.com). [Lynda](https://www.linkedin.com/learning/). CS50. One confused afternoon at a time.
 
-When I got stuck — and I was always getting stuck — I typed my problem into [StackOverflow](https://stackoverflow.com) and hoped someone else had been confused in the same way and had asked about it publicly. Usually they had. That was the entire system. It was slow and fragile and occasionally humiliating and it worked.
+When I got stuck (and I was always getting stuck), I typed my problem into [StackOverflow](https://stackoverflow.com) and hoped someone else had been confused in the same way and had asked about it publicly. Usually they had. That was the entire system. It was slow and fragile and occasionally humiliating and it worked.
 
 The anxiety was real. React was taking over. Then Go. Then Elixir. Everyone seemed to be moving and I was still in Python, still in Django, still in Node.js, convinced that falling behind in frameworks was a kind of professional death. I measured myself by what I had not yet learned, which is a miserable way to measure anything.
 
-Here is what I know now: I was not behind. I was paying a tax that everyone paid. The syntax, the library debates, the configuration, the boilerplate — none of it was the work. It was the entry fee to the work. And it cost so much that I often arrived at the actual problem exhausted.
+Here is what I know now: I was not behind. I was paying a tax that everyone paid. The syntax, the library debates, the configuration, the boilerplate: none of it was the work. It was the entry fee to the work. And it cost so much that I often arrived at the actual problem exhausted.
 
 ---
 
@@ -47,9 +47,9 @@ In 2013, the implementation took maybe 70% of my mental load. Holding syntax in 
 
 Now the problem gets everything. The tax is gone.
 
-I use Claude Code from the CLI. I run agents — one per project, each carrying the full context of that codebase. I do not write the code. I write the brief. I describe what needs to exist, what constraints matter, what trade-offs I am willing to make. The agent builds. I review. I redirect. I catch the places where it is confidently wrong, which requires understanding the system underneath — you cannot catch what you do not understand.
+I use Claude Code from the CLI. I run agents, one per project, each carrying the full context of that codebase. I do not write the code. I write the brief. I describe what needs to exist, what constraints matter, what trade-offs I am willing to make. The agent builds. I review. I redirect. I catch the places where it is confidently wrong, which requires understanding the system underneath; you cannot catch what you do not understand.
 
-As recently as 2022, I could not have shipped a product in under four months. Not because I lacked capability — because the overhead made thinking otherwise impossible. Then I shipped [AgencyHandy](https://agencyhandy.com) in 45 days. That cracked something open. Now I can pivot a product twice in a day. Different product, different context, different stack.
+As recently as 2022, I could not have shipped a product in under four months. Not because I lacked capability. Because the overhead made thinking otherwise impossible. Then I shipped [AgencyHandy](https://agencyhandy.com) in 45 days. That cracked something open. Now I can pivot a product twice in a day. Different product, different context, different stack.
 
 I do not follow Agile anymore. Ship now. Ship today. The methodology was designed for constraints that no longer exist in the same form.
 
@@ -57,15 +57,15 @@ I do not follow Agile anymore. Ship now. Ship today. The methodology was designe
 
 ## What Do I Actually Call Myself Now?
 
-An orchestrator—someone who holds the entire system in their head, directs each part toward the desired outcome, and intervenes only when judgment is required rather than correctness.
+An orchestrator: someone who holds the entire system in their head, directs each part toward the desired outcome, and intervenes only when judgment is required rather than correctness.
 
 The identity question this raises is real: what do I call myself?
 
-*Operator* is too passive — someone who runs a machine someone else built. *Vibe coder*, [Andrej Karpathy's term](https://x.com/karpathy/status/1886192184808149383) for AI-first development, captures the spirit of it: describe intent, let the model handle implementation. But I am doing something more deliberate than vibing.
+*Operator* is too passive: someone who runs a machine someone else built. *Vibe coder*, [Andrej Karpathy's term](https://x.com/karpathy/status/1886192184808149383) for AI-first development, captures the spirit of it: describe intent, let the model handle implementation. But I am doing something more deliberate than vibing.
 
 *Orchestrator* is closest. An orchestrator does not play every instrument. They hold the whole in their head and direct each part toward the shape it needs to become. They intervene when something goes wrong. They make the calls that require taste, not just correctness.
 
-That is what this work actually feels like. The hard part is not prompting. The hard part is knowing — knowing what the system needs, knowing when the output is subtly wrong, knowing which decision requires your judgment and which can be delegated. You develop this knowing by having done the work the long way first. There is no shortcut to it.
+That is what this work actually feels like. The hard part is not prompting. The hard part is knowing: knowing what the system needs, knowing when the output is subtly wrong, knowing which decision requires your judgment and which can be delegated. You develop this knowing by having done the work the long way first. There is no shortcut to it.
 
 The developers who thrive in this model are not the ones who know the most syntax. They are the ones who understand problems most clearly.
 
@@ -73,7 +73,7 @@ The developers who thrive in this model are not the ones who know the most synta
 
 ## Are We Training AI on Human Thought or Human-Plus-AI Thought?
 
-We're training AI on human-plus-AI thought—the changed cognitive patterns of developers working with AI—not on the friction-based learning that shaped developers before 2024.
+We're training AI on human-plus-AI thought (the changed cognitive patterns of developers working with AI), not on the friction-based learning that shaped developers before 2024.
 
 Here is the thing that keeps me up at night.
 
@@ -85,19 +85,19 @@ But the data being generated in 2026 is different. I think differently now. Deve
 
 We are not training AI on human thought anymore. We are training AI on **human-plus-AI** thought and calling it the same thing. The feedback loop is not theoretical. It is running right now.
 
-What this produces over ten or twenty years, nobody knows. But I feel the edges of it already — the problems I no longer attempt to hold entirely in my own head, the things I reach for an agent to do before I try myself. Whether that is the right direction depends on a question nobody has answered: what is thinking *for*?
+What this produces over ten or twenty years, nobody knows. But I feel the edges of it already: the problems I no longer attempt to hold entirely in my own head, the things I reach for an agent to do before I try myself. Whether that is the right direction depends on a question nobody has answered: what is thinking *for*?
 
 ---
 
 ## What Skills Does the Struggle of Learning to Code Actually Build?
 
-The struggle builds judgment and instinct—the feel for when a system is fragile and the instinct that something is wrong before you can explain why. These skills are harder to transfer without friction.
+The struggle builds judgment and instinct: the feel for when a system is fragile and the instinct that something is wrong before you can explain why. These skills are harder to transfer without friction.
 
 I want to say something carefully here because I think it matters.
 
 The frustrated afternoons with StackOverflow. The wrong library choices and living with their consequences. The slow building of intuition through mistakes that cost me real time. I did not enjoy any of it. But something was being built inside it that I did not recognise as valuable until I started working without it.
 
-My concern for developers who start today is not that AI will take their jobs. It is that skipping the friction might mean skipping what the friction was building. Not the syntax — I am happy to never memorise syntax again. But the judgment underneath the syntax. The feel for when a system is fragile. The instinct that something is wrong before you can explain why.
+My concern for developers who start today is not that AI will take their jobs. It is that skipping the friction might mean skipping what the friction was building. Not the syntax. I am happy to never memorise syntax again. But the judgment underneath the syntax. The feel for when a system is fragile. The instinct that something is wrong before you can explain why.
 
 That instinct was built in the years when there was no other way to work except slowly, sometimes badly, all the way through.
 

@@ -9,7 +9,7 @@ tags: ["ai-automation", "software-development", "senior-developer", "ai-agents",
 featured: false
 ---
 
-I've been building software for over a decade. For the last two years, I've been building *with* AI agents — using them to scaffold projects, write boilerplate, generate tests, and fill in the tedious parts that used to eat my afternoons. I won't pretend they haven't made me faster. They have, measurably.
+I've been building software for over a decade. For the last two years, I've been building *with* AI agents, using them to scaffold projects, write boilerplate, generate tests, and fill in the tedious parts that used to eat my afternoons. I won't pretend they haven't made me faster. They have, measurably.
 
 But I keep running into a narrative that's starting to bother me. The idea that senior developers are expensive relics. That a junior with the right prompts can now do what took years to learn. That the "10x engineer" is whoever has the best Claude subscription.
 
@@ -21,15 +21,15 @@ When people say AI will replace developers, they usually mean one of two things:
 
 There's a useful distinction between *coding* and *software engineering*. Coding is producing text that a computer can execute. Software engineering is deciding what to build, how it should behave under pressure, where it can fail safely, and how it will be maintained two years from now by someone who wasn't there for the original decisions. AI is very good at the first thing. It is genuinely limited at the second.
 
-GitHub's own research on Copilot found that developers completed tasks 55% faster with AI assistance — but that study measured individual task completion, not system design, not debugging a production incident at 2am, not the cascading cost of a wrong architectural decision made six months ago.[^1] Speed on isolated tasks is a real gain. It is not the whole job.
+GitHub's own research on Copilot found that developers completed tasks 55% faster with AI assistance, but that study measured individual task completion, not system design, not debugging a production incident at 2am, not the cascading cost of a wrong architectural decision made six months ago.[^1] Speed on isolated tasks is a real gain. It is not the whole job.
 
 ## Why Does the Gap Between Generated Code and Production Reality Widen at Scale?
 
-Systems aren't just individual functions—they're interactions between functions, services, and constraints that AI lacks the context to fully understand. That gap is where operational experience becomes invaluable.
+Systems aren't just individual functions; they're interactions between functions, services, and constraints that AI lacks the context to fully understand. That gap is where operational experience becomes invaluable.
 
 I saw this concretely building an automation pipeline. An AI-generated module worked perfectly in testing and then behaved strangely in production. The reason turned out to be a subtle assumption about message ordering that made total sense in a single-threaded test environment and fell apart completely under real async load. The AI could not have caught that without understanding the deployment environment, the infrastructure choices, the team's operational history. A senior engineer who had lived through a similar incident two years earlier caught it in a code review in about four minutes.
 
-That gap — between generation and trust — is where experience lives. The Stack Overflow Developer Survey from 2024 found that while 76% of developers were using or planning to use AI tools, less than half said they trusted AI-generated code enough to deploy it without significant review.[^2] The trust problem is real, and it maps directly onto the judgment gap.
+That gap, between generation and trust, is where experience lives. The Stack Overflow Developer Survey from 2024 found that while 76% of developers were using or planning to use AI tools, less than half said they trusted AI-generated code enough to deploy it without significant review.[^2] The trust problem is real, and it maps directly onto the judgment gap.
 
 ## What Three Things Never Leave the AI Prompt Intact in Production?
 
@@ -41,11 +41,11 @@ The first is organizational context. Why is this service split this way? Why is 
 
 The second is failure mode reasoning. A senior engineer thinks about what happens when the thing breaks *before* writing the first line. They're designing for the 2am alert, for the customer who finds the edge case, for the junior developer who has to fix it without documentation. AI generates code that works. It doesn't naturally design code that fails gracefully, that degrades predictably, that surfaces the right information when it goes wrong.
 
-The third is tradeoff reasoning under real constraint. I can tell an AI agent "build me a caching layer" and it will build something technically correct. I cannot tell it "build me a caching layer given that we have $200 a month in infrastructure budget, three engineers who are already stretched, and a product manager who doesn't understand eventual consistency." The judgment there — what to cut, what to defer, what to do well enough versus what to do properly — that's senior engineering. That's the irreplaceable part.
+The third is tradeoff reasoning under real constraint. I can tell an AI agent "build me a caching layer" and it will build something technically correct. I cannot tell it "build me a caching layer given that we have $200 a month in infrastructure budget, three engineers who are already stretched, and a product manager who doesn't understand eventual consistency." The judgment there (what to cut, what to defer, what to do well enough versus what to do properly): that's senior engineering. That's the irreplaceable part.
 
 ## How AI Agents Changed a Senior Developer's Role (And Concentration of Judgment)
 
-When AI handles the routine work, judgment calls don't disappear—they become the entire job. My output increased measurably, but the proportion of time I spent on judgment calls went up, not down.
+When AI handles the routine work, judgment calls don't disappear; they become the entire job. My output increased measurably, but the proportion of time I spent on judgment calls went up, not down.
 
 When I leaned into AI agents more aggressively about eighteen months ago, my output increased noticeably. I was shipping more features, writing more tests, spending less time on boilerplate. That was real and I'm not going to undersell it.
 
@@ -55,9 +55,9 @@ In a strange way, AI made the senior engineer role more concentrated. More of my
 
 ## Is There a Real Threat to Senior Developer Employment?
 
-The threat isn't obsolescence but compression—one senior engineer with good AI tooling now handles work that previously needed two or three people. That shifts the demand curve in specific, measurable ways.
+The threat isn't obsolescence but compression: one senior engineer with good AI tooling now handles work that previously needed two or three people. That shifts the demand curve in specific, measurable ways.
 
-Yes, and I'd be dishonest if I didn't say so. The threat isn't that AI replaces senior developers outright — it's that AI compresses the development cycle in ways that reduce headcount. One senior engineer with good AI tooling can now handle work that previously required two or three people. That has real implications for junior developers trying to accumulate experience, and for team structures that depended on a certain volume of routine work to justify their size.
+Yes, and I'd be dishonest if I didn't say so. The threat isn't that AI replaces senior developers outright; it's that AI compresses the development cycle in ways that reduce headcount. One senior engineer with good AI tooling can now handle work that previously required two or three people. That has real implications for junior developers trying to accumulate experience, and for team structures that depended on a certain volume of routine work to justify their size.
 
 There's also a subtler risk that concerns me more. If developers over-rely on AI-generated code before they've developed the instincts that come from debugging real systems and fixing things that break in confusing ways, the next generation might produce developers who are technically credentialed but experientially thin. The cognitive shortcuts get replaced before the reasoning capacity underlying them has been built. You end up with people who can direct an AI but can't evaluate what it gives back.
 
@@ -65,11 +65,11 @@ McKinsey's research on generative AI projected enormous productivity gains acros
 
 ## What Actually Makes a Senior Developer Senior?
 
-It's not syntax or architecture knowledge—it's scar tissue from having watched systems fail and learned from the consequences. That accumulated weight of judgment cannot be generated.
+It's not syntax or architecture knowledge; it's scar tissue from having watched systems fail and learned from the consequences. That accumulated weight of judgment cannot be generated.
 
 It's not syntax. It's not knowing which libraries to use. It's not even knowing how to architect a system in the abstract.
 
-It's the accumulated weight of having watched things go wrong — having made the wrong call and lived with the consequences, having inherited code written by someone who clearly didn't understand the problem they were solving, having been paged at 2am because a system you designed made the wrong tradeoff six months ago. That history shapes how you think before you write a single line.
+It's the accumulated weight of having watched things go wrong: having made the wrong call and lived with the consequences, having inherited code written by someone who clearly didn't understand the problem they were solving, having been paged at 2am because a system you designed made the wrong tradeoff six months ago. That history shapes how you think before you write a single line.
 
 It's knowing when to push back. When a product requirement is going to create technical debt that costs ten times as much to fix later. When the elegant solution is actually the fragile one. When to slow down instead of just building the thing because building the thing is what everyone is expecting.
 

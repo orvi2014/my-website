@@ -71,6 +71,18 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 </BaseLayout>
 
 <style>
+  /* This layout predates the current design tokens; its old variable names
+     were never defined, so the page rendered without spacing or colours.
+     Map them onto the site tokens (which also carry dark mode). */
+  .chapter {
+    --spacing-xs: 4px; --spacing-sm: 8px; --spacing-md: 16px; --spacing-lg: 24px; --spacing-xl: 40px;
+    --text-color: var(--ink); --heading-color: var(--ink); --accent-color: var(--sienna);
+    --border-color: var(--border); --card-background: var(--paper); --card-bg: var(--paper);
+    --card-shadow: 0 2px 16px var(--shadow); --page-shadow: 0 4px 28px var(--shadow);
+    --tag-bg: var(--tint); --tag-color: var(--text-2);
+    font-family: var(--font-serif);
+    color: var(--ink);
+  }
   .chapter {
     max-width: 800px;
     margin: 0 auto;

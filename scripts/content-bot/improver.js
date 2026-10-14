@@ -101,6 +101,19 @@ export async function runImprovementCycle(sendForReview) {
     return
   }
 
+  if (/[—–]/.test(improved)) {
+    console.log(`[improver] Improvement contains em/en-dashes — discarding`)
+    return
+  }
+
+  // Three live essays ended with a stray ``` followed by the model's own change
+  // notes ("Two factual corrections were forced…"), which rendered as a code
+  // block on the site. An odd number of fences means the reply leaked commentary.
+  if (((improved.match(/^```/gm) || []).length) % 2 !== 0) {
+    console.log(`[improver] Improvement has an unclosed code fence (likely leaked notes) — discarding`)
+    return
+  }
+
   // Commit the improved version
   fs.writeFileSync(candidate.path, improved)
   try {

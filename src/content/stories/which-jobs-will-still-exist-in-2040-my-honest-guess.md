@@ -23,9 +23,9 @@ I haven't stopped thinking about that call. My information wasn't wrong. The pro
 
 Most jobs that need a human body in the room, a professional license, or trust between strangers will still exist in 2040. Think nursing, the skilled trades, therapy, early education and energy installation. Plenty of office jobs will survive as well. There will just be far fewer ways into them.
 
-Here's how the U.S. Bureau of Labor Statistics' 2025–35 projections sort some of the roles in this piece:
+Here's how the U.S. Bureau of Labor Statistics' 2025-35 projections sort some of the roles in this piece:
 
-| Outlook to 2040 | Role | BLS projected change, 2025–35 |
+| Outlook to 2040 | Role | BLS projected change, 2025-35 |
 |---|---|---|
 | Hiring | [Nurse practitioners](https://www.bls.gov/ooh/healthcare/nurse-anesthetists-nurse-midwives-and-nurse-practitioners.htm) | +41% |
 | Hiring | [Solar photovoltaic installers](https://www.bls.gov/ooh/fastest-growing.htm) | +37% |
@@ -41,7 +41,7 @@ Here's how the U.S. Bureau of Labor Statistics' 2025–35 projections sort some 
 
 The "harder to enter" roles are still growing on paper. I've put them there because of who I expect them to hire, which I get into below.
 
-The official projections aren't subtle about this. The U.S. Bureau of Labor Statistics' [2025–35 projections](https://www.bls.gov/ooh/fastest-growing.htm) rank nurse practitioners as the fastest-growing occupation in the country, at 41%. Solar photovoltaic installers come next at 37%, then data scientists at 35%, wind turbine service technicians at 30% and physical therapist assistants at 23%. As of May 2025, BLS put the [median pay for nurse practitioners at $132,300](https://www.bls.gov/ooh/healthcare/nurse-anesthetists-nurse-midwives-and-nurse-practitioners.htm).
+The official projections aren't subtle about this. The U.S. Bureau of Labor Statistics' [2025-35 projections](https://www.bls.gov/ooh/fastest-growing.htm) rank nurse practitioners as the fastest-growing occupation in the country, at 41%. Solar photovoltaic installers come next at 37%, then data scientists at 35%, wind turbine service technicians at 30% and physical therapist assistants at 23%. As of May 2025, BLS put the [median pay for nurse practitioners at $132,300](https://www.bls.gov/ooh/healthcare/nurse-anesthetists-nurse-midwives-and-nurse-practitioners.htm).
 
 The World Economic Forum's [Future of Jobs Report 2025](https://www.weforum.org/press/2025/01/future-of-jobs-report-2025-78-million-new-job-opportunities-by-2030-but-urgent-upskilling-needed-to-prepare-workforces/) surveyed more than 1,000 employers with over 14 million workers between them. They expect growth in care roles, teaching, delivery driving and farm work. Clerical work tops the list of declining roles: data entry clerks, bank tellers, administrative assistants.
 

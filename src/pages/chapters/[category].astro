@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -36,139 +35,95 @@ const otherStories = sortedStories.filter((story: CollectionEntry<'stories'>) =>
   story.slug !== featuredStory?.slug
 );
 
-// Get all categories for related categories section
+// Other chapters, in book order, numbered the same way as the contents page
+// (chapters with no essays are skipped there too).
 const allCategories = await getCollection('categories');
 const allStories = await getCollection('stories');
-const relatedCategories = allCategories
-  .filter((cat: CollectionEntry<'categories'>) => cat.slug !== category.slug)
-  .slice(0, 3)
-  .map((cat: CollectionEntry<'categories'>) => {
-    const catStories = allStories.filter((story: CollectionEntry<'stories'>) => 
-      story.data.category === cat.slug
-    );
-    return { category: cat, storyCount: catStories.length };
-  });
+const ROMANS = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX'];
+const book = allCategories
+  .slice()
+  .sort((a: CollectionEntry<'categories'>, b: CollectionEntry<'categories'>) => a.data.order - b.data.order)
+  .map((cat: CollectionEntry<'categories'>) => ({
+    cat,
+    count: allStories.filter((st: CollectionEntry<'stories'>) => st.data.category === cat.slug).length,
+  }))
+  .filter((c) => c.count > 0)
+  .map((c, i) => ({ ...c, roman: ROMANS[i] ?? String(i + 1) }));
+const here = book.find((c) => c.cat.slug === category.slug);
+const otherChapters = book.filter((c) => c.cat.slug !== category.slug);
+const fmt = (d: Date) => new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+const ordered = featuredStory ? [featuredStory, ...otherStories] : otherStories;
 
-const title = `${category.data.title} – The Book of Life`;
+const title = `${category.data.title}: The Book of Life`;
 const description = category.data.description;
 const currentPath = `/chapters/${category.slug}`;
-
-// Breadcrumb items
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Chapters', href: '/chapters' },
-  { label: category.data.title, href: `/chapters/${category.slug}` }
-];
 ---
 
-<BaseLayout 
-  title={title} 
-  description={description} 
+<BaseLayout
+  title={title}
+  description={description}
   currentPath={currentPath}
 >
-  <article class="category-hub">
-    <Breadcrumbs items={breadcrumbItems} />
-    
-    <header class="category-header">
-      <h1>{category.data.title}</h1>
-      <p class="category-description">{category.data.description}</p>
-      <p class="story-count">{stories.length} {stories.length === 1 ? 'story' : 'stories'}</p>
-    </header>
+  <div class="cp-scene">
+    <div class="cp-nav">
+      <a href="/chapters" class="cp-back">← All chapters</a>
+    </div>
 
-    <!-- Category Context (300-600 words) -->
-    <section class="category-context">
-      <div class="category-content">
+    <article class="cp-page">
+      <div class="cp-head">
+        <span>{here ? `Chapter ${here.roman}` : 'The Book of Life'}</span>
+        <span>The Book of Life</span>
+      </div>
+
+      <header class="cp-header">
+        {here && <div class="cp-roman" aria-hidden="true">{here.roman}</div>}
+        <h1 class="cp-title">{category.data.title}</h1>
+        <div class="cp-rule"></div>
+        <p class="cp-desc">{category.data.description}</p>
+      </header>
+
+      <div class="cp-intro">
         <Content />
       </div>
-    </section>
 
-    <!-- Featured Pillar Article -->
-    {featuredStory && (
-      <section class="featured-article">
-        <h2>Featured Article</h2>
-        <article class="featured-card">
-          <a href={`/chapters/${featuredStory.data.category}/${featuredStory.slug}`} class="featured-link">
-            <h3>{featuredStory.data.title}</h3>
-            <p class="featured-description">{featuredStory.data.description}</p>
-            <div class="featured-meta">
-              <time datetime={featuredStory.data.pubDate.toISOString()}>
-                {new Date(featuredStory.data.pubDate).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </time>
-              {featuredStory.data.readingTime && (
-                <span class="reading-time">{featuredStory.data.readingTime} min read</span>
-              )}
-            </div>
-            {featuredStory.data.tags && (
-              <div class="featured-tags">
-                {featuredStory.data.tags.map((tag: string) => (
-                  <span class="tag">{tag}</span>
-                ))}
-              </div>
-            )}
-          </a>
-        </article>
-      </section>
-    )}
+      {ordered.length > 0 && (
+        <section class="cp-essays" aria-labelledby="essays-title">
+          <h2 id="essays-title" class="cp-h2">{ordered.length} {ordered.length === 1 ? 'essay' : 'essays'} in this chapter</h2>
+          <ol class="cp-list">
+            {ordered.map((story: CollectionEntry<'stories'>) => (
+              <li>
+                <a href={`/chapters/${story.data.category}/${story.slug}`}>
+                  <span class="cp-e-title">{story.data.title}</span>
+                  {story.data.description && <span class="cp-e-desc">{story.data.description}</span>}
+                  <span class="cp-e-meta">
+                    <time datetime={story.data.pubDate.toISOString()}>{fmt(story.data.pubDate)}</time>
+                    {story.data.readingTime && <span>{story.data.readingTime} min read</span>}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+    </article>
 
-    <!-- All Stories in Category -->
-    {otherStories.length > 0 && (
-      <section class="stories-list">
-        <h2>All Stories</h2>
-        <div class="stories-grid">
-          {otherStories.map((story: CollectionEntry<'stories'>) => (
-            <article class="story-card">
-              <a href={`/chapters/${story.data.category}/${story.slug}`} class="story-link">
-                <h3>{story.data.title}</h3>
-                <p class="story-excerpt">{story.data.description}</p>
-                <div class="story-meta">
-                  <time datetime={story.data.pubDate.toISOString()}>
-                    {new Date(story.data.pubDate).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </time>
-                  {story.data.readingTime && (
-                    <span class="reading-time">{story.data.readingTime} min read</span>
-                  )}
-                </div>
-                {story.data.tags && (
-                  <div class="story-tags">
-                    {story.data.tags.slice(0, 3).map((tag: string) => (
-                      <span class="tag">{tag}</span>
-                    ))}
-                  </div>
-                )}
+    {otherChapters.length > 0 && (
+      <nav class="cp-others" aria-labelledby="others-title">
+        <h2 id="others-title" class="cp-h2">Other chapters</h2>
+        <ul>
+          {otherChapters.map(({ cat, count, roman }) => (
+            <li>
+              <a href={`/chapters/${cat.slug}`}>
+                <span class="cp-o-roman">{roman}</span>
+                <span class="cp-o-name">{cat.data.title}</span>
+                <span class="cp-o-count">{count}</span>
               </a>
-            </article>
+            </li>
           ))}
-        </div>
-      </section>
+        </ul>
+      </nav>
     )}
-
-    <!-- Related Categories -->
-    {relatedCategories.length > 0 && (
-      <section class="related-categories">
-        <h2>Explore Other Chapters</h2>
-        <div class="categories-grid">
-          {relatedCategories.map(({ category: cat, storyCount }) => (
-            <article class="category-card">
-              <a href={`/chapters/${cat.slug}`} class="category-link">
-                <span class="category-icon">{cat.data.icon}</span>
-                <h3>{cat.data.title}</h3>
-                <p class="category-card-description">{cat.data.description}</p>
-                <span class="category-story-count">{storyCount} {storyCount === 1 ? 'story' : 'stories'}</span>
-              </a>
-            </article>
-          ))}
-        </div>
-      </section>
-    )}
-  </article>
+  </div>
 </BaseLayout>
 
 <script type="application/ld+json" set:html={JSON.stringify({
@@ -203,282 +158,56 @@ const breadcrumbItems = [
 })} />
 
 <style>
-  .category-hub {
-    max-width: var(--content-width);
-    margin: 0 auto;
-    padding: var(--spacing-xl) var(--spacing-md);
+  .cp-scene { background: var(--scene); min-height: calc(100vh - 54px); padding: 32px 20px 72px; }
+  .cp-nav, .cp-others { max-width: 760px; margin: 0 auto; }
+  .cp-nav { margin-bottom: 18px; }
+  .cp-back { font-family: var(--font-sans); font-size: 13px; color: var(--text-2); text-decoration: none; }
+  .cp-back:hover { color: var(--ink); }
+
+  .cp-page {
+    max-width: 760px; margin: 0 auto; background: var(--paper);
+    border: 1px solid var(--rule); padding: 38px 64px 56px;
+    box-shadow: 0 4px 28px var(--shadow), 0 1px 5px var(--shadow);
   }
-
-  .category-header {
-    margin-bottom: var(--spacing-xl);
-    text-align: center;
+  .cp-head {
+    display: flex; justify-content: space-between; gap: 16px;
+    font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); padding-bottom: 7px; border-bottom: 1px solid var(--rule); margin-bottom: 44px;
   }
+  .cp-header { margin-bottom: 32px; }
+  .cp-roman { font-family: var(--font-serif); font-style: italic; font-size: 64px; line-height: 1; color: var(--sienna); margin-bottom: 8px; }
+  .cp-title { font-family: var(--font-serif); font-weight: 400; font-size: 46px; line-height: 1.05; letter-spacing: -0.018em; color: var(--ink); margin-bottom: 16px; }
+  .cp-rule { width: 32px; height: 1.5px; background: var(--sienna); margin-bottom: 16px; }
+  .cp-desc { font-family: var(--font-serif); font-style: italic; font-size: 20px; line-height: 1.5; color: var(--text-2); max-width: 36em; }
 
-  .category-header h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    color: var(--text-color);
-    margin-bottom: var(--spacing-md);
-  }
+  .cp-intro { font-family: var(--font-serif); font-size: 17px; line-height: 1.85; color: var(--ink); max-width: 38em; }
+  .cp-intro :global(p) { margin-bottom: 1.2em; }
+  .cp-intro :global(h2) { font-family: var(--font-serif); font-weight: 400; font-size: 22px; margin: 1.8em 0 0.5em; color: var(--ink); }
 
-  .category-description {
-    font-size: 1.2rem;
-    color: var(--text-color-secondary);
-    margin-bottom: var(--spacing-sm);
-    line-height: 1.6;
-  }
+  .cp-essays { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--rule-strong); }
+  .cp-h2 { font-family: var(--font-serif); font-weight: 400; font-size: 22px; color: var(--ink); margin-bottom: 8px; }
+  .cp-list { list-style: none; }
+  .cp-list a { display: grid; gap: 5px; padding: 18px 0; border-bottom: 1px solid var(--rule); text-decoration: none; }
+  .cp-e-title { font-family: var(--font-serif); font-size: 21px; line-height: 1.3; color: var(--ink); transition: color 0.14s; }
+  .cp-list a:hover .cp-e-title { color: var(--sienna); }
+  .cp-e-desc { font-family: var(--font-serif); font-size: 16px; line-height: 1.55; color: var(--text-2); }
+  .cp-e-meta { display: flex; flex-wrap: wrap; gap: 4px 16px; font-family: var(--font-sans); font-size: 13px; color: var(--muted); }
 
-  .story-count {
-    font-size: 0.9rem;
-    color: var(--text-color-tertiary);
-  }
+  .cp-others { margin-top: 40px; }
+  .cp-others ul { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+  .cp-others a { display: flex; align-items: baseline; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--rule); text-decoration: none; }
+  .cp-o-roman { width: 34px; flex: none; font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--muted); }
+  .cp-o-name { flex: 1; min-width: 0; font-family: var(--font-serif); font-size: 17px; color: var(--ink); }
+  .cp-others a:hover .cp-o-name { color: var(--sienna); }
+  .cp-o-count { font-family: var(--font-sans); font-size: 13px; color: var(--muted); }
 
-  .category-context {
-    margin-bottom: var(--spacing-xl);
-    padding: var(--spacing-xl);
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-  }
-
-  .category-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-color);
-  }
-
-  .category-content :global(p) {
-    margin-bottom: var(--spacing-md);
-  }
-
-  .category-content :global(h2) {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    margin: var(--spacing-xl) 0 var(--spacing-md);
-    color: var(--accent-color);
-  }
-
-  .category-content :global(h3) {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    margin: var(--spacing-lg) 0 var(--spacing-md);
-  }
-
-  .featured-article {
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .featured-article h2 {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    margin-bottom: var(--spacing-lg);
-    color: var(--accent-color);
-  }
-
-  .featured-card {
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  }
-
-  .featured-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--page-shadow);
-  }
-
-  .featured-link {
-    display: block;
-    padding: var(--spacing-xl);
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .featured-link h3 {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    margin-bottom: var(--spacing-md);
-    color: var(--accent-color);
-  }
-
-  .featured-description {
-    font-size: 1.1rem;
-    color: var(--text-color-secondary);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.6;
-  }
-
-  .featured-meta {
-    display: flex;
-    gap: var(--spacing-md);
-    font-size: 0.9rem;
-    color: var(--text-color-tertiary);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .featured-tags {
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-  }
-
-  .stories-list {
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .stories-list h2 {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    margin-bottom: var(--spacing-lg);
-    color: var(--accent-color);
-  }
-
-  .stories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-  }
-
-  .story-card {
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  }
-
-  .story-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--page-shadow);
-  }
-
-  .story-link {
-    display: block;
-    padding: var(--spacing-lg);
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .story-link h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-color);
-  }
-
-  .story-link:hover h3 {
-    color: var(--accent-color);
-  }
-
-  .story-excerpt {
-    color: var(--text-color-secondary);
-    font-size: 0.95rem;
-    margin-bottom: var(--spacing-md);
-    line-height: 1.6;
-  }
-
-  .story-meta {
-    display: flex;
-    gap: var(--spacing-md);
-    font-size: 0.85rem;
-    color: var(--text-color-tertiary);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .story-tags {
-    display: flex;
-    gap: var(--spacing-xs);
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    background: var(--hover-background);
-    color: var(--text-color);
-    padding: 0.2rem 0.5rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-  }
-
-  .related-categories {
-    margin-top: var(--spacing-xl);
-    padding-top: var(--spacing-xl);
-    border-top: 1px solid var(--border-color);
-  }
-
-  .related-categories h2 {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    margin-bottom: var(--spacing-lg);
-    color: var(--accent-color);
-  }
-
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-  }
-
-  .category-card {
-    background: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  }
-
-  .category-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--page-shadow);
-  }
-
-  .category-link {
-    display: block;
-    padding: var(--spacing-lg);
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-  }
-
-  .category-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .category-link h3 {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-color);
-  }
-
-  .category-link:hover h3 {
-    color: var(--accent-color);
-  }
-
-  .category-card-description {
-    color: var(--text-color-secondary);
-    font-size: 0.9rem;
-    margin-bottom: var(--spacing-sm);
-    line-height: 1.5;
-  }
-
-  .category-story-count {
-    font-size: 0.85rem;
-    color: var(--text-color-tertiary);
-  }
-
-  @media (max-width: 768px) {
-    .category-hub {
-      padding: var(--spacing-lg) var(--spacing-sm);
-    }
-
-    .stories-grid,
-    .categories-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .category-context {
-      padding: var(--spacing-lg);
-    }
+  @media (max-width: 680px) {
+    .cp-page { padding: 28px 24px 40px; }
+    .cp-head { display: none; }
+    .cp-title { font-size: 34px; }
+    .cp-roman { font-size: 48px; }
+    .cp-desc { font-size: 18px; }
+    .cp-intro { font-size: 16px; }
+    .cp-others ul { grid-template-columns: minmax(0, 1fr); }
   }
 </style>

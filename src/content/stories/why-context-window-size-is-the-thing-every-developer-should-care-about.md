@@ -44,7 +44,7 @@ This is why treating a larger window as simply "more capacity" leads to lazy arc
 
 ## Does throwing everything into a long context window produce better results?
 
-**No. Throwing everything in made responses slower, more expensive, and more confused—you still need deliberate context selection.** When I migrated some tooling from GPT-3.5 (4K tokens) to a model with a 100K window, my first move was to throw everything in. Full repository context. Full conversation history. All the documentation. That felt like the obvious thing to do.
+**No. Throwing everything in made responses slower, more expensive, and more confused; you still need deliberate context selection.** When I migrated some tooling from GPT-3.5 (4K tokens) to a model with a 100K window, my first move was to throw everything in. Full repository context. Full conversation history. All the documentation. That felt like the obvious thing to do.
 
 It didn't work. I'd feed in an entire codebase, ask about a specific bug, and get an answer that was technically plausible but missed the actual problem, which was in a file the model had "seen" but clearly hadn't retained in any useful way.
 
@@ -82,7 +82,7 @@ None of this is counterintuitive once you actually internalize the constraint. T
 
 ## Will context window size eventually stop being a design concern?
 
-**Probably not in the near term—reasoning performance degrades with context growth regardless of window size.** The theoretical answer is that with an infinite window and perfect attention, it would stop mattering. We're nowhere near that. The practical limits aren't just the token count. They're the model's ability to maintain coherent attention and reasoning across long sequences, which still degrades as context grows, even with the best current models.
+**Probably not in the near term: reasoning performance degrades with context growth regardless of window size.** The theoretical answer is that with an infinite window and perfect attention, it would stop mattering. We're nowhere near that. The practical limits aren't just the token count. They're the model's ability to maintain coherent attention and reasoning across long sequences, which still degrades as context grows, even with the best current models.
 
 What probably happens over the next few years is that models get better at reasoning over long contexts, not just retrieving from them. That would actually change the calculus significantly. Until then, treating the context window as a constraint worth designing around, rather than a number to maximize in benchmarks, is still the right approach.
 
@@ -90,7 +90,7 @@ The developers I've seen build the most reliable AI-powered systems are rarely t
 
 ## Related reading
 
-If you skipped retrieval and dumped the corpus into the window, that failure is the same one in [why RAG still hallucinates 17–33% of the time](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026). For the cost of sending every request to the biggest model, see [semantic routing cut my LLM costs 70%](/chapters/ai-agents/how-semantic-routing-cut-my-llm-costs-by-70-without-touching-model-quality). If the real problem is that you never read what the model handed back rather than that it forgot, that is [AI-assisted coding versus vibe coding](/chapters/ai-automation/ai-assisted-coding-vs-vibe-coding).
+If you skipped retrieval and dumped the corpus into the window, that failure is the same one in [why RAG still hallucinates 17-33% of the time](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026). For the cost of sending every request to the biggest model, see [semantic routing cut my LLM costs 70%](/chapters/ai-agents/how-semantic-routing-cut-my-llm-costs-by-70-without-touching-model-quality). If the real problem is that you never read what the model handed back rather than that it forgot, that is [AI-assisted coding versus vibe coding](/chapters/ai-automation/ai-assisted-coding-vs-vibe-coding).
 
 [^1]: Liu, N. F., et al. (2023). *Lost in the Middle: How Language Models Use Long Contexts*. arXiv. https://arxiv.org/abs/2307.03172
 

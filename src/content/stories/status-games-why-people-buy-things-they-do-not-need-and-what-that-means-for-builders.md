@@ -55,14 +55,14 @@ Here is the rebuild, and notice that none of it is a feature:
 
 | Before | After |
 | --- | --- |
-| Free | **Solo** — $0 |
-| Pro — $29/mo | **Team** — $99/mo |
-| Business — $79/mo | **Command** — $499/mo, annual only |
-| — | **Enterprise** — custom |
+| Free | **Solo**: $0 |
+| Pro: $29/mo | **Team**: $99/mo |
+| Business: $79/mo | **Command**: $499/mo, annual only |
+| - | **Enterprise**: custom |
 
-Three moves. First, the ceiling goes from $79 to $499, landing *above* the incumbent's $400, so picking you is no longer visibly the cheap decision. Second, Command exists partly to do work on Team: it makes the middle tier read as the responsible choice instead of the expensive one. That is not a hunch. In Dan Ariely's *Predictably Irrational* subscription test, 84 of 100 students picked the $125 premium bundle when a deliberately unattractive $125 decoy sat next to it, and only 32 of 100 picked it when the decoy was removed — [the same offer, a 2.6x swing, driven entirely by what sat beside it](https://cxl.com/blog/pricing-experiments-you-might-not-know-but-can-learn-from/). Third, Command is annual-only and ships something screenshottable: a named tier badge in the dashboard, the logo on the public status page. She needs an artifact, not a discount.
+Three moves. First, the ceiling goes from $79 to $499, landing *above* the incumbent's $400, so picking you is no longer visibly the cheap decision. Second, Command exists partly to do work on Team: it makes the middle tier read as the responsible choice instead of the expensive one. That is not a hunch. In Dan Ariely's *Predictably Irrational* subscription test, 84 of 100 students picked the $125 premium bundle when a deliberately unattractive $125 decoy sat next to it, and only 32 of 100 picked it when the decoy was removed: [the same offer, a 2.6x swing, driven entirely by what sat beside it](https://cxl.com/blog/pricing-experiments-you-might-not-know-but-can-learn-from/). Third, Command is annual-only and ships something screenshottable: a named tier badge in the dashboard, the logo on the public status page. She needs an artifact, not a discount.
 
-The arithmetic of the before/after is the part founders flinch at. Say 100 qualified deals a year. Before: 22% close at $79/mo, which is $20,856 in new ARR. After: the win rate *drops* to 14%, because you have genuinely disqualified the bargain hunters — but of those 14, nine land on Team and five on Command. That is $10,692 plus $29,940, or $40,632. You lost eight deals and just under doubled the revenue.
+The arithmetic of the before/after is the part founders flinch at. Say 100 qualified deals a year. Before: 22% close at $79/mo, which is $20,856 in new ARR. After: the win rate *drops* to 14%, because you have genuinely disqualified the bargain hunters, but of those 14, nine land on Team and five on Command. That is $10,692 plus $29,940, or $40,632. You lost eight deals and just under doubled the revenue.
 
 This has to be right before anyone talks to you, because by the time a human is in the room, the ranking is already set. Wynter's 2024 B2B buyer journey research found that [81% of B2B SaaS buyers already have a preferred vendor at first contact, and 78% shortlist only three vendors for a demo](https://wynter.com/post/how-b2b-saas-marketing-leaders-buy-2024). **Your pricing page is not a conversion surface. It is the audition you are not present for.**
 

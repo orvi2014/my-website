@@ -65,7 +65,7 @@ The second counterargument comes from the self-service crowd: buyers want us gon
 
 So buyers state a preference for the process that produces their own worst outcomes. What they actually want is low interpersonal friction. That is not the same product as a good decision, and I have a lot of sympathy for it. I also click "no thanks" on every chat widget I meet.
 
-Gartner's journey research puts buyers with all potential suppliers for 17% of the purchase cycle, and 5–6% with any single rep, across buying groups of roughly [six to ten stakeholders](https://www.gartner.com/en/sales/insights/b2b-buying-journey). You get single digits of your buyer's time, and the decisive conversation happens in a room you will never sit in. Whatever you leave behind has to survive that room without you there to defend it. A well-placed number keeps working after you leave. Charm doesn't travel.
+Gartner's journey research puts buyers with all potential suppliers for 17% of the purchase cycle, and 5-6% with any single rep, across buying groups of roughly [six to ten stakeholders](https://www.gartner.com/en/sales/insights/b2b-buying-journey). You get single digits of your buyer's time, and the decisive conversation happens in a room you will never sit in. Whatever you leave behind has to survive that room without you there to defend it. A well-placed number keeps working after you leave. Charm doesn't travel.
 
 ## So why does the industry keep selling the version that doesn't work?
 
@@ -83,7 +83,7 @@ Here's the falsifiable part, so you can come back and tell me I was wrong.
 
 The no-decision rate isn't going to improve. I think it gets worse, and I think AI is the cause. AI SDRs and AI-assisted sequencing scale precisely the behaviors the JOLT data flags as counterproductive: more touches, more urgency, more "your discount expires Friday," more restarting the pitch. Volume-optimized outreach raises the perceived commission risk of every vendor conversation a buyer has.
 
-So: through the 2027 calendar year, the share of lost B2B pipeline attributable to no decision stays inside or above the 40–60% band in every major published revenue benchmark, including Ebsta and Pavilion's annual report, which lands each January. If any of them puts no-decision losses below 30% for 2027, this piece is wrong.
+So: through the 2027 calendar year, the share of lost B2B pipeline attributable to no decision stays inside or above the 40-60% band in every major published revenue benchmark, including Ebsta and Pavilion's annual report, which lands each January. If any of them puts no-decision losses below 30% for 2027, this piece is wrong.
 
 The second prediction is narrower and easier to check. By December 2027, at least one top-20 enterprise SaaS vendor makes a no-fault first-90-days exit clause a headline term on its public pricing page, rather than a concession negotiated in the last week of a quarter. Somebody is going to work out that underwriting the buyer's career risk is the only lever in the entire behavioral toolkit with 2.5 million conversations behind it, and they'll price it as a feature.
 

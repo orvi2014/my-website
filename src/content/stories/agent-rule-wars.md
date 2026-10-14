@@ -126,4 +126,4 @@ The tooling will catch up. Standards will get written. Someone will build the cr
 
 ## Related reading
 
-The retrieval layer these pipelines sit on still hallucinates at 17–33%: [why RAG is not enough](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026). For the coordination patterns that blow up in production, see [multi-agent coordination](/chapters/ai-agents/multi-agent-coordination-the-patterns-that-work-and-the-ones-that-blow-up).
+The retrieval layer these pipelines sit on still hallucinates at 17-33%: [why RAG is not enough](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026). For the coordination patterns that blow up in production, see [multi-agent coordination](/chapters/ai-agents/multi-agent-coordination-the-patterns-that-work-and-the-ones-that-blow-up).

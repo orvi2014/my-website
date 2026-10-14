@@ -1,6 +1,6 @@
 ---
 title: "What Cities Become When Remote Work Is the Default"
-description: "Remote work didn't kill cities — it forced them to answer a question they'd been avoiding: what are you actually for when the job can go anywhere?"
+description: "Remote work didn't kill cities; it forced them to answer a question they'd been avoiding: what are you actually for when the job can go anywhere?"
 pubDate: 2026-05-29
 category: "future"
 author: "Orvi"
@@ -11,15 +11,15 @@ featured: false
 
 Dhaka is a city built around the assumption that you have no choice. Twenty-three million people, gridlocked streets, and commute times that eat two hours out of every working day. Not because anyone wanted that, but because the job was downtown, the bank was downtown, the economy was downtown, and so you were too. The city wasn't offering you something. It was demanding your presence.
 
-That demand is what remote work is quietly dismantling. Not everywhere, not evenly, and not without creating its own problems. But the underlying logic that packed people into specific places for over a century — work is somewhere, you must go there — is breaking apart. Cities built on that logic are now trying to figure out what they're for.
+That demand is what remote work is quietly dismantling. Not everywhere, not evenly, and not without creating its own problems. But the underlying logic that packed people into specific places for over a century (work is somewhere, you must go there) is breaking apart. Cities built on that logic are now trying to figure out what they're for.
 
 ## What cities were actually built for
 
 Cities thrived because work was geographically fixed; when that constraint vanishes, they must compete on livability instead.
 
-Modern cities, the dense and expensive version with towers and subways, were optimised for one thing: keeping workers near the places that paid them. You needed clerks near banks, factory workers near factories, everyone within commuting distance of whoever signed their cheques. The restaurants, the culture, the nightlife — all of that came later. It emerged because you crammed that many economically-motivated people into one place. Urban energy was a side effect of economic necessity, not the point.
+Modern cities, the dense and expensive version with towers and subways, were optimised for one thing: keeping workers near the places that paid them. You needed clerks near banks, factory workers near factories, everyone within commuting distance of whoever signed their cheques. The restaurants, the culture, the nightlife: all of that came later. It emerged because you crammed that many economically-motivated people into one place. Urban energy was a side effect of economic necessity, not the point.
 
-Remote work doesn't eliminate that economy. It decouples the people from the location. When my laptop is my office, and my office can be in Dhaka, Lisbon, or a rented room in Chiang Mai, the city loses its claim on me. I get to choose where I live based on cost, climate, community — factors that used to get overruled by "but the job is here."
+Remote work doesn't eliminate that economy. It decouples the people from the location. When my laptop is my office, and my office can be in Dhaka, Lisbon, or a rented room in Chiang Mai, the city loses its claim on me. I get to choose where I live based on cost, climate, community: factors that used to get overruled by "but the job is here."
 
 The scale of this shift is larger than the backlash-to-return-to-office coverage suggests. Nick Bloom's WFH Research project at Stanford, which has tracked working arrangements continuously since 2020, found that fully remote and hybrid work has stabilised at roughly 25-30% of working days in wealthy economies. Not a blip that fully reversed, but a permanent restructuring of how knowledge work relates to geography. Their latest data is available at [wfhresearch.com](https://wfhresearch.com/) and has held remarkably consistent across survey waves. The Stanford team notes that this represents approximately 115 million fully remote workers in the G7 alone as of 2024.
 
@@ -27,7 +27,7 @@ The scale of this shift is larger than the backlash-to-return-to-office coverage
 
 The short answer: it hollows out some cities while it fills up others. The "death of cities" narrative misses the sorting that's actually happening underneath.
 
-The fear — heard from mayors, commercial real estate investors, urbanists who love density — is that remote work empties downtowns. San Francisco became the poster child for that anxiety. Office vacancy rates climbed past 30%. Storefronts closed. Tech workers who used to cluster in SoMa scattered. The tax base started looking shaky.
+The fear (heard from mayors, commercial real estate investors, urbanists who love density) is that remote work empties downtowns. San Francisco became the poster child for that anxiety. Office vacancy rates climbed past 30%. Storefronts closed. Tech workers who used to cluster in SoMa scattered. The tax base started looking shaky.
 
 But San Francisco is not a representative data point. It's the extreme case: a city that got very expensive very fast, where the workers with the most location flexibility were also the ones with the most income. When those workers left or spread out, the damage was concentrated.
 
@@ -41,11 +41,11 @@ Dhaka isn't going to benefit from this the way Lisbon has. There's a painful geo
 
 Existing office towers cannot economically convert to housing at scale, creating a structural real estate crisis lasting decades.
 
-The practical issue: a commercial office floor plate is typically 20,000 to 30,000 square feet of open space. For residential conversion, you need exterior windows in every bedroom. Most office buildings weren't designed with that in mind. The floors are too deep, the plumbing is in the wrong places, and the zoning often needs to change anyway. The physical form of these buildings was optimised for one specific use, and that use is now happening about 60% as often as it did before. Conversion costs typically run $400–600 per square foot, making a 20,000 sq ft floor cost $8–12 million to convert into roughly 40–60 units.
+The practical issue: a commercial office floor plate is typically 20,000 to 30,000 square feet of open space. For residential conversion, you need exterior windows in every bedroom. Most office buildings weren't designed with that in mind. The floors are too deep, the plumbing is in the wrong places, and the zoning often needs to change anyway. The physical form of these buildings was optimised for one specific use, and that use is now happening about 60% as often as it did before. Conversion costs typically run $400-600 per square foot, making a 20,000 sq ft floor cost $8-12 million to convert into roughly 40-60 units.
 
-McKinsey's [2021 research on the future of work after COVID-19](https://www.mckinsey.com/featured-insights/future-of-work/the-future-of-work-after-covid-19) estimated that work-related foot traffic in major cities could remain 10-20% below pre-pandemic levels on a permanent basis. That's not catastrophic for any single building, but across a whole downtown ecosystem — the lunch spots, dry cleaners, parking garages — it compounds into something structurally significant. The businesses that existed to serve commuters aren't going to replace that traffic with people who work from home nearby. A single downtown area can lose $50–150 million in annual service-sector revenue with a 15% reduction in commute traffic.
+McKinsey's [2021 research on the future of work after COVID-19](https://www.mckinsey.com/featured-insights/future-of-work/the-future-of-work-after-covid-19) estimated that work-related foot traffic in major cities could remain 10-20% below pre-pandemic levels on a permanent basis. That's not catastrophic for any single building, but across a whole downtown ecosystem (the lunch spots, dry cleaners, parking garages), it compounds into something structurally significant. The businesses that existed to serve commuters aren't going to replace that traffic with people who work from home nearby. A single downtown area can lose $50-150 million in annual service-sector revenue with a 15% reduction in commute traffic.
 
-The urban planning question I keep returning to is whether cities can adapt their physical form fast enough, and in whose interest that adaptation happens. Office-to-residential conversion sounds straightforwardly good. In practice, it tends to produce expensive housing — because the conversion itself is expensive — that doesn't help the people who most need affordable places to live. The remote work economy concentrates demand among high earners. Supply-side responses tend to serve that demand. The loop isn't obviously good for the city as a whole.
+The urban planning question I keep returning to is whether cities can adapt their physical form fast enough, and in whose interest that adaptation happens. Office-to-residential conversion sounds straightforwardly good. In practice, it tends to produce expensive housing (because the conversion itself is expensive) that doesn't help the people who most need affordable places to live. The remote work economy concentrates demand among high earners. Supply-side responses tend to serve that demand. The loop isn't obviously good for the city as a whole.
 
 ## What I got wrong about this for a long time
 
@@ -55,7 +55,7 @@ That's a real benefit. It's also a narrow frame. It treats the city as a backdro
 
 What shifted my thinking was spending time in places actively being transformed by incoming remote workers: parts of Southeast Asia, Eastern Europe, Latin America. The tension isn't abstract. Rents go up. Long-term residents get priced out of neighbourhoods they've lived in for decades. The coffee shop that opened to serve digital nomads charges three times what a local earns in an hour. The city becomes more international, more photogenic, and less itself. Not everyone who was already there wanted that version of their city.
 
-A 2023 paper by economists Kyle Coombs, Arpit Gupta, and others in the National Bureau of Economic Research found measurable rent increases in cities that saw remote-worker inflows during the pandemic, with the effects concentrated in previously affordable neighbourhoods. [The study](https://www.nber.org/papers/w30830) documented that neighborhoods in the bottom third of the rent distribution saw increases of 4–7% in cities receiving net inflows of remote workers, compared to 1–2% in similar neighborhoods in control cities. The workers didn't intend to displace anyone. They were just following the same logic I was: go somewhere you can afford and that's worth living in.
+A 2023 paper by economists Kyle Coombs, Arpit Gupta, and others in the National Bureau of Economic Research found measurable rent increases in cities that saw remote-worker inflows during the pandemic, with the effects concentrated in previously affordable neighbourhoods. [The study](https://www.nber.org/papers/w30830) documented that neighborhoods in the bottom third of the rent distribution saw increases of 4-7% in cities receiving net inflows of remote workers, compared to 1-2% in similar neighborhoods in control cities. The workers didn't intend to displace anyone. They were just following the same logic I was: go somewhere you can afford and that's worth living in.
 
 Remote work doesn't just rearrange workers. It rearranges economies. The people who most need stable, affordable places to live are usually the ones who absorb the costs of that rearrangement.
 

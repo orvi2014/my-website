@@ -1,6 +1,6 @@
 ---
 title: "What Is the Purpose of Regret? The Psychology Behind It"
-description: "I spent years treating regret as damage to manage. The research on the purpose of regret — from Roese's opportunity principle to Pink's 16,000-regret survey — says I had the whole mechanism backwards."
+description: "I spent years treating regret as damage to manage. The research on the purpose of regret, from Roese's opportunity principle to Pink's 16,000-regret survey, says I had the whole mechanism backwards."
 pubDate: 2026-07-16
 category: "philosophy"
 author: "Orvi"

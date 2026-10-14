@@ -17,33 +17,33 @@ Let me tell you the thing I wish someone had told me before I spent a quarter le
 
 ## Should I use an AI agent or just write the code?
 
-Write the code. Use an agent only when you genuinely cannot enumerate the steps in advance — not when enumerating them is tedious, but when it is *impossible*, because the next step depends on what the previous step found.
+Write the code. Use an agent only when you genuinely cannot enumerate the steps in advance, not when enumerating them is tedious, but when it is *impossible*, because the next step depends on what the previous step found.
 
 That distinction is the entire architecture decision, and it collapses about 80% of the agent projects I've seen into ordinary software. Anthropic's own engineering guidance, [*Building Effective Agents*](https://www.anthropic.com/engineering/building-effective-agents), published in December 2024, draws the line cleanly: workflows are systems where models and tools are orchestrated through *predefined code paths*; agents are systems where the model dynamically directs its own process. Their recommendation, from the company selling you the models, is to find the simplest solution possible and only increase complexity when needed.
 
 That is a vendor telling you to buy less of the product. It is worth reading twice.
 
-Here is the honest test. Sit down and try to write the flowchart. If you can draw it — even a big, ugly one with fourteen branches — you do not have an agent-shaped problem. You have a normal program that calls a language model at four or five specific points where natural language needs to become structured data. That program will be debuggable, testable, and cheap. Your agent will be none of those things, and it will do the same work by asking a model to rediscover your flowchart at runtime, from scratch, at three cents a rediscovery.
+Here is the honest test. Sit down and try to write the flowchart. If you can draw it (even a big, ugly one with fourteen branches), you do not have an agent-shaped problem. You have a normal program that calls a language model at four or five specific points where natural language needs to become structured data. That program will be debuggable, testable, and cheap. Your agent will be none of those things, and it will do the same work by asking a model to rediscover your flowchart at runtime, from scratch, at three cents a rediscovery.
 
 The same test works one level down, on the code itself. If you can read what the model wrote and say why each line is there, you are doing [AI-assisted coding rather than vibe coding](/chapters/ai-automation/ai-assisted-coding-vs-vibe-coding), and which of the two you are actually doing decides how much of this architecture you can safely hand over.
 
 ## What is the difference between an AI agent and a workflow?
 
-A workflow's control flow lives in your code and is fixed before the run starts; an agent's control flow lives in the model and is decided during the run. Everything else — cost profile, failure mode, how you debug it at 2am — follows from that one difference.
+A workflow's control flow lives in your code and is fixed before the run starts; an agent's control flow lives in the model and is decided during the run. Everything else (cost profile, failure mode, how you debug it at 2am) follows from that one difference.
 
 | | Workflow | Agent |
 |---|---|---|
 | **Who decides the next step** | You, at write time | The model, at run time |
-| **Steps known in advance** | Yes — that's the definition | No — that's the definition |
+| **Steps known in advance** | Yes, that's the definition | No, that's the definition |
 | **Cost per run** | Bounded, roughly constant | Unbounded until you cap it |
 | **Failure mode** | Loud, at the line that broke | Quiet, three steps downstream |
 | **Debugging** | Stack trace | Transcript archaeology |
 | **Reproducibility** | Same input, same path | Same input, new path |
 | **Right when** | You can draw the flowchart | The next step depends on what the last step found |
 
-Note what is *not* on that list: intelligence. Both architectures call the same model with the same weights. A workflow is not the dumb option — it is the same intelligence with the routing decisions taken out of the model's hands and put into yours, where they can be read, diffed, and unit-tested.
+Note what is *not* on that list: intelligence. Both architectures call the same model with the same weights. A workflow is not the dumb option; it is the same intelligence with the routing decisions taken out of the model's hands and put into yours, where they can be read, diffed, and unit-tested.
 
-The practical consequence is that "agent vs workflow" is rarely a whole-system choice. Most real builds are a workflow with one agentic step bolted into the middle of it — a research call, a code-fix attempt, a classification that genuinely branches — wrapped in deterministic code on both sides. That shape is also where the money works out, which I've broken down separately in [the economics of AI agents](/chapters/ai-agents/the-economics-of-ai-agents-when-autonomous-beats-human-in-the-loop): autonomy is worth paying for exactly where the alternative is a human doing the same rediscovery, and it's a tax everywhere else.
+The practical consequence is that "agent vs workflow" is rarely a whole-system choice. Most real builds are a workflow with one agentic step bolted into the middle of it (a research call, a code-fix attempt, a classification that genuinely branches), wrapped in deterministic code on both sides. That shape is also where the money works out, which I've broken down separately in [the economics of AI agents](/chapters/ai-agents/the-economics-of-ai-agents-when-autonomous-beats-human-in-the-loop): autonomy is worth paying for exactly where the alternative is a human doing the same rediscovery, and it's a tax everywhere else.
 
 If you take one thing from the table, take the failure row. Everything after this section is a consequence of it.
 
@@ -51,9 +51,9 @@ If you take one thing from the table, take the failure row. Everything after thi
 
 Avoid AI agents when the task has more than roughly ten sequential steps, when a wrong step is expensive to undo, or when you cannot afford to be wrong the same way twice. The reason is arithmetic, not ideology.
 
-Agent reliability compounds multiplicatively. If each step in your chain succeeds 95% of the time — which is generous, and is roughly where good tool-calling sits — then a twenty-step task completes correctly 36% of the time. Nobody advertises this, because "our agent is 95% accurate" is a true sentence that produces a system which fails two times out of three.
+Agent reliability compounds multiplicatively. If each step in your chain succeeds 95% of the time (which is generous, and is roughly where good tool-calling sits), then a twenty-step task completes correctly 36% of the time. Nobody advertises this, because "our agent is 95% accurate" is a true sentence that produces a system which fails two times out of three.
 
-The benchmarks have been saying this out loud for two years and the industry has been extremely good at not hearing it. Carnegie Mellon's [TheAgentCompany](https://arxiv.org/abs/2412.14161), released in December 2024, put agents inside a simulated software company with 175 real professional tasks — software development, project management, HR, finance — and the best model of the day completed 24.0% of them autonomously. Eighteen months and several model generations later, the leaderboard has crawled into the low thirties. Salesforce's [CRMArena-Pro](https://arxiv.org/abs/2505.18878), published in May 2025 across 4,280 queries and nineteen expert-validated business tasks, found leading agents hit 58% on single-turn tasks and 35% once the task required multiple turns. The paper also notes, in the flat tone of people reporting a fire, that agents display "near-zero" inherent confidentiality awareness.
+The benchmarks have been saying this out loud for two years and the industry has been extremely good at not hearing it. Carnegie Mellon's [TheAgentCompany](https://arxiv.org/abs/2412.14161), released in December 2024, put agents inside a simulated software company with 175 real professional tasks (software development, project management, HR, finance), and the best model of the day completed 24.0% of them autonomously. Eighteen months and several model generations later, the leaderboard has crawled into the low thirties. Salesforce's [CRMArena-Pro](https://arxiv.org/abs/2505.18878), published in May 2025 across 4,280 queries and nineteen expert-validated business tasks, found leading agents hit 58% on single-turn tasks and 35% once the task required multiple turns. The paper also notes, in the flat tone of people reporting a fire, that agents display "near-zero" inherent confidentiality awareness.
 
 But the number that should actually change your architecture is from Sierra's [τ-bench](https://sierra.ai/blog/benchmarking-ai-agents), June 2024. They introduced a metric called pass^k: not *can the agent solve this task*, but *does it solve the same task on all k attempts*. GPT-4o scored about 61% pass@1 on retail customer-service tasks and roughly 25% on pass^8. Read that as a business fact rather than a benchmark fact: for eight customers with the identical problem, there was a one-in-four chance all eight got helped correctly.
 
@@ -61,11 +61,11 @@ An agent that succeeds 61% of the time and is inconsistent about *which* 61% is 
 
 ## Why do most AI agent projects fail?
 
-They fail because the failure is invisible until the bill arrives. Gartner predicted in [June 2025](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027) that over 40% of agentic AI projects would be canceled by the end of 2027 — not because the agents didn't run, but because of escalating costs, unclear business value, and inadequate risk controls.
+They fail because the failure is invisible until the bill arrives. Gartner predicted in [June 2025](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027) that over 40% of agentic AI projects would be canceled by the end of 2027, not because the agents didn't run, but because of escalating costs, unclear business value, and inadequate risk controls.
 
-The same press release contains my favorite piece of industry accounting: Gartner estimates that of the thousands of vendors selling agentic AI, roughly **130 are real**. The rest are engaged in what the analysts named "agent washing" — rebranding existing chatbots and RPA scripts. So when you benchmark your build against what competitors appear to have shipped, remember that you are, statistically, benchmarking against a rename.
+The same press release contains my favorite piece of industry accounting: Gartner estimates that of the thousands of vendors selling agentic AI, roughly **130 are real**. The rest are engaged in what the analysts named "agent washing": rebranding existing chatbots and RPA scripts. So when you benchmark your build against what competitors appear to have shipped, remember that you are, statistically, benchmarking against a rename.
 
-MIT's Project NANDA reached the same place from the buyer's side. Their 2025 report *The GenAI Divide*, built on 300-plus public deployments, 52 executive interviews and 153 survey responses, found that **95% of enterprise generative AI pilots produced no measurable P&L return** despite $30–40 billion in investment. Their diagnosis wasn't model quality or regulation. It was that these systems don't retain feedback or improve, so every run starts from zero — which is, if you look at it directly, a description of an agent loop.
+MIT's Project NANDA reached the same place from the buyer's side. Their 2025 report *The GenAI Divide*, built on 300-plus public deployments, 52 executive interviews and 153 survey responses, found that **95% of enterprise generative AI pilots produced no measurable P&L return** despite $30-40 billion in investment. Their diagnosis wasn't model quality or regulation. It was that these systems don't retain feedback or improve, so every run starts from zero, which is, if you look at it directly, a description of an agent loop.
 
 That decay has a timetable, and it's shorter than the budget cycle that funded it. I've written about [why most AI automation dies within six months of going live](/chapters/ai-agents/why-most-ai-automation-dies-within-six-months-of-going-live), and the pattern is always the same: the thing doesn't crash, it drifts, and nobody notices because nobody instrumented the drift.
 
@@ -77,7 +77,7 @@ That's the real cost structure. Deterministic code fails loudly at the line wher
 
 Partly, and it won't help as much as you think, because the gap that kills agents is between capability and *consistency*, and only one of those two is improving quickly.
 
-This is the honest counterargument and it deserves an honest answer. Yes, models improved enormously between the τ-bench results and today. Yes, pass@1 scores climbed. But pass^k — the reliability metric, the one your customers actually experience — has climbed far more slowly, because it is a product of per-step reliability raised to a power. Getting from 95% to 97% per step is a real engineering achievement that moves a twenty-step task from 36% to 54%. You have doubled your quality and you still lose half the runs.
+This is the honest counterargument and it deserves an honest answer. Yes, models improved enormously between the τ-bench results and today. Yes, pass@1 scores climbed. But pass^k (the reliability metric, the one your customers actually experience) has climbed far more slowly, because it is a product of per-step reliability raised to a power. Getting from 95% to 97% per step is a real engineering achievement that moves a twenty-step task from 36% to 54%. You have doubled your quality and you still lose half the runs.
 
 And there's a nastier wrinkle: better models don't reliably make *you* faster. METR ran a randomized controlled trial with 16 experienced open-source developers across 246 tasks between February and June 2025. The developers predicted AI would speed them up 24%. Afterwards, they reported feeling 20% faster. [They were 19% slower](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/).
 
@@ -89,7 +89,7 @@ So no, waiting for the next model doesn't fix it. Waiting for the next model fix
 
 Three conditions, all of which must hold: the search space is genuinely unenumerable in advance, a wrong step is cheap to detect and cheap to undo, and you have a verifier that isn't another language model.
 
-That third one eliminates most candidates on the spot. Coding agents work — really work, not demo-work — because compilers and test suites exist. The agent can flail through twelve wrong approaches and the ground truth is free and instant. Deep research agents work reasonably well because a bad source is recoverable and a human reads the output anyway. Both are domains with a cheap, external, non-negotiable oracle.
+That third one eliminates most candidates on the spot. Coding agents work (really work, not demo-work) because compilers and test suites exist. The agent can flail through twelve wrong approaches and the ground truth is free and instant. Deep research agents work reasonably well because a bad source is recoverable and a human reads the output anyway. Both are domains with a cheap, external, non-negotiable oracle.
 
 Your refund-processing agent has no oracle. Your outbound-email agent has no oracle. Its verifier is a second model asked "does this look right?", which is how you get a system that is confidently wrong twice and calls it consensus.
 
@@ -101,7 +101,7 @@ Build the pipeline. Named steps, structured output at every boundary, hard schem
 
 Then measure the thing everyone skips: not whether it succeeded, but whether it succeeded *the same way* across ten identical runs. That's your pass^k. If it's below 90%, you don't have a product, you have a distribution.
 
-And for the one genuinely agentic step you keep — the research call, the retry loop, the thing that really can't be enumerated — put a hard stop around it. [Every agentic loop needs a circuit breaker](/chapters/ai-agents/why-every-agentic-loop-needs-a-circuit-breaker-and-how-i-built-one): a step ceiling, a spend ceiling, and a rule that trips the whole thing to a human instead of trying once more. Autonomy without a kill condition isn't autonomy, it's an unmonitored while-loop with a credit card.
+And for the one genuinely agentic step you keep (the research call, the retry loop, the thing that really can't be enumerated), put a hard stop around it. [Every agentic loop needs a circuit breaker](/chapters/ai-agents/why-every-agentic-loop-needs-a-circuit-breaker-and-how-i-built-one): a step ceiling, a spend ceiling, and a rule that trips the whole thing to a human instead of trying once more. Autonomy without a kill condition isn't autonomy, it's an unmonitored while-loop with a credit card.
 
 You can always add the loop later. Adding autonomy to a system with good instrumentation is a Tuesday. Adding instrumentation to an autonomous system that has been in production for six months is a rewrite, and it will be presented in the postmortem as "scaling challenges."
 
@@ -109,7 +109,7 @@ You can always add the loop later. Adding autonomy to a system with good instrum
 
 If I had one minute with you, before your architecture review, this is what I'd say:
 
-Go find the demo you're using to justify this. Run it ten times with the same input. Not one time — ten. Write down how many produce the identical correct outcome.
+Go find the demo you're using to justify this. Run it ten times with the same input. Not one time. Ten. Write down how many produce the identical correct outcome.
 
 If the answer is ten, build your agent, and I'll be genuinely happy to be wrong.
 

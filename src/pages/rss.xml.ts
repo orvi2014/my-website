@@ -28,7 +28,7 @@ export async function GET(context: { site?: URL }) {
   return rss({
     title: 'Robat Das Orvi',
     description:
-      'Essays on building software without VC money — SaaS mechanics, AI systems, and the psychology underneath both.',
+      'Essays on building software without VC money: SaaS mechanics, AI systems, and the psychology underneath both.',
     site: context.site?.toString() ?? SITE,
     trailingSlash: false,
     items: sorted.map((story: CollectionEntry<'stories'>) => ({

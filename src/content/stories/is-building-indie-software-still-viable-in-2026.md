@@ -9,7 +9,7 @@ tags: ["indie development", "indie software viability", "micro-SaaS revenue", "s
 featured: false
 ---
 
-I've spent the last four years telling people that indie software development is viable. I still think it is. But I've also spent that time quietly reading the data—the parts of the data I didn't emphasize in public—and I need to stop pretending the uncomfortable truth isn't there.
+I've spent the last four years telling people that indie software development is viable. I still think it is. But I've also spent that time quietly reading the data (the parts of the data I didn't emphasize in public), and I need to stop pretending the uncomfortable truth isn't there.
 
 The uncomfortable truth is this: Indie development is viable. But it is almost certainly not viable *for you*, unless you already have something most people don't have.
 
@@ -28,7 +28,7 @@ Add the first two groups and 80% of micro-SaaS founders never get past $10,000 M
 
 The stories you hear are from the five percent of the five percent: Nomad List ([an estimated $704K in 2023 revenue, per Latka](https://getlatka.com/companies/nomad-list)), TweetHunter ([$1M ARR within about a year of launch](https://www.indiehackers.com/post/tweethunter-hits-1m-arr-8fc16ece7e)), or Carrd ([over $1M in ARR, bootstrapped by a single founder](https://usefathom.com/podcast/carrd)). They're mathematically unreliable as guidance.
 
-Now consider solo founders attempting venture capital. [They're 3x less likely to succeed than co-founder teams](https://www.fundssociety.com/en/news/alternatives/las-startups-dirigidas-por-un-fundador-individual-se-han-mas-que-duplicado-pero-tienen-menos-exito-a-la-hora-de-conseguir-capital-riesgo/). [VC-backed startups fail 75% of the time even with professional capital and advice](https://www.digitalsilk.com/digital-trends/startup-failure-rate-statistics/). [Single founders comprise only 17% of VC-funded startups despite being 35% of all startups](https://www.fundssociety.com/en/news/alternatives/las-startups-dirigidas-por-un-fundador-individual-se-han-mas-que-duplicado-pero-tienen-menos-exito-a-la-hora-de-conseguir-capital-riesgo/)—investors have learned the same lesson the data teaches.
+Now consider solo founders attempting venture capital. [They're 3x less likely to succeed than co-founder teams](https://www.fundssociety.com/en/news/alternatives/las-startups-dirigidas-por-un-fundador-individual-se-han-mas-que-duplicado-pero-tienen-menos-exito-a-la-hora-de-conseguir-capital-riesgo/). [VC-backed startups fail 75% of the time even with professional capital and advice](https://www.digitalsilk.com/digital-trends/startup-failure-rate-statistics/). [Single founders comprise only 17% of VC-funded startups despite being 35% of all startups](https://www.fundssociety.com/en/news/alternatives/las-startups-dirigidas-por-un-fundador-individual-se-han-mas-que-duplicado-pero-tienen-menos-exito-a-la-hora-de-conseguir-capital-riesgo/): investors have learned the same lesson the data teaches.
 
 Here's the part nobody says out loud: The viability of indie development correlates so heavily with pre-existing structural advantage that the question "is it viable?" is almost meaningless. The better question is "is it viable *for someone like me*?" And the honest answer depends on whether you have capital, geographic arbitrage, an existing audience, or a network of customers waiting for your next product.
 
@@ -48,13 +48,13 @@ That speed-up is real. Cursor and Claude have materially changed how fast solo d
 
 ## Is indie development only for the wealthy?
 
-Not only the wealthy—but privilege and existing advantages are load-bearing requirements, and privilege takes forms most discussions don't name explicitly.
+Not only the wealthy, but privilege and existing advantages are load-bearing requirements, and privilege takes forms most discussions don't name explicitly.
 
 The true prerequisites are:
 
 - **Runway**: Not necessarily your own savings, but access to capital. A job that pays [$80K/year](https://arc.dev/salaries) while you build at night. A partner's income. Savings. Geographic location where $500/month could theoretically sustain you if you had to.
 - **An existing audience or network**: Founders whose indie projects succeeded typically had either a Twitter following, an email list, a reputation in their field, or a network that knew what they built. Cold start customer acquisition is brutal.
-- **Geographic location or baseline income**: A US developer needs roughly $4,000-$5,000/month to sustain themselves in most major cities, on my own reckoning rather than anyone's published figure. A $500/month SaaS business doesn't close that gap. A developer in Portugal earning [$60K-$90K working for a US company while living on $1,500/month](https://arc.dev/salaries)—that's a different equation entirely.
+- **Geographic location or baseline income**: A US developer needs roughly $4,000-$5,000/month to sustain themselves in most major cities, on my own reckoning rather than anyone's published figure. A $500/month SaaS business doesn't close that gap. A developer in Portugal earning [$60K-$90K working for a US company while living on $1,500/month](https://arc.dev/salaries): that's a different equation entirely.
 - **Timing and niche**: Surviving indie developers tend to have found a specific, underserved niche where they can own a category before competition arrives.
 
 The uncomfortable admission: These aren't things you can "decide" into. You can't will yourself a pre-existing audience. You can't bootstrap your way into geographic arbitrage if you're already in San Francisco. You can't manufacture pre-existing capital through sheer determination.
@@ -63,17 +63,17 @@ The uncomfortable admission: These aren't things you can "decide" into. You can'
 
 Three things shifted. Tools got better, software markets got crowded, and venture capital became a worse deal for founders. Together they favor experienced, already-connected builders over newcomers.
 
-First, tools got better. You can build alone what required a team in 2020. That's meaningful for experienced developers with domain knowledge—they can move faster.
+First, tools got better. You can build alone what required a team in 2020. That's meaningful for experienced developers with domain knowledge; they can move faster.
 
 Second, software as a category matured. There are no more "make a CRUD app and sell it" wins. Every space has incumbents. What remains is either (a) genuinely novel problems, (b) underserved niches, or (c) selling to businesses you have relationships with. All of those require something you can't create in code alone.
 
-Third, venture capital got worse at returning money to founders. In 2020, a successful Series A felt like winning. In 2026, experienced founders know that Series A usually means you've already lost control and probably face cap-table dilution that turns later success into a mediocre exit. This has pushed better founders toward bootstrap. But "better founders" means experienced founders with networks and previous wins—it's a signal of privilege, not an egalitarian shift.
+Third, venture capital got worse at returning money to founders. In 2020, a successful Series A felt like winning. In 2026, experienced founders know that Series A usually means you've already lost control and probably face cap-table dilution that turns later success into a mediocre exit. This has pushed better founders toward bootstrap. But "better founders" means experienced founders with networks and previous wins. It's a signal of privilege, not an egalitarian shift.
 
 ## So is indie software development still viable in 2026?
 
 Yes, if you already have structural advantage: capital, an audience, a low cost of living, or domain expertise that solves an urgent problem for customers you know. If you're using it as a way out of precarity, it probably isn't viable.
 
-Indie software development is viable if you have (a) pre-existing capital, (b) pre-existing customers or audience, (c) low cost of living or high baseline income, or (d) specific domain expertise that solves an urgent problem for customers you know. It's probably not viable if you're looking for a path out—out of your job, out of your country, out of financial precarity. The path out almost always requires having already stepped partially out.
+Indie software development is viable if you have (a) pre-existing capital, (b) pre-existing customers or audience, (c) low cost of living or high baseline income, or (d) specific domain expertise that solves an urgent problem for customers you know. It's probably not viable if you're looking for a path out: out of your job, out of your country, out of financial precarity. The path out almost always requires having already stepped partially out.
 
 What changed my mind wasn't that indie became impossible. It's that I realized the narrative of "indie as an egalitarian path to freedom" was always a story told by people who already had something. The people building successful indie products in 2026 typically have something that looks like "I had a job that paid well, built a tool to scratch my own itch, and my network bought it." That's a viable story, and it's true. But it's not a universally available story.
 
@@ -90,7 +90,7 @@ The world might be better if it were otherwise. But the evidence is very clear a
 - [Top 35 Startup Failure Rate Statistics Worth Knowing In 2026 | Digital Silk](https://www.digitalsilk.com/digital-trends/startup-failure-rate-statistics/)
 - [13 Eye-Opening Startup Failure Rate Statistics in 2024 - ARTSMART AI](https://artsmart.ai/blog/startup-failure-rate-statistics/)
 - [Startup Failure Statistics 2026: 46 Critical Data Points & Success Factors | GrowthList](https://growthlist.co/startup-failure-statistics/)
-- [The Ultimate Startup Guide With Statistics (2024–2025) | Founders Forum Group](https://ff.co/startup-statistics-guide/)
+- [The Ultimate Startup Guide With Statistics (2024-2025) | Founders Forum Group](https://ff.co/startup-statistics-guide/)
 - [Solo-founder startups double but face funding challenges - Funds Society](https://www.fundssociety.com/en/news/alternatives/las-startups-dirigidas-por-un-fundador-individual-se-han-mas-que-duplicado-pero-tienen-menos-exito-a-la-hora-de-conseguir-capital-riesgo/)
 - [How Solo Developers Are Building $100K-$1M+ Revenue Businesses: Real Data from 2024 | CodeOrbit](https://medium.com/@theabhishek.040/how-solo-developers-are-building-100k-1m-revenue-businesses-real-data-from-2024-110838470a2a)
 - [Micro-SaaS Revenue: What 1,000+ Founders Earn | SaaSRanger](https://saasranger.com/blog/micro-saas-revenue-reality-what-1000-founders-actually-earn/)

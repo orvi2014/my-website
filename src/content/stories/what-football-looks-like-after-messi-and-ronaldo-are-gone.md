@@ -31,7 +31,7 @@ What I didn't appreciate while it was happening was how much cognitive work the 
 
 ## Who gets to be the story now?
 
-Multiple players are now emerging as focal points—Bellingham, Yamal, Vinicius Jr., and Wirtz—each representing different aspects of what post-GOAT football looks like. None of them fills the previous narrative space, and that's fundamentally changed how fans engage with the sport.
+Multiple players are now emerging as focal points (Bellingham, Yamal, Vinicius Jr., and Wirtz), each representing different aspects of what post-GOAT football looks like. None of them fills the previous narrative space, and that's fundamentally changed how fans engage with the sport.
 
 Jude Bellingham has that rare quality where he looks physically inevitable, constructed to play ninety minutes at high intensity in a way that most humans simply cannot sustain. His debut season at Real Madrid, where he scored 23 goals from midfield and became arguably the decisive figure in their Champions League campaign, was one of the better individual seasons I've watched in years. But Bellingham is not a thesis statement. He's excellent. He's not a religion.
 

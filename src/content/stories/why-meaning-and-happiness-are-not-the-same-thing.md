@@ -31,7 +31,7 @@ What Wolf is pointing at is something most people sense but rarely articulate cl
 
 Because happiness optimises for your internal state, and your internal state can be perfectly comfortable while everything that actually matters to you stagnates.
 
-Baumeister and his colleagues published the definitive study on this in 2013. [Their research](https://doi.org/10.1080/17439760.2013.830764) found that while happy people tend to be satisfied and free from stress, meaningful lives are actively associated with stress and worry. Specifically, happiness correlated strongly with being a taker and minimizing present-moment concerns, while meaning correlated with being a giver and with elevated stress levels—people with meaningful lives reported significantly more worry and responsibility than those reporting high happiness. The correlation between happiness and meaning itself was only moderate (r = .33), confirming they are distinct psychological states, not merely different shades of the same thing.
+Baumeister and his colleagues published the definitive study on this in 2013. [Their research](https://doi.org/10.1080/17439760.2013.830764) found that while happy people tend to be satisfied and free from stress, meaningful lives are actively associated with stress and worry. Specifically, happiness correlated strongly with being a taker and minimizing present-moment concerns, while meaning correlated with being a giver and with elevated stress levels: people with meaningful lives reported significantly more worry and responsibility than those reporting high happiness. The correlation between happiness and meaning itself was only moderate (r = .33), confirming they are distinct psychological states, not merely different shades of the same thing.
 
 Read that again. Happiness, in that study, correlated with ease. Meaning correlated with something heavier.
 
@@ -65,7 +65,7 @@ The distinction I find most useful now: happiness is something that happens to m
 
 Yes, but slowly and in specific ways, not in the sweeping life-rewrite sense that self-help books promise.
 
-A 2018 study published in *Psychological Science* by Samantha Heintzelman and Laura King found that meaning in life is nearly universal—approximately 80% of adults report experiencing strong meaning regularly—but the experience is strongly tied to coherence: things making sense, fitting together, feeling like they add up to something. What disrupts meaning isn't usually suffering, it's incoherence. Random busy work. Disconnection between what you're doing day to day and what you actually value. That framing helped me more than any motivational argument about pursuing purpose.
+A 2018 study published in *Psychological Science* by Samantha Heintzelman and Laura King found that meaning in life is nearly universal (approximately 80% of adults report experiencing strong meaning regularly), but the experience is strongly tied to coherence: things making sense, fitting together, feeling like they add up to something. What disrupts meaning isn't usually suffering, it's incoherence. Random busy work. Disconnection between what you're doing day to day and what you actually value. That framing helped me more than any motivational argument about pursuing purpose.
 
 [Their research](https://journals.sagepub.com/doi/10.1177/0956797618793721) suggested that meaning isn't some peak experience you have to chase. It's more like a property of well-structured days, days where what you're doing connects to something you care about, even loosely.
 

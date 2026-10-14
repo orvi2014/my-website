@@ -49,7 +49,7 @@ It didn't hold. A [2015 replication attempt by Fehr, Hakimov and Kübler](https:
 
 It costs you the ability to know what your product is. Every unused-but-retained account is a data point that lies in the same direction every time.
 
-The safe move — leave the feature in, leave the seat active, count the dormant account as retained — has a bill. Here's roughly what's on it.
+The safe move (leave the feature in, leave the seat active, count the dormant account as retained) has a bill. Here's roughly what's on it.
 
 [Pendo's 2019 Feature Adoption Report](https://go.pendo.io/rs/185-LQW-370/images/2019%20Feature%20Adoption%20Report%20Digital.pdf) analyzed 615 subscriptions and found 80% of features in the average product are rarely or never used, with an estimated $29.5 billion in annual R&D spend by public cloud companies going toward features that may never be touched. That gets quoted as a waste statistic, which undersells it. Waste is a one-time charge. Each of those features is a standing liability: regression-tested every release, patched every CVE, migrated during every schema change, and rendered in every screenshot a new user squints at while trying to work out what your product does.
 
@@ -65,7 +65,7 @@ Because the bias runs on both sides of the transaction and the two sides multipl
 
 John Gourville named this in [*Harvard Business Review* in June 2006](https://hbr.org/2006/06/eager-sellers-and-stony-buyers-understanding-the-psychology-of-new-product-adoption). Sellers overvalue their innovation by about 3x. Buyers overvalue their incumbent by about 3x. Multiply and you get the 9x effect: a nine-to-one mismatch between what the builder thinks the thing is worth and what the buyer does.
 
-Experience doesn't immunize you. It arguably makes it worse, since experienced teams have more built things to be endowed with. Add the [IKEA effect](https://www.sciencedirect.com/science/article/abs/pii/S1057740811000829) — Norton, Mochon and Ariely showed in 2012 that people value what they assembled themselves as highly as expert work, and assume everyone else will too — and you have a room full of people who can't see their own product.
+Experience doesn't immunize you. It arguably makes it worse, since experienced teams have more built things to be endowed with. Add the [IKEA effect](https://www.sciencedirect.com/science/article/abs/pii/S1057740811000829) (Norton, Mochon and Ariely showed in 2012 that people value what they assembled themselves as highly as expert work, and assume everyone else will too), and you have a room full of people who can't see their own product.
 
 The tell is the deprecation email. Announce that you're removing a feature, collect the complaints, then cross-reference the complainers against the event log. A meaningful share of them haven't fired that event in six months. They're not defending a workflow. They're defending an option they own.
 

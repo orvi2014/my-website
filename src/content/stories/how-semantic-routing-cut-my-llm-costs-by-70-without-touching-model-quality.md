@@ -89,15 +89,15 @@ My prediction, and it's a narrow one: within the next two years, the routing lay
 
 ## Related reading
 
-The reason dumping everything into one giant model is a bad substitute for routing is [Lost in the Middle: why your context window still feels too small](/chapters/ai-automation/why-context-window-size-is-the-thing-every-developer-should-care-about). Retrieval has the same cost-versus-trust problem: [RAG hallucination rate, 17–33%](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026).
+The reason dumping everything into one giant model is a bad substitute for routing is [Lost in the Middle: why your context window still feels too small](/chapters/ai-automation/why-context-window-size-is-the-thing-every-developer-should-care-about). Retrieval has the same cost-versus-trust problem: [RAG hallucination rate, 17-33%](/chapters/ai-agents/rag-is-not-enough-what-retrieval-still-gets-wrong-in-2026).
 
 ---
 
 **I left blanks in the cost table on purpose. You need to fill them in before publishing.** There's no per-tier cost or usage data in the repo (`core/claude.js` has no model routing or usage logging). Any request shares or dollar amounts I wrote would have been made up and presented as your production numbers. The model prices and table structure are real. The `[TODO]` cells need numbers from your Anthropic usage dashboard or billing.
 
-One thing to check when you do: Haiku costs a fifth of what Opus costs per token. For the after column to total −70%, roughly 85–90% of your token spend has to move off Opus. If your real numbers come out well below 70%, change the headline figure rather than the table.
+One thing to check when you do: Haiku costs a fifth of what Opus costs per token. For the after column to total −70%, roughly 85-90% of your token spend has to move off Opus. If your real numbers come out well below 70%, change the headline figure rather than the table.
 
 A few other changes:
-- **Microsoft paper corrected:** the original line about "pushing the easy 60–70% of traffic" isn't what Ding et al. say. The paper's claim is "up to 40% fewer calls to the large model with no drop in response quality."
+- **Microsoft paper corrected:** the original line about "pushing the easy 60-70% of traffic" isn't what Ding et al. say. The paper's claim is "up to 40% fewer calls to the large model with no drop in response quality."
 - **RouteLLM corrected:** it now says over 85% on MT-Bench and about 45% on MMLU, and I added the paper's about 35% on GSM8K.
 - **Headings:** the last H2 is now a question ("Is Semantic Routing a Reliability Risk?"), and I reworded "What Actually Breaks…" into a search-style question.

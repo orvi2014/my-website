@@ -15,7 +15,7 @@ That afternoon was developer experience. Not the polished version that gets cite
 
 ## What does "developer experience" actually mean?
 
-Developer experience is the sum of every system, process, and decision that either helps a developer stay in focused work or drags them out of it. It's not about individual tools—it's about the total friction between intent and output.
+Developer experience is the sum of every system, process, and decision that either helps a developer stay in focused work or drags them out of it. It's not about individual tools; it's about the total friction between intent and output.
 
 The term gets misused constantly. Companies stamp it onto job titles, mention it in all-hands presentations, and then point to a faster CI pipeline or a shinier internal portal as evidence they take it seriously. Those things are outputs, not the thing itself.
 
@@ -27,7 +27,7 @@ What DX actually protects is cognitive load. A slow test suite is a cognitive lo
 
 ## Why do most teams get this wrong?
 
-Most teams measure what's easy to measure—deployment frequency, PR cycle time, build duration—rather than asking how developers actually feel about the work environment. The metrics improve while satisfaction stays flat.
+Most teams measure what's easy to measure (deployment frequency, PR cycle time, build duration) rather than asking how developers actually feel about the work environment. The metrics improve while satisfaction stays flat.
 
 The most common failure mode is metric capture. A manager, usually well-intentioned, needs to demonstrate that developer experience has improved. So they measure what is easy to measure: deployment frequency, PR cycle time, mean time to recovery, build duration. The numbers improve. The dashboard looks healthy. Nobody asks whether the developers themselves feel any different about showing up on Monday morning.
 
@@ -45,13 +45,13 @@ Good DX means a developer can begin something and actually finish it in a single
 
 That state is not a luxury. It is the default condition under which real software gets built, and it is more fragile than most teams acknowledge.
 
-I have worked in codebases where everything required effort that should have been invisible. Not because the engineers were inexperienced, but because nobody had stopped to ask what a developer actually touches on an ordinary day, and how much of that contact time is friction. GitHub's research on developer productivity patterns has consistently found that developers spend 27–50% of their time in context switching, rework, and navigation tasks. The Octoverse report tracks patterns in how developers report spending their time and where they identify blockers. [The Octoverse report is at octoverse.github.com.](https://octoverse.github.com/) One consistent finding: toil, meaning repetitive, automatable, low-value work, is where developer hours disappear. Not the hard problems. The stupid, solvable ones that survived because they were merely survivable.
+I have worked in codebases where everything required effort that should have been invisible. Not because the engineers were inexperienced, but because nobody had stopped to ask what a developer actually touches on an ordinary day, and how much of that contact time is friction. GitHub's research on developer productivity patterns has consistently found that developers spend 27-50% of their time in context switching, rework, and navigation tasks. The Octoverse report tracks patterns in how developers report spending their time and where they identify blockers. [The Octoverse report is at octoverse.github.com.](https://octoverse.github.com/) One consistent finding: toil, meaning repetitive, automatable, low-value work, is where developer hours disappear. Not the hard problems. The stupid, solvable ones that survived because they were merely survivable.
 
 From my own work building Agency Handy, the friction that cost me the most was never the hard architectural decisions. It was the things I had accepted as background noise: a deploy process that required three separate context switches, a test suite so slow that I stopped running it locally and just pushed to CI, an internal script I had written six months earlier that I could no longer explain to myself. None of those individually looked like a DX problem. Together they were the reason certain tasks felt twice as exhausting as they should have been.
 
 ## What changes when DX is taken seriously?
 
-The most visible change is speed—new engineers contribute meaningfully in weeks instead of months. The more important change is morale: developers stop spending cognitive energy on infrastructure that should be invisible.
+The most visible change is speed: new engineers contribute meaningfully in weeks instead of months. The more important change is morale: developers stop spending cognitive energy on infrastructure that should be invisible.
 
 The most visible change is speed, but not the kind that registers in sprint velocity. It is the kind where a new engineer can make a meaningful contribution in their first week rather than their third month. It is the kind where a decision to retire an internal library actually gets followed through, rather than living in a backlog ticket marked "tech debt" for two years because the process to do it is more expensive than tolerating it.
 
@@ -63,7 +63,7 @@ This does not require a dedicated platform engineering team, though those help a
 
 ## Who actually owns developer experience?
 
-Everyone owns it partially—the codebase, tooling, and culture each contribute—but nobody owns it well because it's treated as a periodic initiative rather than a first-class product concern.
+Everyone owns it partially (the codebase, tooling, and culture each contribute), but nobody owns it well because it's treated as a periodic initiative rather than a first-class product concern.
 
 This is where organizations get into arguments that go nowhere. Platform teams say it is their domain. Engineering managers say it belongs in process. Individual contributors treat it as someone else's job and silently absorb the friction while it accumulates into something they eventually leave over.
 

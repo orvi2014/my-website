@@ -77,6 +77,6 @@ What I got wrong for ten years wasn't wanting too much. I wanted the wrong shape
 
 I think so. The research above says the refusal comes from the same gap between attainment and well-being the Terman data found, not from youth, and a gap like that doesn't close when someone turns 30.
 
-Here's a prediction, and it's falsifiable. When Robert Walters runs the conscious-unbossing question again toward the end of 2028, the share of young professionals declining the management track will be at or above 52%, not below it. The reversion story everyone tells — that this cohort will want the title once mortgages and children show up — won't hold. The same people, then roughly 29 to 33, will still turn it down at above 50%.
+Here's a prediction, and it's falsifiable. When Robert Walters runs the conscious-unbossing question again toward the end of 2028, the share of young professionals declining the management track will be at or above 52%, not below it. The reversion story everyone tells (that this cohort will want the title once mortgages and children show up) won't hold. The same people, then roughly 29 to 33, will still turn it down at above 50%.
 
 If the number comes in under 40%, I'm wrong. The 2024 result was youth rather than a rethink of what ambition is for, and the standard advice was right the whole time. I'll say so here when the data lands.

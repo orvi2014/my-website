@@ -24,7 +24,7 @@ function runClaude(prompt) {
   })
 }
 
-const QUALITY_PROMPT = (content) => `You are a content quality evaluator for a personal blog (robatdasorvi.com). Score this article on three dimensions. Be strict — most content scores 6–7. Only genuinely excellent content earns 8.5+.
+const QUALITY_PROMPT = (content) => `You are a content quality evaluator for a personal blog (robatdasorvi.com). Score this article on three dimensions. Be strict: most content scores 6-7. Only genuinely excellent content earns 8.5+.
 
 SCORING DIMENSIONS:
 
@@ -33,18 +33,18 @@ SEO (Search Engine Optimisation):
 - Meta description is compelling, under 160 chars, includes keyword
 - H2 headings are natural questions people actually search
 - Body is 1300+ words with real depth, not filler
-- 2–3 real external citations with actual working URLs
+- 2-3 real external citations with actual working URLs
 - No keyword stuffing, no thin sections
 
 AEO (Answer Engine Optimisation):
-- Each H2 question is followed by a direct, clear answer in the first 1–2 sentences
+- Each H2 question is followed by a direct, clear answer in the first 1-2 sentences
 - Content would work as a featured snippet source
 - Specific facts, numbers, or positions stated clearly
 - A reader can skim and extract answers without reading every word
 
 GEO (Generative Engine Optimisation):
 - Authoritative first-person voice with genuine opinions
-- Content is quotable — has specific, memorable sentences
+- Content is quotable: has specific, memorable sentences
 - Factual claims backed by citations
 - Structured so an AI system can extract clear Q&A pairs
 - No vague hedging like "it depends" without explanation
@@ -75,6 +75,13 @@ export async function qualityCheck(content) {
   // Recalculate average in case Claude rounded oddly
   result.average = Math.round(((result.seo + result.aeo + result.geo) / 3) * 10) / 10
   result.pass = result.average >= 8.0
+
+  // House style: no em-dashes or en-dashes anywhere in the article
+  const dashes = (content.match(/[—–]/g) || []).length
+  if (dashes > 0) {
+    result.pass = false
+    result.fix = `Remove all ${dashes} em-dashes/en-dashes: use commas, colons, periods, or parentheses instead, and a plain hyphen for ranges.`
+  }
 
   return result
 }

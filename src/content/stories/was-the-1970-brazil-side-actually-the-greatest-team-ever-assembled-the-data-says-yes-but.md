@@ -20,7 +20,7 @@ faq:
     a: "Pelé ran the team as its decision-making hub rather than its main goalscorer, finishing with four goals. Jairzinho was the tournament's defining forward with seven goals in six games. Gérson controlled the tempo, Tostão played as a deep-lying striker, Rivelino supplied the left side, and captain Carlos Alberto scored the final goal of the final."
 ---
 
-Watch the build-up to Brazil's fourth goal against Italy in the 1970 World Cup Final again. Clodoaldo, deep in his own half, dummies past four Italian players with one shimmy. The ball goes to Rivelino, then Jairzinho, then Pelé, who lays it across the Azteca turf without looking — he already knows Carlos Alberto is arriving at full sprint from right back. The finish is a thunderbolt into the corner. But by then, you've already watched the argument play out.
+Watch the build-up to Brazil's fourth goal against Italy in the 1970 World Cup Final again. Clodoaldo, deep in his own half, dummies past four Italian players with one shimmy. The ball goes to Rivelino, then Jairzinho, then Pelé, who lays it across the Azteca turf without looking. He already knows Carlos Alberto is arriving at full sprint from right back. The finish is a thunderbolt into the corner. But by then, you've already watched the argument play out.
 
 Brazil's 1970 World Cup side won all six matches, scored 19 goals, conceded seven, and did it against England, Uruguay, and an Italy side that kept three clean sheets in its group and then survived a 4-3 semi-final against West Germany.[^7] The record is the argument. The myth is just what people remember of it.
 
@@ -30,12 +30,12 @@ Brazil won all six of their matches at Mexico 1970, scoring 19 goals and concedi
 
 | Round | Opponent | Score |
 | --- | --- | --- |
-| Group | Czechoslovakia | 4–1 |
-| Group | England | 1–0 |
-| Group | Romania | 3–2 |
-| Quarter-final | Peru | 4–2 |
-| Semi-final | Uruguay | 3–1 |
-| Final | Italy | 4–1 |
+| Group | Czechoslovakia | 4-1 |
+| Group | England | 1-0 |
+| Group | Romania | 3-2 |
+| Quarter-final | Peru | 4-2 |
+| Semi-final | Uruguay | 3-1 |
+| Final | Italy | 4-1 |
 
 Six games, six wins, 19 goals scored, seven conceded. Jairzinho scored in every one of them. Whether that makes them the greatest team in history is a noisier question, and Wikipedia already owns that fight.
 
@@ -53,9 +53,9 @@ He solved a problem every tournament manager faces: what do you do when your squ
 
 Italy arrived with *catenaccio*, a libero sweeping behind two central defenders and the whole shape built around strangling games into 1-0 wins. Their three group games finished 1-0, 0-0 and 0-0.[^7] Zagallo deployed something closer to a 4-2-4 that mutated: Clodoaldo and Gérson held the midfield axis, but Gérson operated so far forward he became a third attacking midfielder. Rivelino drifted left and inward. Tostão dropped deep as a false pivot in front of the two holders. Carlos Alberto and Everaldo bombed the flanks into the space this created.
 
-The result was a team that could shift between 4-2-4, 4-3-3 and 3-4-3 depending on possession phase, without ever consciously changing shape — the players read each other well enough to self-organise. Modern coaches call this positional fluidity. Brazil were doing it at the same time Rinus Michels was building Total Football at Ajax, where he had been in charge since 1965 and had already reached the 1969 European Cup final.[^9] The difference is that Brazil's version was instinctive rather than programmatic, which made it harder to press-trap.
+The result was a team that could shift between 4-2-4, 4-3-3 and 3-4-3 depending on possession phase, without ever consciously changing shape: the players read each other well enough to self-organise. Modern coaches call this positional fluidity. Brazil were doing it at the same time Rinus Michels was building Total Football at Ajax, where he had been in charge since 1965 and had already reached the 1969 European Cup final.[^9] The difference is that Brazil's version was instinctive rather than programmatic, which made it harder to press-trap.
 
-Zagallo also inherited a political problem. He took over from João Saldanha in March 1970 amid reports that Saldanha was about to drop Pelé. Zagallo's first act was to re-centre the operation around him — not as the primary goalscorer (Jairzinho carried that load) but as the system's decision-making hub. Pelé finished with four goals, and the final pass before a goal ran through him far more often than he shot. The last goal of the tournament, the lay-off to Carlos Alberto, is the clearest example.
+Zagallo also inherited a political problem. He took over from João Saldanha in March 1970 amid reports that Saldanha was about to drop Pelé. Zagallo's first act was to re-centre the operation around him, not as the primary goalscorer (Jairzinho carried that load) but as the system's decision-making hub. Pelé finished with four goals, and the final pass before a goal ran through him far more often than he shot. The last goal of the tournament, the lay-off to Carlos Alberto, is the clearest example.
 
 ## How Does Brazil 1970 Compare With Spain 2010 and Germany 2014?
 
@@ -67,13 +67,13 @@ Goal difference: +12 across six games. Spain's 2010 side, widely treated as the 
 
 By June 10, Brazil were 3-2 against Romania. By June 14, 4-2 against Peru in the quarterfinal, with Tostão running the line as an auxiliary striker. The semifinal against Uruguay on June 17 produced Pelé's ghost goal: the ball arrived early, he sold the dummy to the goalkeeper without touching it, ran around him, and by the time he controlled and turned, the angle was gone. He missed. It remains the most discussed miss in football history, which tells you something about what the standards of imagination had already become.
 
-Where modern benchmarks expose the 1970 side is pressing intensity. Brazil conceded possession regularly in the middle third and relied on individual defensive dueling rather than coordinated press-traps. Italy's goal in the final came from exactly that kind of loose moment: a careless backheel by Clodoaldo that Boninsegna ran onto and finished.[^12] A properly organised high press — Klopp's Liverpool in 2019, Guardiola's City across 2023 — would have found those gaps more systematically. That's worth acknowledging. It doesn't change the verdict, but it belongs in the analysis.
+Where modern benchmarks expose the 1970 side is pressing intensity. Brazil conceded possession regularly in the middle third and relied on individual defensive dueling rather than coordinated press-traps. Italy's goal in the final came from exactly that kind of loose moment: a careless backheel by Clodoaldo that Boninsegna ran onto and finished.[^12] A properly organised high press (Klopp's Liverpool in 2019, Guardiola's City across 2023) would have found those gaps more systematically. That's worth acknowledging. It doesn't change the verdict, but it belongs in the analysis.
 
 ## What Is the Best Argument Against Brazil 1970 Being the Greatest Team Ever?
 
 The strongest argument is format, not opposition. A 16-team tournament gave Brazil only six matches and no extra time, so their depth and physical reserves were never tested the way a modern champion's are.
 
-Not that the opposition was weak — it wasn't. The real argument is that the format compressed the sample size and removed the physical attrition that defines modern international football.
+Not that the opposition was weak; it wasn't. The real argument is that the format compressed the sample size and removed the physical attrition that defines modern international football.
 
 The 1970 World Cup had 16 teams. Brazil played six matches. WC2026, expanded to 48 teams across the United States, Canada and Mexico, added a Round of 32, so a team now has to play eight matches to win it. No match in 1970 went to extra time for Brazil. Their physical reserves were never fully tested.
 
@@ -89,9 +89,9 @@ Because the debate about that team isn't really about that team.
 
 It's about what happens when individual talent becomes collective system. Carlo Ancelotti's Brazil, built around Vinicius Jr., Rodrygo, Endrick and Raphinha, has more Champions League pedigree across the squad than the 1970 side did.[^15] It has less collective identity. That gap is exactly what Zagallo solved in Mexico, and every Brazil manager since has been trying to solve the same thing.
 
-The tactical echo that matters most is Tostão. His role — dropping into midfield channels, overloading the press, creating triangles — is what modern positional coaches call a pivot striker, and it's been under-utilised in South American football since roughly 2018. The obvious candidate to play it for Brazil now is Endrick, dropping behind Vinicius Jr. Whether it works depends on Endrick's reading of space, which is still developing at 20.[^16] By 1970, Tostão was a Cruzeiro fixture who had been the Campeonato Mineiro's top scorer three seasons running from 1966 and had helped Cruzeiro win the 1966 Taça Brasil.[^6] He understood it in his bones.
+The tactical echo that matters most is Tostão. His role (dropping into midfield channels, overloading the press, creating triangles) is what modern positional coaches call a pivot striker, and it's been under-utilised in South American football since roughly 2018. The obvious candidate to play it for Brazil now is Endrick, dropping behind Vinicius Jr. Whether it works depends on Endrick's reading of space, which is still developing at 20.[^16] By 1970, Tostão was a Cruzeiro fixture who had been the Campeonato Mineiro's top scorer three seasons running from 1966 and had helped Cruzeiro win the 1966 Taça Brasil.[^6] He understood it in his bones.
 
-So the case against Brazil 1970 fails, and it fails on the numbers, not the myth. Nineteen goals, seven conceded, Jairzinho in every game, and a fluid system built in the same years Michels was building his. The counterarguments — smaller tournament, lighter physical load, pre-press era opposition — are real. They're just not decisive. No other team has beaten three former world champions in one World Cup and made it look quite like that.
+So the case against Brazil 1970 fails, and it fails on the numbers, not the myth. Nineteen goals, seven conceded, Jairzinho in every game, and a fluid system built in the same years Michels was building his. The counterarguments (smaller tournament, lighter physical load, pre-press era opposition) are real. They're just not decisive. No other team has beaten three former world champions in one World Cup and made it look quite like that.
 
 Azteca, June 21, 1970. Four goals, one of them a piece of collective precision that coaches are still trying to replicate. The sport has been measuring itself against that afternoon for 56 years. As of WC2026, it still hasn't cleared the bar.
 

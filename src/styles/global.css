@@ -11,12 +11,47 @@
   --paper:   #faf7f2;
   --scene:   #e6e0d6;
 
+  /* Semantic layers used across the book pages. Every grey here clears
+     WCAG AA (4.5:1) on --bg, --paper and --scene; there are no translucent
+     text colours left, because those were measuring 2-3:1 on the cream. */
+  --text-2:      #4d4035;   /* secondary text: 8.3:1 on --paper */
+  --paper-edge:  #eee8de;   /* page gradient edge */
+  --rule:        rgba(26, 18, 8, 0.12);
+  --rule-strong: rgba(26, 18, 8, 0.22);
+  --tint:        rgba(139, 94, 60, 0.08);   /* hover wash */
+  --code-bg:     rgba(26, 18, 8, 0.05);
+  --link-line:   rgba(139, 94, 60, 0.38);
+  --shadow:      rgba(40, 26, 12, 0.14);
+
   --font-serif: 'EB Garamond', 'Iowan Old Style', 'Charter', Georgia, serif;
   --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 
   --header-height: 54px;
   --content-width: 1200px;
   --prose-width: 680px;
+}
+
+/* Night reading: the same book under a lamp. Explicit choice via
+   data-theme wins over the OS setting in both directions. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16120e; --ink: #ede4d6; --muted: #a99b89; --border: #342a21;
+    --accent: #e06b5c; --sienna: #d29a6c; --paper: #1e1914; --scene: #110d0a;
+    --text-2: #cdbfae; --paper-edge: #191510;
+    --rule: rgba(237, 228, 214, 0.12); --rule-strong: rgba(237, 228, 214, 0.22);
+    --tint: rgba(210, 154, 108, 0.10); --code-bg: rgba(237, 228, 214, 0.07);
+    --link-line: rgba(210, 154, 108, 0.45); --shadow: rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #16120e; --ink: #ede4d6; --muted: #a99b89; --border: #342a21;
+  --accent: #e06b5c; --sienna: #d29a6c; --paper: #1e1914; --scene: #110d0a;
+  --text-2: #cdbfae; --paper-edge: #191510;
+  --rule: rgba(237, 228, 214, 0.12); --rule-strong: rgba(237, 228, 214, 0.22);
+  --tint: rgba(210, 154, 108, 0.10); --code-bg: rgba(237, 228, 214, 0.07);
+  --link-line: rgba(210, 154, 108, 0.45); --shadow: rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
 }
 
 *, *::before, *::after {

@@ -35,42 +35,43 @@ CATEGORY: ${topic.category}
 TARGET SEARCH QUERY: "${topic.query}"
 TITLE: "${topic.title}"
 
-HARD RULES — every single one must be met:
+HARD RULES: every single one must be met:
 
 OPENING:
-- First sentence drops the reader into the middle of the idea — no setup, no biography, no "I grew up in Bangladesh / I live in Dhaka". Kafka's method: the situation is already underway.
+- First sentence drops the reader into the middle of the idea. No setup, no biography, no "I grew up in Bangladesh / I live in Dhaka". Kafka's method: the situation is already underway.
 - First paragraph must contain the core insight of the entire piece
 
 RESEARCH & DATA:
 - Minimum 3 specific statistics or study findings with the year (e.g. "A 2023 Stanford study found that 78% of...")
-- Minimum 3 real external citations — actual URLs to papers, reputable journalism, or official data (not invented)
+- Minimum 3 real external citations: actual URLs to papers, reputable journalism, or official data (not invented)
 - At least one counterargument addressed and defeated with evidence
 
 SEO:
 - Target keyword appears naturally in the first 100 words
 - Every H2 is a question someone actually types into Google
-- Title is specific enough to rank — not generic (bad: "About Football", good: "Why Morocco Will Reach the 2026 World Cup Final")
+- Title is specific enough to rank, not generic (bad: "About Football", good: "Why Morocco Will Reach the 2026 World Cup Final")
 - Meta description under 160 chars, contains keyword, creates curiosity
 
 AEO:
-- Each H2 question is immediately followed by a direct 1–2 sentence answer before elaboration
+- Each H2 question is immediately followed by a direct 1-2 sentence answer before elaboration
 - Content structured so Google can extract it as a featured snippet
-- Specific numbers, names, dates stated plainly — no vague hedging
+- Specific numbers, names, dates stated plainly, no vague hedging
 
 GEO:
 - Genuine first-person opinions with specific reasoning, not just summaries of what others say
-- At least 2 sentences that are quotable and memorable — something an AI would pull to answer a question
-- Every factual claim is supported — nothing asserted without backing
+- At least 2 sentences that are quotable and memorable: something an AI would pull to answer a question
+- Every factual claim is supported; nothing asserted without backing
 
 VOICE:
 - First-person journal, direct and honest
-- Occasionally wry — not corporate, not listicle
+- Occasionally wry, not corporate, not listicle
 - No "Key Takeaways", no "Frequently Asked Questions", no bullet summaries
-- End with a short punchy reflection — no call-to-action
+- End with a short punchy reflection, no call-to-action
+- No em-dashes (—) or en-dashes (–) anywhere, including the title and description. Use commas, colons, periods, or parentheses instead, and a plain hyphen for ranges (20-30, 1988-1994)
 
-LENGTH: 1300–1600 words. CRITICAL: Write the complete article — do not stop mid-sentence, do not truncate, complete every section including the final paragraph.
+LENGTH: 1300-1600 words. CRITICAL: Write the complete article. Do not stop mid-sentence, do not truncate, complete every section including the final paragraph.
 
-OUTPUT FORMAT — produce exactly this:
+OUTPUT FORMAT: produce exactly this:
 ---
 title: "${topic.title}"
 description: "<under 160 chars, keyword included, creates curiosity>"
@@ -78,7 +79,7 @@ pubDate: ${today()}
 category: "${topic.category}"
 author: "Orvi"
 readingTime: <integer>
-tags: [<6–9 relevant quoted strings>]
+tags: [<6-9 relevant quoted strings>]
 featured: false
 ---
 
@@ -86,18 +87,18 @@ featured: false
 }
 
 function buildRevisePrompt(content, instructions) {
-  return `Here is a published blog post. Make ONLY the specific change described. Do not rewrite, restructure, or touch anything else — every other word stays exactly as written.
+  return `Here is a published blog post. Make ONLY the specific change described. Do not rewrite, restructure, or touch anything else. Every other word stays exactly as written.
 
 CHANGE REQUESTED: ${instructions}
 
 BLOG POST:
 ${content}
 
-Output ONLY the full revised markdown starting with ---, with just the requested change applied.`
+Output ONLY the full revised markdown starting with ---, with just the requested change applied. Do not introduce any em-dashes (—) or en-dashes (–).`
 }
 
 function buildImprovePrompt(content, weaknesses) {
-  return `This blog post needs improvement in specific areas. Improve ONLY those areas — preserve all voice, opinions, and structure elsewhere.
+  return `This blog post needs improvement in specific areas. Improve ONLY those areas; preserve all voice, opinions, and structure elsewhere.
 
 WEAKNESSES TO FIX:
 ${weaknesses}
@@ -105,16 +106,17 @@ ${weaknesses}
 IMPROVEMENT RULES:
 - Add real statistics with year and source where data is missing
 - Restructure any H2 that is not a genuine question someone Googles
-- Ensure each H2 question has a direct 1–2 sentence answer immediately after it
+- Ensure each H2 question has a direct 1-2 sentence answer immediately after it
 - Add citations (real URLs) where claims are unsupported
 - Do NOT change the opening, the personal voice, or any section that isn't a weakness
 - Do NOT add "Key Takeaways" or FAQ sections
 - Keep Kafka-style opening intact
+- No em-dashes (—) or en-dashes (–) anywhere: replace any you find with commas, colons, periods, or parentheses, and use a plain hyphen for ranges
 
 BLOG POST:
 ${content}
 
-Output ONLY the full improved markdown starting with ---. CRITICAL: Write the complete article — do not truncate, complete every section including the final paragraph.`
+Output ONLY the full improved markdown starting with ---. CRITICAL: Write the complete article. Do not truncate, complete every section including the final paragraph.`
 }
 
 export async function generateStory(topic) {
@@ -139,7 +141,7 @@ export async function improveStory(content, weaknesses) {
 }
 
 export async function generateFromContent(userContent, category = 'human') {
-  const prompt = `The author has provided raw notes or ideas. Shape them into a complete, researched blog post for robatdasorvi.com. Preserve every insight and opinion the author gave — do not invent their positions. Add research, data, and citations around their ideas.
+  const prompt = `The author has provided raw notes or ideas. Shape them into a complete, researched blog post for robatdasorvi.com. Preserve every insight and opinion the author gave. Do not invent their positions. Add research, data, and citations around their ideas.
 
 AUTHOR'S CONTENT:
 ${userContent}
@@ -151,9 +153,10 @@ Apply all of these hard rules:
 - Minimum 3 real statistics with year and source
 - Minimum 3 real external citations with actual working URLs
 - Every H2 is a question someone Googles, followed immediately by a direct answer
-- 1300–1600 words. CRITICAL: Write the complete article, do not truncate, complete every section.
+- 1300-1600 words. CRITICAL: Write the complete article, do not truncate, complete every section.
 - No Key Takeaways, no FAQ, no bullet summaries
 - End with short punchy reflection, no call-to-action
+- No em-dashes (—) or en-dashes (–) anywhere, including the title and description. Use commas, colons, periods, or parentheses instead, and a plain hyphen for ranges (20-30)
 
 Output ONLY raw markdown starting with ---:
 ---

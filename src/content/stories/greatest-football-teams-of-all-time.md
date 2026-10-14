@@ -38,7 +38,7 @@ What is missing from that list is trophies as a standalone number. Trophies meas
 
 ## Was Brazil 1970 the greatest World Cup team ever?
 
-On margin, yes. Six matches, six wins, 19 goals scored and seven conceded, with England, Uruguay and Italy all beaten on the way to a 4-1 win in the final — no other World Cup winner has paired a perfect record with that scoring rate against that quality of opposition.
+On margin, yes. Six matches, six wins, 19 goals scored and seven conceded, with England, Uruguay and Italy all beaten on the way to a 4-1 win in the final. No other World Cup winner has paired a perfect record with that scoring rate against that quality of opposition.
 
 The numbers hold up under inspection. Brazil averaged 3.17 goals a game across the tournament, and their 19 goals remain the second-highest total by any World Cup winner, behind West Germany's 25 in 1954, per [FIFA's statistical record of the 1970 squad](https://www.fifa.com/en/tournaments/mens/worldcup/articles/brazil-selecao-pele-mexico-1970-statistics-stats). Pelé scored four and assisted six, meaning he was directly involved in more than half of everything Brazil produced. Jairzinho scored in all six matches, which had never been done before and has not been done since. [FIFA's Mexico 1970 tournament archive](https://www.fifa.com/tournaments/mens/worldcup/1970mexico) has the full match-by-match record if you want to check the schedule against the opposition quality yourself.
 
@@ -76,7 +76,7 @@ The standard story is too generous. At Italia 90 they went out to Argentina on p
 
 With a deep, narrow two-bank block, a rehearsed long-throw routine, and two goals inside the opening 18 minutes: Ragnar Sigurðsson's equaliser and Kolbeinn Sigþórsson's winner in Nice. Every goal in the match was scored before the 19th minute, which is what a prepared plan looks like when it works.
 
-Iceland do not belong on a list of the best teams. They belong on this list because margin over the field has to account for the field a team was expected to occupy, and a country whose total population was 332,529 on 1 January 2016 — [Statistics Iceland's official count](https://www.statice.is/publications/news-archive/inhabitants/population-1-january-2016/), smaller than Coventry — knocking England out of a European Championship is the largest overachievement in the sport's modern history.
+Iceland do not belong on a list of the best teams. They belong on this list because margin over the field has to account for the field a team was expected to occupy, and a country whose total population was 332,529 on 1 January 2016 ([Statistics Iceland's official count](https://www.statice.is/publications/news-archive/inhabitants/population-1-january-2016/), smaller than Coventry), knocking England out of a European Championship is the largest overachievement in the sport's modern history.
 
 It also was not luck, which is the part that gets misremembered. [UEFA's official match statistics](https://www.uefa.com/uefaeuro/match/2018003--england-vs-iceland/statistics/) show England with the ball and the territory for most of the night and nothing to show for either, which is precisely what the plan was designed to produce. [The tactical breakdown of how Iceland beat England](/chapters/football/iceland-at-euro-2016-a-tactical-breakdown-of-the-greatest-upset-in-modern-football), shows a plan detailed enough that calling it an upset undersells the coaching.
 
@@ -121,7 +121,7 @@ Germany are the clearest test of whether any of this is fixable by design. [Thei
 
 ## What is the final ranking of the greatest football teams?
 
-Brazil 1970 first, Hungary 1950-1954 second, Spain 2008-2012 third, Yugoslavia 1987-1992 fourth and Iceland 2016 fifth — ordered by the gap between each side and the field it actually played, not by what ended up in the cabinet.
+Brazil 1970 first, Hungary 1950-1954 second, Spain 2008-2012 third, Yugoslavia 1987-1992 fourth and Iceland 2016 fifth, ordered by the gap between each side and the field it actually played, not by what ended up in the cabinet.
 
 1. Brazil 1970. The widest margin ever produced at a World Cup, against the strongest available knockout field, with tactics a decade ahead of the language for them.
 2. Hungary 1950-1954. Four years and one defeat in 50 internationals, England destroyed twice, and one bad afternoon in Bern that cost them the trophy and their place at the top of most lists.

@@ -1,6 +1,6 @@
 ---
 title: "Why Is It So Hard to Live in the Present?"
-description: "Our brains are structurally wired against now. A look at the psychology behind why we treat the present like a layover — and what it quietly costs us."
+description: "Our brains are structurally wired against now. A look at the psychology behind why we treat the present like a layover, and what it quietly costs us."
 pubDate: 2026-05-28
 category: "philosophy"
 author: "Orvi"
@@ -25,7 +25,7 @@ O'Donoghue and Rabin formalized this in a 1999 paper in the American Economic Re
 
 We tell ourselves we will be present later. Once the project ships. Once the vacation starts. Once things settle down. But "later" never arrives as we imagined it, because by the time it does, there is always a newer future demanding attention. The present is perpetually being deferred.
 
-I used to think this was a discipline problem. A character flaw. Something I could fix with the right morning routine or the right notebook. I have since stopped believing that. The pull away from now is not a bad habit. It is closer to a default mode. The brain's rest state is not presence; it is planning, reviewing, imagining, rehearsing. Neuroscientists even have a name for this baseline — the default mode network, the circuitry that switches on whenever we stop focusing on the outside world, first described by Marcus Raichle and colleagues in 2001. ([Raichle et al., 2001](https://www.pnas.org/doi/10.1073/pnas.98.2.676)) Being here takes effort in a way that being elsewhere does not.
+I used to think this was a discipline problem. A character flaw. Something I could fix with the right morning routine or the right notebook. I have since stopped believing that. The pull away from now is not a bad habit. It is closer to a default mode. The brain's rest state is not presence; it is planning, reviewing, imagining, rehearsing. Neuroscientists even have a name for this baseline: the default mode network, the circuitry that switches on whenever we stop focusing on the outside world, first described by Marcus Raichle and colleagues in 2001. ([Raichle et al., 2001](https://www.pnas.org/doi/10.1073/pnas.98.2.676)) Being here takes effort in a way that being elsewhere does not.
 
 ## What happens in your brain when your mind wanders?
 
@@ -37,7 +37,7 @@ Harvard psychologists Matthew Killingsworth and Daniel Gilbert built a smartphon
 
 The line from their paper has stayed with me: "a human mind is a wandering mind, and a wandering mind is an unhappy mind."
 
-Nearly half our lives we are not in our lives. We are rehearsing conversations, replaying arguments, planning things we will probably never do, worrying about things that will not happen. And during all of that time, whatever is actually in front of us — real things, real people, the actual texture of the day — is getting a fraction of our attention.
+Nearly half our lives we are not in our lives. We are rehearsing conversations, replaying arguments, planning things we will probably never do, worrying about things that will not happen. And during all of that time, whatever is actually in front of us (real things, real people, the actual texture of the day) is getting a fraction of our attention.
 
 What struck me more than the percentage was the implication. The quality of our experience is probably more tied to where our mind is than what is actually happening. Which is both unsettling and, in a strange way, useful. It means the problem is at least partly internal. Which means it is at least partly addressable from the inside.
 
@@ -81,7 +81,7 @@ We keep getting distracted because the brain's tendency to wander is partly adap
 
 The wandering itself is useful. It is how we plan, learn, empathize, imagine things that do not exist yet. Total presence all the time might not even be desirable, if it were achievable. We are also remarkably uncomfortable without it. In a 2014 study in Science, 67% of men and 25% of women chose to give themselves an electric shock rather than sit alone with their thoughts for 15 minutes. ([Wilson et al., 2014](https://doi.org/10.1126/science.1250830))
 
-But there is a difference between using the past and future as tools and living in them as a permanent default. Most of us have drifted toward the latter, not through personal failure but because we have built entire environments designed to accelerate it. Phones. Feeds. Notification stacks. Every one of those systems profits from pulling your attention away from whatever is immediately in front of you. By one 2019 Asurion survey, Americans check their phones an average of 96 times a day — roughly once every ten waking minutes. ([Asurion, 2019](https://www.asurion.com/about/press-releases/americans-check-their-phones-96-times-a-day/)) And the pull works even when you resist it: in experiments with roughly 800 participants, simply having a smartphone on the desk, face down and silent, reduced available working memory compared with leaving it in another room. ([Ward et al., 2017](https://doi.org/10.1086/691462)) Distraction has become infrastructure. It doesn't feel like a choice anymore because it was pre-made for you at the product level.
+But there is a difference between using the past and future as tools and living in them as a permanent default. Most of us have drifted toward the latter, not through personal failure but because we have built entire environments designed to accelerate it. Phones. Feeds. Notification stacks. Every one of those systems profits from pulling your attention away from whatever is immediately in front of you. By one 2019 Asurion survey, Americans check their phones an average of 96 times a day, roughly once every ten waking minutes. ([Asurion, 2019](https://www.asurion.com/about/press-releases/americans-check-their-phones-96-times-a-day/)) And the pull works even when you resist it: in experiments with roughly 800 participants, simply having a smartphone on the desk, face down and silent, reduced available working memory compared with leaving it in another room. ([Ward et al., 2017](https://doi.org/10.1086/691462)) Distraction has become infrastructure. It doesn't feel like a choice anymore because it was pre-made for you at the product level.
 
 There is also something more subtle going on. Presence feels like a luxury that can wait until circumstances improve. I will be more present when the work is less stressful. When I am less anxious about money. When I have fewer open loops. But the open loops are permanent. There will always be something unresolved. Waiting for clearance to show up is one of the most effective ways to never show up.
 

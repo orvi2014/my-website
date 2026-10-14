@@ -1,19 +1,8 @@
 ---
 const year = new Date().getFullYear();
-// Convert to Roman numerals for the book aesthetic
-const toRoman = (n: number) => {
-  const vals = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
-  const syms = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
-  let result = '';
-  for (let i = 0; i < vals.length; i++) {
-    while (n >= vals[i]) { result += syms[i]; n -= vals[i]; }
-  }
-  return result;
-};
-const romanYear = toRoman(year);
 ---
 <footer class="site-footer">
-  <span>The Book of Life &nbsp;·&nbsp; Orvi &nbsp;·&nbsp; {romanYear}</span>
+  <span>The Book of Life, by <a href="/about">Robat Das Orvi</a>, {year}</span>
 </footer>
 
 <style>
@@ -26,9 +15,10 @@ const romanYear = toRoman(year);
        half-opacity was doing the work of a lighter colour; using the token
        at full strength gives 4.86:1 and looks near-identical. */
     font-size: 12px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     color: var(--muted);
     border-top: 1px solid var(--border);
     background: var(--bg);
   }
+  .site-footer a { color: var(--text-2); text-decoration: underline; text-decoration-color: var(--link-line); text-underline-offset: 3px; }
 </style> 
