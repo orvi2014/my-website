@@ -12,6 +12,7 @@ export async function GET() {
     { path: '/about',     priority: '0.7', changefreq: 'monthly', lastmod: now },
     { path: '/store',     priority: '0.6', changefreq: 'monthly', lastmod: now },
     { path: '/screenguard', priority: '0.7', changefreq: 'monthly', lastmod: now },
+    { path: '/hatswap',   priority: '0.7', changefreq: 'monthly', lastmod: now },
     { path: '/glossary',  priority: '0.6', changefreq: 'monthly', lastmod: now },
   ];
 
