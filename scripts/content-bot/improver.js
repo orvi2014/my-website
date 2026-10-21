@@ -92,8 +92,9 @@ export async function runImprovementCycle(sendForReview) {
   try {
     newScore = await qualityCheck(improved)
     console.log(`[improver] New score: ${newScore.average}/10`)
-  } catch {
-    newScore = { average: 8.5, seo: 8.5, aeo: 8.5, geo: 8.5 }
+  } catch (err) {
+    console.error('[improver] Could not verify the revised draft:', err.message)
+    return
   }
 
   if (newScore.average < score.average) {

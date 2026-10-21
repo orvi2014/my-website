@@ -70,7 +70,8 @@ async function generateAndSend() {
       console.log(`[bot] Quality (attempt ${attempt}): SEO=${qualityResult.seo} AEO=${qualityResult.aeo} GEO=${qualityResult.geo} avg=${qualityResult.average} pass=${qualityResult.pass}`)
     } catch (err) {
       console.error('[bot] Quality check error:', err.message)
-      qualityResult = { pass: true, seo: '?', aeo: '?', geo: '?', average: '?' }
+      if (attempt === MAX_QUALITY_ATTEMPTS) return
+      continue
     }
 
     if (qualityResult.pass) break
