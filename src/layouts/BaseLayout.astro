@@ -75,18 +75,17 @@ const personSchema = {
   "@id": AUTHOR_ID,
   "name": AUTHOR,
   "alternateName": "Orvi",
-  "url": SITE,
-  "description": "Writer, systems thinker, and builder of calm products. Co-creator of OneThread and AgencyHandy.",
+  "url": `${SITE}/profile`,
+  "email": "hello@robatdasorvi.com",
+  "jobTitle": "Software builder and writer",
+  "description": "Software builder and writer focused on AI agent engineering, production reliability, and security. Co-creator of OneThread and AgencyHandy.",
   "knowsAbout": [
-    "Travel", "Technology", "Artificial Intelligence", "Automation",
+    "AI agent engineering", "AI agent security", "LLM reliability", "Software engineering", "Artificial Intelligence", "Automation",
     "Startups", "Founder Psychology", "Philosophy", "Psychology", "Football"
   ],
   "sameAs": [
-    "https://agencyhandy.com",
-    "https://www.onethreadapp.com",
-    "https://noburn.dev",
-    "https://apidiffguard.com",
-    "https://twitter.com/orvi_onethread",
+    "https://www.linkedin.com/in/robatdasorvi-productdev/",
+    "https://x.com/orvi_onethread",
     "https://github.com/orvi2014"
   ]
 };
@@ -98,7 +97,7 @@ const websiteSchema = {
   "@id": `${SITE}/#website`,
   "name": "The Book of Life",
   "url": SITE,
-  "description": "A collection of long-form essays on travel, technology, startups, philosophy, psychology, and football.",
+  "description": "Writing on AI agent engineering, production reliability and security, alongside essays on building, psychology and football.",
   "inLanguage": "en-US",
   "author": { "@id": AUTHOR_ID },
   "publisher": { "@id": AUTHOR_ID },
@@ -232,7 +231,8 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
     <meta name="fediverse:creator" content="@orvi_onethread" />
 
     <!-- Social profile links (machine-readable, used by Google + Mastodon) -->
-    <link rel="me" href="https://twitter.com/orvi_onethread" />
+    <link rel="me" href="https://x.com/orvi_onethread" />
+    <link rel="me" href="https://www.linkedin.com/in/robatdasorvi-productdev/" />
     <link rel="me" href="https://github.com/orvi2014" />
 
     <!-- Web App Manifest -->

@@ -40,7 +40,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     <header class="chapter-header">
       <h1>{title}</h1>
       <div class="chapter-meta">
-        <span class="author">By {author}</span>
+        <span class="author">By <a href="/profile">{author}</a></span>
         <time datetime={pubDate.toISOString()}>{formattedDate}</time>
         {category && <span class="category">{category}</span>}
         {readingTime && <span class="reading-time">{readingTime} min read</span>}

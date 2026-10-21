@@ -10,6 +10,8 @@ export async function GET() {
     { path: '/',          priority: '1.0', changefreq: 'weekly',  lastmod: now },
     { path: '/chapters',  priority: '0.9', changefreq: 'weekly',  lastmod: now },
     { path: '/about',     priority: '0.7', changefreq: 'monthly', lastmod: now },
+    { path: '/profile',   priority: '0.7', changefreq: 'monthly', lastmod: now },
+    { path: '/contact',   priority: '0.6', changefreq: 'monthly', lastmod: now },
     { path: '/store',     priority: '0.6', changefreq: 'monthly', lastmod: now },
     { path: '/screenguard', priority: '0.7', changefreq: 'monthly', lastmod: now },
     { path: '/hatswap',   priority: '0.7', changefreq: 'monthly', lastmod: now },
