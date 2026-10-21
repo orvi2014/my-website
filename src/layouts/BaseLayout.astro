@@ -18,6 +18,7 @@ interface Props {
   themeColor?: string;
   type?: 'website' | 'article';
   pubDate?: Date;
+  updatedDate?: Date;
   noindex?: boolean;
   /** Product pages may render their own navigation and footer. */
   bare?: boolean;
@@ -43,6 +44,7 @@ const {
   themeColor = "#f5f1eb",
   type = "website",
   pubDate,
+  updatedDate,
   noindex = false,
   bare = false,
   category,
@@ -61,7 +63,7 @@ const AUTHOR_ID = `${SITE}/#orvi`;
 const canonicalURL  = new URL(currentPath, SITE).toString();
 const socialImage   = new URL(image, SITE).toString();
 const datePublished = pubDate ? new Date(pubDate).toISOString() : undefined;
-const dateModified  = new Date().toISOString();
+const dateModified = updatedDate ? new Date(updatedDate).toISOString() : undefined;
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID || '';
 const GSC_VERIFICATION = import.meta.env.PUBLIC_GSC_VERIFICATION || '';
@@ -206,7 +208,7 @@ const breadcrumbs = type === 'article' && pathParts.length > 1 ? {
     <meta property="og:site_name" content="The Book of Life" />
     <meta property="og:locale" content="en_US" />
     {type === 'article' && datePublished && <meta property="article:published_time" content={datePublished} />}
-    {type === 'article' && <meta property="article:modified_time" content={dateModified} />}
+    {type === 'article' && dateModified && <meta property="article:modified_time" content={dateModified} />}
     {type === 'article' && <meta property="article:author" content={`${SITE}/#orvi`} />}
     {type === 'article' && category && <meta property="article:section" content={category} />}
     {tags.map(tag => <meta property="article:tag" content={tag} />)}

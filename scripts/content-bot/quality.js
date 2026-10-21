@@ -32,8 +32,8 @@ SEO (Search Engine Optimisation):
 - Title is specific and matches a real search query people type
 - Meta description is compelling, under 160 chars, includes keyword
 - H2 headings are natural questions people actually search
-- Body is 1300+ words with real depth, not filler
-- 2-3 real external citations with actual working URLs
+- Content has enough depth for the reader's question, without filler or a fixed word-count target
+- Important factual claims cite relevant, checkable sources; flag uncertain claims for human verification
 - No keyword stuffing, no thin sections
 
 AEO (Answer Engine Optimisation):
@@ -46,7 +46,7 @@ GEO (Generative Engine Optimisation):
 - Authoritative first-person voice with genuine opinions
 - Content is quotable: has specific, memorable sentences
 - Factual claims backed by citations
-- Structured so an AI system can extract clear Q&A pairs
+- Structure makes the reasoning and evidence easy for readers to follow
 - No vague hedging like "it depends" without explanation
 
 CONTENT TO EVALUATE:

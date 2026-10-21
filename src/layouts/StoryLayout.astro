@@ -11,7 +11,7 @@ interface Props {
 
 const { story } = Astro.props;
 const { Content } = await story.render();
-const { title, description, pubDate, author, readingTime, tags, category, image, faq } = story.data;
+const { title, description, pubDate, updatedDate, author, readingTime, tags, category, image, faq } = story.data;
 
 const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   year: 'numeric', month: 'short', day: 'numeric'
@@ -33,7 +33,6 @@ const chapterLabel = chapterIndex >= 0 ? `Chapter ${ROMANS[chapterIndex] ?? chap
 const meta = [
   readingTime ? `${readingTime} min read` : null,
   formattedDate,
-  `By ${author}`,
 ].filter(Boolean) as string[];
 ---
 
@@ -51,6 +50,7 @@ const meta = [
   imageAlt={`${title}, from The Book of Life by Orvi`}
   type="article"
   pubDate={pubDate}
+  updatedDate={updatedDate}
   category={kicker}
   readingTime={readingTime}
   tags={tags || []}
@@ -70,7 +70,7 @@ const meta = [
       <a class="art-kicker" href={`/chapters/${category}`}>{kicker}</a>
       <h1 class="art-title">{title}</h1>
       <div class="art-rule"></div>
-      <div class="art-meta">{meta.map((m) => <span>{m}</span>)}</div>
+      <div class="art-meta">{meta.map((m) => <span>{m}</span>)}<span>By <a href="/profile">{author}</a></span>{updatedDate && <span>Updated <time datetime={updatedDate.toISOString()}>{updatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time></span>}</div>
 
       {description && (
         <blockquote class="art-pull">{description}</blockquote>

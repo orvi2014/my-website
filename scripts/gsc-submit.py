@@ -77,9 +77,9 @@ def list_sitemaps(token):
     for s in sitemaps:
         warnings = s.get("warnings", 0)
         errors   = s.get("errors", 0)
-        indexed  = sum(c.get("count", 0) for c in s.get("contents", []) if c.get("type") == "web")
+        submitted = sum(int(c.get("count", 0)) for c in s.get("contents", []) if c.get("type") == "web")
         status_icon = "ok" if errors == 0 else f"{errors} errors"
-        print(f"    {s['path']}  |  indexed: {indexed}  |  {status_icon}")
+        print(f"    {s['path']}  |  submitted: {submitted}  |  {status_icon}")
 
 
 def inspect_url(token, page_url):

@@ -18,6 +18,7 @@ const storiesCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.date(),
+    updatedDate: z.date().optional(),
     category: z.string(), // References the category slug
     author: z.string(),
     readingTime: z.number().optional(),

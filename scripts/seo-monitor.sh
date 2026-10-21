@@ -61,7 +61,7 @@ echo "► Sitemap"
 HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$SITE/sitemap-index.xml")
 if [ "$HTTP_STATUS" = "200" ]; then
   URL_COUNT=$(curl -s "$SITE/sitemap-index.xml" | grep -c "<loc>" || echo "?")
-  echo "  ✓ Accessible ($URL_COUNT URLs indexed)"
+  echo "  ✓ Accessible ($URL_COUNT URLs listed; indexing is checked separately)"
 else
   echo "  ✗ HTTP $HTTP_STATUS — sitemap unreachable!"
 fi
