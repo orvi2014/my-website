@@ -11,7 +11,7 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import { publishToParasites } from './content-bot/parasites.js'
+import { publishToParasites } from './lib/syndication.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const STORIES_DIR = path.resolve(__dirname, '../src/content/stories')

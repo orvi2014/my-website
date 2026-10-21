@@ -27,7 +27,7 @@ TODAY="$(date +%Y-%m-%d)"
 REPORT_FILE="$REPORT_DIR/$TODAY.json"
 SUMMARY_FILE="$REPORT_DIR/latest-summary.txt"
 GOAL_FILE="$(dirname "$0")/../.seo-goal.json"
-ENV_FILE="$(dirname "$0")/content-bot/.env"
+ENV_FILE="$(dirname "$0")/.seo.env"
 GOAL_STATUS=""   # filled in by the goal check; drives the Telegram alert
 DATE_28D_AGO="$(date -v-28d +%Y-%m-%d 2>/dev/null || date -d '28 days ago' +%Y-%m-%d)"
 DATE_7D_AGO="$(date -v-7d +%Y-%m-%d 2>/dev/null || date -d '7 days ago' +%Y-%m-%d)"
@@ -233,7 +233,7 @@ exec 1>&3
 cat "$SUMMARY_FILE"
 
 # ── Telegram alert ───────────────────────────────────────────────────────────
-# Reuses the content-bot credentials rather than duplicating the token elsewhere.
+# Reuses the SEO utility credentials rather than duplicating the token elsewhere.
 if [ -z "${TELEGRAM_BOT_TOKEN:-}" ] && [ -f "$ENV_FILE" ]; then
   TELEGRAM_BOT_TOKEN=$(sed -n 's/^TELEGRAM_BOT_TOKEN=//p' "$ENV_FILE" | tr -d '"' | tr -d "\r")
   TELEGRAM_CHAT_ID=$(sed -n 's/^TELEGRAM_CHAT_ID=//p' "$ENV_FILE" | tr -d '"' | tr -d "\r")

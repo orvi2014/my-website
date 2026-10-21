@@ -33,6 +33,8 @@ pnpm-debug.log*
 # TypeScript
 *.tsbuildinfo
 scripts/gsc-key.json
+scripts/.seo.env
+.archive/
 scripts/content-bot/.env
 scripts/content-bot/state.json
 scripts/content-bot/drafts/

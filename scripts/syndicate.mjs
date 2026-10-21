@@ -16,7 +16,7 @@ import fs from 'fs'
 import path from 'path'
 import https from 'https'
 import { fileURLToPath } from 'url'
-import { publishToDevTo } from './content-bot/parasites.js'
+import { publishToDevTo } from './lib/syndication.js'
 
 // This machine's Node cannot build the issuer chain for dev.to, which is why
 // parasites.js uses the same relaxed agent. Only URLs and public posts move
@@ -40,7 +40,7 @@ const LIMIT = (() => {
 })()
 
 function loadEnv() {
-  const f = path.join(HERE, 'content-bot', '.env')
+  const f = path.join(HERE, '.seo.env')
   if (!fs.existsSync(f)) return
   for (const line of fs.readFileSync(f, 'utf8').split('\n')) {
     const m = line.match(/^([A-Z0-9_]+)=(.*)$/)
@@ -101,7 +101,7 @@ function eligible(done) {
 loadEnv()
 const token = process.env.DEVTO_TOKEN
 if (!token) {
-  console.error('DEVTO_TOKEN not set (scripts/content-bot/.env)')
+  console.error('DEVTO_TOKEN not set (scripts/.seo.env)')
   process.exit(1)
 }
 
