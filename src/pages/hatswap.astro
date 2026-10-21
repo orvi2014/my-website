@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '@fontsource-variable/ibm-plex-sans/wght.css';
+import '@fontsource-variable/jetbrains-mono/wght.css';
 
 const repo = 'https://github.com/orvi2014/hatswap';
 const title = 'hatswap: Run multiple Claude Code accounts at once';
@@ -42,9 +44,6 @@ const softwareSchema = {
 ---
 
 <BaseLayout title={title} description={description} currentPath={currentPath} bare={true} faq={faqs} structuredData={softwareSchema} image="/images/hatswap/social-card.png" imageAlt="hatswap: every client's Claude Code account, signed in at once" imageType="image/png" themeColor="#0F0F0E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <div class="hs">
 <header class="nav">
   <div class="wrap">
@@ -557,8 +556,8 @@ const softwareSchema = {
   --green: #A6D28F;
   --green-wash: rgba(166, 210, 143, .12);
   --blue: #8FB7E8;
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-sans: "IBM Plex Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   --col: 1160px;
   --ease: cubic-bezier(.22, .9, .25, 1);
 }
