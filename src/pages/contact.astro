@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contact Robat Das Orvi" description="Contact Robat Das Orvi about AI agent engineering, his writing, projects, or corrections." currentPath="/contact">
+  <main class="contact-page">
+    <p class="eyebrow">Get in touch</p>
+    <h1>Contact</h1>
+    <p class="lead">Have a question about an article, an engineering problem, or a project? I’d like to hear from you.</p>
+    <div class="rule"></div>
+    <h2>Email</h2>
+    <p><a href="mailto:hello@robatdasorvi.com">hello@robatdasorvi.com</a></p>
+    <p>For corrections, please include the article link and the detail you think needs a closer look.</p>
+    <h2>Elsewhere</h2>
+    <p><a href="https://www.linkedin.com/in/robatdasorvi-productdev/">LinkedIn</a> · <a href="https://x.com/orvi_onethread">X</a> · <a href="https://github.com/orvi2014">GitHub</a></p>
+    <p><a href="/profile">Author profile</a> · <a href="/about">About Robat</a></p>
+  </main>
+</BaseLayout>
+<style>
+  .contact-page { max-width: 730px; margin: 0 auto; padding: 64px 40px 100px; font: 19px/1.8 var(--font-serif); }
+  .eyebrow { font: 600 12px var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--sienna); }
+  h1 { font: 400 clamp(42px, 7vw, 64px)/1.05 var(--font-serif); margin: 18px 0; }
+  .lead { font-size: 25px; line-height: 1.45; color: var(--text-2); }
+  .rule { width: 42px; height: 2px; background: var(--sienna); margin: 32px 0; }
+  h2 { font: 400 28px var(--font-serif); margin: 1.5em 0 .5em; }
+  a { color: var(--sienna); text-decoration-color: var(--link-line); text-underline-offset: 3px; overflow-wrap: anywhere; }
+  @media (max-width: 640px) { .contact-page { padding: 42px 24px 72px; font-size: 18px; } .lead { font-size: 22px; } }
+</style>

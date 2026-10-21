@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Robat Das Orvi | Author Profile';
+const description = 'Author profile for Robat Das Orvi, software builder and writer focused on AI agent engineering, reliability, and security.';
+const profileSchema = { '@context': 'https://schema.org', '@type': 'ProfilePage', '@id': 'https://www.robatdasorvi.com/profile#profile', 'url': 'https://www.robatdasorvi.com/profile', 'mainEntity': { '@id': 'https://www.robatdasorvi.com/#orvi' } };
+---
+<BaseLayout title={title} description={description} currentPath="/profile" structuredData={profileSchema}>
+  <main class="profile">
+    <p class="eyebrow">Author profile</p>
+    <h1>Robat Das Orvi</h1>
+    <p class="lead">Software builder and writer focused on AI agent engineering, production reliability, and security.</p>
+    <div class="rule"></div>
+    <h2>About my work</h2>
+    <p>I co-created <a href="https://www.onethreadapp.com">OneThread</a> and <a href="https://agencyhandy.com">AgencyHandy</a>, and build tools including <a href="https://noburn.dev">NoBurn</a>, <a href="https://baar.robatdasorvi.com">baar-core</a>, and <a href="/hatswap">hatswap</a>. I write about agent architecture, tool security, spending controls, and the failures that surface when AI systems run in production.</p>
+    <p><a href="/about">Read the full story →</a></p>
+    <h2>Selected writing</h2>
+    <ul>
+      <li><a href="/chapters/ai-agents/how-llm-agents-fail-silently-in-production-and-how-i-learned-to-catch-it">Why LLM Agents Fail Silently in Production</a></li>
+      <li><a href="/chapters/ai-agents/least-privilege-for-ai-agents-scoping-tools-keys-and-filesystems-in-practice">Least Privilege for AI Agents</a></li>
+      <li><a href="/chapters/ai-agents/authenticating-agents-you-did-not-build-agent-cards-signed-requests-and-trust-in-the-a2a-protocol">A2A Protocol Authentication Security</a></li>
+    </ul>
+    <h2>Find me</h2>
+    <p><a href="mailto:hello@robatdasorvi.com">hello@robatdasorvi.com</a><br /><a href="https://www.linkedin.com/in/robatdasorvi-productdev/">LinkedIn</a> · <a href="https://x.com/orvi_onethread">X</a> · <a href="https://github.com/orvi2014">GitHub</a> · <a href="/contact">Contact</a></p>
+  </main>
+</BaseLayout>
+<style>
+  .profile { max-width: 730px; margin: 0 auto; padding: 64px 40px 100px; font: 19px/1.8 var(--font-serif); }
+  .eyebrow { font: 600 12px var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--sienna); }
+  h1 { font: 400 clamp(42px, 7vw, 64px)/1.05 var(--font-serif); margin: 18px 0; }
+  .lead { font-size: 25px; line-height: 1.45; color: var(--text-2); }
+  .rule { width: 42px; height: 2px; background: var(--sienna); margin: 32px 0; }
+  h2 { font: 400 28px var(--font-serif); margin: 1.5em 0 .5em; }
+  a { color: var(--sienna); text-decoration-color: var(--link-line); text-underline-offset: 3px; }
+  li { margin-bottom: .45em; }
+  @media (max-width: 640px) { .profile { padding: 42px 24px 72px; font-size: 18px; } .lead { font-size: 22px; } }
+</style>

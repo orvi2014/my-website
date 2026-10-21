@@ -1,96 +1,46 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = "About Robat Das Orvi: The Book of Life";
-const description = "Robat Das Orvi writes about football tactics, AI systems, and the psychology of building things. On why those belong on the same site, and what connects the essays to the products.";
-const currentPath = "/about";
+const title = 'About Robat Das Orvi | AI Agent Engineering';
+const description = 'Meet Robat Das Orvi, a software builder writing about AI agent engineering, production reliability, security, and the products he builds.';
 ---
 
-<BaseLayout title={title} description={description} currentPath={currentPath}>
-  <div class="simple-wrap">
-    <div class="pg-title">About</div>
-    <div class="pg-rule"></div>
-
-    <div class="pg-bio">
-      <p>These essays were written across three years, in airports, cafés, hotel rooms, and one football stadium. They were not written to be a book. They became one in retrospect, when I noticed the same questions surfacing in different clothes.</p>
-
-      <p>The question underneath all of them: how do we pay attention to the right things? Technology automates it. Travel disrupts it. Startups consume it. Philosophy interrogates it. Football demands it for ninety minutes.</p>
-
-      <p>The building runs alongside the writing. I co-created <a href="https://www.onethreadapp.com" target="_blank" rel="noopener">OneThread</a>, project management software for teams, and later <a href="https://agencyhandy.com" target="_blank" rel="noopener">AgencyHandy</a>, a system for client workflows built to reduce friction without removing judgment.</p>
-
-      <p>More recently the work has moved toward guardrails for AI systems. <a href="https://noburn.dev" target="_blank" rel="noopener">NoBurn</a> and <a href="https://baar.robatdasorvi.com" target="_blank" rel="noopener">baar-core</a> block expensive LLM agent calls before they execute, and <a href="https://apidiffguard.com" target="_blank" rel="noopener">ApiDiffGuard</a> catches breaking API changes before they reach production.</p>
-
-      <p>I do not have a better answer to the attention question. But I find it worth asking every time.</p>
-
-      <p class="pg-contact">Written by Robat Das Orvi. You can find me on <a href="https://twitter.com/orvi_onethread" target="_blank" rel="noopener">X</a> and <a href="https://github.com/orvi2014" target="_blank" rel="noopener">GitHub</a>, or read <a href="/chapters">the chapters</a>.</p>
-
-      <div class="pg-sig">Orvi</div>
+<BaseLayout title={title} description={description} currentPath="/about">
+  <main class="about-wrap">
+    <p class="eyebrow">About the author</p>
+    <h1>Hi, I’m Robat Das Orvi.</h1>
+    <p class="intro">I build software and write about what it takes to make AI agents useful, reliable, and accountable in the real world.</p>
+    <div class="rule"></div>
+    <div class="bio">
+      <p>I’m a software builder and the co-creator of <a href="https://www.onethreadapp.com">OneThread</a> and <a href="https://agencyhandy.com">AgencyHandy</a>. I’ve been coding since 2013, and my work has moved from building products for teams toward a question that matters more each time an agent is given a tool: what happens when software can decide what to do next?</p>
+      <p>This site is where I investigate that question in public. My focus is AI agent engineering: the architecture, operational controls, and human judgment needed when models leave the demo and interact with real systems. I write for developers and builders who want to understand the tradeoffs behind an implementation, including the places where a confident answer or a successful-looking run can hide a failure.</p>
+      <h2>What I work on</h2>
+      <p>Agents can call APIs, read files, spend money, and hand work to other agents. Those capabilities make them useful, but they also make boundaries essential. I’m interested in how to scope permissions, validate tool calls, manage state, and stop a process before a small mistake becomes an expensive one. A prompt can explain the rules; the surrounding system has to enforce them.</p>
+      <p><a href="https://noburn.dev">NoBurn</a> and <a href="https://baar.robatdasorvi.com">baar-core</a> explore one part of that problem: applying spending controls before LLM calls execute. <a href="https://apidiffguard.com">ApiDiffGuard</a> tackles another source of production surprises by catching breaking API changes. I also built <a href="/hatswap">hatswap</a>, an open-source CLI for working with multiple Claude Code accounts, and <a href="/screenguard">ScreenGuard</a>, a browser extension for safer browsing and screen sharing.</p>
+      <p>Before these tools, OneThread and AgencyHandy taught me about the less glamorous side of product engineering: understanding workflows, maintaining software, and making decisions that hold up after launch. The technical design matters, but so does whether the people using it can understand what happened and recover when something goes wrong.</p>
+      <h2>How I write about agents</h2>
+      <p>My articles combine practical engineering questions with research, incident examples, and lessons from building. In <a href="/chapters/ai-agents/how-llm-agents-fail-silently-in-production-and-how-i-learned-to-catch-it">Why LLM Agents Fail Silently in Production</a>, I look at failures that report success instead of throwing an error. In <a href="/chapters/ai-agents/least-privilege-for-ai-agents-scoping-tools-keys-and-filesystems-in-practice">Least Privilege for AI Agents</a>, I examine how to limit access to tools, credentials, and filesystems.</p>
+      <p>I also explore <a href="/chapters/ai-agents/durable-execution-for-multi-agent-runs-checkpointing-and-resuming-after-a-crash-with-temporal-or-a-plain-state-store">durable execution and recovery</a>, <a href="/chapters/ai-agents/mcp-tool-poisoning-malicious-tool-descriptions-and-silent-updates-to-trusted-servers">MCP tool poisoning</a>, and <a href="/chapters/ai-agents/authenticating-agents-you-did-not-build-agent-cards-signed-requests-and-trust-in-the-a2a-protocol">trust between agents</a>. These are not recipes for making every system autonomous. They are attempts to understand which safeguards are needed, what they cost, and where they can still fail.</p>
+      <p>I try to distinguish what I’ve observed myself from findings reported by others. When I draw on research or an incident, the article links to its sources so you can check the evidence and reach your own conclusion. My views are works in progress; good engineering depends on being willing to revise them.</p>
+      <p>That means looking beyond whether a model can complete a task once. A system also needs clear ownership, useful records, and a way for people to intervene. I care about the ordinary operational questions: what was attempted, which permissions were used, what failed, and what a team can do next.</p>
+      <h2>Beyond engineering</h2>
+      <p>The Book of Life also holds essays on startups, psychology, philosophy, travel, and football. Those subjects are part of how I think about attention, decisions, and the systems people live inside. AI agent engineering is the main technical focus, but the rest of the writing remains here for readers who want to explore it.</p>
+      <p>Start with the <a href="/chapters/ai-agents">AI agents chapter</a>, browse the <a href="/store">projects</a>, or visit my <a href="/profile">author profile</a> for a concise overview and links to my work.</p>
+      <p class="contact">For questions, corrections, or collaboration, email <a href="mailto:hello@robatdasorvi.com">hello@robatdasorvi.com</a>. You can also find me on <a href="https://www.linkedin.com/in/robatdasorvi-productdev/">LinkedIn</a>, <a href="https://x.com/orvi_onethread">X</a>, and <a href="https://github.com/orvi2014">GitHub</a>. See the <a href="/contact">contact page</a> for details.</p>
     </div>
-  </div>
+  </main>
 </BaseLayout>
 
 <style>
-  .simple-wrap {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 52px 40px 100px;
-  }
-
-  .pg-title {
-    font-family: var(--font-serif);
-    font-size: 42px;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 10px;
-  }
-
-  .pg-rule {
-    width: 40px;
-    height: 2px;
-    background: var(--sienna);
-    margin-bottom: 36px;
-  }
-
-  .pg-bio {
-    font-family: var(--font-serif);
-    font-size: 20px;
-    line-height: 1.82;
-    color: var(--ink);
-    max-width: 600px;
-  }
-
-  .pg-bio p {
-    margin-bottom: 1.4em;
-  }
-
-  .pg-bio a {
-    color: var(--sienna);
-    text-decoration: underline;
-    text-decoration-color: rgba(139,94,60,0.35);
-    text-underline-offset: 2px;
-  }
-
-  .pg-contact {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--muted);
-    padding-top: 1.2em;
-    border-top: 1px solid var(--border);
-  }
-
-  .pg-sig {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sienna);
-    margin-top: 2em;
-  }
-
-  @media (max-width: 640px) {
-    .simple-wrap { padding: 36px 24px 72px; }
-    .pg-title { font-size: 32px; }
-    .pg-bio { font-size: 17px; }
-  }
+  .about-wrap { max-width: 760px; margin: 0 auto; padding: 64px 40px 100px; }
+  .eyebrow { font: 600 12px var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: var(--sienna); margin: 0 0 18px; }
+  h1 { font: 400 clamp(40px, 7vw, 64px)/1.05 var(--font-serif); letter-spacing: -.025em; margin: 0 0 22px; }
+  .intro { font: 400 clamp(21px, 3vw, 26px)/1.45 var(--font-serif); color: var(--text-2); max-width: 620px; }
+  .rule { width: 42px; height: 2px; background: var(--sienna); margin: 34px 0; }
+  .bio { max-width: 650px; font: 19px/1.8 var(--font-serif); color: var(--ink); }
+  .bio p { margin: 0 0 1.35em; }
+  .bio h2 { font: 400 30px/1.2 var(--font-serif); margin: 1.7em 0 .65em; }
+  .bio a { color: var(--sienna); text-decoration-color: var(--link-line); text-underline-offset: 3px; }
+  .bio .contact { border-top: 1px solid var(--border); padding-top: 24px; font: 15px/1.8 var(--font-sans); }
+  @media (max-width: 640px) { .about-wrap { padding: 42px 24px 72px; } .bio { font-size: 18px; } }
 </style>
