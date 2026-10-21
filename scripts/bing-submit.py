@@ -7,7 +7,7 @@ quota and per-call errors instead of a bare 403.
 
 Setup:
   bing.com/webmasters -> Settings -> API Access -> API Key
-  Put it in scripts/content-bot/.env as BING_API_KEY=... (or export it)
+  Put it in scripts/.seo.env as BING_API_KEY=... (or export it)
 
 Run:
   python3 scripts/bing-submit.py            # submit priority URLs within quota
@@ -24,7 +24,7 @@ _ssl_ctx.verify_mode = ssl.CERT_NONE
 
 SITE = "https://www.robatdasorvi.com"
 API = "https://ssl.bing.com/webmaster/api.svc/json"
-ENV_FILE = os.path.join(os.path.dirname(__file__), "content-bot", ".env")
+ENV_FILE = os.path.join(os.path.dirname(__file__), ".seo.env")
 STATE_FILE = os.path.join(os.path.dirname(__file__), "..", ".seo-reports", "bing-submitted.json")
 
 # Daily quota is small and resubmitting an unchanged URL buys nothing, so skip
