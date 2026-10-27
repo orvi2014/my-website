@@ -1,6 +1,6 @@
 ---
-title: "LLM API Spending Limits: Why Alerts Don't Stop the Bill"
-description: "An LLM API spending limit that only alerts won't stop a bill. Here is what 2026 survey data and provider docs show about the gap."
+title: "How to Set a Hard LLM API Spend Limit (Alerts Won't)"
+description: "To set a hard LLM API spend limit, block calls in your own code once a budget is hit; provider alerts only notify. Here is the gap and how to close it."
 pubDate: 2026-10-13
 category: "building"
 author: "Orvi"

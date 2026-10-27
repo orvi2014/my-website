@@ -46,7 +46,8 @@ const meta = [
   title={title}
   description={description}
   currentPath={`/chapters/${story.data.category}/${story.slug}`}
-  image={image}
+  image={image || `/og/${story.data.category}/${story.slug}.png`}
+  imageType={image ? undefined : 'image/png'}
   imageAlt={`${title}, from The Book of Life by Orvi`}
   type="article"
   pubDate={pubDate}
@@ -70,7 +71,7 @@ const meta = [
       <a class="art-kicker" href={`/chapters/${category}`}>{kicker}</a>
       <h1 class="art-title">{title}</h1>
       <div class="art-rule"></div>
-      <div class="art-meta">{meta.map((m) => <span>{m}</span>)}<span>By <a href="/profile">{author}</a></span>{updatedDate && <span>Updated <time datetime={updatedDate.toISOString()}>{updatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time></span>}</div>
+      <div class="art-meta">{meta.map((m) => <span>{m}</span>)}<span>By <a href="/profile" rel="author">{author === 'Orvi' ? 'Robat Das Orvi' : author}</a></span>{updatedDate && <span>Updated <time datetime={updatedDate.toISOString()}>{updatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time></span>}</div>
 
       {description && (
         <blockquote class="art-pull">{description}</blockquote>

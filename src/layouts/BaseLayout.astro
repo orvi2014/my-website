@@ -63,7 +63,9 @@ const AUTHOR_ID = `${SITE}/#orvi`;
 const canonicalURL  = new URL(currentPath, SITE).toString();
 const socialImage   = new URL(image, SITE).toString();
 const datePublished = pubDate ? new Date(pubDate).toISOString() : undefined;
-const dateModified = updatedDate ? new Date(updatedDate).toISOString() : undefined;
+// Fall back to the publish date: an Article with no dateModified reads as
+// undated to freshness-weighted surfaces (AI Overviews, Perplexity).
+const dateModified = updatedDate ? new Date(updatedDate).toISOString() : datePublished;
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID || '';
 const GSC_VERIFICATION = import.meta.env.PUBLIC_GSC_VERIFICATION || '';
@@ -81,9 +83,11 @@ const personSchema = {
   "email": "hello@robatdasorvi.com",
   "jobTitle": "Software builder and writer",
   "description": "Software builder and writer focused on AI agent engineering, production reliability, and security. Co-creator of OneThread and AgencyHandy.",
+  // Kept to the topics the site is positioned on; the essays on football and
+  // psychology stay, but listing them here diluted the AI-engineering signal.
   "knowsAbout": [
-    "AI agent engineering", "AI agent security", "LLM reliability", "Software engineering", "Artificial Intelligence", "Automation",
-    "Startups", "Founder Psychology", "Philosophy", "Psychology", "Football"
+    "AI agent engineering", "Multi-agent orchestration", "AI agent security", "LLM reliability",
+    "LLM cost control", "API schema drift", "Developer tools", "Software engineering", "SaaS startups"
   ],
   "founderOf": [
     { "@type": "Organization", "name": "AgencyHandy", "url": "https://agencyhandy.com" },
@@ -99,7 +103,8 @@ const personSchema = {
   "sameAs": [
     "https://www.linkedin.com/in/robatdasorvi-productdev/",
     "https://x.com/orvi_onethread",
-    "https://github.com/orvi2014"
+    "https://github.com/orvi2014",
+    "https://dev.to/robat_das_3c6e956212f6408"
   ]
 };
 

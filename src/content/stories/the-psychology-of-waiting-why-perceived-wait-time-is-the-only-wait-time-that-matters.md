@@ -1,6 +1,6 @@
 ---
-title: "The Psychology of Waiting: Why Perceived Wait Time Is the Only Wait Time That Matters"
-description: "The psychology of waiting that UX teams keep quoting is half wrong. What actually shapes perceived wait time, and why hold music solved it in 1962 better than your skeleton screens do."
+title: "Psychology of Waiting: Why Perceived Wait Time Wins"
+description: "Perceived wait time, not clock time, decides how long a wait feels. What the research shows, and why hold music beat your skeleton screens in 1962."
 pubDate: 2026-09-07
 category: "psychology"
 author: "Orvi"
